@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div
   id="carouselDarkVariant"
   class="carousel slide carousel-fade carousel-dark relative"
@@ -92,6 +92,6 @@
 <script setup>
 
 </script>
-<style lang="">
+<style>
     
 </style>
