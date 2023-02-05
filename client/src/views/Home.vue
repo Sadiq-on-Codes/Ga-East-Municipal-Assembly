@@ -7,7 +7,7 @@
             <div class="hidden duration-200 ease-linear" data-carousel-item>
                 <img src="../assets/header-1.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <div class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
+                <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
                 <div class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
                         <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Idris Alba to build a studio and shoot a movie in Ghana
@@ -27,7 +27,7 @@
             <div class="hidden duration-200 ease-linear" data-carousel-item>
                 <img src="../assets/header-2.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <div class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
+                <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
                 <div class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
                         <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Idris Abla sits with the president at the Flag Staff house
@@ -47,7 +47,7 @@
             <div class="hidden duration-200 ease-linear" data-carousel-item="active">
                 <img src="../assets/header-3.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <div class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
+                <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
                 <div class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
                         <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Planting for food and jobs
@@ -67,7 +67,7 @@
             <div class="hidden duration-200 ease-linear" data-carousel-item>
                 <img src="../assets/header-4.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <div class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
+                <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
                 <div class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
                         <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">President Nana Akufo Addo Speaks to the Nation
@@ -87,7 +87,7 @@
             <div class="hidden duration-200 ease-linear" data-carousel-item>
                 <img src="../assets/header-5.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <div class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
+                <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
                 <div class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
                         <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Construction of Suame Interchange and Complementary Roads Project
