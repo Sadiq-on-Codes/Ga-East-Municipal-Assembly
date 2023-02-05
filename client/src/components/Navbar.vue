@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
+    class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-50 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
   >
     <div class="container flex flex-wrap items-center justify-between mx-auto">
       <a href="#" class="flex items-center">
@@ -9,7 +9,7 @@
           class="h-auto w-14 mr-3"
           alt="Ga East Logo"
         />
-        <!-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> -->
+        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white text-left">Ga East <br/> Municipal Assembly</span>
       </a>
       <div class="flex md:order-2">
         <button
@@ -54,7 +54,7 @@
         <ul
           class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
         >
-          <router-link to="">
+          <router-link to="/">
             <li>
               <a
                 href="#"

@@ -3,12 +3,12 @@ module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
-    require('flowbite/plugin')
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {},
     colors: {
-      'button-bg': '#25C200',
+      'button-bg': '#6CC551',
       'purple': '#7e5bef',
       'pink': '#ff49db',
       'orange': '#ff7849',

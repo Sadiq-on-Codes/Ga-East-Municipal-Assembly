@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import Navbar from '@/components/Navbar'
+import Navbar from './components/Navbar.vue'
 </script>
 
 <style>
@@ -15,7 +15,12 @@ import Navbar from '@/components/Navbar'
   color: #2c3e50;
 }
 
+* {
+  /* outline: 1px solid black; */
+}
+
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 </style>
