@@ -8,9 +8,11 @@
                 <img src="../assets/header-1.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
-                <div class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
+                <div
+                    class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
-                        <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Idris Alba to build a studio and shoot a movie in Ghana
+                        <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Idris Alba to build a
+                            studio and shoot a movie in Ghana
                         </h1>
                         <span class="text-left text-white w-6/12">Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Tempore
@@ -28,9 +30,11 @@
                 <img src="../assets/header-2.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
-                <div class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
+                <div
+                    class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
-                        <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Idris Abla sits with the president at the Flag Staff house
+                        <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Idris Abla sits with
+                            the president at the Flag Staff house
                         </h1>
                         <span class="text-left text-white w-6/12">Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Tempore
@@ -48,9 +52,11 @@
                 <img src="../assets/header-3.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
-                <div class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
+                <div
+                    class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
-                        <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Planting for food and jobs
+                        <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Planting for food and
+                            jobs
                         </h1>
                         <span class="text-left text-white w-6/12">Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Tempore
@@ -68,9 +74,11 @@
                 <img src="../assets/header-4.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
-                <div class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
+                <div
+                    class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
-                        <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">President Nana Akufo Addo Speaks to the Nation
+                        <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">President Nana Akufo
+                            Addo Speaks to the Nation
                         </h1>
                         <span class="text-left text-white w-6/12">Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Tempore
@@ -88,9 +96,11 @@
                 <img src="../assets/header-5.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
-                <div class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
+                <div
+                    class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
-                        <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Construction of Suame Interchange and Complementary Roads Project
+                        <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Construction of Suame
+                            Interchange and Complementary Roads Project
                         </h1>
                         <span class="text-left text-white w-6/12">Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Tempore
@@ -131,6 +141,97 @@
         </button>
     </div>
 
+    <!-- component -->
+    <section class=" mx-auto bg-news-section-bg px-4 sm:px-6 mt-36 lg:px-4 mb-12">
+        <article class="flex flex-col">
+            <h2 class="text-3xl font-bold text-gray-900">Recent News</h2>
+            <section class="news-section mt-28 flex flex-col gap-20">
+                <div class="news w-full flex items-center justify-between">
+                    <article
+                        class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl bg-news-3 transition duration-300 ease-in-out">
+                        <!-- <div
+                            class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out">
+                        </div> -->
+                        <!-- <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center">
+                            <h3 class="text-center">
+                                <a class="text-white text-2xl font-bold text-center" href="#">
+                                    <span class="absolute inset-0"></span>
+                                    Top 10 highest paid programming languages of 2021
+                                </a>
+                            </h3>
+                        </div> -->
+                    </article>
+                    <div class="w-2/5 flex flex-col gap-6 text-justify">
+                        <span class="text-news-section-text font-bold text-xl">Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit.</span>
+                        <span class="text-news-section-text font-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+                            provident, consequuntur
+                            natus autem vero, rerum illum repellendus quae quos ullam commodi ducimus eum dolores
+                            veritatis iure. Quasi mollitia illo eveniet!</span>
+                    </div>
+                </div>
+
+                <div class="news w-full flex items-center justify-between">
+                    <article
+                        class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl bg-news-2 transition duration-300 ease-in-out">
+                        <!-- <div
+                            class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out">
+                        </div> -->
+                        <!-- <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center">
+                            <h3 class="text-center">
+                                <a class="text-white text-2xl font-bold text-center" href="#">
+                                    <span class="absolute inset-0"></span>
+                                    Top 10 highest paid programming languages of 2021
+                                </a>
+                            </h3>
+                        </div> -->
+                    </article>
+                    <div class="w-2/5 flex flex-col gap-6 text-justify">
+                        <span class="text-news-section-text font-bold text-xl">Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit.</span>
+                        <span class="text-news-section-text font-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+                            provident, consequuntur
+                            natus autem vero, rerum illum repellendus quae quos ullam commodi ducimus eum dolores
+                            veritatis iure. Quasi mollitia illo eveniet!</span>
+                    </div>
+                </div>
+
+                <div class="news w-full flex items-center justify-between">
+                    <article
+                        class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl bg-news-1 transition duration-300 ease-in-out">
+                        <!-- <div
+                            class="absolute inset-0 bg-gray-900 bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out">
+                        </div> -->
+                        <!-- <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center">
+                            <h3 class="text-center">
+                                <a class="text-white text-2xl font-bold text-center" href="#">
+                                    <span class="absolute inset-0"></span>
+                                    Top 10 highest paid programming languages of 2021
+                                </a>
+                            </h3>
+                        </div> -->
+                    </article>
+                    <div class="w-2/5 flex flex-col gap-6 text-justify">
+                        <span class="text-news-section-text font-bold text-xl">Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit.</span>
+                        <span class="description text-news-section-text font-base leading-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+                            provident, consequuntur
+                            natus autem vero, rerum illum repellendus quae quos ullam commodi ducimus eum dolores
+                            veritatis iure. Quasi mollitia illo eveniet!</span>
+                    </div>
+                </div>
+
+            </section>
+        </article>
+        <div>
+            <button
+          type="button"
+          class="text-news-section-text ml-5 mt-24 border font-semibold border-news-section-text bg-transparent focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-10 py-4 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          View All
+        </button>
+        </div>
+    </section>
 </template>
 <script setup lang="ts"></script>
 
@@ -141,5 +242,28 @@
 
 .carousel-description {
     margin: 0 auto;
+}
+
+.news-section {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.description {
+    line-height: 120%;
+}
+
+.news-image {
+    width: 35em;
+    height: 22em;
+}
+
+.news {
+    text-align: right;
+}
+
+.news:nth-child(even) {
+    flex-direction: row-reverse;
+    text-align: left;
 }
 </style>
