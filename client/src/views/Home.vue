@@ -142,9 +142,9 @@
     </div>
 
     <!-- component -->
-    <section class=" mx-auto bg-news-section-bg px-4 sm:px-6 mt-36 lg:px-4 mb-12">
+    <section class=" mx-auto bg-news-section-bg px-4 sm:px-6 lg:px-4 mb-12">
         <article class="flex flex-col">
-            <h2 class="text-3xl font-bold text-gray-900">Recent News</h2>
+            <h2 class="text-3xl font-bold mt-36 text-gray-900">Recent News</h2>
             <section class="news-section mt-28 flex flex-col gap-20">
                 <div class="news w-full flex items-center justify-between">
                     <article
@@ -226,7 +226,7 @@
         <div>
             <button
           type="button"
-          class="text-news-section-text ml-5 mt-24 border font-semibold border-news-section-text bg-transparent focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-10 py-4 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class="text-news-section-text ml-5 mt-24 border font-semibold mb-36 border-news-section-text bg-transparent focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-10 py-4 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           View All
         </button>
