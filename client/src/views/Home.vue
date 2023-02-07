@@ -171,7 +171,7 @@
                     </div>
                 </div>
 
-                <div class="news w-full flex items-center justify-between">
+                <div class="news w-full flex items-center justify-between overflow-hidden">
                     <article
                         class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden hover:scale-105 bg-news-2 transition duration-300 ease-in-out">
                         <!-- <div
