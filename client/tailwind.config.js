@@ -16,13 +16,17 @@ module.exports = {
       'button-bg': '#6CC551',
       'news-section-bg': '#F5F6F6',
       'news-section-text': '#001630',
-      'orange': '#ff7849',
-      'green': '#13ce66',
+      'logo-color': '#3a3838',
+      'nav-text-color': '#222222',
       'yellow': '#ffc82c',
       'gray-dark': '#273444',
       'gray': '#8492a6',
       'gray-light': '#d3dce6',
     },
+    fontFamily: {
+      'logo-text': ['Signika Negative', 'sans-serif'],
+      'news-heading': ['PT Sans', 'sans-serif']
+    }
   },
   plugins: [
     require('flowbite/plugin')
