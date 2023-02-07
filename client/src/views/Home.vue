@@ -1,5 +1,4 @@
 <template>
-
     <div id="animation-carousel" class="relative" data-carousel="static">
         <!-- Carousel wrapper -->
         <div class="carousel relative overflow-hidden">
@@ -14,7 +13,8 @@
                         <h1 class="text-6xl uppercase text-left font-semibold text-white w-7/12">Idris Alba to build a
                             studio and shoot a movie in Ghana
                         </h1>
-                        <span class="text-left text-white w-6/12">Lorem ipsum dolor sit amet consectetur adipisicing
+                        <span class="text-left font-news-heading text-white w-6/12">Lorem ipsum dolor sit amet
+                            consectetur adipisicing
                             elit. Tempore
                             voluptatibus quia, sequi
                             praesentium suscipit asperiores maxime?</span>
@@ -142,13 +142,13 @@
     </div>
 
     <!-- component -->
-    <section class=" mx-auto bg-news-section-bg px-4 sm:px-6 lg:px-4 mb-12">
+    <section class=" mx-auto px-4 sm:px-6 lg:px-4 mb-12">
         <article class="flex flex-col">
             <h2 class="text-3xl font-bold mt-36 text-gray-900">Recent News</h2>
             <section class="news-section mt-28 flex flex-col gap-20">
                 <div class="news w-full flex items-center justify-between">
                     <article
-                        class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl bg-news-3 transition duration-300 ease-in-out">
+                        class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden hover:scale-105 bg-news-3 transition duration-300 ease-in-out">
                         <!-- <div
                             class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out">
                         </div> -->
@@ -161,19 +161,19 @@
                             </h3>
                         </div> -->
                     </article>
-                    <div class="w-2/5 flex flex-col gap-6 text-justify">
-                        <span class="text-news-section-text font-bold text-xl">Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit.</span>
-                        <span class="text-news-section-text font-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-                            provident, consequuntur
-                            natus autem vero, rerum illum repellendus quae quos ullam commodi ducimus eum dolores
-                            veritatis iure. Quasi mollitia illo eveniet!</span>
+                    <div class="w-2/5 flex flex-col gap-4 text-justify">
+                        <span class="text-news-section-text font-bold text-xl">GEMA HOLDS PUBLIC HEARING ON MTDP
+                        </span>
+                        <span class="description text-news-section-text text-lg">The Ga East Municipal Assembly (GEMA)
+                            has held a Public Hearing on the 2022-2025 Medium Term Development Plan (MTDP) to review the
+                            needs assessment information gathered from the electoral area-stakeholders engagements and
+                            seek their input for final drafting and adoption by the Assembly.</span>
                     </div>
                 </div>
 
                 <div class="news w-full flex items-center justify-between">
                     <article
-                        class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl bg-news-2 transition duration-300 ease-in-out">
+                        class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden hover:scale-105 bg-news-2 transition duration-300 ease-in-out">
                         <!-- <div
                             class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out">
                         </div> -->
@@ -186,19 +186,20 @@
                             </h3>
                         </div> -->
                     </article>
-                    <div class="w-2/5 flex flex-col gap-6 text-justify">
-                        <span class="text-news-section-text font-bold text-xl">Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit.</span>
-                        <span class="text-news-section-text font-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-                            provident, consequuntur
-                            natus autem vero, rerum illum repellendus quae quos ullam commodi ducimus eum dolores
-                            veritatis iure. Quasi mollitia illo eveniet!</span>
+                    <div class="w-2/5 flex flex-col gap-4 text-justify">
+                        <span class="text-news-section-text font-bold text-xl">BOI CLINIC TO START OPERATIONS
+                            SOON</span>
+                        <span class="description text-news-section-text text-lg">The Municipal Chief Executive (MCE),
+                            for the Ga East Municipal Assembly (GEMA), Hon. Elizabeth Kaakie Mann, has handed over
+                            various medical items to the Health Directorate for the operationalization of the Boi
+                            Clinic, tasking them to ensure the facility starts operations within the shortest possible
+                            time.</span>
                     </div>
                 </div>
 
                 <div class="news w-full flex items-center justify-between">
                     <article
-                        class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl bg-news-1 transition duration-300 ease-in-out">
+                        class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden hover:scale-105 bg-news-1 transition duration-300 ease-in-out">
                         <!-- <div
                             class="absolute inset-0 bg-gray-900 bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out">
                         </div> -->
@@ -211,25 +212,23 @@
                             </h3>
                         </div> -->
                     </article>
-                    <div class="w-2/5 flex flex-col gap-6 text-justify">
-                        <span class="text-news-section-text font-bold text-xl">Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit.</span>
-                        <span class="description text-news-section-text font-base leading-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-                            provident, consequuntur
-                            natus autem vero, rerum illum repellendus quae quos ullam commodi ducimus eum dolores
-                            veritatis iure. Quasi mollitia illo eveniet!</span>
+                    <div class="w-2/5 flex flex-col gap-4 text-justify">
+                        <span class="text-news-section-text font-bold text-xl">GA EAST MCE LEADS STAFF AND RESIDENTS IN
+                            SPECIAL CLEAN-UP EXERCISE</span>
+                        <span class="description text-news-section-text text-lg">The Municipal Chief Executive (MCE) for
+                            Ga East Municipal Assembly (GEMA), Hon. Elizabeth Kaakie Mann, Thursday morning led Assembly
+                            Staff and residents to embark on a special clean-up exercise to intensify the awareness
+                            creation on the "Operation Clean Your Frontage" (OCYF) campaign.</span>
                     </div>
                 </div>
 
             </section>
         </article>
         <div>
-            <button
-          type="button"
-          class="text-news-section-text ml-5 mt-24 border font-semibold mb-36 border-news-section-text bg-transparent focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-10 py-4 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          View All
-        </button>
+            <button type="button"
+                class="text-news-section-text ml-5 mt-24 border font-semibold mb-36 border-news-section-text bg-transparent focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-10 py-4 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                View All
+            </button>
         </div>
     </section>
 </template>
@@ -262,7 +261,7 @@
     text-align: right;
 }
 
-.news:nth-child(even) {
+.news:nth-child(odd) {
     flex-direction: row-reverse;
     text-align: left;
 }
