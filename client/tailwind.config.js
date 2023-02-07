@@ -23,6 +23,9 @@ module.exports = {
       'gray': '#8492a6',
       'gray-light': '#d3dce6',
     },
+    fontFamily: {
+      'logo-text': ['Signika Negative', 'sans-serif'],
+    }
   },
   plugins: [
     require('flowbite/plugin')

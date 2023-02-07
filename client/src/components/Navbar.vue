@@ -9,7 +9,7 @@
           class="h-auto w-14 mr-3"
           alt="Ga East Logo"
         />
-        <span class="self-center text-xl font-bold whitespace-nowrap dark:text-white text-black text-left">Ga East <br/> Municipal Assembly</span>
+        <span class="self-center text-xl font-logo-text font-bold whitespace-nowrap dark:text-white text-news-section-text text-left">Ga East <br/> Municipal Assembly</span>
       </a>
       <div class="flex md:order-2">
         <button
@@ -58,7 +58,7 @@
             <li>
               <a
                 href="#"
-                class="block py-2 pl-3 pr-4 font-semibold text-base text-black bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white"
+                class="block py-2 pl-3 pr-4 font-semibold text-lg text-black bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white"
                 aria-current="page"
                 >Home</a
               >
@@ -68,7 +68,7 @@
             <li>
               <a
                 href="#"
-                class="block py-2 pl-3 pr-4 font-semibold text-base text-black bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white"
+                class="block py-2 pl-3 pr-4 font-semibold text-lg text-black bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white"
                 aria-current="page"
                 >About</a
               >
@@ -78,7 +78,7 @@
             <li>
               <a
                 href="#"
-                class="block py-2 pl-3 pr-4 font-semibold text-base text-black bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white"
+                class="block py-2 pl-3 pr-4 font-semibold text-lg text-black bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white"
                 aria-current="page"
                 >Projects</a
               >
@@ -88,7 +88,7 @@
             <li>
               <a
                 href="#"
-                class="block py-2 pl-3 pr-4 font-semibold text-base text-black bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white"
+                class="block py-2 pl-3 pr-4 font-semibold text-lg text-black bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white"
                 aria-current="page"
                 >Media</a
               >
@@ -98,7 +98,7 @@
             <li>
               <a
                 href="#"
-                class="block py-2 pl-3 pr-4 font-semibold text-base text-black bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white"
+                class="block py-2 pl-3 pr-4 font-semibold text-lg text-black bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white"
                 aria-current="page"
                 >Contact</a
               >
