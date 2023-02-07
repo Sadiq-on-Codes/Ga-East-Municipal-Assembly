@@ -9,7 +9,7 @@
           class="h-auto w-14 mr-3"
           alt="Ga East Logo"
         />
-        <span class="self-center text-xl font-logo-text font-bold whitespace-nowrap dark:text-white text-news-section-text text-left">Ga East <br/> Municipal Assembly</span>
+        <span class="self-center text-xl font-logo-text font-bold whitespace-nowrap dark:text-white text-news-section-text uppercase text-left">Ga East <br/> Municipal Assembly</span>
       </a>
       <div class="flex md:order-2">
         <button

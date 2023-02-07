@@ -25,6 +25,7 @@ module.exports = {
     },
     fontFamily: {
       'logo-text': ['Signika Negative', 'sans-serif'],
+      'news-heading': ['PT Sans', 'sans-serif']
     }
   },
   plugins: [
