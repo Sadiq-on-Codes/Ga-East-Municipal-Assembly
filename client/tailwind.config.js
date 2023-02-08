@@ -14,6 +14,7 @@ module.exports = {
     extend: {},
     colors: {
       'button-bg': '#6CC551',
+      'button-bg-hover': '#83F062',
       'news-section-bg': '#F5F6F6',
       'news-section-text': '#001630',
       'logo-color': '#3a3838',
