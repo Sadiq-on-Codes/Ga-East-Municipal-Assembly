@@ -24,6 +24,7 @@
                         Read More
                     </button>
                 </div>
+                <span>info@gema.gov.gh</span>
             </div>
             <!-- Item 2 -->
             <div class="hidden duration-200 ease-linear" data-carousel-item>
@@ -68,6 +69,7 @@
                         Read More
                     </button>
                 </div>
+                <span class="carousel-description border-b border-button-bg-hover font-bold text-xl text-white pb-2 absolute inset-0 flex flex-col gap-10 items-end justify-center w-4/5">info@gema.gov.gh</span>
             </div>
             <!-- Item 4 -->
             <div class="hidden duration-200 ease-linear" data-carousel-item>
