@@ -17,7 +17,7 @@
         </router-link>
 
         <a href="https://gema.gov.gh:2096/" target="_blank"><button type="button"
-            class="nav-item text-black ml-5 border font-semibold border-black  focus:ring-4 focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            class="nav-item text-black ml-5 border font-semibold border-black hover:bg-button-bg-200 hover:text-black-300 focus:ring-4 focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Staff Mail
           </button></a>
 
@@ -39,35 +39,35 @@
           <router-link to="/">
             <li>
               <a href="#"
-                class="block nav-item py-3 px-5 font-semibold hover:text-white text-lg focus:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                class="block nav-item py-3 px-5 font-base hover:text-white text-lg focus:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">Home</a>
             </li>
           </router-link>
           <router-link to="/about">
             <li>
               <a href="#"
-                class="block nav-item py-2 pl-3 pr-4 font-semibold text-lg hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                class="block nav-item py-2 pl-3 pr-4 font-base text-lg hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">About</a>
             </li>
           </router-link>
           <router-link to="/project">
             <li class="nav">
               <a href="#"
-                class="block nav-item py-2 pl-3 pr-4 font-semibold text-lg hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                class="block nav-item py-2 pl-3 pr-4 font-base text-lg hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">Projects</a>
             </li>
           </router-link>
           <router-link to="/media">
             <li lass="nav">
               <a href="#"
-                class="block nav-item py-2 pl-3 pr-4 font-semibold text-lg hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                class="block nav-item py-2 pl-3 pr-4 font-base text-lg hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">Media</a>
             </li>
           </router-link>
           <router-link to="/contact">
             <li>
               <a href="#"
-                class="block nav-item py-2 pl-3 pr-4 font-semibold text-lg hover:text-white text-nav-text-color bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                class="block nav-item py-2 pl-3 pr-4 font-base text-lg hover:text-white text-nav-text-color bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">Contact</a>
             </li>
           </router-link>
