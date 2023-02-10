@@ -24,7 +24,7 @@
                         Read More
                     </button>
                 </div>
-                <span>info@gema.gov.gh</span>
+                <span class="border-b border-green-700">info@gema.gov.gh</span>
             </div>
             <!-- Item 2 -->
             <div class="hidden duration-200 ease-linear" data-carousel-item>
@@ -69,7 +69,8 @@
                         Read More
                     </button>
                 </div>
-                <span class="carousel-description border-b border-button-bg-hover font-bold text-xl text-white pb-2 absolute inset-0 flex flex-col gap-10 items-end justify-center w-4/5">info@gema.gov.gh</span>
+                <span
+                    class="carousel-description border-b border-button-bg-hover font-bold text-xl text-white pb-2 absolute inset-0 flex flex-col gap-10 items-end justify-center w-4/5">info@gema.gov.gh</span>
             </div>
             <!-- Item 4 -->
             <div class="hidden duration-200 ease-linear" data-carousel-item>
@@ -150,13 +151,13 @@
             <section class="news-section mt-28 flex flex-col gap-20">
                 <div class="news w-full flex items-center justify-between">
                     <article
-                        class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden hover:scale-105 bg-news-3 transition duration-300 ease-in-out">
+                        class="news-image relative bg-cover bg-center group overflow-hidden hover:scale-105 bg-news-3 transition duration-300 ease-in-out">
                         <!-- <div
                             class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out">
                         </div> -->
                         <!-- <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center">
                             <h3 class="text-center">
-                                <a class="text-white text-2xl font-bold text-center" href="#">
+                                <a class="textfont-bold text-center" href="#">
                                     <span class="absolute inset-0"></span>
                                     Top 10 highest paid programming languages of 2021
                                 </a>
@@ -175,13 +176,13 @@
 
                 <div class="news w-full flex items-center justify-between overflow-hidden">
                     <article
-                        class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden hover:scale-105 bg-news-2 transition duration-300 ease-in-out">
+                        class="news-image relative bg-cover bg-center group overflow-hidden hover:scale-105 bg-news-2 transition duration-300 ease-in-out">
                         <!-- <div
                             class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out">
                         </div> -->
                         <!-- <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center">
                             <h3 class="text-center">
-                                <a class="text-white text-2xl font-bold text-center" href="#">
+                                <a class="textfont-bold text-center" href="#">
                                     <span class="absolute inset-0"></span>
                                     Top 10 highest paid programming languages of 2021
                                 </a>
@@ -201,13 +202,13 @@
 
                 <div class="news w-full flex items-center justify-between">
                     <article
-                        class="news-image relative bg-cover bg-center group rounded-lg overflow-hidden hover:scale-105 bg-news-1 transition duration-300 ease-in-out">
+                        class="news-image relative bg-cover bg-center group overflow-hidden hover:scale-105 bg-news-1 transition duration-300 ease-in-out">
                         <!-- <div
                             class="absolute inset-0 bg-gray-900 bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out">
                         </div> -->
                         <!-- <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center">
                             <h3 class="text-center">
-                                <a class="text-white text-2xl font-bold text-center" href="#">
+                                <a class="textfont-bold text-center" href="#">
                                     <span class="absolute inset-0"></span>
                                     Top 10 highest paid programming languages of 2021
                                 </a>
@@ -229,9 +230,68 @@
         <div>
             <button type="button"
                 class="text-news-section-text ml-5 mt-24 border font-semibold mb-36 border-news-section-text bg-transparent focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-10 py-4 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                View All
+                VIEW ALL
             </button>
         </div>
+    </section>
+
+    <!-- component -->
+    <section class="w-3/4 mx-auto sm:px-6 lg:px-4 mb-12">
+        <article>
+            <div class="staff-section-heading flex justify-between items-center mb-20">
+                <h2 class="text-left text-3xl font-bold text-gray-900">OUR STAFF<br /> HEAD</h2>
+                <button type="button"
+                    class="text-news-section-text ml-5 border font-semibold border-news-section-text bg-transparent focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-10 py-4 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    ABOUT US
+                </button>
+            </div>
+
+            <section class="staff-section mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-20">
+                <div>
+                    <article
+                        class="bg-mce relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
+                        <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
+                        <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
+                            <img class="w-72" src="../assets/mce-pic.svg" alt="">
+                        </div>
+                    </article>
+                    <div class="title flex justify-between mt-5">
+                        <span class="font-bold">HON. ELIZABETH KAAKIE MANN</span>
+                        <span class="text-gray-400">MCE</span>
+                    </div>
+                </div>
+
+                <div>
+                    <article
+                    class="bg-mcd mt-16 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
+                    <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
+                    <div class="relative w-129 h-128 px-4 sm:px-6 lg:px-4 flex justify-center items-end">
+                        <img src="" alt="">
+                    </div>
+                </article>
+                <div class="title flex justify-between mt-5">
+                        <span class="font-bold uppercase">Mr. Emmanuel Kwame Kungi</span>
+                        <span class="text-gray-400">MCD</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <article
+                    class="bg-engineer mt-36 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
+                    <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
+                    <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
+                        <img src="" alt="">
+                    </div>
+                </article>
+                <div class="title flex justify-between mt-5">
+                        <span class="font-bold">HON. ELIZABETH KAAKIE MANN</span>
+                        <span class="text-gray-400">ENGINEER</span>
+                    </div>
+                </div>
+                
+
+            </section>
+        </article>
     </section>
 </template>
 <script setup lang="ts"></script>
@@ -258,6 +318,24 @@
     width: 35em;
     height: 22em;
 }
+
+.staff-section {
+    margin: 0 auto;
+}
+
+.bg-mce,
+.bg-mcd,
+.bg-engineer
+{
+    /* width: 90%; */
+    height: 35rem;
+    margin: 0 auto;
+}
+
+/* .title {
+    width: 90%;
+    margin: 0 auto;
+} */
 
 .news {
     text-align: right;
