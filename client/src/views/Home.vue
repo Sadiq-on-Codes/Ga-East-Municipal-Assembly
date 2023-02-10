@@ -149,7 +149,7 @@
         <article class="flex flex-col">
             <h2 class="text-3xl font-bold mt-36 text-gray-900">Recent News</h2>
             <section class="news-section mt-28 flex flex-col gap-20">
-                <div class="news w-full flex items-center justify-between">
+                <div class="news w-full flex items-center xs:flex-col justify-between">
                     <article
                         class="news-image relative bg-cover bg-center group overflow-hidden hover:scale-105 bg-news-3 transition duration-300 ease-in-out">
                         <!-- <div
@@ -344,5 +344,15 @@
 .news:nth-child(odd) {
     flex-direction: row-reverse;
     text-align: left;
+}
+
+@media (max-width: 600px) {
+    .news:nth-child(odd), .news:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .news-image {
+        width: 90%;
+    }
 }
 </style>
