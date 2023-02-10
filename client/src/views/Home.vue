@@ -284,7 +284,7 @@
                     </div>
                 </article>
                 <div class="title flex justify-between mt-5">
-                        <span class="font-bold">HON. ELIZABETH KAAKIE MANN</span>
+                        <span class="font-bold uppercase">Municipal Engineer</span>
                         <span class="text-gray-400">ENGINEER</span>
                     </div>
                 </div>
@@ -305,7 +305,7 @@
     margin: 0 auto;
 }
 
-.news-section {
+.news-section, .about-section {
     width: 75%;
     margin: 0 auto;
 }
