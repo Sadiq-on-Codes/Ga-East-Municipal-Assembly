@@ -7,7 +7,7 @@
             </h1>
 
             <div class="about-section mb-24 flex gap-20">
-                <div class="flex flex-col gap-5 w-5/12 text-left text-black">
+                <div class="section flex flex-col gap-5 w-5/12 text-left text-black">
                     <span
                         class="text-lg font-bold leading-none tracking-tight text-black-900 md:text-xl capitalize dark:text-white">Introduction</span>
                     <span class="text">The Ga East Municipality with a projected population of 186,230 is
@@ -17,11 +17,11 @@
                         many Real Estate Companies such as Oak Villa, Regimanuel Gray, Edlorm
                         Estate etc to the municipality.</span>
                 </div>
-                <div class="flex flex-col gap-5 w-5/12 text-left text-black">
+                <div class="section flex flex-col gap-5 w-5/12 text-left text-black">
                     <span
                         class="text-lg font-bold leading-none tracking-tight text-black-900 md:text-xl capitalize dark:text-white">Political
                         Administration</span>
-                    <span class="text">The Ga East Municipal Assembly has a General Assembly membership of
+                    <span class="text last">The Ga East Municipal Assembly has a General Assembly membership of
                         18 comprising 12 elected members, 6 government appointees, 1 Member of
                         Parliament with the Municipal Chief Executive as the representative of
                         the Head of State at the Municipal level. The General Assembly has 2
@@ -93,14 +93,22 @@
     .about-section {
         flex-direction: column;
         align-items: center;
+        width: 90%;
     }
 
     .text {
         text-align: left;
     }
 
+    .last {
+        margin-bottom: 5em;
+    }
     .values-logo {
         align-self: center;
+    }
+
+    .section {
+        width: 100%;
     }
 }
 </style>
