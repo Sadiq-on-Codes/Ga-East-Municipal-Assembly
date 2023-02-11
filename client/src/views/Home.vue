@@ -367,22 +367,20 @@
     .news:nth-child(odd),
     .news:nth-child(even) {
         flex-direction: column;
-    }
-
-    .news {
         gap: 2em;
     }
+
+    /* .news {
+        gap: 8em;
+    } */
 
     .news-heading {
         margin-top: 0;
         margin-bottom: 2em;
     }
 
-    .news-image,
-    .news-description,
-    .news-section,
     .staff {
-        width: 100%;
+        width: 90%;
     }
 
     .news-description {
@@ -413,18 +411,17 @@
     .news:nth-child(odd),
     .news:nth-child(even) {
         flex-direction: column;
-        gap: 8em;
-    }
-
-    .news {
         gap: 2em;
     }
 
+    /* .news {
+        gap: 8em;
+    } */
+
     .news-image,
     .news-description,
-    .news-section,
-    .staff {
-        width: 90%;
+    .news-section{
+        width: 100%;
     }
 
     .bg-mce,
