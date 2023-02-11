@@ -1,23 +1,24 @@
 <template>
-  <nav
-    class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-50 top-0 left-0 dark:border-gray-600">
-    <div class="container flex flex-wrap items-center justify-between mx-auto">
+  <nav class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-50 top-0 left-0 dark:border-gray-600">
+    <div class="container flex lg:flex-wrap md:flex-wrap items-center justify-between mx-auto">
       <a href="#" class="flex items-center">
         <img src="../assets/ga-east-logo.jpg" class="h-auto w-14 mr-3" alt="Ga East Logo" />
         <span
-          class="self-center text-2xl tracking-wide font-logo-text font-extrabold whitespace-nowrap dark:text-white text-logo-color uppercase text-left">Ga
+          class="lg-logo self-center text-2xl tracking-wide font-logo-text font-extrabold whitespace-nowrap dark:text-white text-logo-color uppercase text-left">Ga
           East <br /> Municipal Assembly</span>
+        <span
+          class="sm-logo self-center text-2xl tracking-wide font-logo-text font-extrabold whitespace-nowrap dark:text-white text-logo-color uppercase text-left">G.E.M.A</span>
       </a>
-      <div class="flex md:order-2">
+      <div class="flex md:order-2 nav-buttons">
         <router-link to="/documents">
           <button type="button"
-            class="text-white uppercase font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:bg-button-bg-hover">
+            class="button text-white uppercase font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:bg-button-bg-hover">
             Documents
           </button>
         </router-link>
 
         <a href="https://gema.gov.gh:2096/" target="_blank"><button type="button"
-            class="nav-item uppercase text-black ml-5 border font-semibold border-black hover:bg-button-bg-200 hover:text-black-300 focus:ring-4 focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            class="button nav-item uppercase text-black ml-5 border font-semibold border-black hover:bg-button-bg-200 hover:text-black-300 focus:ring-4 focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Staff Mail
           </button></a>
 
@@ -95,5 +96,46 @@ import { useRouter } from "vue-router";
 .nav .router-link-exact-active {
   padding-bottom: 2px;
   border-bottom: 2px solid #6CC551;
+}
+
+.sm-logo {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .container {
+    gap: 1em;
+    flex-wrap: nowrap;
+  }
+
+  .nav-buttons {
+    gap: 0;
+    width: 100%;
+    display: none;
+    justify-content: flex-end;
+  }
+
+  .lg-logo {
+    display: none;
+  }
+
+  .sm-logo {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .button {
+    display: none
+  }
+
+  .lg-logo {
+    display: none;
+  }
+
+  .sm-logo {
+    display: inline-block;
+  }
 }
 </style>
