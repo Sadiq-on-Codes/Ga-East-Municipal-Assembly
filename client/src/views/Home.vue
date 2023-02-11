@@ -288,8 +288,6 @@
                         <span class="text-gray-400">ENGINEER</span>
                     </div>
                 </div>
-                
-
             </section>
         </article>
     </section>
