@@ -2,7 +2,7 @@
     <div class="relative about-container">
         <div class="">
             <h1
-                class="pt-36 pb-20 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl capitalize dark:text-white">
+                class="pt-36 pb-20 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl uppercase dark:text-white">
                 About Us
             </h1>
 
