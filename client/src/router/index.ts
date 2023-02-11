@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
-import Project from '../views/Project.vue'
-import Media from '../views/Media.vue'
-import Contact from '../views/Contact.vue'
-import Documents from '../views/Documents.vue'
+const Home = () => import('../views/Home.vue')
+const About = () => import('../views/About.vue')
+const Project = () => import('../views/Project.vue')
+const Media = () => import('../views/Media.vue')
+const Contact = () => import('../views/Contact.vue')
+const Documents = () => import('../views/Documents.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {
