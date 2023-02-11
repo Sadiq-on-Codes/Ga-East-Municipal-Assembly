@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "flowbite": "^1.6.3",
     "vue": "^3.2.13",
     "vue-lazyload": "^3.0.0-rc.2",
     "vue-router": "^4.0.3"
