@@ -20,7 +20,7 @@ import Navbar from './components/Navbar.vue'
 }
 
 * {
-  outline: 1px solid black;
+  /* outline: 1px solid black; */
 }
 
 body {
