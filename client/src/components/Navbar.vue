@@ -4,10 +4,10 @@
       <a href="#" class="flex items-center">
         <img src="../assets/ga-east-logo.jpg" class="h-auto w-14 mr-3" alt="Ga East Logo" />
         <span
-          class="lg-logo self-center text-2xl tracking-wide font-logo-text font-extrabold whitespace-nowrap dark:text-white text-logo-color uppercase text-left">Ga
+          class="lg-logo self-center text-2xl tracking-wide font-bold whitespace-nowrap dark:text-white text-logo-color uppercase text-left">Ga
           East <br /> Municipal Assembly</span>
         <span
-          class="sm-logo self-center text-2xl tracking-wide font-logo-text font-extrabold whitespace-nowrap dark:text-white text-logo-color uppercase text-left">G.E.M.A</span>
+          class="sm-logo self-center text-2xl tracking-wide font-bold whitespace-nowrap dark:text-white text-logo-color uppercase text-left">G.E.M.A</span>
       </a>
       <div class="flex md:order-2 nav-buttons">
         <router-link to="/documents">
