@@ -1,12 +1,14 @@
 <template>
-    <div id="animation-carousel" class="relative" data-carousel="static">
+    <div id="default-carousel" class="relative" data-carousel="static">
         <!-- Carousel wrapper -->
         <div class="carousel relative overflow-hidden">
             <!-- Item 1 -->
-            <div class="hidden duration-200 ease-linear" data-carousel-item>
-                <img src="../assets/header-1.jpg"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
+            <div class="hidden duration-200 ease-linear" data-carousel-item='active'>
+                <div>
+                    <img src="../assets/header-1.jpg"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <div class="overlay absolute inset-0 bg-gray-900 bg-opacity-60"></div>
                 <div
                     class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
@@ -28,9 +30,11 @@
             </div>
             <!-- Item 2 -->
             <div class="hidden duration-200 ease-linear" data-carousel-item>
-                <img src="../assets/header-2.jpg"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
+                <div>
+                    <img src="../assets/header-2.jpg"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <div class="overlay absolute inset-0 bg-gray-900 bg-opacity-60"></div>
                 <div
                     class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
@@ -49,10 +53,12 @@
                 </div>
             </div>
             <!-- Item 3 -->
-            <div class="hidden duration-200 ease-linear" data-carousel-item="active">
-                <img src="../assets/header-3.jpg"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+                <div>
+                    <img src="../assets/header-3.jpg"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <div class="overlay absolute inset-0 bg-gray-900 bg-opacity-60"></div>
                 <div
                     class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
@@ -74,8 +80,10 @@
             </div>
             <!-- Item 4 -->
             <div class="hidden duration-200 ease-linear" data-carousel-item>
-                <img src="../assets/header-4.jpg"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <div>
+                    <img src="../assets/header-4.jpg"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
                 <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
                 <div
                     class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
@@ -96,8 +104,10 @@
             </div>
             <!-- Item 5 -->
             <div class="hidden duration-200 ease-linear" data-carousel-item>
-                <img src="../assets/header-5.jpg"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <div>
+                    <img src="../assets/header-5.jpg"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
                 <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
                 <div
                     class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
@@ -147,7 +157,7 @@
     <!-- component -->
     <section class=" mx-auto px-4 sm:px-6 lg:px-4 mb-12">
         <article class="flex flex-col">
-            <h2 class="text-3xl font-bold mt-36 text-gray-900">Recent News</h2>
+            <h2 class="news-heading text-3xl font-bold mt-36 text-gray-900">Recent News</h2>
             <section class="news-section mt-28 flex flex-col gap-20">
                 <div class="news w-full flex items-center xs:flex-col justify-between">
                     <article
@@ -164,7 +174,7 @@
                             </h3>
                         </div> -->
                     </article>
-                    <div class="w-2/5 flex flex-col gap-4 text-justify">
+                    <div class="news-description lg:w-2/5 md:w-2/5 flex flex-col gap-4 text-justify">
                         <span class="text-news-section-text font-bold text-xl">GEMA HOLDS PUBLIC HEARING ON MTDP
                         </span>
                         <span class="description text-news-section-text text-lg">The Ga East Municipal Assembly (GEMA)
@@ -189,7 +199,7 @@
                             </h3>
                         </div> -->
                     </article>
-                    <div class="w-2/5 flex flex-col gap-4 text-justify">
+                    <div class="news-description lg:w-2/5 md:w-2/5 w-2/5 flex flex-col gap-4 text-justify">
                         <span class="text-news-section-text font-bold text-xl">BOI CLINIC TO START OPERATIONS
                             SOON</span>
                         <span class="description text-news-section-text text-lg">The Municipal Chief Executive (MCE),
@@ -215,7 +225,7 @@
                             </h3>
                         </div> -->
                     </article>
-                    <div class="w-2/5 flex flex-col gap-4 text-justify">
+                    <div class="news-description lg:w-2/5 md:w-2/5 w-2/5 flex flex-col gap-4 text-justify">
                         <span class="text-news-section-text font-bold text-xl">MCE LEADS STAFF AND RESIDENTS IN
                             SPECIAL CLEAN-UP EXERCISE</span>
                         <span class="description text-news-section-text text-lg">The Municipal Chief Executive (MCE) for
@@ -236,7 +246,7 @@
     </section>
 
     <!-- component -->
-    <section class="w-3/4 mx-auto sm:px-6 lg:px-4 mb-12">
+    <section class="staff lg:w-3/4 md:w-3/4 mx-auto sm:px-6 lg:px-4 mb-12">
         <article>
             <div class="staff-section-heading flex justify-between items-center mb-20">
                 <h2 class="text-left text-3xl font-bold text-gray-900">OUR STAFF<br /> HEAD</h2>
@@ -263,27 +273,27 @@
 
                 <div>
                     <article
-                    class="bg-mcd mt-16 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
-                    <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
-                    <div class="relative w-129 h-128 px-4 sm:px-6 lg:px-4 flex justify-center items-end">
-                        <img src="" alt="">
-                    </div>
-                </article>
-                <div class="title flex justify-between mt-5">
+                        class="bg-mcd mt-16 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
+                        <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
+                        <div class="relative w-129 h-128 px-4 sm:px-6 lg:px-4 flex justify-center items-end">
+                            <img src="" alt="">
+                        </div>
+                    </article>
+                    <div class="title flex justify-between mt-5">
                         <span class="font-bold uppercase">Mr. Emmanuel Kwame Kungi</span>
                         <span class="text-gray-400">MCD</span>
                     </div>
                 </div>
-                
+
                 <div>
                     <article
-                    class="bg-engineer mt-36 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
-                    <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
-                    <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
-                        <img src="" alt="">
-                    </div>
-                </article>
-                <div class="title flex justify-between mt-5">
+                        class="bg-engineer mt-36 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
+                        <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
+                        <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
+                            <img src="" alt="">
+                        </div>
+                    </article>
+                    <div class="title flex justify-between mt-5">
                         <span class="font-bold uppercase">Municipal Engineer</span>
                         <span class="text-gray-400">ENGINEER</span>
                     </div>
@@ -303,7 +313,12 @@
     margin: 0 auto;
 }
 
-.news-section, .about-section {
+/* .news:nth-child(odd),
+.news:nth-child(even) {
+    gap: 8em;
+} */
+
+.news-section {
     width: 75%;
     margin: 0 auto;
 }
@@ -317,16 +332,19 @@
     height: 22em;
 }
 
+.news-heading {
+    margin-bottom: 2em;
+}
+
 .staff-section {
     margin: 0 auto;
 }
 
 .bg-mce,
 .bg-mcd,
-.bg-engineer
-{
+.bg-engineer {
     /* width: 90%; */
-    height: 35rem;
+    height: 30rem;
     margin: 0 auto;
 }
 
@@ -345,12 +363,71 @@
 }
 
 @media (max-width: 600px) {
-    .news:nth-child(odd), .news:nth-child(even) {
+
+    .news:nth-child(odd),
+    .news:nth-child(even) {
         flex-direction: column;
+        gap: 2em;
     }
 
-    .news-image {
+    /* .news {
+        gap: 8em;
+    } */
+
+    .news-heading {
+        margin-top: 0;
+        margin-bottom: 2em;
+    }
+
+    .staff {
         width: 90%;
+    }
+
+    .news-description {
+        text-align: left;
+    }
+
+    .staff {
+        width: 90%;
+    }
+
+    .carousel-description,
+    .overlay {
+        display: none;
+    }
+
+    .carousel {
+        max-height: 36em;
+        margin-bottom: 0;
+    }
+
+    .default-carousel {
+        height: 23em;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .news:nth-child(odd),
+    .news:nth-child(even) {
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    /* .news {
+        gap: 8em;
+    } */
+
+    .news-image,
+    .news-description,
+    .news-section{
+        width: 100%;
+    }
+
+    .bg-mce,
+    .bg-mcd,
+    .bg-engineer {
+        height: 25rem;
     }
 }
 </style>
