@@ -37,6 +37,8 @@ export class CommentService {
       user = await this.userRepository.create({ name, email, website });
       await this.userRepository.save(user);
     }
+
+    //find the post we want to comment under
     this.logger.debug(`findOne() called with id: ${postId}`);
     const post = await this.postRepository.findOne({
       where: {
