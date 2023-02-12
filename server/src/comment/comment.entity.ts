@@ -3,8 +3,8 @@ import { User } from 'src/user/user.entity';
 import {
   Column,
   Entity,
+  JoinColumn,
   ManyToOne,
-  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -14,17 +14,18 @@ export class Comment {
   id: number;
 
   @Column()
-  text: string;
+  message: string;
 
   @ManyToOne((type) => User, (user) => user.comments)
-  author: User;
+  user: User;
 
   @ManyToOne((type) => Post, (post) => post.comments)
+  @JoinColumn({ name: 'postId' })
   post: Post;
 
-  @ManyToOne((type) => Comment, (comment) => comment.replies)
-  replyTo: Comment;
+  // @ManyToOne((type) => Comment, (comment) => comment.replies)
+  // replyTo: Comment;
 
-  @OneToMany((type) => Comment, (comment) => comment.replyTo)
-  replies: Comment[];
+  // @OneToMany((type) => Comment, (comment) => comment.replyTo)
+  // replies: Comment[];
 }
