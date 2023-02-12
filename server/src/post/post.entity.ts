@@ -27,15 +27,15 @@ export class Post {
   @Column()
   category: string;
 
-  @CreateDateColumn()
+  @Column()
   createdAt: Date;
 
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne((type) => User, (user) => user.posts)
-  author: User;
+  @ManyToOne(() => User, (user) => user.posts)
+  user: User;
 
-  @OneToMany((type) => Comment, (comment) => comment.post)
+  @OneToMany(() => Comment, (comment) => comment.post)
   comments: Comment[];
 }

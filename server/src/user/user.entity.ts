@@ -1,3 +1,4 @@
+import { IsOptional } from 'class-validator';
 import { Comment } from 'src/comment/comment.entity';
 import { Post } from 'src/post/post.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
@@ -8,19 +9,22 @@ export class User {
   id: number;
 
   @Column()
-  username: string;
+  name: string;
 
   @Column({
     unique: true,
   })
   email: string;
 
-  @Column()
-  password: string;
+  @Column({
+    nullable: true,
+  })
+  @IsOptional()
+  website: string;
 
-  @OneToMany((type) => Post, (post) => post.author)
+  @OneToMany(() => Post, (post) => post.user)
   posts: Post[];
 
-  @OneToMany((type) => Comment, (comment) => comment.author)
+  @OneToMany(() => Comment, (comment) => comment.user)
   comments: Comment[];
 }
