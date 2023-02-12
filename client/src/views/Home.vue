@@ -241,9 +241,9 @@
           >
           </article>
           <div
-            class="news-description lg:w-2/5 md:w-2/5 flex flex-col gap-4 text-justify"
+            class="news-description lg:w-2/5 md:w-2/5 flex flex-col gap-4 text-left"
           >
-            <span class="text-2xl font-bold dark:text-white"
+            <span class="text-2xl font-bold  dark:text-white"
               >GEMA HOLDS PUBLIC HEARING ON MTDP
             </span>
             <span class="description font-light text-gray-500 dark:text-gray-400"
@@ -264,9 +264,9 @@
           >
           </article>
           <div
-            class="news-description lg:w-2/5 md:w-2/5 w-2/5 flex flex-col gap-4 text-justify"
+            class="news-description lg:w-2/5 md:w-2/5 w-2/5 flex flex-col gap-4 text-left"
           >
-            <span class="text-2xl font-bold dark:text-white"
+            <span class="text-2xl font-bold text-left dark:text-white"
               >BOI CLINIC TO START OPERATIONS SOON</span
             >
             <span class="description font-light text-gray-500 dark:text-gray-400"
@@ -286,9 +286,9 @@
           >
           </article>
           <div
-            class="news-description lg:w-2/5 md:w-2/5 w-2/5 flex flex-col gap-4 text-justify"
+            class="news-description lg:w-2/5 md:w-2/5 w-2/5 flex flex-col gap-4 text-left"
           >
-            <span class="text-2xl font-bold dark:text-white"
+            <span class="text-2xl text-left font-bold dark:text-white"
               >MCE LEADS STAFF AND RESIDENTS IN SPECIAL CLEAN-UP EXERCISE</span
             >
             <span class="description font-light text-gray-500 dark:text-gray-400"
