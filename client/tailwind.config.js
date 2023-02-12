@@ -10,6 +10,14 @@ module.exports = {
       'news-1': "url('/src/assets/news-1.jpeg')",
       'news-2': "url('/src/assets/news-2.jpeg')",
       'news-3': "url('/src/assets/news-3.jpeg')",
+      'mce': "url('/src/assets/mce.svg')",
+      'mcd': "url('/src/assets/mcd.svg')",
+      'engineer': "url('/src/assets/engineer.svg')",
+      'header-1': "url('/src/assets/header-1.jpg')",
+      'header-2': "url('/src/assets/header-2.jpg')",
+      'header-3': "url('/src/assets/header-3.jpg')",
+      'header-4': "url('/src/assets/header-4.jpg')",
+      'header-5': "url('/src/assets/header-5.jpg')",
     },
     extend: {},
     colors: {
@@ -27,7 +35,7 @@ module.exports = {
     fontFamily: {
       'logo-text': ['Signika Negative', 'sans-serif'],
       'news-heading': ['PT Sans', 'sans-serif']
-    }
+    },
   },
   plugins: [
     require('flowbite/plugin')
