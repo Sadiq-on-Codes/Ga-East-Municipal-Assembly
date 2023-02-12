@@ -22,7 +22,7 @@ export class User {
   @IsOptional()
   website: string;
 
-  @OneToMany(() => Post, (post) => post.user)
+  @OneToMany(() => Post, (post) => post.admin)
   posts: Post[];
 
   @OneToMany(() => Comment, (comment) => comment.user)
