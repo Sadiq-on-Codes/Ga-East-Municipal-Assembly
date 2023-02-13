@@ -26,6 +26,6 @@ import Navbar from './components/Navbar.vue'
 
 body {
   font-family: 'Merriweather Sans', sans-serif;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 </style>

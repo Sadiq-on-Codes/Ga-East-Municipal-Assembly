@@ -18,7 +18,7 @@
         </router-link>
 
         <a href="https://gema.gov.gh:2096/" target="_blank"><button type="button"
-            class="button nav-item uppercase text-black ml-5 border font-semibold border-black hover:bg-button-bg-200 hover:text-black-300 focus:ring-4 focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            class="button nav-item uppercase text-black ml-5 border font-semibold border-black hover:bg-button-bg-200 hover:text-white focus:ring-4 focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Staff Mail
           </button></a>
 
@@ -37,39 +37,39 @@
       <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
         <ul
           class="flex tracking-wide uppercase nav font-bold flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-          <router-link to="/">
+          <router-link to="/" custom v-slot="{ navigate }">
             <li>
-              <a href="#"
-                class="block nav-item py-3 px-5 hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
-                aria-current="page">Home</a>
+              <button @click="navigate" type="button"
+                class="block uppercase nav-item py-3 px-5 hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                aria-current="page">Home</button>
             </li>
           </router-link>
-          <router-link to="/about">
+          <router-link to="/about" custom v-slot="{ navigate }">
             <li>
-              <a href="#"
-                class="block nav-item py-2 pl-3 pr-4 hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
-                aria-current="page">About</a>
+              <button @click="navigate" type="button"
+                class="block uppercase nav-item py-2 pl-3 pr-4 hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                aria-current="page">About</button>
             </li>
           </router-link>
-          <router-link to="/project">
+          <router-link to="/project" custom v-slot="{ navigate }">
             <li class="nav">
-              <a href="#"
-                class="block nav-item py-2 pl-3 pr-4 hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
-                aria-current="page">Projects</a>
+              <button @click="navigate" type="button"
+                class="block uppercase nav-item py-2 pl-3 pr-4 hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                aria-current="page">Projects</button>
             </li>
           </router-link>
-          <router-link to="/media">
-            <li lass="nav">
-              <a href="#"
-                class="block nav-item py-2 pl-3 pr-4 hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
-                aria-current="page">Media</a>
+          <router-link to="/media" custom v-slot="{ navigate }">
+            <li class="nav">
+              <button @click="navigate" type="button"
+                class="block uppercase nav-item py-2 pl-3 pr-4 hover:text-white bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                aria-current="page">Media</button>
             </li>
           </router-link>
-          <router-link to="/contact">
+          <router-link to="/contact" custom v-slot="{ navigate }">
             <li>
-              <a href="#"
-                class="block nav-item py-2 pl-3 pr-4 hover:text-white text-nav-text-color bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
-                aria-current="page">Contact</a>
+              <button @click="navigate" type="button"
+                class="block uppercase nav-item py-2 pl-3 pr-4 hover:text-white text-nav-text-color bg-blue-700 md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                aria-current="page">Contact</button>
             </li>
           </router-link>
         </ul>
@@ -82,18 +82,19 @@
 import { useRouter } from "vue-router";
 </script>
 <style>
-.nav-item {
+
+ul li {
   background: linear-gradient(0deg, rgb(13, 13, 14), rgb(13, 13, 14)) no-repeat right bottom / 0 var(--bg-h);
   transition: background-size 350ms;
   --bg-h: 100%;
 }
 
-.nav-item:where(:hover, :focus-visible) {
+ul li:where(:hover, :focus-visible) {
   background-size: 100% var(--bg-h);
   background-position-x: left;
 }
 
-.nav .router-link-exact-active {
+ul li .router-link-exact-active {
   padding-bottom: 2px;
   border-bottom: 2px solid #6CC551;
 }
