@@ -1,12 +1,12 @@
 <template>
-    <div v-if="showLoadingScreen">
+    <!-- <div v-if="showLoadingScreen">
         <div class="carousel overlay bg-gray-900 bg-opacity-20 relative top-0 left-0 right-0 bottom-0 flex items-center justify-center">
             <div class="w-32 h-32 rounded-full animate-fade">
                 <img src="../assets/coat_of_arms.png" alt="">
             </div>
         </div>
-    </div>
-    <div v-else id="animation-carousel" class="relative" data-carousel="slide">
+    </div> -->
+    <div id="animation-carousel" class="relative" data-carousel="static">
         <!-- Carousel wrapper -->
         <div class="carousel relative overflow-hidden">
             <!-- Item 1 -->
@@ -163,6 +163,13 @@
 </template>
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
+
+import { initCarousels } from 'flowbite'
+
+// initialize components based on data attribute selectors
+onMounted(() => {
+    initCarousels();
+})
 
 const showLoadingScreen = ref(true);
 
