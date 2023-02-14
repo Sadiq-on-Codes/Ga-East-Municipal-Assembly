@@ -138,6 +138,14 @@
 </template>
 <script setup lang="ts">
 import { useRouter } from "vue-router";
+import { onMounted, ref } from "vue";
+import { init } from 'flowbite'
+
+// initialize components based on data attribute selectors
+onMounted(() => {
+    initCarousels();
+})
+
 </script>
 <style>
 ul li, .button {
