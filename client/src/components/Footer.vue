@@ -1,6 +1,6 @@
 <template>
     <footer aria-label="Site Footer" class="bg-footer-bg dark:bg-gray-900">
-        <div class="max-w-screen-xl px-4 py-16 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8">
+        <div class="max-w-screen-2xl px-4 py-16 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8">
             <div class="grid grid-cols-1 gap-10 lg:grid-cols-3 justify-between">
                 <div>
                     <div class="text-teal-300 dark:text-teal-300 flex items-center justify-start">
@@ -9,7 +9,7 @@
                             Ga East Municipal Assembly
                         </span>
                     </div>
-                    <ul class="flex justify-center gap-6 mt-8">
+                    <ul class="flex justify-start gap-6 mt-8 ml-6">
                         <li>
                             <a href="/" rel="noreferrer" target="_blank"
                                 class="text-white transition hover:opacity-75 dark:text-gray-200">
@@ -75,12 +75,52 @@
                     </ul>
                 </div>
 
-                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-2">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3">
                     <div>
-                        <p class="font-base text-button-bg dark:text-white">Useful Links</p>
+                        <p class="font-base text-left text-button-bg dark:text-white">Navigate</p>
+
+                        <nav aria-label="Footer Navigation - Company" class="mt-6">
+                            <ul class="space-y-4 text-sm text-left">
+                                <li>
+                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                        About
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                        Staff Mail
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                        Contact
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                        Projects
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                        Gallery
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                        Back to top
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div>
+                        <p class="text-left font-base text-button-bg dark:text-white">Useful Links</p>
 
                         <nav aria-label="Footer Navigation - Services" class="mt-6">
-                            <ul class="space-y-4 text-sm">
+                            <ul class="space-y-4 text-sm text-left">
                                 <li>
                                     <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Local Government Service
@@ -119,63 +159,13 @@
                         </nav>
                     </div>
 
-                    <!-- <div>
-                        <p class="font-base text-button-bg dark:text-white">Company</p>
-
-                        <nav aria-label="Footer Navigation - Company" class="mt-6">
-                            <ul class="space-y-4 text-sm">
-                                <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                                        About
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                                        Meet the Team
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                                        Staff Mail
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                    
 
                     <div>
-                        <p class="font-base text-button-bg dark:text-white">Navigate</p>
-
-                        <nav aria-label="Footer Navigation - Company" class="mt-6">
-                            <ul class="space-y-4 text-sm">
-                                <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                                        Contact
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                                        Projects
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                                        Gallery
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div> -->
-
-                    <div>
-                        <p class="font-base text-button-bg dark:text-white">How to reach us </p>
+                        <p class="font-base text-left text-button-bg dark:text-white">How to reach us </p>
 
                         <nav aria-label="Footer Navigation - Legal" class="mt-6">
-                            <ul class="space-y-4 text-sm">
+                            <ul class="space-y-4 text-sm text-left">
                                 <li>
                                     <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Tel: <span class="text-footer-text">0302-962718/0559920954(Whatsapp)</span>
@@ -206,7 +196,7 @@
                                 </li>
                                 <li>
                                     <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                                        Post code: <span class="text-footer-text">255</span> 
+                                        Post code: <span class="text-footer-text">255</span>
                                     </a>
                                 </li>
                             </ul>
@@ -214,15 +204,12 @@
                     </div>
                 </div>
             </div>
-
             <p class="text-base text-white dark:text-gray-400">
-                &copy; 2022. Ga East Municipal Assembly. All rights reserved. <span class="text-button-bg font-bold">Designed by <span>VeriPas</span></span> 
+                &copy; 2022. Ga East Municipal Assembly. All rights reserved. <span
+                    class="text-button-bg font-bold">Designed by <span>VeriPas</span></span>
             </p>
         </div>
     </footer>
-
-
-
 </template>
 <script setup lang="ts">
 
