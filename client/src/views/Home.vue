@@ -1,117 +1,135 @@
 <template>
-  <!-- <Carousel /> -->
-  <!-- component -->
-  <section class="mx-auto px-4 sm:px-6 lg:px-4 mb-12">
-    <article class="flex flex-col">
-      <h2 class="news-heading mt-36 text-3xl font-bold dark:text-white uppercase">
-        Recent News
-      </h2>
-      <section class="news-section mt-28 flex flex-col gap-20">
-        <div class="news w-full flex items-center xs:flex-col justify-between">
-          <article
-            class="news-image relative bg-cover bg-center group overflow-hidden hover:scale-105 bg-news-3 transition duration-300 ease-in-out">
-          </article>
-          <div class="news-description lg:w-2/5 md:w-2/5 flex flex-col gap-4 text-left">
-            <span class="text-2xl font-bold  dark:text-white">GEMA HOLDS PUBLIC HEARING ON MTDP
-            </span>
-            <span class="description font-light text-gray-500 dark:text-gray-400">The Ga East Municipal Assembly (GEMA)
-              has held a Public Hearing
-              on the 2022-2025 Medium Term Development Plan (MTDP) to review the
-              needs assessment information gathered from the electoral
-              area-stakeholders engagements and seek their input for final
-              drafting and adoption by the Assembly.</span>
-          </div>
-        </div>
-
-        <div class="news w-full flex items-center justify-between overflow-hidden">
-          <article
-            class="news-image relative bg-cover bg-center group overflow-hidden hover:scale-105 bg-news-2 transition duration-300 ease-in-out">
-          </article>
-          <div class="news-description lg:w-2/5 md:w-2/5 w-2/5 flex flex-col gap-4 text-left">
-            <span class="text-2xl font-bold text-left dark:text-white">BOI CLINIC TO START OPERATIONS SOON</span>
-            <span class="description font-light text-gray-500 dark:text-gray-400">The Municipal Chief Executive (MCE),
-              for the Ga East Municipal
-              Assembly (GEMA), Hon. Elizabeth Kaakie Mann, has handed over
-              various medical items to the Health Directorate for the
-              operationalization of the Boi Clinic, tasking them to ensure the
-              facility starts operations within the shortest possible
-              time.</span>
-          </div>
-        </div>
-
-        <div class="news w-full flex items-center justify-between">
-          <article
-            class="news-image relative bg-cover bg-center group overflow-hidden hover:scale-105 bg-news-1 transition duration-300 ease-in-out">
-          </article>
-          <div class="news-description lg:w-2/5 md:w-2/5 w-2/5 flex flex-col gap-4 text-left">
-            <span class="text-2xl text-left font-bold dark:text-white">MCE LEADS STAFF AND RESIDENTS IN SPECIAL CLEAN-UP
-              EXERCISE</span>
-            <span class="description font-light text-gray-500 dark:text-gray-400">The Municipal Chief Executive (MCE)
-              for Ga East Municipal
-              Assembly (GEMA), Hon. Elizabeth Kaakie Mann, Thursday morning led
-              Assembly Staff and residents to embark on a special clean-up
-              exercise to intensify the awareness creation on the "Operation
-              Clean Your Frontage" (OCYF) campaign.</span>
-          </div>
-        </div>
-      </section>
-    </article>
-    <div>
-      <router-link to="/all-news" custom v-slot="{ navigate }"><button type="button" @click="navigate"
-          class="button mt-20 nav-item uppercase text-black ml-5 border font-semibold border-black hover:bg-button-bg-200 hover:text-white focus:ring-4 focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          VIEW ALL
-        </button></router-link>
-    </div>
-    <router-view></router-view>
-  </section>
-
-  <!-- component -->
-  <section class="staff lg:w-3/4 md:w-3/4 mt-36 mx-auto sm:px-6 lg:px-4 mb-12">
-    <article>
-      <div class="staff-section-heading flex justify-between items-center mb-20">
-        <h2 class="text-left text-3xl font-bold dark:text-white">
-          OUR STAFF<br />
-          HEAD
+  <div>
+    <Carousel />
+    <!-- component -->
+    <section class="mx-auto px-4 sm:px-6 lg:px-4 mb-12">
+      <article class="flex flex-col">
+        <h2 class="news-heading mt-36 text-3xl font-bold dark:text-white uppercase">
+          Recent News
         </h2>
-        <router-link to="/about" custom v-slot="{ navigate }"><button @click="navigate" type="button"
-          class="button nav-item uppercase text-black ml-5 border font-semibold border-black hover:bg-button-bg-200 hover:text-white focus:ring-4 focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            ABOUT US
+        <section class="news-section mt-28 flex flex-col gap-20">
+          <div class="news w-full flex items-center xs:flex-col justify-between">
+            <article
+              class="news-image relative bg-cover bg-center group overflow-hidden hover:scale-105 bg-news-3 transition duration-300 ease-in-out">
+            </article>
+            <div class="news-description lg:w-2/5 md:w-2/5 flex flex-col gap-4 text-left">
+              <span class="text-2xl font-bold  dark:text-white">GEMA HOLDS PUBLIC HEARING ON MTDP
+              </span>
+              <span class="description font-light text-gray-500 dark:text-gray-400">The Ga East Municipal Assembly
+                (GEMA)
+                has held a Public Hearing
+                on the 2022-2025 Medium Term Development Plan (MTDP) to review the
+                needs assessment information gathered from the electoral
+                area-stakeholders engagements and seek their input for final
+                drafting and adoption by the Assembly.</span>
+            </div>
+          </div>
+
+          <div class="news w-full flex items-center justify-between overflow-hidden">
+            <article
+              class="news-image relative bg-cover bg-center group overflow-hidden hover:scale-105 bg-news-2 transition duration-300 ease-in-out">
+            </article>
+            <div class="news-description lg:w-2/5 md:w-2/5 w-2/5 flex flex-col gap-4 text-left">
+              <span class="text-2xl font-bold text-left dark:text-white">BOI CLINIC TO START OPERATIONS SOON</span>
+              <span class="description font-light text-gray-500 dark:text-gray-400">The Municipal Chief Executive (MCE),
+                for the Ga East Municipal
+                Assembly (GEMA), Hon. Elizabeth Kaakie Mann, has handed over
+                various medical items to the Health Directorate for the
+                operationalization of the Boi Clinic, tasking them to ensure the
+                facility starts operations within the shortest possible
+                time.</span>
+            </div>
+          </div>
+
+          <div class="news w-full flex items-center justify-between">
+            <article
+              class="news-image relative bg-cover bg-center group overflow-hidden hover:scale-105 bg-news-1 transition duration-300 ease-in-out">
+            </article>
+            <div class="news-description lg:w-2/5 md:w-2/5 w-2/5 flex flex-col gap-4 text-left">
+              <span class="text-2xl text-left font-bold dark:text-white">MCE LEADS STAFF AND RESIDENTS IN SPECIAL
+                CLEAN-UP
+                EXERCISE</span>
+              <span class="description font-light text-gray-500 dark:text-gray-400">The Municipal Chief Executive (MCE)
+                for Ga East Municipal
+                Assembly (GEMA), Hon. Elizabeth Kaakie Mann, Thursday morning led
+                Assembly Staff and residents to embark on a special clean-up
+                exercise to intensify the awareness creation on the "Operation
+                Clean Your Frontage" (OCYF) campaign.</span>
+            </div>
+          </div>
+        </section>
+      </article>
+      <div>
+        <router-link to="/all-news" custom v-slot="{ navigate }"><button type="button" @click="navigate"
+            class="button mt-20 nav-item uppercase text-black ml-5 border font-semibold border-black hover:bg-button-bg-200 hover:text-white focus:ring-4 focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            VIEW ALL
           </button></router-link>
       </div>
+      <router-view></router-view>
+    </section>
 
-      <!-- component -->
-<div class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6 md:px-12 xl:px-32">
-        <div class="grid gap-12 items-center md:grid-cols-3">
-          <div class="space-y-4 text-center">
-                <img class="w-64 h-64 mx-auto object-cover rounded-xl md:w-48 md:h-64 lg:w-64 lg:h-80" 
-                    src="../assets/mce.svg" alt="man" loading="lazy" width="1000" height="667">
-                <div>
-                    <h4 class="text-2xl">Jonathan Doe</h4>
-                    <span class="block text-sm text-gray-500">Chief Technical Officer</span>
-                </div>
-            </div>
-            <div class="space-y-4 text-center">
-                <img class="w-64 h-64 mx-auto object-cover rounded-xl md:w-48 md:h-64 lg:w-64 lg:h-80" 
-                    src="../assets/mcd.svg" alt="man" loading="lazy" width="1000" height="667">
-                <div>
-                    <h4 class="text-2xl">Jonathan Doe</h4>
-                    <span class="block text-sm text-gray-500">Chief Technical Officer</span>
-                </div>
-            </div>
-            <div class="space-y-4 text-center">
-                <img class="w-64 h-64 mx-auto object-cover rounded-xl md:w-48 md:h-64 lg:w-64 lg:h-80" 
-                    src="../assets/engineer.svg" alt="man" loading="lazy" width="1000" height="667">
-                <div class="">
-                    <h4 class="text-2xl">Jonathan Doe</h4>
-                    <span class="block text-sm text-gray-500">Chief Technical Officer</span>
-                </div>
-            </div>
+    <!-- component -->
+    <section class="staff lg:w-3/4 md:w-3/4 mt-36 mx-auto sm:px-6 lg:px-4 mb-12">
+      <article>
+        <div class="staff-section-heading flex justify-between items-center mb-20">
+          <h2 class="text-left text-3xl font-bold dark:text-white">
+            OUR STAFF<br />
+            HEAD
+          </h2>
+          <router-link to="/about" custom v-slot="{ navigate }"><button @click="navigate" type="button"
+              class="button nav-item uppercase text-black ml-5 border font-semibold border-black hover:bg-button-bg-200 hover:text-white focus:ring-4 focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              ABOUT US
+            </button></router-link>
         </div>
-    </div>
-</div>
-</article>
-</section>
+
+        <section class="staff-section mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-20">
+          <div>
+            <article
+              class="bg-mce relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
+              <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
+              <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
+                <img class="w-72" src="../assets/mce-pic.svg" alt="" />
+              </div>
+            </article>
+            <div class="title flex justify-between mt-5">
+              <span class="font-bold">HON. ELIZABETH KAAKIE MANN</span>
+              <span class="text-gray-400">MCE</span>
+            </div>
+          </div>
+
+          <div>
+            <article
+              class="bg-mcd mt-16 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
+              <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
+              <div class="relative w-129 h-128 px-4 sm:px-6 lg:px-4 flex justify-center items-end">
+                <img src="" alt="" />
+              </div>
+            </article>
+            <div class="title flex justify-between mt-5">
+              <span class="font-bold uppercase">Mr. Emmanuel Kwame Kungi</span>
+              <span class="text-gray-400">MCD</span>
+            </div>
+          </div>
+
+          <div>
+            <article
+              class="bg-engineer mt-36 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
+              <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
+              <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
+                <img src="" alt="" />
+              </div>
+            </article>
+            <div class="title flex justify-between mt-5">
+              <span class="font-bold uppercase">Municipal Engineer</span>
+              <span class="text-gray-400">ENGINEER</span>
+            </div>
+          </div>
+        </section>
+      </article>
+    </section>
+
+  </div>
+
 </template>
 <script setup lang="ts">
 import Carousel from "@/components/Carousel.vue";

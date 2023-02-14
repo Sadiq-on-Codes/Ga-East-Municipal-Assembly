@@ -192,8 +192,23 @@
     <Pagination />
 </template>
 <script setup lang="ts">
+import { ref } from 'vue';
+import axios from 'axios';
 import FilterAndSearch from '@/components/FilterAndSearch.vue';
 import Pagination from '@/components/Pagination.vue'
+
+
+const data = ref(null);
+
+axios.get('https://dummyjson.com/quote')
+    .then(response => {
+        data.value = response.data;
+        console.log(data.value)
+    })
+    .catch(error => {
+        console.log(error);
+    });
+
 </script>
 <style>
 
