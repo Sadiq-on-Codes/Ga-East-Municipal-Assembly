@@ -1,6 +1,6 @@
 <template>
     <div v-if="showLoadingScreen">
-        <div class="carousel relative top-0 left-0 right-0 bottom-0 bg-white flex items-center justify-center">
+        <div class="carousel overlay bg-gray-900 bg-opacity-20 relative top-0 left-0 right-0 bottom-0 flex items-center justify-center">
             <div class="w-32 h-32 rounded-full animate-fade">
                 <img src="../assets/coat_of_arms.png" alt="">
             </div>
