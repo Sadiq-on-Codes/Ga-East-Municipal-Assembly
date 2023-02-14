@@ -69,10 +69,11 @@
             </div>
         </div>
     </div>
-
-
+<Footer />
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Footer from "@/components/Footer.vue"
+</script>
 <style>
 .about-container {
     background-color: #f4fff6;

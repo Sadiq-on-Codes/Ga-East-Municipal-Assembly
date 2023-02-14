@@ -190,13 +190,14 @@
         </article>
     </section>
     <Pagination />
+    <Footer />
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
 import axios from 'axios';
 import FilterAndSearch from '@/components/FilterAndSearch.vue';
 import Pagination from '@/components/Pagination.vue'
-
+import Footer from "@/components/Footer.vue"
 
 const data = ref(null);
 
