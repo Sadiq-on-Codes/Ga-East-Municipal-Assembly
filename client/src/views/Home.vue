@@ -1,7 +1,6 @@
 <template>
   <div>
     <Carousel />
-    <!-- component -->
     <section class="mx-auto px-4 sm:px-6 lg:px-4 mb-12">
       <article class="flex flex-col">
         <h2 class="news-heading mt-36 text-3xl font-bold dark:text-white uppercase">
@@ -61,15 +60,15 @@
       </article>
       <div>
         <router-link to="/all-news" custom v-slot="{ navigate }"><button type="button" @click="navigate"
-          class="mt-20 button uppercase hover:text-button-bg hover:border-button-bg font-semibold bg-transparent border border-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          class="mt-20 button text-white uppercase font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:bg-button-bg-hover">
             VIEW ALL
           </button></router-link>
       </div>
       <router-view></router-view>
     </section>
 
-    <!-- component -->
-    <section class="staff lg:w-3/4 md:w-3/4 mt-36 mx-auto sm:px-6 lg:px-4 mb-12">
+    
+    <!-- <section class="staff lg:w-3/4 md:w-3/4 mt-36 mx-auto sm:px-6 lg:px-4 mb-12">
       <article>
         <div class="staff-section-heading flex justify-between items-center mb-20">
           <h2 class="text-left text-3xl font-bold dark:text-white">
@@ -86,7 +85,6 @@
           <div>
             <article
               class="bg-mce relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
-              <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
               <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
                 <img class="w-72" src="../assets/mce-pic.svg" alt="" />
               </div>
@@ -100,7 +98,6 @@
           <div>
             <article
               class="bg-mcd mt-16 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
-              <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
               <div class="relative w-129 h-128 px-4 sm:px-6 lg:px-4 flex justify-center items-end">
                 <img src="" alt="" />
               </div>
@@ -114,7 +111,6 @@
           <div>
             <article
               class="bg-engineer mt-36 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
-              <!-- <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div> -->
               <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
                 <img src="" alt="" />
               </div>
@@ -126,7 +122,7 @@
           </div>
         </section>
       </article>
-    </section>
+    </section>  -->
   </div>
   <Footer />
 </template>
