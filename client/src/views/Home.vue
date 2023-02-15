@@ -61,7 +61,7 @@
       </article>
       <div>
         <router-link to="/all-news" custom v-slot="{ navigate }"><button type="button" @click="navigate"
-            class="button mt-20 nav-item uppercase text-black ml-5 border font-semibold border-black hover:bg-button-bg-200 hover:text-white focus:ring-4 focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          class="mt-20 button uppercase hover:text-button-bg hover:border-button-bg font-semibold bg-transparent border border-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             VIEW ALL
           </button></router-link>
       </div>
@@ -77,7 +77,7 @@
             HEAD
           </h2>
           <router-link to="/about" custom v-slot="{ navigate }"><button @click="navigate" type="button"
-              class="button nav-item uppercase text-black ml-5 border font-semibold border-black hover:bg-button-bg-200 hover:text-white focus:ring-4 focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            class="button text-white uppercase font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:bg-button-bg-hover">
               ABOUT US
             </button></router-link>
         </div>
@@ -127,12 +127,12 @@
         </section>
       </article>
     </section>
-
   </div>
-
+  <Footer />
 </template>
 <script setup lang="ts">
 import Carousel from "@/components/Carousel.vue";
+import Footer from "@/components/Footer.vue"
 import { useRouter } from "vue-router";
 </script>
 
