@@ -68,7 +68,7 @@
     </section>
 
     
-    <!-- <section class="staff lg:w-3/4 md:w-3/4 mt-36 mx-auto sm:px-6 lg:px-4 mb-12">
+    <section class="staff lg:w-3/4 md:w-3/4 mt-36 mx-auto sm:px-6 lg:px-4 mb-12">
       <article>
         <div class="staff-section-heading flex justify-between items-center mb-20">
           <h2 class="text-left text-3xl font-bold dark:text-white">
@@ -84,9 +84,9 @@
         <section class="staff-section mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-20">
           <div>
             <article
-              class="bg-mce relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
+              class="relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
               <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
-                <img class="w-72" src="../assets/mce-pic.svg" alt="" />
+                <img class="w-72" src="" alt="" />
               </div>
             </article>
             <div class="title flex justify-between mt-5">
@@ -97,9 +97,9 @@
 
           <div>
             <article
-              class="bg-mcd mt-16 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
+              class="mt-16 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
               <div class="relative w-129 h-128 px-4 sm:px-6 lg:px-4 flex justify-center items-end">
-                <img src="" alt="" />
+                <img src="#" alt="" />
               </div>
             </article>
             <div class="title flex justify-between mt-5">
@@ -110,9 +110,9 @@
 
           <div>
             <article
-              class="bg-engineer mt-36 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
+              class="mt-36 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
               <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
-                <img src="" alt="" />
+                <img src="#" alt="" />
               </div>
             </article>
             <div class="title flex justify-between mt-5">
@@ -122,7 +122,7 @@
           </div>
         </section>
       </article>
-    </section>  -->
+    </section> 
   </div>
   <Footer />
 </template>
