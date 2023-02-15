@@ -1,5 +1,9 @@
 module.exports = {
-  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}", "./node_modules/flowbite/**/*.js"],
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "./node_modules/flowbite/**/*.js",
+  ],
   theme: {
     backgroundImage: {
       "news-1": "url('/src/assets/news-1.jpeg')",
@@ -17,13 +21,21 @@ module.exports = {
       "news-section-text": "#001630",
       "logo-color": "#3a3838",
       "nav-text-color": "#222222",
-      yellow: "#ffc82c",
-      "gray-dark": "#273444",
+      "footer-bg": "#1E2833",
+      "footer-text": "#E3E4E6",
       gray: "#8492a6",
       "gray-light": "#d3dce6",
+      "50": "#eff6ff",
+      "100": "#dbeafe",
+      "200": "#bfdbfe",
+      "300": "#93c5fd",
+      "400": "#60a5fa",
+      "500": "#3b82f6",
+      "600": "#2563eb",
+      "700": "#1d4ed8",
+      "800": "#1e40af",
+      "900": "#1e3a8a",
     },
   },
-  plugins: [
-    require('flowbite/plugin')
-]
+  plugins: [require("flowbite/plugin"), require('@tailwindcss/forms')],
 };
