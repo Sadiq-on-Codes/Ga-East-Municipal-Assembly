@@ -39,4 +39,5 @@ export class Post {
 
   @OneToMany(() => Comment, (comment) => comment.post)
   comments: Comment[];
+  post: Promise<Admin>;
 }
