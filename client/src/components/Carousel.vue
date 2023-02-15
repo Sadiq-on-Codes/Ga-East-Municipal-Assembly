@@ -32,7 +32,7 @@
                         Read More
                     </button>
                 </div>
-                <span class="border-b border-green-700">info@gema.gov.gh</span>
+                <!-- <span class="border-b border-green-700">info@gema.gov.gh</span> -->
             </div>
             <!-- Item 2 -->
             <div class="hidden duration-200 ease-linear" data-carousel-item>
