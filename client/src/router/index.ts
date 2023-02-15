@@ -5,6 +5,7 @@ const Project = () => import('../views/Project.vue')
 const Media = () => import('../views/Media.vue')
 const Contact = () => import('../views/Contact.vue')
 const Documents = () => import('../views/Documents.vue')
+const AllNews = () => import('../views/AllNews.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -36,6 +37,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/documents',
     name: 'Documents',
     component: Documents
+  },
+  {
+    path: '/all-news',
+    name: 'AllNews',
+    component: AllNews
   },
 ]
 
