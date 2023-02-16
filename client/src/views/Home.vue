@@ -86,10 +86,10 @@
             <article
               class="relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
               <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
-                <img class="w-72" src="" alt="" />
+                <img class="w-96 m-0" src="../assets/background-1.png" alt="" />
               </div>
             </article>
-            <div class="title flex justify-between mt-5">
+            <div class="title mx-5 flex justify-between mt-5">
               <span class="font-bold">HON. ELIZABETH KAAKIE MANN</span>
               <span class="text-gray-400">MCE</span>
             </div>
@@ -98,11 +98,11 @@
           <div>
             <article
               class="mt-16 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
-              <div class="relative w-129 h-128 px-4 sm:px-6 lg:px-4 flex justify-center items-end">
-                <img src="#" alt="" />
+              <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
+                <img class="w-96 m-0" src="../assets/background-2.png" alt="" />
               </div>
             </article>
-            <div class="title flex justify-between mt-5">
+            <div class="title mx-5 flex justify-between mt-5">
               <span class="font-bold uppercase">Mr. Emmanuel Kwame Kungi</span>
               <span class="text-gray-400">MCD</span>
             </div>
@@ -111,11 +111,11 @@
           <div>
             <article
               class="mt-36 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
-              <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
-                <img src="#" alt="" />
+              <div class="relative w-full h-auto px-4 sm:px-6 lg:px-4 flex justify-center items-end">
+                <img class="w-96 m-0 p-0" src="../assets/background-3.png" alt="" />
               </div>
             </article>
-            <div class="title flex justify-between mt-5">
+            <div class="title mx-5 flex justify-between mt-5">
               <span class="font-bold uppercase">Municipal Engineer</span>
               <span class="text-gray-400">ENGINEER</span>
             </div>
