@@ -20,10 +20,6 @@ import Navbar from './components/Navbar.vue'
   color: #2c3e50;
 }
 
-/* * {
-  outline: 1px solid black;
-} */
-
 body {
   font-family: 'Merriweather Sans', sans-serif;
   box-sizing: content-box;
