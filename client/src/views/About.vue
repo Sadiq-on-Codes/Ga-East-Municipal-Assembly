@@ -1,12 +1,12 @@
 <template>
     <div class="relative about-container">
-        <div class="">
+        <div class="flex flex-col gap-20">
             <h1
                 class="pt-36 pb-20 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl uppercase dark:text-white">
                 About Us
             </h1>
 
-            <div class="about-section mb-24 flex gap-20">
+            <div class="about-section w-3/4 mx-auto flex gap-20">
                 <div class="section flex flex-col gap-5 w-5/12 text-left text-black">
                     <span
                         class="text-lg font-bold leading-none tracking-tight text-black-900 md:text-xl capitalize dark:text-white">Introduction</span>
@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <div class="about-section mt-20 flex gap-20">
+            <div class="about-section w-3/4 mx-auto mb-20 flex gap-20">
                 <div class="section flex flex-col gap-5 w-5/12 text-left text-black">
                     <img class="values-logo" src="../assets/our-vision.svg" alt="" />
                     <span
@@ -85,10 +85,10 @@ import Footer from "@/components/Footer.vue"
     margin-bottom: 1em;
 }
 
-.about-section {
+/* .about-section {
     width: 75%;
     margin: 0 auto;
-}
+} */
 
 @media (max-width: 1200px) {
     .about-section {
