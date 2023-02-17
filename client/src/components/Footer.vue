@@ -180,7 +180,7 @@
             </div>
             <p class="text-base text-white dark:text-gray-400">
                 &copy; 2022. Ga East Municipal Assembly. All rights reserved. <span
-                    class="text-button-bg font-bold">Designed by <span>VeriPas</span></span>
+                    class="text-button-bg font-bold">Developed by <span>VeriPas</span></span>
             </p>
         </div>
     </footer>
