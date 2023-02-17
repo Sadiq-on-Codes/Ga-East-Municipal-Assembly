@@ -48,7 +48,7 @@
               <span class="text-2xl text-left font-bold dark:text-white">MCE LEADS STAFF AND RESIDENTS IN SPECIAL
                 CLEAN-UP
                 EXERCISE</span>
-              <span class="description font-light text-gray-500 dark:text-gray-400">The Municipal Chief Executive (MCE)
+              <span class="description leading-10 font-light text-gray-500 dark:text-gray-400">The Municipal Chief Executive (MCE)
                 for Ga East Municipal
                 Assembly (GEMA), Hon. Elizabeth Kaakie Mann, Thursday morning led
                 Assembly Staff and residents to embark on a special clean-up
@@ -147,7 +147,7 @@ import { useRouter } from "vue-router";
 }
 
 .description {
-  line-height: 120%;
+  line-height: 150%;
 }
 
 .news-image {
