@@ -23,7 +23,7 @@ import Navbar from './components/Navbar.vue'
 } */
 
 body {
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   box-sizing: content-box;
 }
 </style>

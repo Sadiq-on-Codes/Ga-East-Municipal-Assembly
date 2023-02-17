@@ -9,7 +9,7 @@
                     <img src="../assets/header-1.jpg"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                 </div>
-                <div class="overlay md:h-screen h-52 inset-0 bg-gray-900 bg-opacity-60"></div>
+                <div class="overlay md:h-screen h-52 absolute inset-0 bg-gray-900 bg-opacity-60"></div>
                 <div
                     class="carousel-description absolute inset-0 flex flex-col gap-10 items-start justify-center w-4/5">
                     <div class="flex flex-col gap-6">
@@ -22,7 +22,7 @@
                             maxime?</span>
                     </div>
                     <button type="button"
-                        class="text-white w-28 font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        class="text-white w-32  font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read More
                     </button>
                 </div>
@@ -47,7 +47,7 @@
                             maxime?</span>
                     </div>
                     <button type="button"
-                        class="text-white w-28 font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        class="text-white w-32 font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read More
                     </button>
                 </div>
@@ -71,7 +71,7 @@
                             maxime?</span>
                     </div>
                     <button type="button"
-                        class="text-white w-28 font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        class="text-white w-32 font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read More
                     </button>
                 </div>
@@ -97,7 +97,7 @@
                             maxime?</span>
                     </div>
                     <button type="button"
-                        class="text-white w-28 font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        class="text-white w-32 font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read More
                     </button>
                 </div>
@@ -121,7 +121,7 @@
                             maxime?</span>
                     </div>
                     <button type="button"
-                        class="text-white w-28 font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        class="text-white w-32 font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read More
                     </button>
                 </div>
