@@ -188,7 +188,7 @@ import { useRouter } from "vue-router";
   }
 
   .news-heading {
-    margin-top: 0;
+    margin-top: 60px;
     margin-bottom: 2em;
   }
 
