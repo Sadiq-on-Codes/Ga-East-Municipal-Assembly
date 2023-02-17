@@ -179,6 +179,10 @@ import { useRouter } from "vue-router";
   text-align: left;
 }
 
+.overlay {
+  display: block;
+}
+
 @media (max-width: 600px) {
 
   .news:nth-child(odd),
