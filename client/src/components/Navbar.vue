@@ -107,7 +107,7 @@ onMounted(() => {
 })
 
 </script>
-<style>
+<style scoped>
 ul li{
   background: linear-gradient(0deg, rgb(13, 13, 14), rgb(13, 13, 14)) no-repeat right bottom / 0 var(--bg-h);
   transition: background-size 350ms;
