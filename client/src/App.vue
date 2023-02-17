@@ -19,11 +19,11 @@ import Navbar from './components/Navbar.vue'
 }
 
 /* * {
-  outline: 1px solid black;
+  outline: 1px solid black; 
 } */
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif; 
   box-sizing: content-box;
 }
 </style>
