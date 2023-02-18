@@ -53,21 +53,33 @@
             <div id="dropdownNavbar"
               class="z-10 shadow-xl hidden text-left font-normal bg-white divide-y divide-gray-100 w-44 dark:bg-gray-700 dark:divide-gray-600">
               <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                <li>
-                  <a href="#"
-                    class="block px-4 py-2 hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Finished
-                    Projects</a>
-                </li>
-                <li>
-                  <a href="#"
-                    class="block px-4 py-2 hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Upcoming
-                    Projects</a>
-                </li>
-                <li>
-                  <a href="#"
-                    class="block px-4 py-2 hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Ongoing
-                    Projects</a>
-                </li>
+                <router-link to="/finished-projects" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                  <li>
+                    <button @click="navigate" type="button"
+                      class="block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                      aria-current="page">
+                      Finished Projects
+                    </button>
+                  </li>
+                </router-link>
+                <router-link to="/upcoming-projects" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                  <li>
+                    <button @click="navigate" type="button"
+                      class="block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                      aria-current="page">
+                      Upcoming Projects
+                    </button>
+                  </li>
+                </router-link>
+                <router-link to="/ongoing-projects" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                  <li>
+                    <button @click="navigate" type="button"
+                      class="block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                      aria-current="page">
+                      Ongoing Projects
+                    </button>
+                  </li>
+                </router-link>
               </ul>
             </div>
           </li>
@@ -113,7 +125,7 @@
                     </button>
                   </li>
                 </router-link>
-                <router-link to="#" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                <router-link to="/gallery" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
                       class="block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
