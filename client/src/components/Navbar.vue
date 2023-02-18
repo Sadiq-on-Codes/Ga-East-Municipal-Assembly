@@ -10,6 +10,7 @@
         <span
           class="sm-logo self-center text-2xl tracking-wide font-bold whitespace-nowrap dark:text-white text-logo-color uppercase text-left"></span>
       </a>
+
       <div class="flex md:order-2">
         <a href="https://gema.gov.gh:2096/" target="_blank"><button type="button"
             class="button text-white uppercase font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-green-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover hover:bg-button-bg-hover">
@@ -27,9 +28,11 @@
           </svg>
         </button>
       </div>
+
       <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
         <ul
           class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          
           <router-link to="/" exact-active-class="active-nav" custom v-slot="{ navigate }">
             <li class="nav">
               <button @click="navigate" type="button"
@@ -39,6 +42,7 @@
               </button>
             </li>
           </router-link>
+
           <li class="nav text-left">
             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
               class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Projects
@@ -49,7 +53,7 @@
                     clip-rule="evenodd"></path>
                 </svg></span>
             </button>
-            <!-- Dropdown menu -->
+            
             <div id="dropdownNavbar"
               class="z-10 shadow-xl hidden text-left font-normal bg-white divide-y divide-gray-100 w-44 dark:bg-gray-700 dark:divide-gray-600">
               <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
@@ -62,6 +66,7 @@
                     </button>
                   </li>
                 </router-link>
+
                 <router-link to="/upcoming-projects" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
@@ -71,6 +76,7 @@
                     </button>
                   </li>
                 </router-link>
+
                 <router-link to="/ongoing-projects" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
@@ -83,7 +89,7 @@
               </ul>
             </div>
           </li>
-          <!-- </router-link> -->
+          
           <router-link to="/documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
             <li class="nav">
               <button @click="navigate" type="button"
@@ -93,6 +99,7 @@
               </button>
             </li>
           </router-link>
+
           <router-link to="/departments" custom v-slot="{ navigate }" exact-active-class="active-nav">
             <li class="nav">
               <button @click="navigate" type="button"
@@ -102,6 +109,7 @@
               </button>
             </li>
           </router-link>
+
           <li class="nav text-left">
             <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2"
               class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Media
@@ -112,7 +120,7 @@
                     clip-rule="evenodd"></path>
                 </svg></span>
             </button>
-            <!-- Dropdown menu -->
+            
             <div id="dropdownNavbar2"
               class=" z-10 hidden text-left font-normal bg-white divide-y divide-gray-100  w-44 dark:bg-gray-700 dark:divide-gray-600">
               <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton2">
@@ -125,6 +133,7 @@
                     </button>
                   </li>
                 </router-link>
+
                 <router-link to="/gallery" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
@@ -137,6 +146,7 @@
               </ul>
             </div>
           </li>
+
           <router-link to="/about" custom v-slot="{ navigate }" exact-active-class="active-nav">
             <li class="nav">
               <button @click="navigate" type="button"
@@ -146,6 +156,7 @@
               </button>
             </li>
           </router-link>
+
           <router-link to="/contact" custom v-slot="{ navigate }" exact-active-class="active-nav">
             <li class="nav">
               <button @click="navigate" type="button"

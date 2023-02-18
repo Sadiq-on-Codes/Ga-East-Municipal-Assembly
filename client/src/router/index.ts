@@ -9,6 +9,7 @@ const Gallery = () => import('../views/Gallery.vue')
 const FinishedProjects = () => import('../views/Projects/FinishedProjects.vue')
 const UpcomingProjects = () => import('../views/Projects/UpcomingProjects.vue')
 const OngoingProjects = () => import('../views/Projects/OngoingProjects.vue')
+const SinglePost = () => import('../views/SinglePost.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -60,6 +61,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/ongoing-projects',
     name: 'OngoingProjects',
     component: OngoingProjects
+  },
+  {
+    path: '/single-post',
+    name: 'SinglePost',
+    component: SinglePost
   },
 ]
 
