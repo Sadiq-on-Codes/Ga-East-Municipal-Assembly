@@ -1,4 +1,4 @@
-import { Post } from 'src/post/post.entity';
+import { BlogPost } from 'src/post/post.entity';
 import { User } from 'src/user/user.entity';
 import {
   Column,
@@ -19,9 +19,9 @@ export class Comment {
   @ManyToOne((type) => User, (user) => user.comments)
   user: User;
 
-  @ManyToOne((type) => Post, (post) => post.comments)
+  @ManyToOne((type) => BlogPost, (post) => post.comments)
   @JoinColumn({ name: 'postId' })
-  post: Post;
+  post: BlogPost;
 
   // @ManyToOne((type) => Comment, (comment) => comment.replies)
   // replyTo: Comment;

@@ -5,14 +5,13 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
-export class Post {
+export class BlogPost {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -28,16 +27,12 @@ export class Post {
   @Column()
   category: string;
 
-  @Column()
+  @CreateDateColumn()
   createdAt: Date;
 
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => Admin, (admin) => admin.posts)
-  admin: Admin;
-
   @OneToMany(() => Comment, (comment) => comment.post)
   comments: Comment[];
-  post: Promise<Admin>;
 }
