@@ -24,6 +24,6 @@ import Navbar from './components/Navbar.vue'
 
 body {
   font-family: 'Poppins', sans-serif; 
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 </style>
