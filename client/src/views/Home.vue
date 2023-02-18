@@ -7,7 +7,6 @@
 <Footer />
 </template>
 <script setup lang="ts">
-import { ref } from "vue"; 
 import Carousel from "@/components/Carousel.vue";
 import Footer from "@/components/Footer.vue"
 import { useRouter } from "vue-router";
