@@ -1,4 +1,3 @@
-import { Post } from 'src/post/post.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -11,7 +10,4 @@ export class Admin {
 
   @Column()
   password: string;
-
-  @OneToMany(() => Post, (post) => post.admin)
-  posts: Post[];
 }
