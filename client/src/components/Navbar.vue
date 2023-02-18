@@ -60,7 +60,7 @@
                 <router-link to="/finished-projects" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
-                      class="block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                      class="block uppercase text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
                       aria-current="page">
                       Finished Projects
                     </button>
@@ -70,7 +70,7 @@
                 <router-link to="/upcoming-projects" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
-                      class="block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                      class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
                       aria-current="page">
                       Upcoming Projects
                     </button>
@@ -80,7 +80,7 @@
                 <router-link to="/ongoing-projects" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
-                      class="block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                      class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
                       aria-current="page">
                       Ongoing Projects
                     </button>
@@ -127,7 +127,7 @@
                 <router-link to="/all-news" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
-                      class="block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                      class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
                       aria-current="page">
                       News
                     </button>
@@ -137,7 +137,7 @@
                 <router-link to="/gallery" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
-                      class="block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                      class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
                       aria-current="page">
                       Gallery
                     </button>

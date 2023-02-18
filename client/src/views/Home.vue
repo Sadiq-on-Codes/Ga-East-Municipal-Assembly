@@ -35,8 +35,8 @@ import Staff from "@/components/Staff.vue";
 }
 
 .news-image {
-  width: 35em;
-  height: 22em;
+  width: 33em;
+  height: 20em;
 }
 
 .news-heading {
