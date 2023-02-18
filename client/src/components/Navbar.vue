@@ -1,8 +1,8 @@
 <template>
-  <nav class="bg-white h-auto border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+  <nav class="bg-white h-auto border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
       <a href="#" class="flex items-center">
-        <img src="../assets/ga-east-logo.jpg" class="h-auto w-14 mr-3" alt="Ga East Logo" />
+        <img src="../assets/logo-transparent.png" class="h-auto w-14 mr-3" alt="Ga East Logo" />
         <span
           class="lg-logo self-center text-2xl tracking-wide font-bold whitespace-nowrap dark:text-white text-logo-color uppercase text-left">Ga
           East <br />
@@ -12,7 +12,7 @@
       </a>
       <div class="flex md:order-2">
         <a href="https://gema.gov.gh:2096/" target="_blank"><button type="button"
-            class="button text-white uppercase font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:bg-button-bg-hover">
+            class="button text-white uppercase font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-green-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover hover:bg-button-bg-hover">
             Staff Mail
           </button></a>
         <button data-collapse-toggle="navbar-cta" type="button"
@@ -33,7 +33,7 @@
           <router-link to="/" exact-active-class="active-nav" custom v-slot="{ navigate }">
             <li class="nav">
               <button @click="navigate" type="button"
-                class="block uppercase nav-item  py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">
                 Home
               </button>
