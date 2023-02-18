@@ -7,7 +7,6 @@
 <Footer />
 </template>
 <script setup lang="ts">
-import { ref } from "vue"; 
 import Carousel from "@/components/Carousel.vue";
 import Footer from "@/components/Footer.vue"
 import { useRouter } from "vue-router";
@@ -35,8 +34,8 @@ import Staff from "@/components/Staff.vue";
 }
 
 .news-image {
-  width: 35em;
-  height: 22em;
+  width: 33em;
+  height: 20em;
 }
 
 .news-heading {
