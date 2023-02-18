@@ -1,5 +1,5 @@
 <template>
-    <footer aria-label="Site Footer" class="bg-footer-bg dark:bg-gray-900">
+    <footer aria-label="Site Footer" class="bg-footer-bg dark:bg-footer-bg">
         <div class="max-w-screen-2xl px-4 py-16 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8">
             <div class="grid grid-cols-1 gap-10 lg:grid-cols-3 justify-between">
                 <div>
@@ -180,12 +180,14 @@
             </div>
             <p class="text-base text-white dark:text-gray-400">
                 &copy; 2022. Ga East Municipal Assembly. All rights reserved. <span
-                    class="text-button-bg font-bold cursor-pointer" @click="sendEmail()">Developed by <span>VeriPas</span></span>
+                    class="text-button-bg font-bold cursor-pointer" @click="sendEmail()">Developed by
+                    <span>VeriPas</span></span>
             </p>
         </div>
 </footer>
 </template>
 <script setup lang="ts">
+
 import { ref } from 'vue';
 import { scrollToTop } from '@/functions';
 

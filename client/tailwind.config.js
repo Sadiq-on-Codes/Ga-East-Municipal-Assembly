@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: 'media',
   content: [
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
@@ -19,6 +20,7 @@ module.exports = {
       "news-section-text": "#001630",
       "logo-color": "#3a3838",
       "nav-text-color": "#222222",
+      "about-bg": "#f4fff6",
       "footer-bg": "#1E2833",
       "footer-text": "#E3E4E6",
       gray: "#8492a6",

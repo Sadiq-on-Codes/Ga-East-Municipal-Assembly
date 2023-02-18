@@ -19,10 +19,10 @@
                             voluptatibus quia, sequi praesentium suscipit asperiores
                             maxime?</span>
                     </div>
-                    <button type="button"
+                    <!-- <button type="button"
                         class="text-white w-32  font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read More
-                    </button>
+                    </button> -->
                 </div>
             </div>
             <!-- Item 2 -->
@@ -42,10 +42,10 @@
                             voluptatibus quia, sequi praesentium suscipit asperiores
                             maxime?</span>
                     </div>
-                    <button type="button"
+                    <!-- <button type="button"
                         class="button text-white uppercase font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:bg-button-bg-hover">
                         Read More
-                    </button>
+                    </button> -->
                 </div>
             </div>
             <!-- Item 3 -->
@@ -65,10 +65,10 @@
                             voluptatibus quia, sequi praesentium suscipit asperiores
                             maxime?</span>
                     </div>
-                    <button type="button"
+                    <!-- <button type="button"
                         class="text-white w-32 font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read More
-                    </button>
+                    </button> -->
                 </div>
             </div>
             <!-- Item 4 -->
@@ -88,10 +88,10 @@
                             voluptatibus quia, sequi praesentium suscipit asperiores
                             maxime?</span>
                     </div>
-                    <button type="button"
+                    <!-- <button type="button"
                         class="text-white w-32 font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read More
-                    </button>
+                    </button> -->
                 </div>
             </div>
             <!-- Item 5 -->
@@ -111,10 +111,10 @@
                             voluptatibus quia, sequi praesentium suscipit asperiores
                             maxime?</span>
                     </div>
-                    <button type="button"
+                    <!-- <button type="button"
                         class="text-white w-32 font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read More
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>
@@ -136,8 +136,8 @@
             class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             data-carousel-prev>
             <span
-                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
+                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-white group-hover:bg-white/50 dark:group-hover:bg-button-bg group-focus:ring-4 group-focus:ring-gray-800/60 dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800 dark:hover:text-white" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
@@ -148,8 +148,8 @@
             class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             data-carousel-next>
             <span
-                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
+                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-white group-hover:bg-white/50 dark:group-hover:bg-button-bg group-focus:ring-4 group-focus:ring-gray-800/60 dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800 dark:hover:text-white" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
