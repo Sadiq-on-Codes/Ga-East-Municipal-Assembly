@@ -33,7 +33,7 @@
           <router-link to="/" exact-active-class="active-nav" custom v-slot="{ navigate }">
             <li class="nav">
               <button @click="navigate" type="button"
-                class="block uppercase nav-item  py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">
                 Home
               </button>
