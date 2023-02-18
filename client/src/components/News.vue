@@ -1,5 +1,5 @@
 <template>
-    <section class="mx-auto px-4 sm:px-6 lg:px-4 mb-12">
+    <section class="mx-auto px-4 sm:px-6 lg:px-4 mb-12 dark:bg-gray-800">
       <article class="flex flex-col">
         <h2 class="news-heading mt-36 mb-10 text-3xl font-bold dark:text-white uppercase">
           Recent News
@@ -19,7 +19,7 @@
       </article>
       <div>
         <router-link to="/all-news" custom v-slot="{ navigate }"><button type="button" @click="navigate"
-            class="mt-20 button text-white uppercase font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:bg-button-bg-hover">
+            class="mt-20 mb-20 button text-white uppercase font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-green-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover hover:bg-button-bg-hover">
             VIEW ALL
           </button></router-link>
       </div>
