@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { Comment } from './comment.entity';
 import { User } from '../user/user.entity';
 import { CommentDto } from './input/comment.dto';
-import { Post } from '../post/post.entity';
+import { BlogPost } from '../post/post.entity';
 
 @Injectable()
 export class CommentService {
@@ -13,7 +13,8 @@ export class CommentService {
   constructor(
     @InjectRepository(Comment) private commentRepository: Repository<Comment>,
     @InjectRepository(User) private userRepository: Repository<User>,
-    @InjectRepository(Post) private postRepository: Repository<Post>,
+    @InjectRepository(BlogPost)
+    private postRepository: Repository<BlogPost>,
   ) {}
   async createComment(
     postId: number,
@@ -34,7 +35,7 @@ export class CommentService {
 
     //if user is commenting for first time, this snippets saves credentials into the user table
     if (!user) {
-      user = await this.userRepository.create({ name, email, website });
+      user = this.userRepository.create({ name, email, website });
       await this.userRepository.save(user);
     }
 

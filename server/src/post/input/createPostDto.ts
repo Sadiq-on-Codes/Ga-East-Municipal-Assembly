@@ -1,6 +1,6 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsDefined, IsNotEmpty, IsString } from 'class-validator';
 
-export class CreatePost {
+export class CreatePostDto {
   @IsString()
   @IsNotEmpty()
   title: string;
@@ -13,6 +13,7 @@ export class CreatePost {
   @IsNotEmpty()
   image: string;
 
+  @IsDefined({ message: 'category field is required' })
   @IsString()
   @IsNotEmpty()
   category: string;

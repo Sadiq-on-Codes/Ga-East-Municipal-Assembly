@@ -1,26 +1,52 @@
 import {
-  ForbiddenException,
   Injectable,
+  InternalServerErrorException,
+  Logger,
   NotFoundException,
 } from '@nestjs/common';
-import { Repository } from 'typeorm';
-import { Post } from './post.entity';
+import { MoreThanOrEqual, Repository } from 'typeorm';
+import { BlogPost } from './post.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Admin } from '../admin/admin.entity';
-import { CreatePost } from './input/createPostDto';
-import { PostDto } from './input/postDto';
+import APIFeatures from 'src/apiFeatures/apiFeatures';
+import { UpdatePostDto } from './input/updatePostDto';
+import { CreatePostDto } from './input/createPostDto';
 
 @Injectable()
 export class PostService {
+  private readonly logger = new Logger(PostService.name);
   constructor(
-    @InjectRepository(Post) private postRepository: Repository<Post>,
+    @InjectRepository(BlogPost)
+    private postRepository: Repository<BlogPost>,
 
     @InjectRepository(Admin) private adminRepository: Repository<Admin>,
   ) {}
 
-  async getAll(): Promise<Post[]> {
+  async getAllPosts(queryParams): Promise<BlogPost[]> {
+    const queryBuilder = this.postRepository.createQueryBuilder('post');
+
+    // Apply filters
+    const apiFeatures = new APIFeatures(queryBuilder, queryParams);
+    apiFeatures.filter();
+
+    // Apply pagination
+    apiFeatures.paginate();
+
+    // Execute query
+    const posts = await queryBuilder.getMany();
+
+    if (!posts) {
+      throw new NotFoundException(`No post found`);
+    }
+    return posts;
+  }
+  async getPostsByCreatedAt(days: number): Promise<BlogPost[]> {
+    const currentDate = new Date();
+    const pastDate = new Date(
+      currentDate.getTime() - days * 24 * 60 * 60 * 1000,
+    );
     return this.postRepository.find({
-      //  relations: ['comments'],
+      where: { createdAt: MoreThanOrEqual(pastDate) },
     });
   }
 
@@ -33,29 +59,62 @@ export class PostService {
     });
   }
 
-  async create(postDto: CreatePost, adminId: number): Promise<Post> {
-    const { title, article, image, category } = postDto;
-    const admin = await this.adminRepository.findOne({
+  async createPost(postDto: CreatePostDto): Promise<BlogPost> {
+    try {
+      const { title, article, image, category } = postDto;
+
+      const post = new BlogPost();
+      post.title = title;
+      post.article = article;
+      post.image = image;
+      post.category = category;
+      post.createdAt = new Date();
+      const createdPost = await this.postRepository.save(post);
+
+      this.logger.log(`New post with id ${createdPost.id} has been created.`);
+
+      return createdPost;
+    } catch (error) {
+      this.logger.error(
+        `Error occurred while creating a new post. Error: ${error}`,
+      );
+      throw error;
+    }
+  }
+
+  async updatePost(
+    postId: number,
+    updatePostDto: UpdatePostDto,
+  ): Promise<BlogPost> {
+    const post = await this.postRepository.findOne({
       where: {
-        id: adminId,
+        id: postId,
       },
     });
 
-    if (!admin) {
-      throw new ForbiddenException(
-        null,
-        `You are not authorized to make a post`,
-      );
+    if (!post) {
+      throw new NotFoundException('Post not found');
     }
-    const post = new Post();
-    post.title = title;
-    post.article = article;
-    post.image = image;
-    post.category = category;
-    post.createdAt = new Date();
-    post.admin = admin;
 
-    const createdPost = await this.postRepository.save(post);
-    return createdPost;
+    // Update the post fields based on the data in updatePostDto
+    post.title = updatePostDto.title || post.title;
+    post.article = updatePostDto.article || post.article;
+    post.image = updatePostDto.image || post.image;
+    post.category = updatePostDto.category || post.category;
+    post.updatedAt = new Date();
+
+    return await this.postRepository.save(post);
+  }
+
+  async deletePostById(postId: number): Promise<void> {
+    try {
+      const result = await this.postRepository.delete(postId);
+
+      if (result.affected === 0) {
+        throw new NotFoundException(`Post with ID ${postId} not found`);
+      }
+    } catch (error) {
+      throw new InternalServerErrorException(error.message);
+    }
   }
 }
