@@ -82,7 +82,7 @@
                                         Gallery
                                     </a>
                                 </li>
-                                <li>
+                                <li @click="scrollToTop()">
                                     <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Back to top
                                     </a>
@@ -133,7 +133,7 @@
                         </nav>
                     </div>
 
-                    
+
 
                     <div>
                         <p class="font-base text-left text-button-bg dark:text-white">How to reach us </p>
@@ -180,13 +180,22 @@
             </div>
             <p class="text-base text-white dark:text-gray-400">
                 &copy; 2022. Ga East Municipal Assembly. All rights reserved. <span
-                    class="text-button-bg font-bold">Developed by <span>VeriPas</span></span>
+                    class="text-button-bg font-bold cursor-pointer" @click="sendEmail()">Developed by <span>VeriPas</span></span>
             </p>
         </div>
-    </footer>
+</footer>
 </template>
 <script setup lang="ts">
+import { ref } from 'vue';
+import { scrollToTop } from '@/functions';
 
+//Email Functionality
+const email = ref('sadickashton@gmail.com, judeedemnyahe@gmail.com');
+const subject = ref('VeriPas');
+const body = ref('Want to work with us. Proceed to send us an email');
+const sendEmail = () => {
+    window.location.href = `mailto:${email.value}?subject=${subject.value}&body=${body.value}`;
+};
 </script>
 <style scoped>
 /* * {

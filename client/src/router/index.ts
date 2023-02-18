@@ -1,11 +1,14 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 const Home = () => import('../views/Home.vue')
 const About = () => import('../views/About.vue')
-const Project = () => import('../views/Project.vue')
-const Media = () => import('../views/Media.vue')
 const Contact = () => import('../views/Contact.vue')
 const Documents = () => import('../views/Documents.vue')
+const Departments = () => import('../views/Departments.vue')
 const AllNews = () => import('../views/AllNews.vue')
+const Gallery = () => import('../views/Gallery.vue')
+const FinishedProjects = () => import('../views/Projects/FinishedProjects.vue')
+const UpcomingProjects = () => import('../views/Projects/UpcomingProjects.vue')
+const OngoingProjects = () => import('../views/Projects/OngoingProjects.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -19,14 +22,9 @@ const routes: Array<RouteRecordRaw> = [
     component: About
   },
   {
-    path: '/project',
-    name: 'Project',
-    component: Project
-  },
-  {
-    path: '/media',
-    name: 'Media',
-    component: Media
+    path: '/departments',
+    name: 'Departments',
+    component: Departments
   },
   {
     path: '/contact',
@@ -42,6 +40,26 @@ const routes: Array<RouteRecordRaw> = [
     path: '/all-news',
     name: 'AllNews',
     component: AllNews
+  },
+  {
+    path: '/gallery',
+    name: 'Gallery',
+    component: Gallery
+  },
+  {
+    path: '/finished-projects',
+    name: 'FinishedProjects',
+    component: FinishedProjects
+  },
+  {
+    path: '/upcoming-projects',
+    name: 'UpcomingProjects',
+    component: UpcomingProjects
+  },
+  {
+    path: '/ongoing-projects',
+    name: 'OngoingProjects',
+    component: OngoingProjects
   },
 ]
 
