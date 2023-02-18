@@ -30,7 +30,7 @@
       <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
         <ul
           class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-          <router-link to="/" custom v-slot="{ navigate }">
+          <router-link to="/" exact-active-class="active-nav" custom v-slot="{ navigate }">
             <li class="nav">
               <button @click="navigate" type="button"
                 class="block uppercase nav-item  py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
@@ -68,7 +68,7 @@
               </div>
             </li>
           <!-- </router-link> -->
-          <router-link to="/documents" custom v-slot="{ navigate }">
+          <router-link to="/documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
             <li class="nav">
               <button @click="navigate" type="button"
                 class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
@@ -101,7 +101,7 @@
                 </ul>
               </div>
             </li>
-          <router-link to="/about" custom v-slot="{ navigate }">
+          <router-link to="/about" custom v-slot="{ navigate }" exact-active-class="active-nav">
             <li class="nav">
               <button @click="navigate" type="button"
                 class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
@@ -110,7 +110,7 @@
               </button>
             </li>
           </router-link>
-          <router-link to="/contact" custom v-slot="{ navigate }">
+          <router-link to="/contact" custom v-slot="{ navigate }" exact-active-class="active-nav">
             <li class="nav">
               <button @click="navigate" type="button"
                 class="block uppercase nav-item py-2 pl-3 pr-4 text-nav-text-color bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
@@ -123,7 +123,6 @@
       </div>
     </div>
   </nav>
-
 <router-view></router-view>
 </template>
 <script setup lang="ts">
@@ -147,6 +146,11 @@ onMounted(() => {
 .nav button:hover {
   border-bottom: 2px solid #6CC551;
 }
+
+.active-nav {
+  background-color: green;
+}
+
 
 #dropdownNavbar, #dropdownNavbar2 {
   z-index: 100;
