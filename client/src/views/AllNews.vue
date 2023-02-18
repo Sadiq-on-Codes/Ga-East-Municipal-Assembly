@@ -29,7 +29,7 @@
                 <span
                   class="bg-transparent h-6 text-xs font-medium inline-flex items-center py-0.5 dark:bg-gray-700 dark:text-green-400"
                 >
-                  <span class="text-button-bg-hover mr-1">Posted on </span> |
+                  <span class="text-button-bg-hover text-base mr-1">Posted on </span> |
                   <svg
                     aria-hidden="true"
                     class="w-3 h-3 mx-1"
@@ -43,7 +43,7 @@
                       clip-rule="evenodd"
                     ></path>
                   </svg>
-                  <span class="">{{ newsItem.postedAt }}</span>
+                  <span class="text-base">{{ newsItem.postedAt }}</span>
                 </span>
               </div>
             </div>
