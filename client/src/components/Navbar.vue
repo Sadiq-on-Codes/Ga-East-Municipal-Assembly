@@ -39,34 +39,38 @@
               </button>
             </li>
           </router-link>
-            <li class="nav text-left">
-              <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-              class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Projects <span class="hover:fill-white"><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
+          <li class="nav text-left">
+            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+              class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Projects
+              <span class="hover:fill-white"><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor"
+                  viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                     clip-rule="evenodd"></path>
                 </svg></span>
-              </button>
-              <!-- Dropdown menu -->
-              <div id="dropdownNavbar"
-                class="z-10 shadow-xl hidden text-left font-normal bg-white divide-y divide-gray-100 w-44 dark:bg-gray-700 dark:divide-gray-600">
-                <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                  <li>
-                    <a href="#"
-                      class="block px-4 py-2 hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Finished Projects</a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      class="block px-4 py-2 hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Upcoming Projects</a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      class="block px-4 py-2 hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Ongoing Projects</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
+            </button>
+            <!-- Dropdown menu -->
+            <div id="dropdownNavbar"
+              class="z-10 shadow-xl hidden text-left font-normal bg-white divide-y divide-gray-100 w-44 dark:bg-gray-700 dark:divide-gray-600">
+              <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Finished
+                    Projects</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Upcoming
+                    Projects</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Ongoing
+                    Projects</a>
+                </li>
+              </ul>
+            </div>
+          </li>
           <!-- </router-link> -->
           <router-link to="/documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
             <li class="nav">
@@ -77,30 +81,50 @@
               </button>
             </li>
           </router-link>
-            <li class="nav text-left">
-              <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2"
-              class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Media <span class="hover:fill-white"><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
+          <router-link to="/departments" custom v-slot="{ navigate }" exact-active-class="active-nav">
+            <li class="nav">
+              <button @click="navigate" type="button"
+                class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                aria-current="page">
+                Departments
+              </button>
+            </li>
+          </router-link>
+          <li class="nav text-left">
+            <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2"
+              class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Media
+              <span class="hover:fill-white"><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor"
+                  viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                     clip-rule="evenodd"></path>
                 </svg></span>
-              </button>
-              <!-- Dropdown menu -->
-              <div id="dropdownNavbar2"
-                class=" z-10 hidden text-left font-normal bg-white divide-y divide-gray-100  w-44 dark:bg-gray-700 dark:divide-gray-600">
-                <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton2">
+            </button>
+            <!-- Dropdown menu -->
+            <div id="dropdownNavbar2"
+              class=" z-10 hidden text-left font-normal bg-white divide-y divide-gray-100  w-44 dark:bg-gray-700 dark:divide-gray-600">
+              <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton2">
+                <router-link to="/all-news" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
-                    <a href="#"
-                      class="block px-4 py-2 hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">News</a>
+                    <button @click="navigate" type="button"
+                      class="block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                      aria-current="page">
+                      News
+                    </button>
                   </li>
+                </router-link>
+                <router-link to="#" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
-                    <a href="#"
-                      class="block px-4 py-2 hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Gallery</a>
+                    <button @click="navigate" type="button"
+                      class="block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                      aria-current="page">
+                      Gallery
+                    </button>
                   </li>
-                </ul>
-              </div>
-            </li>
+                </router-link>
+              </ul>
+            </div>
+          </li>
           <router-link to="/about" custom v-slot="{ navigate }" exact-active-class="active-nav">
             <li class="nav">
               <button @click="navigate" type="button"
@@ -126,6 +150,8 @@
 <router-view></router-view>
 </template>
 <script setup lang="ts">
+
+
 import { useRouter } from "vue-router";
 import { onMounted, ref } from "vue";
 import { initDropdowns, initCollapses, initDrawers } from 'flowbite'
@@ -152,7 +178,8 @@ onMounted(() => {
 }
 
 
-#dropdownNavbar, #dropdownNavbar2 {
+#dropdownNavbar,
+#dropdownNavbar2 {
   z-index: 100;
 }
 
@@ -194,4 +221,5 @@ onMounted(() => {
   .sm-logo {
     display: inline-block;
   }
-}</style>
+}
+</style>
