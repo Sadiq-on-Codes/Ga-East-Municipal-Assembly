@@ -11,10 +11,10 @@
             class="bg-gray-50 border h-10 border-gray-300 text-gray-900 text-sm focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
           >
             <option selected>Select duration</option>
-            <option value="yesterday">Yesterday</option>
-            <option value="last-week">Last Week</option>
-            <option value="last-month">Last Month</option>
-            <option value="last-year">Last Year</option>
+            <option class="hover:bg-button-bg" value="yesterday">Yesterday</option>
+            <option class="hover:bg-button-bg" value="last-week">Last Week</option>
+            <option class="hover:bg-button-bg" value="last-month">Last Month</option>
+            <option class="hover:bg-button-bg" value="last-year">Last Year</option>
           </select>
         </div>
       </div>
