@@ -166,9 +166,9 @@
 </div>
 </template>
 <script setup lang="ts">
-
 import { onMounted, ref } from "vue";
 import { initCarousels, initTooltips, initPopovers } from 'flowbite'
+import { sendEmail } from "@/functions";
 
 onMounted(() => {
     initCarousels();
@@ -176,11 +176,7 @@ onMounted(() => {
     initPopovers();
 })
 
-//Send Email function
-const win: Window = window;
-const sendEmail = () => {
-    win.location = "mailto:info@gema.gov.gh";
-};
+
 
 </script>
 <style>

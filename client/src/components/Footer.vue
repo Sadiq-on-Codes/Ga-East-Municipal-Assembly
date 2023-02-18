@@ -82,7 +82,7 @@
                                         Gallery
                                     </a>
                                 </li>
-                                <li>
+                                <li @click="scrollToTop()">
                                     <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Back to top
                                     </a>
@@ -133,7 +133,7 @@
                         </nav>
                     </div>
 
-                    
+
 
                     <div>
                         <p class="font-base text-left text-button-bg dark:text-white">How to reach us </p>
@@ -183,10 +183,10 @@
                     class="text-button-bg font-bold">Developed by <span>VeriPas</span></span>
             </p>
         </div>
-    </footer>
+</footer>
 </template>
 <script setup lang="ts">
-
+import { scrollToTop } from '@/functions';
 </script>
 <style scoped>
 /* * {
