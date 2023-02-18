@@ -25,10 +25,10 @@
               {{ newsItem.title }}
             </h2>
             <span
-                class="bg-transparent h-6 text-base font-medium inline-flex items-center py-0.5 dark:text-green-400"
-              >
+              class="bg-transparent h-6 text-base font-medium inline-flex items-center py-0.5 dark:text-green-400"
+            >
               <span class="text-button-bg-hover mr-1.5">Posted on </span> |
-                <!-- <svg
+              <!-- <svg
                   aria-hidden="true"
                   class="w-3 h-3 mx-1"
                   fill="currentColor"
@@ -41,16 +41,21 @@
                     clip-rule="evenodd"
                   ></path>
                 </svg> -->
-                <span class="ml-1.5 text-base">{{ newsItem.postedAt }}</span> 
-              </span>
+              <span class="ml-1.5 text-base">{{ newsItem.postedAt }}</span>
+            </span>
             <p class="description font-light text-gray-500 dark:text-gray-400">
               {{ newsItem.description }}
             </p>
             <div class="title flex justify-start">
-              <router-link to="/single-post" custom v-slot="{ navigate }"><button @click="navigate" type="button"
-              class="button text-news-section-text uppercase font-semibold bg-transparent border border-news-section-text dark:border-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-transparent dark:hover:text-button-bg-hover dark:focus:bg-button-bg-hover">
-              Read More
-            </button></router-link>
+              <router-link to="/single-post" custom v-slot="{ navigate }"
+                ><button
+                  @click="navigate"
+                  type="button"
+                  class="button text-news-section-text uppercase font-semibold bg-transparent border border-news-section-text dark:border-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-transparent dark:hover:text-button-bg-hover dark:focus:bg-button-bg-hover"
+                >
+                  Read More
+                </button></router-link
+              >
             </div>
           </div>
         </div>
