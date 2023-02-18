@@ -2,7 +2,7 @@
   <section class="mx-auto px-4 sm:px-6 lg:px-4 mb-12 dark:bg-gray-800">
     <article class="flex flex-col">
       <h2
-        class="news-heading mt-36 mb-10 text-3xl font-bold dark:text-white uppercase"
+        class="news-heading my-36 text-3xl font-bold dark:text-white uppercase"
       >
         Recent News
       </h2>
@@ -25,7 +25,7 @@
               {{ newsItem.title }}
             </h2>
             <span
-                class="bg-transparent h-6 text-xs font-medium inline-flex items-center py-0.5 dark:bg-gray-700 dark:text-green-400"
+                class="bg-transparent h-6 text-base font-medium inline-flex items-center py-0.5 dark:bg-gray-700 dark:text-green-400"
               >
               <span class="text-button-bg-hover mr-1">Posted on </span> |
                 <svg
@@ -41,7 +41,7 @@
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="">{{ newsItem.postedAt }}</span> 
+                <span class="text-base">{{ newsItem.postedAt }}</span> 
               </span>
             <p class="description font-light text-gray-500 dark:text-gray-400">
               {{ newsItem.description }}
