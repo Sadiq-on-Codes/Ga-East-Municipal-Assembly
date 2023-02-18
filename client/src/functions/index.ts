@@ -1,8 +1,8 @@
 //Send Email function
-const win: Window = window;
-export const sendEmail = () => {
-    win.location = "mailto:info@gema.gov.gh";
-};
+
+// export const sendEmail = () => {
+//       window.location.href = `mailto:${email.value}?subject=${subject.value}&body=${body.value}`;
+//     };
 
 //Back to top Function
 export const scrollToTop = () => {
