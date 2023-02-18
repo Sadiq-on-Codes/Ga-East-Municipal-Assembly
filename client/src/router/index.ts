@@ -10,8 +10,14 @@ const FinishedProjects = () => import('../views/Projects/FinishedProjects.vue')
 const UpcomingProjects = () => import('../views/Projects/UpcomingProjects.vue')
 const OngoingProjects = () => import('../views/Projects/OngoingProjects.vue')
 const SinglePost = () => import('../views/SinglePost.vue')
+const NotFound = () => import('../views/NotFound.vue')
 
 const routes: Array<RouteRecordRaw> = [
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound,
+  },
   {
     path: '/',
     name: 'Home',

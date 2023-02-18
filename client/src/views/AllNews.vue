@@ -27,10 +27,10 @@
                   {{ newsItem.description.slice(0, 80) }}
                 </p>
                 <span
-                  class="bg-transparent h-6 text-xs font-medium inline-flex items-center py-0.5 dark:bg-gray-700 dark:text-green-400"
+                  class="bg-transparent h-6 text-xs font-medium inline-flex items-center py-0.5 dark:text-green-400"
                 >
-                  <span class="text-button-bg-hover text-base mr-1">Posted on </span> |
-                  <svg
+                  <span class="text-button-bg-hover text-base mr-1.5">Posted on </span> |
+                  <!-- <svg
                     aria-hidden="true"
                     class="w-3 h-3 mx-1"
                     fill="currentColor"
@@ -42,8 +42,8 @@
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
                       clip-rule="evenodd"
                     ></path>
-                  </svg>
-                  <span class="text-base">{{ newsItem.postedAt }}</span>
+                  </svg> -->
+                  <span class="text-base ml-1.5">{{ newsItem.postedAt }}</span>
                 </span>
               </div>
             </div>
