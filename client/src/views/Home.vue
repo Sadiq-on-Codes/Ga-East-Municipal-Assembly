@@ -39,13 +39,13 @@ import Events from "@/components/Events.vue";
 }
 
 .event-image-large {
-  width: 40em;
-  height: auto;
+  width: auto;
+  height: 20em;
 }
 
 .event-image-small {
-  width: 15em;
-  height: auto;
+  width: 12em;
+  height: 7em;
 }
 
 .news-heading {
@@ -89,7 +89,7 @@ import Events from "@/components/Events.vue";
   }
 
   .staff {
-    width: 90%;
+    width: 100%;
   }
 
   .staff-mobile {
