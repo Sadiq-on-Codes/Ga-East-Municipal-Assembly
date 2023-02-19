@@ -22,6 +22,10 @@ import Navbar from './components/Navbar.vue'
   outline: 1px solid black; 
 } */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Poppins', sans-serif; 
   box-sizing: border-box;
