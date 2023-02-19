@@ -149,7 +149,7 @@
                             <ul class="space-y-4 text-sm text-left">
                                 <li>
                                     <a class="text-white transition hover:opacity-75 dark:text-gray-200">
-                                        Tel: <a href="tel:0302-962718" class="text-footer-text">0302-962718/</a><a>0559920954(Whatsapp)</a>
+                                        Tel: <a href="tel:0302-962718" class="text-footer-text">0302-962718/</a><a href="https://wa.me/0559920954" target="_blank">0559920954(Whatsapp)</a>
                                     </a>
                                 </li>
 
