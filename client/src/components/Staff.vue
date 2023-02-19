@@ -1,5 +1,5 @@
 <template>
-    <section class="staff lg:w-3/4 md:w-3/4 mt-36 mx-auto sm:px-6 lg:px-4">
+    <section class="staff lg:w-3/4 md:w-3/4 mt-36 mx-auto lg:px-4">
       <article>
         <div class="mx-4 staff-section-heading flex justify-between items-center mb-20">
           <h2 class="text-left text-3xl font-bold dark:text-white">
