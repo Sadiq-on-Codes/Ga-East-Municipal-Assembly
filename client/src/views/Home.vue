@@ -89,7 +89,7 @@ import Events from "@/components/Events.vue";
   }
 
   .staff {
-    width: 90%;
+    width: 100%;
   }
 
   .staff-mobile {
