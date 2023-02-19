@@ -69,7 +69,7 @@ const routes: Array<RouteRecordRaw> = [
     component: OngoingProjects
   },
   {
-    path: '/single-post',
+    path: '/single-post/:id',
     name: 'SinglePost',
     component: SinglePost
   },

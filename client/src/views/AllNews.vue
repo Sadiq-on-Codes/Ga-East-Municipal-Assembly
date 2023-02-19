@@ -7,9 +7,18 @@
         <section
           class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20"
         >
-          <router-link to="/single-post" custom v-slot="{ navigate }">
-            <div class="cursor-pointer" @click="navigate" v-for="newsItem in news" :key="newsItem.id">
+          <div
+            class="cursor-pointer"
+            v-for="newsItem in news"
+            :key="newsItem.id"
+          >
+            <router-link
+              :to="'/single-post/' + newsItem.id"
+              custom
+              v-slot="{ navigate }"
+            >
               <article
+                @click="navigate"
                 class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
                 :style="{ backgroundImage: `url(${newsItem.imageUrl})` }"
               >
@@ -17,10 +26,11 @@
                   class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"
                 ></div>
               </article>
-              <div class="mt-3 text-left">
-                <span class="hover:underline text-news-section-text dark:text-white text-lg">{{
-                  newsItem.title
-                }}</span>
+              <div @click="navigate" class="mt-3 text-left">
+                <span
+                  class="hover:underline text-news-section-text dark:text-white text-lg"
+                  >{{ newsItem.title }}</span
+                >
                 <p
                   class="hover:underline description font-light text-gray-500 dark:text-gray-400"
                 >
@@ -29,40 +39,32 @@
                 <span
                   class="bg-transparent h-6 text-xs font-medium inline-flex items-center py-0.5 dark:text-green-400"
                 >
-                  <span class="text-button-bg-hover text-base mr-1.5">Posted on </span> |
-                  <!-- <svg
-                    aria-hidden="true"
-                    class="w-3 h-3 mx-1"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg> -->
+                  <span class="text-button-bg-hover text-base mr-1.5"
+                    >Posted on
+                  </span>
+                  |
                   <span class="text-base ml-1.5">{{ newsItem.postedAt }}</span>
                 </span>
               </div>
-            </div>
-          </router-link>
+            </router-link>
+          </div>
         </section>
       </article>
     </section>
     <Pagination />
+    <router-view></router-view>
   </div>
   <Footer />
 </template>
 <script setup lang="ts">
 import { ref, reactive } from "vue";
+import { useRouter } from "vue-router";
 import axios from "axios";
 import FilterAndSearch from "@/components/FilterAndSearch.vue";
 import Pagination from "@/components/Pagination.vue";
 import Footer from "@/components/Footer.vue";
 
-const news = reactive([
+const news = ref([
   {
     id: 1,
     imageUrl: require("../assets/news-3.jpeg"),
