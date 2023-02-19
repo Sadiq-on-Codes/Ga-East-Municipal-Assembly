@@ -55,32 +55,39 @@
 
                         <nav aria-label="Footer Navigation - Company" class="mt-6">
                             <ul class="space-y-4 text-sm text-left">
+                                <router-link to="/about" custom v-slot="{ navigate }">
+                                        <button @click="navigate" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                            About
+                                    </button>
+                                    </router-link>
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                                        About
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <a href="https://gema.gov.gh:2096/" target="_blank" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Staff Mail
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <router-link to="/contact" custom v-slot="{ navigate }">
+                                        <button @click="navigate" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Contact
-                                    </a>
+                                    </button>
+                                    </router-link>
+                                    
                                 </li>
 
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                                        Projects
-                                    </a>
+                                    <router-link to="/documents" custom v-slot="{ navigate }">
+                                        <button @click="navigate" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                        Documents
+                                    </button>
+                                    </router-link>
                                 </li>
 
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <router-link to="/gallery" custom v-slot="{ navigate }">
+                                        <button @click="navigate" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Gallery
-                                    </a>
+                                    </button>
+                                    </router-link>
                                 </li>
                                 <li @click="scrollToTop()">
                                     <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
@@ -96,36 +103,36 @@
                         <nav aria-label="Footer Navigation - Services" class="mt-6">
                             <ul class="space-y-4 text-sm text-left">
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <a href="http://lgs.gov.gh/" target="_blank" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Local Government Service
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <a href="http://www.ghanadistricts.com/home/" target="_blank" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Ghana Districts
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <a href="https://www.ghana.gov.gh/" target="_blank" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         GoG Official Portal
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <a href="https://www.ghana.gov.gh/SitePages/Portal-Home.aspx" target="_blank" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Gov.eServices Portal
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <a href="https://www.ghana.gov.gh/epay" target="_blank" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Gov.ePayment Portal
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <a href="http://www.mlgrd.gov.gh/" target="_blank" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Ministry of Local Gov't and Rural Dev't
                                     </a>
                                 </li>
@@ -141,35 +148,35 @@
                         <nav aria-label="Footer Navigation - Legal" class="mt-6">
                             <ul class="space-y-4 text-sm text-left">
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                                        Tel: <span class="text-footer-text">0302-962718/0559920954(Whatsapp)</span>
+                                    <a class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                        Tel: <a href="tel:0302-962718" class="text-footer-text">0302-962718/</a><a>0559920954(Whatsapp)</a>
                                     </a>
                                 </li>
 
-                                <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                <li class="cursor-pointer">
+                                    <a @click="sendEmailGaEast()" class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Email: <span class="text-footer-text">info@gema.gov.gh</span>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <a class="text-white cursor-default transition hover:opacity-75 dark:text-gray-200">
                                         Working Hours: <span class="text-footer-text">9am-5pm</span>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <a class="text-white cursor-default transition hover:opacity-75 dark:text-gray-200">
                                         Digital Address: <span class="text-footer-text">GE-011-2678</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <a class="text-white cursor-default transition hover:opacity-75 dark:text-gray-200">
                                         Region: <span class="text-footer-text">Greater Accra</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
+                                    <a class="text-white cursor-default transition hover:opacity-75 dark:text-gray-200">
                                         Post code: <span class="text-footer-text">255</span>
                                     </a>
                                 </li>
@@ -197,6 +204,13 @@ const subject = ref('VeriPas');
 const body = ref('Want to work with us. Proceed to send us an email');
 const sendEmail = () => {
     window.location.href = `mailto:${email.value}?subject=${subject.value}&body=${body.value}`;
+};
+
+const emailGaEast = ref('info@gema.gov.gh');
+const subjectGaEast = ref('Ga East Municipal Assembly, Head Office');
+const bodyGaEast = ref('Send us an email and we will get back to you');
+const sendEmailGaEast = () => {
+    window.location.href = `mailto:${emailGaEast.value}?subject=${subjectGaEast.value}&body=${bodyGaEast.value}`;
 };
 </script>
 <style scoped>
