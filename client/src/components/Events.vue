@@ -31,7 +31,7 @@
         </li>
       </ul>
     </div>
-    <div class="grid grid-cols-2 mt-10 gap-5 h-auto">
+    <div class="grid grid-cols-1 mx-4 lg:mx-0 md:mx-0 md:grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-6 mt-10 h-auto">
       <div
         :class="{ hidden: activeTab === 'notice' }"
         class="flex flex-col mb-20 items-start gap-5"
