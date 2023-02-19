@@ -47,7 +47,7 @@
               {{ newsItem.description }}
             </p>
             <div class="title flex justify-start">
-              <router-link to="/single-post" custom v-slot="{ navigate }"
+              <router-link :to="'/single-post/' + newsItem.id" custom v-slot="{ navigate }"
                 ><button
                   @click="navigate"
                   type="button"
@@ -83,7 +83,7 @@ const newsItems = ref([
     title: "GEMA HOLDS PUBLIC HEARING ON MTDP",
     description:
       "The Ga East Municipal Assembly (GEMA) has held a Public Hearing on the 2022-2025 Medium Term Development Plan (MTDP) to review the needs assessment information gathered from the electoral area-stakeholders engagements and seek their input for final drafting and adoption by the Assembly.",
-    postedAt: "Febuary 17 2023",
+    postedAt: "February 17 2023",
   },
   {
     id: 2,

@@ -3,16 +3,16 @@
     <Carousel />
     <News />
     <Staff />
+    <Events />
   </div>
-<Footer />
+  <Footer />
 </template>
 <script setup lang="ts">
 import Carousel from "@/components/Carousel.vue";
-import Footer from "@/components/Footer.vue"
-import { useRouter } from "vue-router";
+import Footer from "@/components/Footer.vue";
 import News from "@/components/News.vue";
 import Staff from "@/components/Staff.vue";
-
+import Events from "@/components/Events.vue";
 </script>
 
 <style>
@@ -36,6 +36,16 @@ import Staff from "@/components/Staff.vue";
 .news-image {
   width: 35em;
   height: 20em;
+}
+
+.event-image-large {
+  width: 40em;
+  height: auto;
+}
+
+.event-image-small {
+  width: 15em;
+  height: auto;
 }
 
 .news-heading {
@@ -67,7 +77,6 @@ import Staff from "@/components/Staff.vue";
 }
 
 @media (max-width: 600px) {
-
   .news:nth-child(odd),
   .news:nth-child(even) {
     flex-direction: column;
@@ -111,7 +120,6 @@ import Staff from "@/components/Staff.vue";
 }
 
 @media (max-width: 1200px) {
-
   .news:nth-child(odd),
   .news:nth-child(even) {
     flex-direction: column;
