@@ -12,45 +12,40 @@
             </button></router-link>
         </div>
 
-        <section class="staff-section mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-20">
+        <section v-for="(item, i) in staff" :key="i" class="staff-section mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-20">
           <div>
             <article class="relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
-              <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
-                <img class="w-96" src="../assets/background-1.png" alt="" />
-                <img class="absolute top-0 left-0 ml-6 w-96" src="../assets/mce.png" alt="" />
+              <div class="staff-pic relative w-full h-full lg:px-4 flex justify-center items-end">
+                <img class="w-96" :src="item.backgroundImage" alt="" />
+                <img class="absolute top-0 left-0 ml-6 w-96" :src="item.imageUrl" alt="" />
               </div>
             </article>
-            <div class="title mx-5 flex justify-between mt-5">
-              <span class="font-bold dark:text-white">HON. ELIZABETH KAAKIE MANN</span>
-              <span class="text-gray-400">MCE</span>
-            </div>
-          </div>
-
-          <div>
-            <article class="mt-16 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
-              <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-end">
-                <img class="w-96" src="../assets/background-2.png" alt="" />
-              </div>
-            </article>
-            <div class="title mx-5 flex justify-between mt-5">
-              <span class="font-bold uppercase dark:text-white">Mr. Emmanuel Kwame Kungi</span>
-              <span class="text-gray-400">MCD</span>
-            </div>
-          </div>
-
-          <div class="mb-12">
-            <article
-              class="staff-mobile mt-36 relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
-              <div class="relative w-full h-auto px-4 sm:px-6 lg:px-4 flex justify-center items-end">
-                <img class="w-96" src="../assets/background-3.png" alt="" />
-              </div>
-            </article>
-            <div class="title mx-5 flex justify-between mt-5">
-              <span class="font-bold uppercase dark:text-white">Municipal Engineer</span>
-              <span class="text-gray-400">ENGINEER</span>
+            <div class="title mx-5 flex justify-between mb-10 mt-5">
+              <span class="font-bold dark:text-white">{{ item.staffName }}</span>
+              <span class="text-gray-400">{{ item.role }}</span>
             </div>
           </div>
         </section>
       </article>
     </section>
 </template>
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const staff = ref([{
+  staffName: 'HON. ELIZABETH KAAKIE MANN',
+  role: 'MCE',
+  imageUrl: require('../assets/mce.png'),
+  backgroundImage: require('../assets/background-1.png')
+}, {
+  staffName: 'Mr. Emmanuel Kwame Kungi',
+  role: 'MCD',
+  
+  backgroundImage: require('../assets/background-2.png'),
+}, {
+  staffName: 'Municipal Engineer',
+  role: 'ENGINEER',
+  
+  backgroundImage: require('../assets/background-3.png'),
+},])
+</script>

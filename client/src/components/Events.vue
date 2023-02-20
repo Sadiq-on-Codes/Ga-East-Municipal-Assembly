@@ -64,9 +64,9 @@
           :key="event.id"
           class="up-events flex gap-10 justify-between pb-4 border-b border-gray-200"
         >
-          <div class="flex flex-col items-start gap-5 w-3/5">
+          <div class="event-details flex flex-col items-start gap-5 w-3/5">
             <span
-              class="text-xl capitalize font-semibold text-left text-gray-900 dark:text-white"
+              class="event-title text-xl capitalize font-semibold text-left text-gray-900 dark:text-white"
             >
               {{ event.title }}
             </span>
