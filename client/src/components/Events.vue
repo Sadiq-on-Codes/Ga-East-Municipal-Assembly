@@ -62,7 +62,7 @@
         <div
           v-for="event in data"
           :key="event.id"
-          class="up-events flex gap-10 justify-between pb-4 border-b border-gray-200"
+          class="up-events flex gap-10 justify-between pb-4 border-b border-gray-300"
         >
           <div class="event-details flex flex-col items-start gap-5 w-3/5">
             <span
