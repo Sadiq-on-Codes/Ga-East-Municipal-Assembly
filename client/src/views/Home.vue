@@ -104,6 +104,10 @@ import Events from "@/components/Events.vue";
     width: 90%;
   }
 
+  .staff-pic {
+    padding: 0;
+  }
+
   .carousel-description,
   .overlay {
     display: none;
@@ -117,6 +121,13 @@ import Events from "@/components/Events.vue";
   .default-carousel {
     height: 23em;
   }
+
+  .event-title {
+    font-size: small;
+    font-weight: 500;
+  }
+
+
 }
 
 @media (max-width: 1200px) {
