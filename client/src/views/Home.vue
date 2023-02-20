@@ -126,8 +126,6 @@ import Events from "@/components/Events.vue";
     font-size: small;
     font-weight: 500;
   }
-
-
 }
 
 @media (max-width: 1200px) {
