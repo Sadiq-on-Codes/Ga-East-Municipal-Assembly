@@ -38,7 +38,7 @@
             </div>
           </article>
           <div class="title mx-5 flex justify-between mb-10 mt-5">
-            <span class="font-bold dark:text-white">{{ item.staffName }}</span>
+            <span class="font-bold dark:text-white uppercase">{{ item.staffName }}</span>
             <span class="text-gray-400">{{ item.role }}</span>
           </div>
         </div>
