@@ -31,7 +31,9 @@
         </li>
       </ul>
     </div>
-    <div class="grid grid-cols-1 mx-4 lg:mx-0 md:mx-0 md:grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-6 mt-10 h-auto">
+    <div
+      class="grid grid-cols-1 mx-4 lg:mx-0 md:mx-0 md:grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-6 mt-10 h-auto"
+    >
       <div
         :class="{ hidden: activeTab === 'notice' }"
         class="flex flex-col mb-20 items-start gap-5"
@@ -52,7 +54,7 @@
           PREVIOUSLY
         </span>
         <span
-          class="w-3/4 text-xl uppercase font-semibold text-left text-gray-900 dark:text-white"
+          class="w-3/4 text-lg uppercase font-light text-left text-gray-900 dark:text-white"
         >
           {{ dataMain.title }}
         </span>
@@ -62,11 +64,11 @@
         <div
           v-for="event in data"
           :key="event.id"
-          class="up-events flex gap-10 justify-between pb-4 border-b border-gray-200"
+          class="up-events flex gap-10 justify-between pb-4 border-b border-gray-300"
         >
-          <div class="flex flex-col items-start gap-5 w-3/5">
+          <div class="event-details flex flex-col items-start gap-5 w-3/5">
             <span
-              class="text-xl capitalize font-semibold text-left text-gray-900 dark:text-white"
+              class="event-title uppercase text-lg font-light text-left text-gray-900 dark:text-white"
             >
               {{ event.title }}
             </span>
@@ -100,7 +102,7 @@ const PAST_EVENTS = [
   {
     id: 1,
     title:
-      "CONTRACTOR HANDS OVER COMPLETED KINDERGARTEN BLOCK TO THE GA EAST MUNICIPAL ASSEMBLY",
+      "Contractor hands over completed kindergarten block to the Ga East Municipal Assembly",
     date: "February 1st, 2022",
     imageUrl: require("../assets/event-6.jpg"),
   },
@@ -179,5 +181,9 @@ function switchTab(tab: string) {
 <style>
 .up-events:not(:first-child) {
   margin-top: 1.25rem;
+}
+
+.event-title {
+  text-transform: uppercase;
 }
 </style>
