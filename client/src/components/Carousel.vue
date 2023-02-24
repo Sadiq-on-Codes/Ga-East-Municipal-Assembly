@@ -37,7 +37,7 @@
     </div>
     <!-- Slider indicators -->
     <div
-      class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2"
+      class="absolute z-30 flex dark:text-white space-x-3 -translate-x-1/2 bottom-5 left-1/2"
     >
       <button
         v-for="(item, i) in carouselItem"
