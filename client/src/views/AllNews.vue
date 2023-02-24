@@ -57,9 +57,7 @@
   <Footer />
 </template>
 <script setup lang="ts">
-import { ref, reactive } from "vue";
-import { useRouter } from "vue-router";
-import axios from "axios";
+import { ref } from "vue";
 import FilterAndSearch from "@/components/FilterAndSearch.vue";
 import Pagination from "@/components/Pagination.vue";
 import Footer from "@/components/Footer.vue";
