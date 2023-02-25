@@ -11,6 +11,7 @@ const UpcomingProjects = () => import('../views/Projects/UpcomingProjects.vue')
 const OngoingProjects = () => import('../views/Projects/OngoingProjects.vue')
 const SinglePost = () => import('../views/SinglePost.vue')
 const NotFound = () => import('../views/NotFound.vue')
+const AdminPage = () => import('../views/Admin/AdminPage.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -72,6 +73,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/single-post/:id',
     name: 'SinglePost',
     component: SinglePost
+  },
+  {
+    path: '/admin',
+    name: 'AdminPage',
+    component: AdminPage
   },
 ]
 

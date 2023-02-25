@@ -1,9 +1,28 @@
 <template>
-  <Navbar  />
+  <Navbar v-if="showNavbar" />
+  <AdminPage v-if="showAdminPage" />
 </template>
 
 <script setup lang="ts">
 import Navbar from './components/Navbar.vue'
+import { useRouter } from 'vue-router'
+import { ref } from 'vue';
+import AdminPage from './views/Admin/AdminPage.vue';
+
+const showNavbar = ref(false)
+const showAdminPage = ref(false)
+    const router = useRouter()
+
+    router.beforeEach((to, from, next) => {
+      // Conditionally hide navbar on certain routes
+      if (to.path === '/admin') {
+        showNavbar.value = false;
+        showAdminPage.value = true;
+      } else {
+        showNavbar.value = true
+      }
+      next()
+    })
 </script>
 
 <style>
