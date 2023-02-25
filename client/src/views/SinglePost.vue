@@ -92,7 +92,7 @@
               />
               <button
                 type="submit"
-                class="inline-flex justify-center p-2 text-green-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-green-500 dark:hover:bg-gray-600"
+                class="inline-flex justify-center p-2 text-button-bg rounded-full cursor-pointer hover:bg-blue-100 dark:text-green-500 dark:hover:bg-gray-600"
               >
                 <svg
                   aria-hidden="true"
@@ -210,9 +210,12 @@ const news = ref([
   outline: 1px solid;
 } */
 
-.comment:hover, .comment:focus {
-  outline:  transparent;
-  border: transparent ;
+.comment:hover,
+.comment:active,
+.comment:focus {
+  outline: transparent;
+  border: transparent;
+  background-color: transparent;
 }
 
 .single-post-image {
@@ -226,13 +229,13 @@ const news = ref([
   }
 
   h1 {
-  font-size: large;
-}
+    font-size: large;
+  }
 
-.title {
-  gap: 2em;
-  margin-top: 0;
-}
+  .title {
+    gap: 2em;
+    margin-top: 0;
+  }
 
   .single-post {
     margin-top: 0;
@@ -243,6 +246,21 @@ const news = ref([
 @media (max-width: 1200px) {
   .single-post {
     flex-direction: column-reverse;
+  }
+
+  h1 {
+    font-size: xx-large;
+  }
+
+
+  .title {
+    gap: 2em;
+    margin-top: 0;
+  }
+
+  .single-post {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 </style>
