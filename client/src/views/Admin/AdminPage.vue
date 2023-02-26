@@ -10,7 +10,7 @@
             data-drawer-toggle="logo-sidebar"
             aria-controls="logo-sidebar"
             type="button"
-            class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none md:hidden focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           >
             <span class="sr-only">Open sidebar</span>
             <svg
@@ -40,8 +40,11 @@
           </a>
         </div>
         <div class="flex items-center">
-          <div class="flex items-center ml-3">
+          <div class="flex gap-3 items-center ml-3">
+            <p class="text-sm text-gray-900 dark:text-white" role="none">{{ email }}
+                </p>
             <div>
+              
               <button
                 type="button"
                 class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -60,19 +63,8 @@
               class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
               id="dropdown-user"
             >
-              <div class="px-4 py-3" role="none">
-                <p class="text-sm text-gray-900 dark:text-white" role="none">
-                  Neil Sims
-                </p>
-                <p
-                  class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
-                  role="none"
-                >
-                  neil.sims@flowbite.com
-                </p>
-              </div>
-              <ul class="py-1" role="none">
-                <li>
+              <ul class="py-1 text-left" role="none">
+                <li @click="switchTab('dashboard')">
                   <a
                     href="#"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -80,21 +72,15 @@
                     >Dashboard</a
                   >
                 </li>
+                
                 <li>
-                  <a
-                    href="#"
+                  <button
+                    @click="logout"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                     role="menuitem"
-                    >Settings</a
                   >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                    role="menuitem"
-                    >Sign out</a
-                  >
+                    Sign out
+                  </button>
                 </li>
               </ul>
             </div>
@@ -106,15 +92,15 @@
 
   <aside
     id="logo-sidebar"
-    class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+    class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
     aria-label="Sidebar"
   >
     <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
       <ul class="space-y-2">
-        <li>
+        <li @click="switchTab('dashboard')">
           <a
             href="#"
-            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+            class="flex items-center p-2 hover:text-button-bg-hover text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             <svg
               aria-hidden="true"
@@ -133,7 +119,7 @@
         <li>
           <button
             type="button"
-            class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+            class="flex items-center w-full hover:text-button-bg-hover p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             aria-controls="dropdown-example"
             data-collapse-toggle="dropdown-example"
           >
@@ -170,18 +156,19 @@
             </svg>
           </button>
           <ul id="dropdown-example" class="hidden py-2 space-y-2">
-            <li>
-              <a
-                href="#"
-                class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >New Post</a
+            <li @click="switchTab('new-post')">
+              <button
+                :class="{ 'text-button-bg-hover': activeTab === 'new-post' }"
+                class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
+                New Post
+              </button>
             </li>
-            <li>
+            <li @click="switchTab('view-posts')">
               <a
                 href="#"
-                class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >View Post</a
+                class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                >View Posts</a
               >
             </li>
           </ul>
@@ -189,7 +176,7 @@
         <li>
           <button
             type="button"
-            class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+            class="flex items-center w-full p-2 text-base font-normal hover:text-button-bg-hover text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             aria-controls="dropdown-example"
             data-collapse-toggle="dropdown-example2"
           >
@@ -226,17 +213,17 @@
             </svg>
           </button>
           <ul id="dropdown-example2" class="hidden py-2 space-y-2">
-            <li>
+            <li @click="switchTab('add-document')">
               <a
                 href="#"
-                class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 >Add Document</a
               >
             </li>
-            <li>
+            <li @click="switchTab('view-documents')">
               <a
                 href="#"
-                class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 >View Documents</a
               >
             </li>
@@ -245,7 +232,7 @@
         <li>
           <button
             type="button"
-            class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+            class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             aria-controls="dropdown-example"
             data-collapse-toggle="dropdown-example3"
           >
@@ -282,17 +269,17 @@
             </svg>
           </button>
           <ul id="dropdown-example3" class="hidden py-2 space-y-2">
-            <li>
+            <li @click="switchTab('add-slider')">
               <a
                 href="#"
-                class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                class="flex items-center w-full hover:text-button-bg-hover p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 >Add Slider</a
               >
             </li>
-            <li>
+            <li @click="switchTab('view-sliders')">
               <a
                 href="#"
-                class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                class="flex items-center w-full p-2 hover:text-button-bg-hover text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 >View Slider</a
               >
             </li>
@@ -302,15 +289,51 @@
     </div>
   </aside>
 
- 
+  <div class="p-4 sm:ml-64">
+    <Dashboard v-if="activeTab === 'dashboard'" />
+    <NewPost v-if="activeTab === 'new-post'" />
+    <ViewPost v-if="activeTab === 'view-posts'" />
+    <AddDocument v-if="activeTab === 'add-document'" />
+    <ViewDocuments v-if="activeTab === 'view-documents'" />
+    <AddSlider v-if="activeTab === 'add-slider'" />
+    <ViewSliders v-if="activeTab === 'view-sliders'" />
+  </div>
 </template>
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { initDrawers, initDropdowns } from "flowbite";
+import { ref, onMounted, computed } from "vue";
+import { initDrawers, initDropdowns, initCollapses } from "flowbite";
+import NewPost from "./Posts/NewPost.vue";
+import ViewPost from "./Posts/ViewPost.vue";
+import AddDocument from "./Documents/AddDocument.vue";
+import ViewDocuments from "./Documents/ViewDocuments.vue";
+import AddSlider from "./Slider/AddSlider.vue";
+import Dashboard from './Dashboard.vue'
+import ViewSliders from "./Slider/ViewSliders.vue";
+import { useStore } from "vuex";
+import router from "@/router";
+
+const activeTab = ref("dashboard");
+
+function switchTab(tab: string) {
+  activeTab.value = tab;
+}
 
 onMounted(() => {
   initDrawers();
   initDropdowns();
+  initCollapses();
 });
+
+const store = useStore();
+const email = computed(() => store.getters.email);
+
+const logout = () => {
+  store.dispatch("logout");
+  router.push("/login");
+};
 </script>
-<style></style>
+<style scoped>
+.navbar-component {
+  display: none;
+}
+</style>
