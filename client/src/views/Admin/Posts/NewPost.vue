@@ -16,7 +16,7 @@
       />
     </div>
 
-    <div class="text-left h-96">
+    <div class="text-left h-96 dark:text-white">
       <label
         class="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-white"
         for="user_avatar"

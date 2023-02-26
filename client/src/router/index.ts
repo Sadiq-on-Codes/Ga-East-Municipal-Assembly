@@ -112,8 +112,8 @@ router.beforeEach((to, from, next) => {
 
   if (requiresAuth && !isAuthenticated) {
     next('/login');
-  } else {
     resetTimeout();
+  } else {
     next();
   }
 });

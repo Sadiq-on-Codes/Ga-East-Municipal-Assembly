@@ -7,7 +7,7 @@
     </h1>
 
     <div class="relative w-full sm:rounded-lg">
-      <table class="w-full border text-sm text-left text-gray-500 dark:text-gray-400">
+      <table class="w-full border dark:border-gray-600 text-sm text-left text-gray-500 dark:text-gray-400">
         <thead
           class="text-xs text-gray-700 uppercase bg-green-50 dark:bg-gray-700 dark:text-gray-400"
         >
@@ -43,10 +43,10 @@
               >
             </td>
             <td class="px-6 py-4">
-              <a
-                href="#"
+              <button
+                @click="openDeleteModal"
                 class="font-medium text-red-600 dark:text-red-500 hover:underline"
-                >Delete</a
+                >Delete</button
               >
             </td>
           </tr>
@@ -61,7 +61,7 @@
           <span class="font-semibold text-gray-900 dark:text-white">1-10</span>
           of
           <span class="font-semibold text-gray-900 dark:text-white"
-            >1000</span
+            >{{ news.length }}</span
           ></span
         >
         <ul class="inline-flex -space-x-px">
@@ -119,9 +119,20 @@
       </nav>
     </div>
   </div>
+  <DeleteModal @closeDeleteModal='closeDeleteModal' v-if="deleteModal" />
 </template>
 <script setup lang="ts">
+import DeleteModal from "@/components/DeleteModal.vue";
 import { ref } from "vue";
+
+const deleteModal = ref(false)
+const openDeleteModal = () => {
+  deleteModal.value = true;
+}
+
+const closeDeleteModal = () => {
+  deleteModal.value = false;
+}
 
 const news = ref([
   {
@@ -245,5 +256,7 @@ const news = ref([
     postedAt: "Feb 14 2023",
   },
 ]);
+
+
 </script>
 <style></style>

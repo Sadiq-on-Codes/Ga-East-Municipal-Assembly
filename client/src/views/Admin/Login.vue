@@ -59,7 +59,7 @@
             <div class="flex items-center justify-end">
               <a
                 href="#"
-                class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+                class="text-sm font-medium text-primary-600 hover:underline dark:text-white"
                 >Forgot password?</a
               >
             </div>
@@ -94,9 +94,8 @@ const login = async () => {
       password: password.value,
     });
     console.log(store)
-  } catch (err) {
+  } catch (err: any) {
     error.value = err.message;
-    console.log(err.message);
   }
 };
 </script>
