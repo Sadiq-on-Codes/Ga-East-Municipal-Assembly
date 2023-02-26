@@ -289,7 +289,7 @@
     </div>
   </aside>
 
-  <div class="p-4 sm:ml-64">
+  <div class="p-4 sm:ml-64 dark:bg-gray-800 dark:border-gray-700">
     <Dashboard v-if="activeTab === 'dashboard'" />
     <NewPost v-if="activeTab === 'new-post'" />
     <ViewPost v-if="activeTab === 'view-posts'" />
@@ -333,7 +333,7 @@ const logout = () => {
 };
 </script>
 <style scoped>
-.navbar-component {
+/* .navbar-component {
   display: none;
-}
+} */
 </style>
