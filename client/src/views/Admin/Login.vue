@@ -94,9 +94,8 @@ const login = async () => {
       password: password.value,
     });
     console.log(store)
-  } catch (err) {
+  } catch (err: any) {
     error.value = err.message;
-    console.log(err.message);
   }
 };
 </script>
