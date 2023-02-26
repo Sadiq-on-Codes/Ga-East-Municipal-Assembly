@@ -3,11 +3,23 @@ import { AdminService } from './admin.service';
 import { AdminController } from './admin.controller';
 import { Admin } from './admin.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { PostModule } from '../post/post.module';
+import { LocalStrategy } from './local.strategy';
+import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Admin])],
-  providers: [AdminService],
+  imports: [
+    TypeOrmModule.forFeature([Admin]),
+    JwtModule.registerAsync({
+      useFactory: () => ({
+        secret: process.env.AUTH_SECRET,
+        signOptions: {
+          expiresIn: '60m',
+        },
+      }),
+    }),
+  ],
+  providers: [LocalStrategy, JwtStrategy, AdminService],
   controllers: [AdminController],
   exports: [TypeOrmModule.forFeature([Admin])],
 })
