@@ -40,12 +40,12 @@
       class="absolute z-30 flex dark:text-white space-x-3 -translate-x-1/2 bottom-5 left-1/2"
     >
       <button
-        v-for="(item, i) in carouselItem"
-        :key="i"
+        v-for="(item, index) in carouselItem"
+        :key="index"
         type="button"
         class="w-3 h-3 rounded-full"
         aria-current="false"
-        :aria-label="item.slideNo"
+        :aria-label="index.toString()"
         :data-carousel-slide-to="item.count"
       ></button>
     </div>
@@ -178,6 +178,14 @@ const carouselItem = ref([
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporevoluptatibus quia, sequi praesentium suscipit asperiores maxime?",
     slideNo: "Slide 5",
     count: 4,
+  },
+  {
+    image: require("../assets/header-6.jpg"),
+    title: "GA EAST SUPPORTS HOMOWO CELEBRATION AS MCE PRESENTS ITEMS TO TRADITIONAL AUTHORITIES",
+    description:
+      "The Ga East Municipal Assembly (GEMA), have donated various food items and cash to support this year's celebration of Homowo.",
+    slideNo: "Slide 6",
+    count: 5,
   },
 ]);
 </script>
