@@ -59,7 +59,7 @@
             <div class="flex items-center justify-end">
               <a
                 href="#"
-                class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+                class="text-sm font-medium text-primary-600 hover:underline dark:text-white"
                 >Forgot password?</a
               >
             </div>
