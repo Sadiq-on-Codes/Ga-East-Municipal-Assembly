@@ -12,6 +12,8 @@ const OngoingProjects = () => import('../views/Projects/OngoingProjects.vue')
 const SinglePost = () => import('../views/SinglePost.vue')
 const NotFound = () => import('../views/NotFound.vue')
 const AdminPage = () => import('../views/Admin/AdminPage.vue')
+const Login = () => import('../views/Admin/Login.vue')
+import store from '../store/index'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -77,13 +79,48 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/admin',
     name: 'AdminPage',
-    component: AdminPage
+    component: AdminPage,
+    meta: {
+      requiresAuth: true
+    }
   },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+let timeoutId: number;
+
+function resetTimeout() {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(() => {
+    store.dispatch('logout');
+    router.push('/login');
+  }, 60000); // 1 minute
+}
+
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = store.getters.isLoggedIn;
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+  if (requiresAuth && !isAuthenticated) {
+    next('/login');
+  } else {
+    resetTimeout();
+    next();
+  }
+});
+
+window.addEventListener('beforeunload', () => {
+  store.dispatch('clearLogoutTimeout');
+});
+
 
 export default router
