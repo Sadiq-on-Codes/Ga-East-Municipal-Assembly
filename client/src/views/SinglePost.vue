@@ -20,7 +20,7 @@
       </div>
 
       <div class="mb-20 text-left">
-        <div class="text-left font-base text-black dark:text-white" v-html="decodeEntities(postData.article)"></div>
+        <div class="text-justify font-base text-black dark:text-white" v-html="decodeEntities(postData.article)"></div>
       </div>
 
       <div class="mb-20 text-left">
@@ -61,13 +61,13 @@
         <article class="">
           <section class="dark:text-white grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
             <div class="cursor-pointer mb-20" v-for="newsItem in allNews" :key="newsItem.id">
-              <router-link :to="'/single-post/' + newsItem.id" custom v-slot="{ navigate }">
-                <article @click="navigate"
+                <a :href="'/single-post/' + newsItem.id">
+                <article 
                   class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
                   :style="{ backgroundImage: `url(http://gema.gov.gh/images/${newsItem.image})` }">
                   <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
                 </article>
-                <div @click="navigate" class="flex flex-col gap-3 mt-3 text-left">
+                <div class="flex flex-col gap-3 mt-3 text-left">
                   <span
                     class="bg-transparent h-6 text-xs font-medium inline-flex items-center py-0.5 dark:text-green-400">
                     <span class="text-[#25C200] text-base mr-1.5">Posted on
@@ -78,14 +78,13 @@
                   <div class="hover:underline text-news-section-text dark:text-white text-lg" v-html="decodeEntities(newsItem.title.slice(0, 80))"></div>
                   <div class="hover:underline description font-light text-gray-500 dark:text-gray-400" v-html="decodeEntities(newsItem.article.slice(0, 80))"></div>
                 </div>
-              </router-link>
+              </a>
             </div>
           </section>
         </article>
       </div>
     </section>
   </div>
-
   <Footer />
 </template>
 <script setup lang="ts">

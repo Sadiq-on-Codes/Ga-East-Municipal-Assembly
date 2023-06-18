@@ -11,3 +11,9 @@ export const scrollToTop = () => {
       behavior: "smooth",
     });
   };
+
+  export function decodeEntities(data: string) {
+    const textarea = document.createElement('textarea');
+    textarea.innerHTML = data;
+    return textarea.value;
+  }
