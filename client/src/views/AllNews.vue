@@ -6,30 +6,31 @@
       <article class="">
         <section class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
           <div class="cursor-pointer" v-for="newsItem in allNews" :key="newsItem.id">
-            <router-link :to="'/single-post/' + encrypt(newsItem.id)" custom v-slot="{ navigate }">
+            <router-link :to="'/single-post/' + newsItem.id" custom v-slot="{ navigate }">
               <article @click="navigate"
                 class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
                 :style="{ backgroundImage: `url(http://gema.gov.gh/images//${newsItem.image})` }">
                 <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
               </article>
               <div @click="navigate" class="mt-3 text-left">
-                <span class="hover:underline text-news-section-text dark:text-white text-lg">{{ decodeEntities(newsItem.title).slice(0, 50)+"..." }}</span>
-                <div v-html="decodeEntities(newsItem.article.slice(0, 100))" class="hover:underline description font-light text-gray-500 dark:text-gray-400"></div>
-                  <span
-                    class="bg-transparent h-6 text-xs font-medium inline-flex items-center py-0.5 dark:text-green-400">
-                    <span class="text-button-bg-hover text-base mr-1.5">Posted
-                    </span>
-                    |
-                    <span class="text-base ml-1.5">{{ formattedCreatedAt(newsItem?.createdAt) }}</span>
+                <span class="hover:underline text-news-section-text dark:text-white text-lg">{{
+                  decodeEntities(newsItem.title).slice(0, 50) + "..." }}</span>
+                <div v-html="decodeEntities(newsItem.article.slice(0, 100))"
+                  class="hover:underline description font-light text-gray-500 dark:text-gray-400"></div>
+                <span class="bg-transparent h-6 text-xs font-medium inline-flex items-center py-0.5 dark:text-green-400">
+                  <span class="text-button-bg-hover text-base mr-1.5">Posted
                   </span>
-                </div>
+                  |
+                  <span class="text-base ml-1.5">{{ formattedCreatedAt(newsItem?.createdAt) }}</span>
+                </span>
+              </div>
             </router-link>
           </div>
         </section>
         <Loader class="my-52" v-if="allNews.length === 0" />
       </article>
     </section>
-    <Pagination  v-if="allNews.length > 0" :totalCount="allNews.length" />
+    <Pagination v-if="allNews.length > 0" :totalCount="allNews.length" />
     <router-view></router-view>
   </div>
   <Footer />
@@ -40,7 +41,7 @@ import FilterAndSearch from "@/components/FilterAndSearch.vue";
 import Pagination from "@/components/Pagination.vue";
 import Footer from "@/components/Footer.vue";
 import Loader from "@/components/Loader.vue";
-import { decodeEntities, encrypt } from "@/functions";
+import { decodeEntities } from "@/functions";
 import moment from "moment";
 import axios from "axios";
 
@@ -49,12 +50,18 @@ onMounted(() => {
 });
 
 const formattedCreatedAt = (createdAt: string): any => {
-    const dateTime = moment(createdAt);
-    return dateTime.fromNow();
-  };
+  const dateTime = moment(createdAt);
+  return dateTime.fromNow();
+};
 
 const allNews: any = ref([]);
-axios.get('http://localhost:8000/api/v1/posts?category=NEWS')
+axios.get('http://localhost:8000/api/v1/posts', {
+  params: {
+    category: 'NEWS',
+    page: 1,
+    limit: 12
+  }
+})
   .then((response: any) => {
     console.log(response.data);
     allNews.value = response.data;
@@ -66,5 +73,4 @@ axios.get('http://localhost:8000/api/v1/posts?category=NEWS')
 <style>
 /* * {
   outline: 1px solid;
-} */
-</style>
+} */</style>
