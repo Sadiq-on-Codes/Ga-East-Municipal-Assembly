@@ -9,13 +9,13 @@
 
       <section class="news-section flex flex-col gap-20">
         <div
-          v-for="newsItem in newsItems"
+          v-for="newsItem in allNews"
           :key="newsItem.id"
           class="news w-full flex items-center justify-between"
         >
           <article
             class="news-image relative bg-cover bg-center group overflow-hidden hover:scale-105 transition duration-300 ease-in-out"
-            :style="{ backgroundImage: `url(${newsItem.imageUrl})` }"
+            :style="{ backgroundImage: `url(http://gema.gov.gh/images/${newsItem.image})` }"
           ></article>
 
           <div
@@ -28,23 +28,10 @@
               class="bg-transparent h-6 text-base font-medium inline-flex items-center py-0.5 dark:text-green-400"
             >
               <span class="text-button-bg-hover mr-1.5">Posted on </span> |
-              <!-- <svg
-                  aria-hidden="true"
-                  class="w-3 h-3 mx-1"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg> -->
-              <span class="ml-1.5 text-base">{{ newsItem.postedAt }}</span>
+              <span class="ml-1.5 text-base">{{ moment(newsItem.createdAt).format('LL') }}</span>
             </span>
             <p class="description font-light text-gray-500 dark:text-gray-400">
-              {{ newsItem.description }}
+              {{ newsItem.article.slice(0, 200) }}
             </p>
             <div class="title flex justify-start">
               <router-link :to="'/single-post/' + newsItem.id" custom v-slot="{ navigate }"
@@ -75,32 +62,18 @@
   </section>
 </template>
 <script setup lang="ts">
+import axios from "axios";
+import moment from "moment"
 import { ref } from "vue";
-const newsItems = ref([
-  {
-    id: 1,
-    imageUrl: require("../assets/news-1.jpeg"),
-    title: "GEMA HOLDS PUBLIC HEARING ON MTDP",
-    description:
-      "The Ga East Municipal Assembly (GEMA) has held a Public Hearing on the 2022-2025 Medium Term Development Plan (MTDP) to review the needs assessment information gathered from the electoral area-stakeholders engagements and seek their input for final drafting and adoption by the Assembly.",
-    postedAt: "February 17 2023",
-  },
-  {
-    id: 2,
-    imageUrl: require("../assets/news-2.jpeg"),
-    title: "BOI CLINIC TO START OPERATIONS SOON",
-    description:
-      "The Municipal Chief Executive (MCE), for the Ga East Municipal Assembly (GEMA), Hon. Elizabeth Kaakie Mann, has handed over various medical items to the Health Directorate for the operationalization of the Boi Clinic, tasking them to ensure the facility starts operations within the shortest possible time.",
-    postedAt: "Feb 14 2021",
-  },
-  {
-    id: 3,
-    imageUrl: require("../assets/news-3.jpeg"),
-    title: "MCE LEADS STAFF AND RESIDENTS IN SPECIAL CLEAN-UP EXERCISE",
-    description:
-      'The Municipal Chief Executive (MCE) for Ga East Municipal Assembly (GEMA), Hon. Elizabeth Kaakie Mann, Thursday morning led Assembly Staff and residents to embark on a special clean-up exercise to intensify the awareness creation on the "Operation Clean Your Frontage" (OCYF) campaign.',
-    postedAt: "Jan 23 2023",
-  },
-]);
+
+const allNews: any = ref([]);
+axios.get('http://localhost:8000/api/v1/posts?limit=3?category=NEWS')
+  .then((response: any) => {
+    console.log(response.data);
+    allNews.value = response.data;
+  })
+  .catch((error: string) => {
+    console.error(error);
+  });
 </script>
 <style lang=""></style>
