@@ -22,7 +22,7 @@
               {{ item.title.slice(0, 80) }}
             </td>
             <td class="px-6 w-1/6 py-4">
-              <a target="_blank" href="http://localhost:8080/single-post/">Live View</a>
+              <a target="_blank" :href="`http://localhost:8080/single-post/${item.id}`">Live View</a>
             </td>
             <td class="px-6 w-1/6 py-4">
               <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
