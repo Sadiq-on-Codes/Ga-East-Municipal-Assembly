@@ -47,7 +47,6 @@
         if (response.data && Array.isArray(response.data)) {
           gallery.value = response.data;
           console.log(gallery.value);
-          
         }
       })
       .catch((error) => {
@@ -55,7 +54,6 @@
       });
   });
   </script>
-  
   <style scoped>
   .grid-container {
     display: grid;
