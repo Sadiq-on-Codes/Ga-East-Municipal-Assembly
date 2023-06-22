@@ -104,8 +104,10 @@ const route = useRoute();
 const postId = computed(() => route.params.id);
 console.log(postId.value, 'id');
 
+console.log(url + postId.value);
+
 const postData: any = ref([]);
-axios.get(`${url}${postId.value}`)
+axios.get(`${url}/${postId.value}`)
   .then(response => {
     postData.value = response.data;
     console.log(postData.value, 'data');
@@ -115,7 +117,7 @@ axios.get(`${url}${postId.value}`)
   });
 
 const allNews: any = ref([]);
-axios.get('http://localhost:8000/api/v1/posts', {
+axios.get(url, {
   params: {
     limit: 3,
     category: 'NEWS',
