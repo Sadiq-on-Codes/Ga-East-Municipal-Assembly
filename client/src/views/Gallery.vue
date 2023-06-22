@@ -18,10 +18,10 @@
             :src="`http://gema.gov.gh/images/${pin.image}`"
             class="pin-image rounded-lg"
           />
-          <div class="pin-overlay-content">
+          <!-- <div class="pin-overlay-content">
             <h3>{{ pin.title }}</h3>
             <p>{{ pin.description }}</p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -31,13 +31,14 @@
   <script setup lang="ts">
   import axios from "axios";
   import { ref, onMounted } from "vue";
+  import { url } from "@/functions/endpoint";
   import Footer from "@/components/Footer.vue";
   
   const gallery: any = ref([]);
   
   onMounted(() => {
     axios
-      .get("http://localhost:8000/api/v1/posts", {
+      .get(url, {
         params: {
           category: "GALLERY"
         }

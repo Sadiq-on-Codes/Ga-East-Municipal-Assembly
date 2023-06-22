@@ -91,6 +91,7 @@
 import { computed, onMounted, ref } from "vue";
 import Footer from "@/components/Footer.vue";
 import { decodeEntities } from "@/functions";
+import { url } from "@/functions/endpoint";
 import moment from "moment";
 import axios from 'axios';
 import { useRoute } from "vue-router";
@@ -104,7 +105,7 @@ const postId = computed(() => route.params.id);
 console.log(postId.value, 'id');
 
 const postData: any = ref([]);
-axios.get(`http://localhost:8000/api/v1/posts/${postId.value}`)
+axios.get(`${url}${postId.value}`)
   .then(response => {
     postData.value = response.data;
     console.log(postData.value, 'data');
