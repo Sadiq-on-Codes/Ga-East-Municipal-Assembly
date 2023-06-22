@@ -16,7 +16,9 @@ class APIFeatures<T> {
     this.query = query;
     this.queryString = queryString;
   }
-
+  public getQuery(): SelectQueryBuilder<T> {
+    return this.query;
+  }
   filter(): APIFeatures<T> {
     const queryObj = { ...this.queryString };
     const excludedFields = ['page', 'sort', 'limit', 'fields'];
@@ -42,6 +44,7 @@ class APIFeatures<T> {
   limitFields(): APIFeatures<T> {
     if (this.queryString.fields) {
       const fields = this.queryString.fields.split(',').join(' ');
+
       this.query = this.query.select(fields);
     } else {
       this.query = this.query.select();
