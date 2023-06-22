@@ -23,20 +23,21 @@ export class PostService {
   ) {}
 
   async getAllPosts(queryParams): Promise<BlogPost[]> {
-    const queryBuilder = this.postRepository.createQueryBuilder('post');
+    const queryBuilder = this.postRepository.createQueryBuilder();
 
     // Apply filters
-    const apiFeatures = new APIFeatures(queryBuilder, queryParams);
-    apiFeatures.filter();
+    const apiFeatures = new APIFeatures(queryBuilder, queryParams)
 
-    // Apply pagination
-    apiFeatures.paginate();
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
 
     // Execute query
-    const posts = await queryBuilder.getMany();
+    const posts = await apiFeatures.getQuery().getMany();
 
-    if (!posts) {
-      throw new NotFoundException(`No post found`);
+    if (!posts.length) {
+      throw new NotFoundException(`No post to show`);
     }
     return posts;
   }

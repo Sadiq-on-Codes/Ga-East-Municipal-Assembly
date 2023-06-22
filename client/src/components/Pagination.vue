@@ -3,7 +3,7 @@
 <div class="flex flex-col items-center mt-20">
   <!-- Help text -->
   <span class="text-sm text-gray-700 dark:text-gray-400">
-      Showing <span class="font-semibold text-green-900 dark:text-white">1</span> to <span class="font-semibold text-gray-900 dark:text-white">10</span> of <span class="font-semibold text-gray-900 dark:text-white">100</span> Entries
+      Showing <span class="font-semibold text-green-900 dark:text-white">1</span> to <span class="font-semibold text-gray-900 dark:text-white">10</span> of <span class="font-semibold text-gray-900 dark:text-white">{{ totalCount }}</span> Entries
   </span>
   <!-- Buttons -->
   <div class="inline-flex mt-2 xs:mt-0 mb-20">
@@ -18,7 +18,11 @@
 
 </template>
 <script setup lang='ts'>
-
+defineProps({
+    totalCount: {
+        type: Number
+    }
+})
 </script>
 <style>
     

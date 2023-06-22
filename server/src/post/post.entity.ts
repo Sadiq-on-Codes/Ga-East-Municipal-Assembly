@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Comment } from 'src/comment/comment.entity';
 
 import {
