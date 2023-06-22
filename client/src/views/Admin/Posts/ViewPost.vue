@@ -44,6 +44,7 @@
 import DeleteModal from "@/components/DeleteModal.vue";
 import Pagination from "@/components/Pagination.vue";
 import Loader from "@/components/Loader.vue";
+import { url } from "@/functions/endpoint";
 import axios from "axios";
 import { ref } from "vue";
 
@@ -63,7 +64,7 @@ const closeDeleteModal = () => {
 };
 
 const allNews: any = ref([]);
-axios.get('http://localhost:8000/api/v1/posts?category=NEWS')
+axios.get(url)
   .then((response: any) => {
     console.log(response.data);
     allNews.value = response.data;

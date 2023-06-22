@@ -2,7 +2,7 @@
   <div class="dark:bg-gray-800">
     <FilterAndSearch />
     <!-- component -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+    <section class="max-w-7xl mx-auto px-4 sm:px- mb-20 lg:px-4">
       <article class="">
         <section class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
           <div class="cursor-pointer" v-for="newsItem in allNews" :key="newsItem.id">
@@ -30,7 +30,7 @@
         <Loader class="my-52" v-if="allNews.length === 0" />
       </article>
     </section>
-    <Pagination v-if="allNews.length > 0" :totalCount="allNews.length" />
+    <!-- <Pagination v-if="allNews.length > 0" :totalCount="allNews.length" /> -->
     <router-view></router-view>
   </div>
   <Footer />
@@ -38,10 +38,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import FilterAndSearch from "@/components/FilterAndSearch.vue";
-import Pagination from "@/components/Pagination.vue";
+// import Pagination from "@/components/Pagination.vue";
 import Footer from "@/components/Footer.vue";
 import Loader from "@/components/Loader.vue";
 import { decodeEntities } from "@/functions";
+import { url } from "@/functions/endpoint";
+
 import moment from "moment";
 import axios from "axios";
 
@@ -54,12 +56,12 @@ const formattedCreatedAt = (createdAt: string): any => {
   return dateTime.fromNow();
 };
 
+console.log(url);
+
 const allNews: any = ref([]);
-axios.get('http://localhost:8000/api/v1/posts', {
+axios.get(url, {
   params: {
     category: 'NEWS',
-    page: 1,
-    limit: 12
   }
 })
   .then((response: any) => {

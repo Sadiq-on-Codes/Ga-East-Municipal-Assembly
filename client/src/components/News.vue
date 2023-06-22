@@ -40,12 +40,13 @@
 </template>
 <script setup lang="ts">
 import { decodeEntities } from "@/functions";
+import { url } from "@/functions/endpoint";
 import axios from "axios";
 import moment from "moment"
 import { ref } from "vue";
 
 const allNews: any = ref([]);
-axios.get('http://localhost:8000/api/v1/posts', {
+axios.get(url, {
   params: {
     category: 'NEWS',
     limit: 3
