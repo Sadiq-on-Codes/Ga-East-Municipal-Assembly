@@ -9,13 +9,13 @@
             <router-link :to="'/single-post/' + newsItem.id" custom v-slot="{ navigate }">
               <article @click="navigate"
                 class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
-                :style="{ backgroundImage: `url(http://gema.gov.gh/images//${newsItem.image})` }">
+                :style="{ backgroundImage: `url(${newsItem.image})` }">
                 <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
               </article>
               <div @click="navigate" class="mt-3 text-left">
                 <span class="hover:underline text-news-section-text dark:text-white text-lg">{{
-                  decodeEntities(newsItem.title).slice(0, 50) + "..." }}</span>
-                <div v-html="decodeEntities(newsItem.article.slice(0, 100))"
+                  decodeEntities(newsItem.title?.slice(0, 50)) + "..." }}</span>
+                <div v-html="decodeEntities(newsItem.article?.slice(0, 100))"
                   class="hover:underline description font-light text-gray-500 dark:text-gray-400"></div>
                 <span class="bg-transparent h-6 text-xs font-medium inline-flex items-center py-0.5 dark:text-green-400">
                   <span class="text-button-bg-hover text-base mr-1.5">Posted
@@ -30,7 +30,13 @@
         <Loader class="my-52" v-if="allNews.length === 0" />
       </article>
     </section>
-    <!-- <Pagination v-if="allNews.length > 0" :totalCount="allNews.length" /> -->
+    <div class="flex items-center justify-center mb-20 text-center">
+    <Pagination
+        v-model="currentPage"
+        :per-page="perPage"
+        :total-items="count"
+    ></Pagination>
+  </div>
     <router-view></router-view>
   </div>
   <Footer />
@@ -38,12 +44,15 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import FilterAndSearch from "@/components/FilterAndSearch.vue";
-// import Pagination from "@/components/Pagination.vue";
+import { Pagination } from 'flowbite-vue'
 import Footer from "@/components/Footer.vue";
 import Loader from "@/components/Loader.vue";
 import { decodeEntities } from "@/functions";
 import { url } from "@/functions/endpoint";
 
+const perPage = ref(12)
+const currentPage = ref(1)
+let count = ref(0)
 import moment from "moment";
 import axios from "axios";
 
@@ -62,11 +71,14 @@ const allNews: any = ref([]);
 axios.get(url, {
   params: {
     category: 'NEWS',
+    page: currentPage.value,
+    limit: perPage.value
   }
 })
   .then((response: any) => {
     console.log(response.data);
-    allNews.value = response.data;
+    allNews.value = response.data[1];
+    count.value = response.data[0].totalLength;
   })
   .catch((error: string) => {
     console.error(error);
