@@ -74,8 +74,8 @@
                     <span class="py-1 px-1.5 rounded-md bg-[#EBEEF2] text-base ml-1.5">{{
                       moment(newsItem.createdAt).format('LL') }}</span>
                   </span>
-                  <div class="hover:underline text-news-section-text dark:text-white text-lg" v-html="decodeEntities(newsItem.title.slice(0, 80))"></div>
-                  <div class="hover:underline description font-light text-gray-500 dark:text-gray-400" v-html="decodeEntities(newsItem.article.slice(0, 80))"></div>
+                  <div class="hover:underline text-news-section-text dark:text-white text-lg" v-html="decodeEntities(newsItem.title?.slice(0, 80))"></div>
+                  <div class="hover:underline description font-light text-gray-500 dark:text-gray-400" v-html="decodeEntities(newsItem.article?.slice(0, 80))"></div>
                 </div>
               </a>
             </div>
