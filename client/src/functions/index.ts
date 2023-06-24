@@ -15,5 +15,5 @@ export const scrollToTop = () => {
   export function decodeEntities(data: string) {
     const textarea = document.createElement('textarea');
     textarea.innerHTML = data;
-    return textarea.value;
+    return textarea.value ? textarea.value : '';
   }
