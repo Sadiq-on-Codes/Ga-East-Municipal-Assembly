@@ -96,9 +96,9 @@ const router = createRouter({
   routes
 })
 
-let timeoutId: number;
+let timeoutId: ReturnType<typeof setTimeout>;
 
-function resetTimeout() {
+function resetTimeout(): void {
   clearTimeout(timeoutId);
   timeoutId = setTimeout(() => {
     store.dispatch('logout');
