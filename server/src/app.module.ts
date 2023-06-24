@@ -8,8 +8,16 @@ import { UserModule } from './user/user.module';
 import { CommentModule } from './comment/comment.module';
 import { AdminModule } from './admin/admin.module';
 
+import { EventsModule } from './events/events.module';
+import { DepartmentDocumentModule } from './department-document/department-document.module';
+
+import { DepartmentModule } from './department/department.module';
+import { UploadImageModule } from './upload-image/upload-image.module';
+import { MulterModule } from '@nestjs/platform-express';
+
 @Module({
   imports: [
+    MulterModule.register({}),
     ConfigModule.forRoot({
       isGlobal: true,
       load: [typeOrmConfig],
@@ -22,8 +30,12 @@ import { AdminModule } from './admin/admin.module';
     UserModule,
     CommentModule,
     AdminModule,
+    EventsModule,
+    DepartmentDocumentModule,
+    DepartmentModule,
+    UploadImageModule,
   ],
-  controllers: [],
   providers: [AppService],
+  controllers: [],
 })
 export class AppModule {}
