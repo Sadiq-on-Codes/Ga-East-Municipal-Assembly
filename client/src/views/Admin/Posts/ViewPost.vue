@@ -64,15 +64,17 @@ const closeDeleteModal = () => {
 };
 
 const allNews: any = ref([]);
-axios.get(url)
+axios.get(url, {
+  params: {
+    category: 'NEWS',
+  }
+})
   .then((response: any) => {
     console.log(response.data);
-    allNews.value = response.data;
+    allNews.value = response.data[1];
   })
   .catch((error: string) => {
     console.error(error);
   });
 </script>
-<style>
-
-</style>
+<style></style>

@@ -1,7 +1,7 @@
 <template>
   <div class="dark:bg-gray-800 mt-20">
     <section class="single max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
-      <div class="single-post flex mb-20 w-full gap-10 justify-around">
+      <div v-if="postData" class="single-post flex mb-20 w-full gap-10 justify-around">
         <div class="title flex mt-20 text-left flex-col gap-16 items-left">
           <span class="bg-transparent h-6 text-lg font-medium inline-flex items-center py-0.5 dark:text-green-400">
             <span class="text-button-bg-hover text-lg mr-1.5">Posted on </span>
@@ -14,11 +14,10 @@
         </div>
         <article
           class="relative single-post-image w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
-          :style="{ backgroundImage: `url(http://gema.gov.gh/images//${postData.image})` }">
+          :style="{ backgroundImage: `url(postData.image)` }">
           <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
         </article>
       </div>
-
       <div class="mb-20 text-left">
         <div class="text-justify font-base text-black dark:text-white" v-html="decodeEntities(postData.article)"></div>
       </div>
