@@ -8,6 +8,7 @@ async function bootstrap() {
   //app.use(cookieParser());
   app.enableCors({
     origin: [
+      'https://gema-gov-gh-testing.netlify.app',
       'http://localhost:3000',
       'http://localhost:8080',
       'http://localhost:4200',
@@ -16,6 +17,6 @@ async function bootstrap() {
   });
 
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(8000);
+  await app.listen(process.env.PORT || 7000);
 }
 bootstrap();
