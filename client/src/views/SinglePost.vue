@@ -14,7 +14,7 @@
         </div>
         <article
           class="relative single-post-image w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
-          :style="{ backgroundImage: `url(postData.image)` }">
+          :style="{ backgroundImage: `url(${postData.image})` }">
           <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
         </article>
       </div>
