@@ -1,81 +1,34 @@
 <template>
-  <div class="dark:bg-gray-800">
+  <div class="dark:bg-gray-800 mt-20">
     <section class="single max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
-      <div class="single-post flex mb-20 w-full gap-10 justify-around">
-        <div class="title flex mt-20 text-left flex-col gap-28 items-left">
-          <span
-            class="bg-transparent h-6 text-lg font-medium inline-flex items-center py-0.5 dark:text-green-400"
-          >
+      <div v-if="postData" class="single-post flex mb-20 w-full gap-10 justify-around">
+        <div class="title flex mt-20 text-left flex-col gap-16 items-left">
+          <span class="bg-transparent h-6 text-lg font-medium inline-flex items-center py-0.5 dark:text-green-400">
             <span class="text-button-bg-hover text-lg mr-1.5">Posted on </span>
 
-            <span class="text-lg ml-1.5">Feb 14 2023</span>
+            <span class="text-lg ml-1.5">{{ moment(postData.createdAt).format('LL') }}</span>
           </span>
-          <h1
-            class="text-6xl uppercase text-left font-semibold text-[#322121] w-10/12 dark:text-white"
-          >
-            GEMA HOLDS PUBLIC HEARING ON MTDP
+          <h1 class="text-3xl uppercase text-left font-semibold text-[#322121] w-10/12 dark:text-white">
+            {{ decodeEntities(postData.title) }}
           </h1>
         </div>
-        <img
-          class="single-post-image mt-20"
-          src="../assets/news-1.jpeg"
-          alt=""
-        />
+        <article
+          class="relative single-post-image w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
+          :style="{ backgroundImage: `url(${postData.image})` }">
+          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
+        </article>
+      </div>
+      <div class="mb-20 text-left">
+        <div class="text-justify font-base text-black dark:text-white" v-html="decodeEntities(postData.article)"></div>
       </div>
 
       <div class="mb-20 text-left">
-        <span class="text-left font-base text-black dark:text-white">
-          Lorem ipsum dolor sit amet. Ex harum praesentium in quia galisum ea
-          sunt voluptatem est rerum voluptate. Ea voluptas porro aut minima
-          dolorum nam eveniet quia. Aut recusandae iste quo inventore totam aut
-          similique enim et necessitatibus veritatis. <br /><br />
-          Qui fugiat nisi vel velit inventore qui neque odit aut eius
-          praesentium est esse quas. Quo vitae blanditiis non consequatur modi
-          sit autem tenetur aut quia aspernatur est dolorum officia. Ut
-          distinctio officiis quo sequi inventore et repellendus Quis ut eaque
-          omnis est totam laborum. <br /><br />
-          Est optio commodi eum dignissimos quisquam et expedita dolore est quia
-          tempore aut molestiae libero quo nesciunt adipisci. Aut recusandae
-          doloribus hic illum dolores hic totam officiis ut consectetur dolores
-          ab voluptate nihil. <br /><br />
-
-          Lorem ipsum dolor sit amet. Rem nisi debitis nam maiores quia ad
-          aspernatur iure sed cupiditate omnis est possimus illum sit iusto
-          dolor et ipsam dignissimos. Et similique molestiae aut harum expedita
-          33 voluptatem maiores ut modi voluptates aut ullam voluptatibus ab
-          harum earum ut voluptatibus enim! In voluptas iure ut velit beatae et
-          aliquam vero aut omnis dolorem sit odit dolore et iusto dolor! Non
-          nihil dolores vel tenetur explicabo aut expedita enim quo alias saepe
-          qui quam enim. At aliquam sint hic beatae Quis eos pariatur illum in
-          obcaecati nesciunt! Sed ducimus pariatur cum voluptatum quia id
-          aperiam debitis non dolorem praesentium ea voluptatibus similique? Sed
-          quidem alias eos rerum deleniti ut ipsam internos 33 consequatur
-          officia aut quisquam nemo in deleniti asperiores! <br /><br />
-          Qui aspernatur quaerat sed nisi mollitia ea adipisci sequi et
-          molestias doloremque et consequuntur impedit. Eum vero amet nam
-          voluptatem ipsa sit suscipit molestiae est odit nihil qui inventore
-          quibusdam 33 obcaecati quibusdam qui saepe recusandae! Eos quis
-          sapiente sit debitis deserunt ut quod voluptate in Quis illum. Sit
-          distinctio praesentium nam rerum saepe et consectetur dolores? Non
-          molestiae consequuntur ut velit voluptatem non magnam consectetur ut
-          accusantium fuga hic consequatur eaque ea ratione repudiandae et
-          voluptatem atque.
-        </span>
-      </div>
-
-      <div class="mb-20 text-left">
-        <span class="block w-full text-left pb-4 border-b-2 dark:text-white"
-          >Comments</span
-        >
+        <span class="block w-full text-left pb-4 border-b-2 dark:text-white">Comments</span>
         <div class="mx-5 mt-10 flex gap-3">
           <img src="../assets/profile.svg" alt="" />
           <div class="flex content-center my-auto flex-col gap-1.5">
-            <span class="text-[#847474] font-semibold uppercase"
-              >Abubakar Sadick Yahaya</span
-            >
-            <span class="dark:text-white"
-              >Ga East is the best municipality in Ghana</span
-            >
+            <span class="text-[#847474] font-semibold uppercase">Abubakar Sadick Yahaya</span>
+            <span class="dark:text-white">Ga East is the best municipality in Ghana</span>
           </div>
         </div>
 
@@ -83,27 +36,17 @@
           <form>
             <label for="chat" class="sr-only">Your message</label>
             <div
-              class="flex items-center px-3 py-2 bg-transparent rounded-full border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
-            >
-              <input
-                id="chat"
+              class="flex items-center px-3 py-2 bg-transparent rounded-full border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+              <input id="chat"
                 class="comment block mx-4 p-2.5 w-full :hover-border-0 text-sm text-gray-900 dark:text-white bg-transparent"
-                placeholder="Add a comment..."
-              />
-              <button
-                type="submit"
-                class="inline-flex justify-center p-2 text-button-bg rounded-full cursor-pointer hover:bg-blue-100 dark:text-green-500 dark:hover:bg-gray-600"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="w-6 h-6 rotate-90"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                placeholder="Add a comment..." />
+              <button type="submit"
+                class="inline-flex justify-center p-2 text-button-bg rounded-full cursor-pointer hover:bg-blue-100 dark:text-green-500 dark:hover:bg-gray-600">
+                <svg aria-hidden="true" class="w-6 h-6 rotate-90" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
-                  ></path>
+                    d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z">
+                  </path>
                 </svg>
                 <span class="sr-only">Send message</span>
               </button>
@@ -113,97 +56,80 @@
       </div>
 
       <div class="">
-        <span class="mb-5 block w-full font-semibold text-left dark:text-white"
-          >You may also like</span
-        >
+        <span class="mb-5 block w-full font-semibold text-left dark:text-white">You may also like</span>
         <article class="">
-          <section
-            class="dark:text-white grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20"
-          >
-            <div
-              class="cursor-pointer mb-20"
-              v-for="newsItem in news"
-              :key="newsItem.id"
-            >
-              <router-link
-                :to="'/single-post/' + newsItem.id"
-                custom
-                v-slot="{ navigate }"
-              >
-                <article
-                  @click="navigate"
+          <section class="dark:text-white grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
+            <div class="cursor-pointer mb-20" v-for="newsItem in allNews" :key="newsItem.id">
+                <a :href="'/single-post/' + newsItem.id">
+                <article 
                   class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
-                  :style="{ backgroundImage: `url(${newsItem.imageUrl})` }"
-                >
-                  <div
-                    class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"
-                  ></div>
+                  :style="{ backgroundImage: `url(http://gema.gov.gh/images/${newsItem.image})` }">
+                  <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
                 </article>
-                <div
-                  @click="navigate"
-                  class="flex flex-col gap-3 mt-3 text-left"
-                >
+                <div class="flex flex-col gap-3 mt-3 text-left">
                   <span
-                    class="bg-transparent h-6 text-xs font-medium inline-flex items-center py-0.5 dark:text-green-400"
-                  >
-                    <span class="text-[#25C200] text-base mr-1.5"
-                      >Posted on
+                    class="bg-transparent h-6 text-xs font-medium inline-flex items-center py-0.5 dark:text-green-400">
+                    <span class="text-[#25C200] text-base mr-1.5">Posted on
                     </span>
-                    <span
-                      class="py-1 px-1.5 rounded-md bg-[#EBEEF2] text-base ml-1.5"
-                      >{{ newsItem.postedAt }}</span
-                    >
+                    <span class="py-1 px-1.5 rounded-md bg-[#EBEEF2] text-base ml-1.5">{{
+                      moment(newsItem.createdAt).format('LL') }}</span>
                   </span>
-                  <span
-                    class="hover:underline text-news-section-text dark:text-white text-lg"
-                    >{{ newsItem.title }}</span
-                  >
-                  <p
-                    class="hover:underline description font-light text-gray-500 dark:text-gray-400"
-                  >
-                    {{ newsItem.description.slice(0, 80) }}
-                  </p>
+                  <div class="hover:underline text-news-section-text dark:text-white text-lg" v-html="decodeEntities(newsItem.title?.slice(0, 80))"></div>
+                  <div class="hover:underline description font-light text-gray-500 dark:text-gray-400" v-html="decodeEntities(newsItem.article?.slice(0, 80))"></div>
                 </div>
-              </router-link>
+              </a>
             </div>
           </section>
         </article>
       </div>
     </section>
   </div>
-
   <Footer />
 </template>
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import Footer from "@/components/Footer.vue";
+import { decodeEntities } from "@/functions";
+import { url } from "@/functions/endpoint";
+import moment from "moment";
+import axios from 'axios';
+import { useRoute } from "vue-router";
 
-const news = ref([
-  {
-    id: 1,
-    imageUrl: require("../assets/news-3.jpeg"),
-    title: "GEMA HOLDS PUBLIC HEARING ON MTDP",
-    description:
-      "The Ga East Municipal Assembly (GEMA) has held a Public Hearing on the 2022-2025 Medium Term Development Plan (MTDP) to review the needs assessment information gathered from the electoral area-stakeholders engagements and seek their input for final drafting and adoption by the Assembly.",
-    postedAt: "5 mins ago",
-  },
-  {
-    id: 2,
-    imageUrl: require("../assets/news-2.jpeg"),
-    title: "BOI CLINIC TO START OPERATIONS SOON",
-    description:
-      "The Municipal Chief Executive (MCE), for the Ga East Municipal Assembly (GEMA), Hon. Elizabeth Kaakie Mann, has handed over various medical items to the Health Directorate for the operationalization of the Boi Clinic, tasking them to ensure the facility starts operations within the shortest possible time.",
-    postedAt: "Feb 14 2023",
-  },
-  {
-    id: 3,
-    imageUrl: require("../assets/news-1.jpeg"),
-    title: "MCE LEADS STAFF AND RESIDENTS IN SPECIAL CLEAN-UP EXERCISE",
-    description:
-      'The Municipal Chief Executive (MCE) for Ga East Municipal Assembly (GEMA), Hon. Elizabeth Kaakie Mann, Thursday morning led Assembly Staff and residents to embark on a special clean-up exercise to intensify the awareness creation on the "Operation Clean Your Frontage" (OCYF) campaign.',
-    postedAt: "Jan 23 2023",
-  },
-]);
+onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+const route = useRoute();
+const postId = computed(() => route.params.id);
+console.log(postId.value, 'id');
+
+console.log(url + postId.value);
+
+const postData: any = ref([]);
+axios.get(`${url}/${postId.value}`)
+  .then(response => {
+    postData.value = response.data;
+    console.log(postData.value, 'data');
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+const allNews: any = ref([]);
+axios.get(url, {
+  params: {
+    limit: 3,
+    category: 'NEWS',
+    createdAt: { $lt: postData.value.createdAt }
+  }
+})
+  .then((response) => {
+    allNews.value = response.data;
+    console.log(allNews.value, 'allNews');
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 </script>
 <style scoped>
 /* * {
@@ -219,7 +145,7 @@ const news = ref([
 }
 
 .single-post-image {
-  width: 38em;
+  width: 100em;
   height: auto;
 }
 
