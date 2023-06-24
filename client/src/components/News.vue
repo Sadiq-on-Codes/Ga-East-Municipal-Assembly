@@ -52,7 +52,7 @@ axios.get(url, {
   }
 }).then((response: any) => {
   console.log(response.data);
-  allNews.value = response.data;
+  allNews.value = response.data[1];
 })
   .catch((error: string) => {
     console.error(error);

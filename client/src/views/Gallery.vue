@@ -46,7 +46,7 @@ onMounted(() => {
     })
     .then((response) => {
       if (response.data && Array.isArray(response.data)) {
-        gallery.value = response.data;
+        gallery.value = response.data[1];
         console.log(gallery.value);
       }
     })
