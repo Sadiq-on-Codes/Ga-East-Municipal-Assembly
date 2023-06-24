@@ -45,14 +45,14 @@ import moment from "moment"
 import { ref } from "vue";
 
 const allNews: any = ref([]);
-axios.get(url, {
+axios.get(`${url}/posts`, {
   params: {
     category: 'NEWS',
     limit: 3
   }
 }).then((response: any) => {
   console.log(response.data);
-  allNews.value = response.data;
+  allNews.value = response.data[1];
 })
   .catch((error: string) => {
     console.error(error);

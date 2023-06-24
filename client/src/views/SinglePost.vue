@@ -2,7 +2,7 @@
   <div class="dark:bg-gray-800 mt-20">
     <section class="single max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
       <div v-if="postData" class="single-post flex mb-20 w-full gap-10 justify-around">
-        <div class="title flex mt-20 text-left flex-col gap-16 items-left">
+        <div class="title flex mt-20 text-left w-1/2 flex-col gap-16 items-left">
           <span class="bg-transparent h-6 text-lg font-medium inline-flex items-center py-0.5 dark:text-green-400">
             <span class="text-button-bg-hover text-lg mr-1.5">Posted on </span>
 
@@ -12,11 +12,13 @@
             {{ decodeEntities(postData.title) }}
           </h1>
         </div>
-        <article
-          class="relative single-post-image w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
-          :style="{ backgroundImage: `url(${postData.image})` }">
-          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
-        </article>
+        <div class="w-1/2">
+          <article
+            class="relative single-post-image w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
+            :style="{ backgroundImage: `url(${postData.image})` }">
+            <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
+          </article>
+        </div>
       </div>
       <div class="mb-20 text-left">
         <div class="text-justify font-base text-black dark:text-white" v-html="decodeEntities(postData.article)"></div>
@@ -60,8 +62,8 @@
         <article class="">
           <section class="dark:text-white grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
             <div class="cursor-pointer mb-20" v-for="newsItem in allNews" :key="newsItem.id">
-                <a :href="'/single-post/' + newsItem.id">
-                <article 
+              <a :href="'/single-post/' + newsItem.id">
+                <article
                   class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
                   :style="{ backgroundImage: `url(http://gema.gov.gh/images/${newsItem.image})` }">
                   <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
@@ -74,8 +76,10 @@
                     <span class="py-1 px-1.5 rounded-md bg-[#EBEEF2] text-base ml-1.5">{{
                       moment(newsItem.createdAt).format('LL') }}</span>
                   </span>
-                  <div class="hover:underline text-news-section-text dark:text-white text-lg" v-html="decodeEntities(newsItem.title?.slice(0, 80))"></div>
-                  <div class="hover:underline description font-light text-gray-500 dark:text-gray-400" v-html="decodeEntities(newsItem.article?.slice(0, 80))"></div>
+                  <div class="hover:underline text-news-section-text dark:text-white text-lg"
+                    v-html="decodeEntities(newsItem.title?.slice(0, 80))"></div>
+                  <div class="hover:underline description font-light text-gray-500 dark:text-gray-400"
+                    v-html="decodeEntities(newsItem.article?.slice(0, 80))"></div>
                 </div>
               </a>
             </div>
@@ -106,7 +110,7 @@ console.log(postId.value, 'id');
 console.log(url + postId.value);
 
 const postData: any = ref([]);
-axios.get(`${url}/${postId.value}`)
+axios.get(`${url}/posts/${postId.value}`)
   .then(response => {
     postData.value = response.data;
     console.log(postData.value, 'data');
@@ -116,7 +120,7 @@ axios.get(`${url}/${postId.value}`)
   });
 
 const allNews: any = ref([]);
-axios.get(url, {
+axios.get(`${url}/posts`, {
   params: {
     limit: 3,
     category: 'NEWS',
@@ -124,7 +128,7 @@ axios.get(url, {
   }
 })
   .then((response) => {
-    allNews.value = response.data;
+    allNews.value = response.data[1];
     console.log(allNews.value, 'allNews');
   })
   .catch((error) => {
@@ -132,9 +136,9 @@ axios.get(url, {
   });
 </script>
 <style scoped>
-/* * {
+* {
   outline: 1px solid;
-} */
+}
 
 .comment:hover,
 .comment:active,
