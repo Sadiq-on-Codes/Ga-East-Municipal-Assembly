@@ -68,7 +68,7 @@ const formattedCreatedAt = (createdAt: string): any => {
 console.log(url);
 
 const allNews: any = ref([]);
-axios.get(url, {
+axios.get(`${url}/posts`, {
   params: {
     category: 'NEWS',
     page: currentPage.value,

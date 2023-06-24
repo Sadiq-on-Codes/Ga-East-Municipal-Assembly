@@ -22,7 +22,7 @@ export class PostService {
     @InjectRepository(Admin) private adminRepository: Repository<Admin>,
   ) {}
 
-  async getAllPosts(queryParams): Promise<BlogPost[]> {
+  async getAllPosts(queryParams): Promise<BlogPost[] | any> {
     const queryBuilder = this.postRepository.createQueryBuilder();
 
     // Apply filters
@@ -34,12 +34,12 @@ export class PostService {
       .paginate();
 
     // Execute query
-    const posts = await apiFeatures.getQuery().getMany();
+    const [posts, totalLength] = await apiFeatures.getQuery().getManyAndCount();
 
-    if (!posts.length) {
+    if (!posts) {
       throw new NotFoundException(`No post to show`);
     }
-    return posts;
+    return [{ totalLength }, posts];
   }
   async getPostsByCreatedAt(days: number): Promise<BlogPost[]> {
     const currentDate = new Date();
@@ -52,12 +52,17 @@ export class PostService {
   }
 
   async getPostById(postId: number) {
-    return this.postRepository.findOne({
+    const post = await this.postRepository.findOne({
       where: {
         id: postId,
       },
       relations: ['comments', 'comments.user'],
     });
+
+    if (!post) {
+      throw new NotFoundException(`No post found`);
+    }
+    return post;
   }
 
   async createPost(postDto: CreatePostDto): Promise<BlogPost> {
