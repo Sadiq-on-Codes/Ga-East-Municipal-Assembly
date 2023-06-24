@@ -39,7 +39,7 @@ const gallery: any = ref([]);
 
 onMounted(() => {
   axios
-    .get(url, {
+    .get(`${url}/posts`, {
       params: {
         category: "GALLERY"
       }

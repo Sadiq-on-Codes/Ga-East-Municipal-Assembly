@@ -45,7 +45,7 @@ import moment from "moment"
 import { ref } from "vue";
 
 const allNews: any = ref([]);
-axios.get(url, {
+axios.get(`${url}/posts`, {
   params: {
     category: 'NEWS',
     limit: 3
