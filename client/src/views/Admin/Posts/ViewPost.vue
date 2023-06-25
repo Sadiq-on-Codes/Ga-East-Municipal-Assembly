@@ -64,7 +64,7 @@ const closeDeleteModal = () => {
 };
 
 const allNews: any = ref([]);
-axios.get(url, {
+axios.get(`${url}/posts`, {
   params: {
     category: 'NEWS',
   }
