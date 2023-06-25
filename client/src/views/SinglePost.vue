@@ -13,9 +13,8 @@
           </h1>
         </div>
         <div class="w-1/2">
-          <article
-            :style="{ backgroundImage: `url(${postData?.image})` }">
-            <img class="relative single-post-image w-full h-40 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out" :src="postData.image" alt="">
+          <article>
+            <img class="relative single-post-image w-full h-40 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out" :src="appendBaseURL(postData.image)" alt="">
             <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
           </article>
         </div>
@@ -65,7 +64,7 @@
               <a :href="'/single-post/' + newsItem?.id">
                 <article
                   class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
-                  :style="{ backgroundImage: `url(${newsItem?.image})` }">
+                  :style="{ backgroundImage: `url(${appendBaseURL(newsItem.image)})` }">
                   <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
                 </article>
                 <div class="flex flex-col gap-3 mt-3 text-left">
@@ -93,7 +92,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
 import Footer from "@/components/Footer.vue";
-import { decodeEntities } from "@/functions";
+import { decodeEntities, appendBaseURL } from "@/functions";
 import { url } from "@/functions/endpoint";
 import moment from "moment";
 import axios from 'axios';
