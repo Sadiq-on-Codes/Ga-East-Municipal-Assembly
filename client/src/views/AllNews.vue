@@ -9,7 +9,7 @@
             <router-link :to="`/single-post/${newsItem.id}`" custom v-slot="{ navigate }">
               <article @click="navigate"
                 class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
-                :style="{ backgroundImage: `url(${newsItem.image})` }">
+                :style="{ backgroundImage: `url(${appendBaseURL(newsItem.image)})` }">
                 <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
               </article>
               <div @click="navigate" class="mt-3 text-left">
@@ -48,7 +48,7 @@ import FilterAndSearch from "@/components/FilterAndSearch.vue";
 import { Pagination } from 'flowbite-vue'
 import Footer from "@/components/Footer.vue";
 import Loader from "@/components/Loader.vue";
-import { decodeEntities } from "@/functions";
+import { decodeEntities, appendBaseURL } from "@/functions";
 import { url } from "@/functions/endpoint";
 
 const loading = ref(false);

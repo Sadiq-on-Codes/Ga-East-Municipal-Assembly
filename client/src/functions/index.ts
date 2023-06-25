@@ -12,8 +12,15 @@ export const scrollToTop = () => {
     });
   };
 
-  export function decodeEntities(data: string) {
+  export const decodeEntities = (data: string) => {
     const textarea = document.createElement('textarea');
     textarea.innerHTML = data;
     return textarea.value ? textarea.value : '';
   }
+
+  export const appendBaseURL = (imageURL: string): string => {
+    if (!imageURL?.startsWith('https')) {
+      return `https://gema-gh-6b3bf99ee2e9.herokuapp.com/uploads/${imageURL}`;
+    } 
+    return imageURL;
+  };

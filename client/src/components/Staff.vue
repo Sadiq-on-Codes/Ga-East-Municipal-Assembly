@@ -12,7 +12,7 @@
           </button></router-link>
       </div>
 
-      <section class="staff-section mt-6 flex gap-5">
+      <section class="staff-section mt-6 flex justify-between gap-5">
         <div class="w-[70%] section-1">
           <h3 class="text-left text-xl font-bold mb-5">Hon. Elizabeth Kaakie Mann's First 100 Days in Office</h3>
           <div class="text-justify" v-for="paragraph  in paragraphs">
@@ -20,8 +20,8 @@
           </div>
 
         </div>
-        <div class="bg-[#e9e9e9] w-[30%]">
-          <div class="w-full h-full my-auto mx-auto section-2">
+        <div class="bg-[#e9e9e9] w-[25%]">
+          <div class="w-full px-6 pt-6 h-full my-auto mx-auto section-2">
           <img class="w-full h-full mx-auto" src="../assets/mce.png" alt="" />
           <p class="font-bold dark:text-white mt-2 uppercase">HON. ELIZABETH KAAKIE MANN</p>
         </div>
@@ -41,9 +41,7 @@ const paragraphs = [
 ];
 </script>
 <style scoped>
-* {
-  outline: 1px solid;
-}
+
 
 @media (max-width: 600px) {
   .staff-section {
