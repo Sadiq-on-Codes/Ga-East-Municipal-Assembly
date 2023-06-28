@@ -35,27 +35,37 @@
     </div>
 
     <button type="button"
+      :disabled="createPostData.title === '' || createPostData.article === '' || !createPostData.image || createPostData.category === '' || uploading"
       class="mt-10 self-center w-40 mb-20 button text-white font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-green-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover hover:bg-button-bg-hover"
       @click="savePost">
+      <span v-if="uploading" class="mr-2">
+        <svg class="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-1.647z">
+          </path>
+        </svg>
+      </span>
       Publish post
     </button>
   </div>
   <div v-if="showSuccessMessage"
-  class="fixed top-15 mx-auto flex p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
-  role="alert">
-  <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
-    xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd"
-      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-      clip-rule="evenodd"></path>
-  </svg>
-  <span class="sr-only">Info</span>
-  <div>
-    <span class="font-medium">Success alert!</span> {{ successMessage }}
+    class="fixed top-16 w-fit mx-auto left-0 right-0 flex items-center justify-center p-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800 z-50"
+    role="alert">
+    <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd"
+        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+        clip-rule="evenodd"></path>
+    </svg>
+    <span class="sr-only">Info</span>
+    <div>
+      <span class="font-medium">Success alert!</span> {{ successMessage }}
+    </div>
   </div>
-</div>
 
-  <!-- <div v-if="error"
+
+  <div v-if="errorAlert"
     class="fixed top-15  flex p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
     role="alert">
     <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
@@ -68,7 +78,7 @@
     <div>
       <span class="font-medium">Danger alert!</span> {{ errorMessage }}
     </div>
-  </div> -->
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -83,9 +93,12 @@ onMounted(() => {
   initTooltips();
 });
 
-let success = ref(false);
+const uploading = ref(false);
+let successMessage = ref('');
+let showSuccessMessage = ref(false);
 let errorAlert = ref(false);
 let errorMessage = ref('');
+
 
 const createPostData = reactive({
   title: "",
@@ -100,17 +113,21 @@ const handleImageChange = async (event: any) => {
   formData.append('image', file);
 
   try {
+    uploading.value = true;
     const response = await axios.post(`${url}/upload`, formData);
     console.log(response.data, 'resdata');
-    createPostData.image = response.data
+    createPostData.image = response.data;
+    uploading.value = false;
   } catch (error) {
     console.error(error);
+    uploading.value = false;
     throw error;
   }
 };
 
 const savePost = async () => {
-  try {    
+  uploading.value = true;
+  try {
     const postData = {
       title: createPostData.title,
       article: createPostData.article,
@@ -118,18 +135,33 @@ const savePost = async () => {
       category: createPostData.category,
     };
 
-    await axios.post(`${url}/posts/create/post`, postData);
+    // Upload the image
+    const uploadImagePromise = createPostData.image
+      ? axios.post(`${url}/upload`, { image: createPostData.image })
+      : Promise.resolve();
 
-    console.log(postData, 'save');
+    // Wait for both the image upload and the post request to resolve
+    await Promise.all([uploadImagePromise, axios.post(`${url}/posts/create/post`, postData)]);
+
+    successMessage.value = 'Post saved successfully!';
+    showSuccessMessage.value = true;
     createPostData.title = '';
     createPostData.article = '';
     createPostData.image = null;
     createPostData.category = '';
+
+    setTimeout(() => {
+      showSuccessMessage.value = true;
+    }, 2000);
+    window.location.reload();
+    uploading.value = false;
   } catch (error) {
-    console.error(error);
-    throw error;
+    uploading.value = false;
+    errorAlert.value = true;
+    errorMessage.value = "An error occurred while saving the post.";
   }
 };
+
 
 console.log(createPostData);
 </script>
@@ -138,4 +170,14 @@ console.log(createPostData);
 /* * {
   outline: 1px solid;
 } */
+.button {
+  position: relative;
+}
+
+.button .animate-spin {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 0.5rem);
+  transform: translate(-50%, -50%);
+}
 </style>
