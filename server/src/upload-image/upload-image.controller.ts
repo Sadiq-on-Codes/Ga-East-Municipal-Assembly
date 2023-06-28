@@ -15,5 +15,6 @@ export class UploadImageController {
     // Handle the uploaded file here
     console.log('file uploaded successful');
     console.log(file); // Access the file object with its details
+    return file.filename;
   }
 }

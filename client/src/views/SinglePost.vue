@@ -6,22 +6,21 @@
           <span class="bg-transparent h-6 text-lg font-medium inline-flex items-center py-0.5 dark:text-green-400">
             <span class="text-button-bg-hover text-lg mr-1.5">Posted on </span>
 
-            <span class="text-lg ml-1.5">{{ moment(postData.createdAt).format('LL') }}</span>
+            <span class="text-lg ml-1.5">{{ moment(postData?.createdAt).format('LL') }}</span>
           </span>
           <h1 class="text-3xl uppercase text-left font-semibold text-[#322121] w-10/12 dark:text-white">
-            {{ decodeEntities(postData.title) }}
+            {{ decodeEntities(postData?.title) }}
           </h1>
         </div>
         <div class="w-1/2">
-          <article
-            class="relative single-post-image w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
-            :style="{ backgroundImage: `url(${postData.image})` }">
+          <article>
+            <img class="relative single-post-image w-full h-40 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out" :src="appendBaseURL(postData.image)" alt="">
             <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
           </article>
         </div>
       </div>
       <div class="mb-20 text-left">
-        <div class="text-justify font-base text-black dark:text-white" v-html="decodeEntities(postData.article)"></div>
+        <div class="text-justify font-base text-black dark:text-white" v-html="decodeEntities(postData?.article)"></div>
       </div>
 
       <div class="mb-20 text-left">
@@ -62,10 +61,10 @@
         <article class="">
           <section class="dark:text-white grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
             <div class="cursor-pointer mb-20" v-for="newsItem in allNews" :key="newsItem.id">
-              <a :href="'/single-post/' + newsItem.id">
+              <a :href="'/single-post/' + newsItem?.id">
                 <article
                   class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
-                  :style="{ backgroundImage: `url(http://gema.gov.gh/images/${newsItem.image})` }">
+                  :style="{ backgroundImage: `url(${appendBaseURL(newsItem.image)})` }">
                   <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
                 </article>
                 <div class="flex flex-col gap-3 mt-3 text-left">
@@ -74,12 +73,12 @@
                     <span class="text-[#25C200] text-base mr-1.5">Posted on
                     </span>
                     <span class="py-1 px-1.5 rounded-md bg-[#EBEEF2] text-base ml-1.5">{{
-                      moment(newsItem.createdAt).format('LL') }}</span>
+                      moment(newsItem?.createdAt).format('LL') }}</span>
                   </span>
                   <div class="hover:underline text-news-section-text dark:text-white text-lg"
-                    v-html="decodeEntities(newsItem.title?.slice(0, 80))"></div>
+                    v-html="decodeEntities(newsItem?.title?.slice(0, 80))"></div>
                   <div class="hover:underline description font-light text-gray-500 dark:text-gray-400"
-                    v-html="decodeEntities(newsItem.article?.slice(0, 80))"></div>
+                    v-html="decodeEntities(newsItem?.article?.slice(0, 80))"></div>
                 </div>
               </a>
             </div>
@@ -93,7 +92,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
 import Footer from "@/components/Footer.vue";
-import { decodeEntities } from "@/functions";
+import { decodeEntities, appendBaseURL } from "@/functions";
 import { url } from "@/functions/endpoint";
 import moment from "moment";
 import axios from 'axios';
@@ -105,9 +104,6 @@ onMounted(() => {
 
 const route = useRoute();
 const postId = computed(() => route.params.id);
-console.log(postId.value, 'id');
-
-console.log(url + postId.value);
 
 const postData: any = ref([]);
 axios.get(`${url}/posts/${postId.value}`)
@@ -124,7 +120,7 @@ axios.get(`${url}/posts`, {
   params: {
     limit: 3,
     category: 'NEWS',
-    createdAt: { $lt: postData.value.createdAt }
+    createdAt: { $lt: postData.value?.createdAt }
   }
 })
   .then((response) => {
@@ -136,10 +132,6 @@ axios.get(`${url}/posts`, {
   });
 </script>
 <style scoped>
-* {
-  outline: 1px solid;
-}
-
 .comment:hover,
 .comment:active,
 .comment:focus {

@@ -4,12 +4,12 @@
     <!-- component -->
     <section class="max-w-7xl mx-auto px-4 sm:px- mb-20 lg:px-4">
       <article class="">
-        <section class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
+        <section v-if="!loading" class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
           <div class="cursor-pointer" v-for="newsItem in allNews" :key="newsItem.id">
-            <router-link :to="'/single-post/' + newsItem.id" custom v-slot="{ navigate }">
+            <router-link :to="`/single-post/${newsItem.id}`" custom v-slot="{ navigate }">
               <article @click="navigate"
                 class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
-                :style="{ backgroundImage: `url(${newsItem.image})` }">
+                :style="{ backgroundImage: `url(${appendBaseURL(newsItem.image)})` }">
                 <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
               </article>
               <div @click="navigate" class="mt-3 text-left">
@@ -27,7 +27,7 @@
             </router-link>
           </div>
         </section>
-        <Loader class="my-52" v-if="allNews.length === 0" />
+        <Loader class="my-52" v-if="loading" />
       </article>
     </section>
     <div class="flex items-center justify-center mb-20 text-center">
@@ -35,6 +35,7 @@
         v-model="currentPage"
         :per-page="perPage"
         :total-items="count"
+        :layout="'table'"
     ></Pagination>
   </div>
     <router-view></router-view>
@@ -42,14 +43,15 @@
   <Footer />
 </template>
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import FilterAndSearch from "@/components/FilterAndSearch.vue";
 import { Pagination } from 'flowbite-vue'
 import Footer from "@/components/Footer.vue";
 import Loader from "@/components/Loader.vue";
-import { decodeEntities } from "@/functions";
+import { decodeEntities, appendBaseURL } from "@/functions";
 import { url } from "@/functions/endpoint";
 
+const loading = ref(false);
 const perPage = ref(12)
 const currentPage = ref(1)
 let count = ref(0)
@@ -66,25 +68,42 @@ const formattedCreatedAt = (createdAt: string): any => {
 };
 
 console.log(url);
-
 const allNews: any = ref([]);
-axios.get(`${url}/posts`, {
-  params: {
-    category: 'NEWS',
-    page: currentPage.value,
-    limit: perPage.value
-  }
-})
-  .then((response: any) => {
-    console.log(response.data);
-    allNews.value = response.data[1];
-    count.value = response.data[0].totalLength;
-  })
-  .catch((error: string) => {
-    console.error(error);
-  });
+const fetchNewsItems = () => {
+  loading.value = true; // Set loading to true before making the API request
+
+  axios
+    .get(`${url}/posts`, {
+      params: {
+        category: 'NEWS',
+        page: currentPage.value,
+        limit: perPage.value
+      }
+    })
+    .then((response: any) => {
+      allNews.value = response.data[1];
+      count.value = response.data[0].totalLength;
+    })
+    .catch((error: string) => {
+      console.error(error);
+    })
+    .finally(() => {
+      loading.value = false; // Set loading to false after the API request completes
+    });
+};
+
+// Watcher for currentPage
+watch(currentPage, fetchNewsItems);
+
+fetchNewsItems();
 </script>
-<style>
+<style scoped>
 /* * {
   outline: 1px solid;
-} */</style>
+} */
+
+.active-page {
+  background-color: blue;
+  color: white;
+}
+</style>

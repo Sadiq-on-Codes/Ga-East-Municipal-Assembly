@@ -9,7 +9,7 @@
       gridColumnEnd: `span ${pin.width}`
     }">
       <div class="pin-overlay">
-        <img :src="`http://gema.gov.gh/images/${pin.image}`" class="pin-image rounded-lg" />
+        <img :src="appendBaseURL(pin.image)" class="pin-image rounded-lg" />
         <!-- <div class="pin-overlay-content">
             <h3>{{ pin.title }}</h3>
             <p>{{ pin.description }}</p>
@@ -17,13 +17,6 @@
       </div>
     </div>
   </div>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="grid gap-4">
-        <div v-for="pin in gallery" :key="pin.id">
-          <img class="h-auto max-w-full rounded-lg" :src="`http://gema.gov.gh/images/${pin.image}`" :alt="pin.alt">
-        </div>
-      </div>
-    </div>
   <Loader class="my-52" v-if="gallery.length === 0" />
   <Footer />
 </template>
@@ -34,6 +27,7 @@ import { ref, onMounted } from "vue";
 import { url } from "@/functions/endpoint";
 import Footer from "@/components/Footer.vue";
 import Loader from "@/components/Loader.vue";
+import { appendBaseURL } from "@/functions";
 
 const gallery: any = ref([]);
 
