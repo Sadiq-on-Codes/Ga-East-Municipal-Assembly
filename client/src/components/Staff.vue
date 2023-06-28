@@ -12,23 +12,21 @@
           </button></router-link>
       </div>
 
-      <section class="staff-section mt-6 flex flex-wrap">
-        <div class="w-3/5 section-1">
+      <section class="staff-section mt-6 flex justify-between gap-5">
+        <div class="w-[70%] section-1">
           <h3 class="text-left text-xl font-bold mb-5">Hon. Elizabeth Kaakie Mann's First 100 Days in Office</h3>
           <div class="text-justify" v-for="paragraph  in paragraphs">
             <p class=" mb-5">{{ paragraph }}</p>
           </div>
 
         </div>
-        <div class="w-2/5 my-auto section-2">
-          <article class="relative bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out">
-            <div class="staff-pic relative w-full h-full lg:px-4 flex justify-center items-end">
-              <img class="" src="../assets/background-1.png" alt="" />
-              <img class="absolute bottom-0 left-0 right-0 mx-auto" src="../assets/mce.png" alt="" />
-            </div>
-          </article>
+        <div class="bg-[#e9e9e9] w-[25%]">
+          <div class="w-full px-6 pt-6 h-full my-auto mx-auto section-2">
+          <img class="w-full h-full mx-auto" src="../assets/mce.png" alt="" />
           <p class="font-bold dark:text-white mt-2 uppercase">HON. ELIZABETH KAAKIE MANN</p>
         </div>
+        </div>
+        
       </section>
     </article>
   </section>
@@ -43,13 +41,16 @@ const paragraphs = [
 ];
 </script>
 <style scoped>
+
+
 @media (max-width: 600px) {
   .staff-section {
 
     flex-direction: column;
   }
 
-  .section-1, .section-2 {
+  .section-1,
+  .section-2 {
     width: 100%;
   }
 }
