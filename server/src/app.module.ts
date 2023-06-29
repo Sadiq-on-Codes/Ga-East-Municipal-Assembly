@@ -14,6 +14,8 @@ import { DepartmentDocumentModule } from './department-document/department-docum
 import { DepartmentModule } from './department/department.module';
 import { UploadImageModule } from './upload-image/upload-image.module';
 import { MulterModule } from '@nestjs/platform-express';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -26,6 +28,11 @@ import { MulterModule } from '@nestjs/platform-express';
     TypeOrmModule.forRootAsync({
       useFactory: typeOrmConfig,
     }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads'), // Specify the correct path to the uploads folder
+      serveRoot: '/uploads', // Define the base URL to serve the static files
+    }),
+
     PostModule,
     UserModule,
     CommentModule,
