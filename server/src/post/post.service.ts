@@ -91,7 +91,7 @@ export class PostService {
   async updatePost(
     postId: number,
     updatePostDto: UpdatePostDto,
-  ): Promise<BlogPost> {
+  ): Promise<BlogPost | string> {
     const post = await this.postRepository.findOne({
       where: {
         id: postId,
