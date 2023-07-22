@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 const Home = () => import('../views/Home.vue')
 const About = () => import('../views/About.vue')
 const Contact = () => import('../views/Contact.vue')
-const Documents = () => import('../views/Documents.vue')
+const GeneralDocuments = () => import('../views/GeneralDocuments.vue')
 const Departments = () => import('../views/Departments.vue')
 const AllNews = () => import('../views/AllNews.vue')
 const Gallery = () => import('../views/Gallery.vue')
@@ -42,9 +42,9 @@ const routes: Array<RouteRecordRaw> = [
     component: Contact
   },
   {
-    path: '/documents',
-    name: 'Documents',
-    component: Documents
+    path: '/general-documents',
+    name: 'GeneralDocuments',
+    component: GeneralDocuments
   },
   {
     path: '/all-news',
