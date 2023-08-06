@@ -114,7 +114,7 @@
                   </li>
                 </router-link>
 
-                <router-link to="/general-documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                <router-link to="#" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
                       class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
@@ -124,7 +124,7 @@
                   </li>
                 </router-link>
 
-                <router-link to="/general-documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                <router-link to="#" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
                       class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
@@ -134,7 +134,7 @@
                   </li>
                 </router-link>
 
-                <router-link to="/general-documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                <router-link to="#" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
                       class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
@@ -154,7 +154,7 @@
                   </li>
                 </router-link>
 
-                <router-link to="/general-documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                <router-link to="#" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
                       class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
@@ -164,7 +164,7 @@
                   </li>
                 </router-link>
 
-                <router-link to="/general-documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                <router-link to="#" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
                       class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
