@@ -114,7 +114,7 @@
                   </li>
                 </router-link>
 
-                <router-link to="#" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                <!-- <router-link to="#" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li>
                     <button @click="navigate" type="button"
                       class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
@@ -172,7 +172,7 @@
                       GEMA Newsletters
                     </button>
                   </li>
-                </router-link>
+                </router-link> -->
               </ul>
             </div>
           </li>
@@ -250,18 +250,17 @@
 <router-view></router-view>
 </template>
 <script setup lang="ts">
-
-
 import { useRouter } from "vue-router";
 import { onMounted, ref } from "vue";
 import { initDropdowns, initCollapses, initDrawers } from 'flowbite'
 
-// initialize components based on data attribute selectors
 onMounted(() => {
   initDropdowns(),
     initCollapses(),
     initDrawers()
 })
+
+
 
 </script>
 <style scoped>
