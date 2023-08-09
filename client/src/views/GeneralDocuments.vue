@@ -6,22 +6,22 @@
       </div>
       <div>
         <div :id="'accordion-collapse'"
-          data-accordion="collapse">
+          data-accordion="open">
           <div v-for="(document, index) in allDocuments" :key="document.id" class="mb-6">
             <h2 :id="`accordion-collapse-heading-${index + 1}`">
               <button type="button"
-                class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-r-2 border-t-2 border-b-2 border-gray-200 rounded-xl focus:ring-0 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-r-2 border-t-2 border-b-2 border-gray-200 rounded-t-xl focus:ring-0 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
                 :data-accordion-target="`#accordion-collapse-body-${index + 1}`" :aria-expanded="index === 1 ? false : true"
                 :aria-controls="`accordion-collapse-body-${index + 1}`">
                 <span>{{ document.title }}</span>
-                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                <!-- <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M9 5 5 1 1 5" />
-                </svg>
+                </svg> -->
               </button>
             </h2>
-            <div :id="`accordion-collapse-body-${index + 1}`" class="hidden"
+            <div :id="`accordion-collapse-body-${index + 1}`" class=""
               :aria-labelledby="`accordion-collapse-heading-${index + 1}`">
               <div
                 class="p-5 border border-r-2 border-l-2 border-b-2 border-gray-200 rounded-b-xl dark:border-gray-700 dark:bg-gray-900">
