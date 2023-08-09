@@ -28,8 +28,8 @@
                 <a :href="document.image" target="_blank" class="text-blue-600 dark:text-blue-500 hover:underline">
                   <div class="flex gap-4">
                     <img src="../assets/document.svg" alt="document logo">
-                    <div class="flex items-start flex-col">
-                      <p class="mb-2 text-gray-500 dark:text-gray-400 capitalize">{{ document.title }}</p>
+                    <div class="flex items-start justify-center flex-col">
+                      <!-- <p class="mb-2 text-gray-500 dark:text-gray-400 capitalize">{{ document.title }}</p> -->
                       <p class="text-[#7A7878] text-md text-gray-500 dark:text-gray-400">uploaded {{
                         moment(document.createdAt).format('LL') }}</p>
                     </div>
