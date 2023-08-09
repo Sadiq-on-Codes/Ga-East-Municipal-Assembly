@@ -27,7 +27,7 @@
             </router-link>
           </div>
         </section>
-        <Loader class="my-52" v-if="loading" />
+        <Loader class="my-52" v-if="allNews.length < 1" />
       </article>
     </section>
     <div class="flex items-center justify-center mb-20 text-center">
