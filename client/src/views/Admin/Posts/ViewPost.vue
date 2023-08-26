@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-10 flex-col max-w-7xl mx-auto justify-center mt-28">
+  <div class="flex gap-10 flex-col max-w-7xl mx-auto justify-center mt-28 ml-[22.5%]">
     <h1 class="text-xl uppercase font-semibold text-[#322121] w-10/12 dark:text-white">
       View Posts
     </h1>
@@ -25,7 +25,7 @@
               <a target="_blank" :href="`http://localhost:8080/single-post/${item.id}`">Live View</a>
             </td>
             <td class="px-6 w-1/6 py-4">
-              <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+              <button @click="editPost(item.id)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
             </td>
             <td class="px-6 w-1/6 py-4">
               <button @click="openDeleteModal(item.id)"
@@ -47,16 +47,23 @@ import Loader from "@/components/Loader.vue";
 import { url } from "@/functions/endpoint";
 import axios from "axios";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 interface News {
+  id: number;
   title: string;
   length: number;
   value: any
 }
 
 const postId = ref();
+const router = useRouter()
 
-const deleteModal: any = ref(false);
+const editPost = (postId: number) => {
+  router.push({ name: 'EditPost', params: { id: postId } });
+}
+
+const deleteModal = ref(false);
 const openDeleteModal = (id: number) => {
   postId.value = id;
   deleteModal.value = true;
@@ -69,13 +76,15 @@ const closeDeleteModal = () => {
 const deletePost = () => {
   axios.delete(`${url}/posts/delete/${postId.value}`)
     .then(response => {
-      console.log('Deleted successfully:', response.data);
+      const deletedIndex = allNews.value.findIndex((item: News) => item.id === postId.value);
+      if (deletedIndex !== -1) {
+        allNews.value.splice(deletedIndex, 1);
+      }
       deleteModal.value = false;
     })
     .catch(error => {
       console.error('Error deleting:', error);
     });
-    
 };
 
 const allNews: any = ref([]);

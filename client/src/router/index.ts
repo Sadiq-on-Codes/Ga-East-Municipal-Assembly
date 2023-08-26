@@ -107,6 +107,11 @@ const routes: Array<RouteRecordRaw> = [
         component: NewPost
       },
       {
+        path: 'edit-post/:id',
+        name: 'EditPost',
+        component: NewPost
+      },
+      {
         path: 'add-slider',
         name: 'AddSlider',
         component: AddSlider
