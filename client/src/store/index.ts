@@ -26,7 +26,7 @@ const store = createStore<RootState>({
       // Call your login API and check the credentials
       if (email === 'test@example.com' && password === 'password') {
         commit('login', email);
-        router.push('/admin');
+        router.push('/admin/dashboard');
       } else {
         throw new Error('Invalid credentials');
       }
