@@ -36,7 +36,10 @@ class APIFeatures<T> {
       const sortBy = this.queryString.sort.split(',').join(' ');
       this.query = this.query.orderBy(sortBy);
     } else {
-      this.query = this.query.orderBy('createdAt', 'DESC');
+      this.query =
+        this.query.expressionMap.mainAlias.name === 'category'
+          ? this.query.orderBy('category.createdAt', 'DESC')
+          : this.query.orderBy('createdAt', 'DESC');
     }
     return this;
   }

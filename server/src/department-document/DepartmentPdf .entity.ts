@@ -1,10 +1,12 @@
-import { Department } from 'src/department/department.entity';
+import { DocumentCategory } from 'src/document-category/category.entity';
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   ManyToOne,
   JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
@@ -13,9 +15,18 @@ export class DepartmentPdf {
   id: number;
 
   @Column()
+  title: string;
+
+  @Column()
   filename: string;
 
-  @ManyToOne(() => Department, (department) => department.pdfs)
-  @JoinColumn({ name: 'department_id' })
-  department: Department;
+  @ManyToOne((type) => DocumentCategory, (category) => category.category)
+  @JoinColumn({ name: 'categoryId' })
+  category: DocumentCategory[];
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 }
