@@ -15,7 +15,7 @@
             <th scope="col" class="px-6 w-1/6 py-3">Delete</th>
           </tr>
         </thead>
-        <tbody v-for="(item, index) in allNews" :key="index">
+        <tbody v-for="(item, index) in allNews" :key="item.id">
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
             <td class="px-6 w-1/6 py-4">{{ index + 1 }}</td>
             <td scope="row" class="px-6 w-3/6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -28,7 +28,7 @@
               <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
             </td>
             <td class="px-6 w-1/6 py-4">
-              <button @click="openDeleteModal"
+              <button @click="openDeleteModal(item.id)"
                 class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
             </td>
           </tr>
@@ -38,7 +38,7 @@
       <Pagination v-if="allNews.length > 0" :totalCount="allNews.length" />
     </div>
   </div>
-  <DeleteModal @closeDeleteModal='closeDeleteModal' v-if="deleteModal" />
+  <DeleteModal @deletePost="deletePost" @closeDeleteModal='closeDeleteModal' v-if="deleteModal" />
 </template>
 <script setup lang="ts">
 import DeleteModal from "@/components/DeleteModal.vue";
@@ -54,13 +54,28 @@ interface News {
   value: any
 }
 
+const postId = ref();
+
 const deleteModal: any = ref(false);
-const openDeleteModal = () => {
+const openDeleteModal = (id: number) => {
+  postId.value = id;
   deleteModal.value = true;
 };
 
 const closeDeleteModal = () => {
   deleteModal.value = false;
+};
+
+const deletePost = () => {
+  axios.delete(`${url}/posts/delete/${postId.value}`)
+    .then(response => {
+      console.log('Deleted successfully:', response.data);
+      deleteModal.value = false;
+    })
+    .catch(error => {
+      console.error('Error deleting:', error);
+    });
+    
 };
 
 const allNews: any = ref([]);
