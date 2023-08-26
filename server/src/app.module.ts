@@ -16,6 +16,7 @@ import { UploadImageModule } from './upload-image/upload-image.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { DocumentCategoryModule } from './document-category/document-category.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { join } from 'path';
     DepartmentDocumentModule,
     DepartmentModule,
     UploadImageModule,
+    DocumentCategoryModule,
   ],
   providers: [AppService],
   controllers: [],

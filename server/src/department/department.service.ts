@@ -81,6 +81,7 @@ export class DepartmentService {
       throw error;
     }
   }
+  //TODO-no relations for pdf
   async getDepartmentById(departmentId: number) {
     const department = await this.departmentRepository.findOne({
       where: {
