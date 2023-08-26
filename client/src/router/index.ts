@@ -12,8 +12,15 @@ const OngoingProjects = () => import('../views/Projects/OngoingProjects.vue')
 const SinglePost = () => import('../views/SinglePost.vue')
 const NotFound = () => import('../views/NotFound.vue')
 const AdminPage = () => import('../views/Admin/AdminPage.vue')
+const ViewPost = () => import('../views/Admin/Posts/ViewPost.vue')
 const Login = () => import('../views/Admin/Login.vue')
 import store from '../store/index'
+import Dashboard from '@/views/Admin/Dashboard.vue'
+import NewPost from '@/views/Admin/Posts/NewPost.vue'
+import AddSlider from '@/views/Admin/Slider/AddSlider.vue'
+import ViewSliders from '@/views/Admin/Slider/ViewSliders.vue'
+import AddDocument from '@/views/Admin/Documents/AddDocument.vue'
+import ViewDocuments from '@/views/Admin/Documents/ViewDocuments.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -82,7 +89,44 @@ const routes: Array<RouteRecordRaw> = [
     component: AdminPage,
     meta: {
       requiresAuth: true
-    }
+    },
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: Dashboard
+      },
+      {
+        path: 'view-posts',
+        name: 'ViewPost',
+        component: ViewPost
+      },
+      {
+        path: 'new-post',
+        name: 'NewPost',
+        component: NewPost
+      },
+      {
+        path: 'add-slider',
+        name: 'AddSlider',
+        component: AddSlider
+      },
+      {
+        path: 'view-sliders',
+        name: 'ViewSliders',
+        component: ViewSliders
+      },
+      {
+        path: 'add-document',
+        name: 'AddDocuments',
+        component: AddDocument
+      },
+      {
+        path: 'view-documents',
+        name: 'ViewDocuments',
+        component: ViewDocuments
+      },
+    ]
   },
   {
     path: '/login',

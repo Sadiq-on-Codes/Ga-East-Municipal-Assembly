@@ -28,7 +28,7 @@ export class Department {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(() => DepartmentPdf, (pdf) => pdf.department, { cascade: true })
-  @JoinColumn()
-  pdfs: DepartmentPdf[];
+  // @OneToMany(() => DepartmentPdf, (pdf) => pdf.department, { cascade: true })
+  // @JoinColumn()
+  // pdfs: DepartmentPdf[];
 }
