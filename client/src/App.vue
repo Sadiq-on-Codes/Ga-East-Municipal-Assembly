@@ -18,7 +18,7 @@ const router = useRouter();
 
 router.beforeEach((to, from, next) => {
   // Conditionally hide navbar on certain routes
-  if (to.path === "/admin") {
+  if (to.path === "/admin/dashboard" || to.path === "/admin/new-post" || to.path === "/admin/view-post" || to.path === "/admin/add-document" || to.path === "/admin/view-documents" || to.path === "/admin/add-slider" || to.path === "/admin/view-sliders") {
     showAdminPage.value = true;
     showNavbar.value = false;
     showLoginPage.value = false;
@@ -30,7 +30,7 @@ router.beforeEach((to, from, next) => {
   if (to.path === "/login") {
     showNavbar.value = false;
     showLoginPage.value = true;
-  } 
+  }
   next();
 });
 </script>
