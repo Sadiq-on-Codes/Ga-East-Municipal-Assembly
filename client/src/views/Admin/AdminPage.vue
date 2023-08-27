@@ -142,6 +142,14 @@
               </li>
             </router-link>
 
+            <router-link to="/admin/document-categories" custom v-slot="{ navigate }" exact-active-class="active-nav">
+              <li @click="navigate">
+                <button
+                  class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Document
+                  Categories</button>
+              </li>
+            </router-link>
+
             <router-link to="/admin/view-documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
                 <button
