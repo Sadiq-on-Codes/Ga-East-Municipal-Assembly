@@ -1,6 +1,6 @@
 <template>
     <div class="flex gap-10 flex-col max-w-5xl mx-auto justify-center mt-28 ml-[30%]">
-      <h1 class="text-xl uppercase font-semibold text-[#322121] w-10/12 dark:text-white">Add Document</h1>
+      <h1 class="text-xl uppercase font-semibold text-[#322121] dark:text-white">Add Document</h1>
       <div class="text-left">
         <label
           for="email"
@@ -11,9 +11,20 @@
           type="email"
           id="email"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Enter post title"
+          placeholder="Enter document title"
           required
         />
+      </div>
+      <div class="text-left dark:text-white">
+        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+          category</label>
+        <select placeholder="Select category" id="countries"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          <option disabled>Select Category</option>
+          <option>NEWS</option>
+          <option>GALLERY</option>
+          <option>EVENTS</option>
+        </select>
       </div>
       <div class="mx-auto w-full">
         <label

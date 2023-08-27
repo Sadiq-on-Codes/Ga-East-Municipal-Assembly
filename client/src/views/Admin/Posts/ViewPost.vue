@@ -1,6 +1,6 @@
 <template>
   <div class="flex gap-10 flex-col max-w-7xl mx-auto justify-center mt-28 ml-[22.5%]">
-    <h1 class="text-xl uppercase font-semibold text-[#322121] w-10/12 dark:text-white">
+    <h1 class="text-xl uppercase font-semibold text-[#322121] dark:text-white">
       View Posts
     </h1>
 
@@ -39,6 +39,8 @@
     </div>
   </div>
   <DeleteModal @deletePost="deletePost" @closeDeleteModal='closeDeleteModal' v-if="deleteModal" />
+  <SuccessMessage :showSuccessMessage="showSuccessMessage" :successMessage="successMessage" />
+  <ErrorMessage :errorAlert="errorAlert" :errorMessage="errorMessage" />
 </template>
 <script setup lang="ts">
 import DeleteModal from "@/components/DeleteModal.vue";
@@ -48,6 +50,8 @@ import { url } from "@/functions/endpoint";
 import axios from "axios";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import SuccessMessage from "@/components/SuccessMessage.vue";
+import ErrorMessage from "@/components/ErrorMessage.vue";
 
 interface News {
   id: number;
@@ -58,6 +62,10 @@ interface News {
 
 const postId = ref();
 const router = useRouter()
+let successMessage = ref('');
+let showSuccessMessage = ref(false);
+let errorAlert = ref(false);
+let errorMessage = ref('');
 
 const editPost = (postId: number) => {
   router.push({ name: 'EditPost', params: { id: postId } });
@@ -75,15 +83,21 @@ const closeDeleteModal = () => {
 
 const deletePost = () => {
   axios.delete(`${url}/posts/delete/${postId.value}`)
-    .then(response => {
+    .then((response) => {
+      deleteModal.value = false;
+      
+      successMessage =  response.data
       const deletedIndex = allNews.value.findIndex((item: News) => item.id === postId.value);
       if (deletedIndex !== -1) {
         allNews.value.splice(deletedIndex, 1);
       }
-      deleteModal.value = false;
+      setTimeout(() => {
+        showSuccessMessage.value = true;
+      }, 50000)
     })
-    .catch(error => {
-      console.error('Error deleting:', error);
+    .catch(() => {
+      errorAlert.value = true;
+      errorMessage.value = "Could not delete post, Try again"
     });
 };
 
@@ -94,7 +108,6 @@ axios.get(`${url}/posts`, {
   }
 })
   .then((response: any) => {
-    console.log(response.data);
     allNews.value = response.data[1];
   })
   .catch((error: string) => {
