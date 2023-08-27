@@ -44,7 +44,9 @@ export class PostController {
   }
 
   @Post('create/post')
-  async createPost(@Body() postDto: CreatePostDto): Promise<BlogPost> {
+  async createPost(
+    @Body() postDto: CreatePostDto,
+  ): Promise<[{ message: string }, BlogPost]> {
     return await this.postService.createPost(postDto);
   }
 
@@ -67,7 +69,7 @@ export class PostController {
   }
 
   @Delete('delete/:id')
-  async deletePostById(@Param('id') postId: number): Promise<void> {
-    await this.postService.deletePostById(postId);
+  async deletePostById(@Param('id') postId: number): Promise<string> {
+    return await this.postService.deletePostById(postId);
   }
 }

@@ -65,7 +65,9 @@ export class PostService {
     return post;
   }
 
-  async createPost(postDto: CreatePostDto): Promise<BlogPost> {
+  async createPost(
+    postDto: CreatePostDto,
+  ): Promise<[{ message: string }, BlogPost]> {
     try {
       const { title, article, image, category } = postDto;
 
@@ -79,7 +81,7 @@ export class PostService {
 
       this.logger.log(`New post with id ${createdPost.id} has been created.`);
 
-      return createdPost;
+      return [{ message: 'new post created' }, createdPost];
     } catch (error) {
       this.logger.error(
         `Error occurred while creating a new post. Error: ${error}`,
@@ -91,7 +93,7 @@ export class PostService {
   async updatePost(
     postId: number,
     updatePostDto: UpdatePostDto,
-  ): Promise<BlogPost | string> {
+  ): Promise<[{ message: string }, BlogPost]> {
     const post = await this.postRepository.findOne({
       where: {
         id: postId,
@@ -109,16 +111,20 @@ export class PostService {
     post.category = updatePostDto.category || post.category;
     post.updatedAt = new Date();
 
-    return await this.postRepository.save(post);
+    return [
+      { message: `Post updated successfully` },
+      await this.postRepository.save(post),
+    ];
   }
 
-  async deletePostById(postId: number): Promise<void> {
+  async deletePostById(postId: number): Promise<string> {
     try {
       const result = await this.postRepository.delete(postId);
 
       if (result.affected === 0) {
         throw new NotFoundException(`Post with ID ${postId} not found`);
       }
+      return 'Post deleted successfully';
     } catch (error) {
       throw new InternalServerErrorException(error.message);
     }

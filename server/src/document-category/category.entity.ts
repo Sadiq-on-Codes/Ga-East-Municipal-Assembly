@@ -4,31 +4,24 @@ import {
   Column,
   PrimaryGeneratedColumn,
   OneToMany,
-  JoinColumn,
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
-export class Department {
+export class DocumentCategory {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  category: string;
 
-  @Column()
-  image: string;
+  @OneToMany(() => DepartmentPdf, (document) => document.category)
+  documents: DepartmentPdf[];
 
-  @Column()
-  about: string;
   @CreateDateColumn()
   createdAt: Date;
 
   @UpdateDateColumn()
   updatedAt: Date;
-
-  // @OneToMany(() => DepartmentPdf, (pdf) => pdf.department, { cascade: true })
-  // @JoinColumn()
-  // pdfs: DepartmentPdf[];
 }
