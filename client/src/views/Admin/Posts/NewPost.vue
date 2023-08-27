@@ -174,8 +174,10 @@ const savePost = async () => {
     createPostData.image = null;
     createPostData.category = '';
     uploading.value = false;
+    setTimeout(() => {
+        showSuccessMessage.value = true;
+      }, 1000)
     successMessage.value = isEditing.value ? 'Post updated successfully!' : 'Post created successfully!';
-    showSuccessMessage.value = true;
 
     setTimeout(() => {
       showSuccessMessage.value = false;
@@ -187,10 +189,12 @@ const savePost = async () => {
       }
     }, 2000);
 
-  } catch (error) {
+  } catch (error: any) {
     uploading.value = false;
-    errorAlert.value = true;
-    errorMessage.value = "An error occurred while updating the post.";
+    setTimeout(() => {
+        errorAlert.value = true;
+      }, 1500)
+    errorMessage.value = error.message;
   }
 };
 

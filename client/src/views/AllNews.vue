@@ -88,7 +88,7 @@ const fetchNewsItems = () => {
       console.error(error);
     })
     .finally(() => {
-      loading.value = false; // Set loading to false after the API request completes
+      loading.value = false;
     });
 };
 

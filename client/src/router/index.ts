@@ -21,6 +21,7 @@ import AddSlider from '@/views/Admin/Slider/AddSlider.vue'
 import ViewSliders from '@/views/Admin/Slider/ViewSliders.vue'
 import AddDocument from '@/views/Admin/Documents/AddDocument.vue'
 import ViewDocuments from '@/views/Admin/Documents/ViewDocuments.vue'
+import DocumentCategories from '@/views/Admin/Documents/DocumentCategories.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -130,6 +131,11 @@ const routes: Array<RouteRecordRaw> = [
         path: 'view-documents',
         name: 'ViewDocuments',
         component: ViewDocuments
+      },
+      {
+        path: 'document-categories',
+        name: 'DocumentCategories',
+        component: DocumentCategories
       },
     ]
   },
