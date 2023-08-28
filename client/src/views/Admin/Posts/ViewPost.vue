@@ -36,7 +36,7 @@
         </tbody>
       </table>
       <Loader class="my-52" v-else />
-      <Pagination v-model="currentPage" :per-page="perPage" :total-items="count" :layout="'table'"></Pagination>
+      <Pagination v-if="allNews.length > 12" v-model="currentPage" :per-page="perPage" :total-items="count" :layout="'table'"></Pagination>
     </div>
   </div>
   <DeleteModal @deletePost="deletePost" @closeDeleteModal='closeDeleteModal' v-if="deleteModal" />
@@ -53,13 +53,8 @@ import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import SuccessMessage from "@/components/SuccessMessage.vue";
 import ErrorMessage from "@/components/ErrorMessage.vue";
+import { Posts } from "@/types/index";
 
-interface News {
-  id: number;
-  title: string;
-  length: number;
-  value: any
-}
 
 let count = ref(0);
 const postId = ref();
@@ -96,7 +91,7 @@ const deletePost = () => {
       deleteModal.value = false;
       successMessage = response.data
       showSuccessMessage.value = true;
-      const deletedIndex = allNews.value.findIndex((item: News) => item.id === postId.value);
+      const deletedIndex = allNews.value.findIndex((item: Posts) => item.id === postId.value);
       if (deletedIndex !== -1) {
         allNews.value.splice(deletedIndex, 1);
       }
@@ -105,6 +100,7 @@ const deletePost = () => {
       }, 2000)
     })
     .catch((error) => {
+      deleteModal.value = false;
       errorAlert.value = true;
       setTimeout(() => {
         errorAlert.value = false;
