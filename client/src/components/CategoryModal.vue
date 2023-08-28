@@ -27,7 +27,7 @@
                     </form>
                 </div>
                 <div class="pb-6 text-center">
-                    <button @click="addCategory" type="button"
+                    <button @click="addCategory"  type="button"
                         class="text-white w-fit bg-button-bg hover:bg-button-bg-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex justify-center items-center disabled:opacity-50">
                         Add Category
                     </button>
@@ -40,7 +40,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import { defineProps, defineEmits  } from 'vue';
+import { defineProps, defineEmits, computed  } from 'vue';
 
 defineProps({
     typeOfCategory: String,
@@ -50,6 +50,8 @@ defineProps({
 
 const emits: any = defineEmits();
 let enteredCategory = '';
+
+const isEnteredCategoryEmpty = computed(() => enteredCategory.trim().length === 0);
 
 const addCategory = () => {
     emits('addCategory', enteredCategory);

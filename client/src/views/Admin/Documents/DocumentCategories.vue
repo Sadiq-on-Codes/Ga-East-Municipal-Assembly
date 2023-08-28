@@ -20,19 +20,30 @@
                         <th scope="col" class="px-6 py-3">No</th>
                         <th scope="col" class="px-6 py-3">Category</th>
                         <th scope="col" class="px-6 py-3">No of documents</th>
+                        <th scope="col" class="px-6 py-3">Edit</th>
+                        <th scope="col" class="px-6 py-3">Delete</th>
                     </tr>
                 </thead>
                 <tbody v-for="(category, index) in allCategories" :key="category.id">
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="px-6 py-4">{{ index + 1 }}</td>
-                        <td class="px-6 py-4">{{ }}</td>
-                        <td class="px-6 py-4">{{ }}</td>
+                        <td class="px-6 py-4">{{ category.category }}</td>
+                        <td class="px-6 py-4">{{ category?.documents?.length }}</td>
+                        <td class="px-6 py-4">
+                            <button @click="editDocument(category.id)"
+                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
+                        </td>
+                        <td class="px-6 py-4">
+                            <button @click="openDeleteModal(category.id)"
+                                class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+    <DeleteModal @deletePost="deleteDocument" @closeDeleteModal='closeDeleteModal' v-if="deleteModal" />
     <SuccessMessage :showSuccessMessage="showSuccessMessage" :successMessage="successMessage" />
     <ErrorMessage :errorAlert="errorAlert" :errorMessage="errorMessage" />
 </template>
@@ -41,26 +52,74 @@ import CategoryModal from '@/components/CategoryModal.vue';
 import { url } from "@/functions/endpoint";
 import axios from 'axios';
 import { ref } from 'vue';
+import DeleteModal from "@/components/DeleteModal.vue";
 import SuccessMessage from "@/components/SuccessMessage.vue";
 import ErrorMessage from "@/components/ErrorMessage.vue";
+import { Posts } from '@/types';
 
+const postId = ref();
 const openModal = ref(false);
 let successMessage = ref('');
 let showSuccessMessage = ref(false);
 let errorAlert = ref(false);
 let errorMessage = ref('');
 
-const handleAddCategory = (enteredCategory: string) => {
-    console.log(enteredCategory);
+const deleteModal = ref(false);
+const openDeleteModal = (id: number) => {
+    postId.value = id;
+    deleteModal.value = true;
+};
 
+const closeDeleteModal = () => {
+    deleteModal.value = false;
+};
+
+const deleteDocument = () => {
+    axios.delete(`${url}/document-category/delete/${postId.value}`)
+        .then((response) => {
+            deleteModal.value = false;
+            successMessage = response.data
+            showSuccessMessage.value = true;
+            const deletedIndex = allCategories.value.findIndex((item: Posts) => item.id === postId.value);
+            if (deletedIndex !== -1) {
+                allCategories.value.splice(deletedIndex, 1);
+            }
+            setTimeout(() => {
+                showSuccessMessage.value = false;
+            }, 2000)
+        })
+        .catch((error) => {
+            deleteModal.value = false;
+            errorAlert.value = true;
+            setTimeout(() => {
+                errorAlert.value = false;
+            }, 2500)
+            errorMessage.value = error.message
+        });
+};
+
+const editDocument = (postId: number) => {
+    //
+}
+
+const handleAddCategory = (enteredCategory: string) => {
     axios.post(`${url}/document-category/create/category`, { category: enteredCategory })
         .then(response => {
+            openModal.value = false;
             showSuccessMessage.value = true
-            successMessage =  response.data;
+            successMessage = response.data.message;
+            window.location.href = "/admin/document-categories"
+            setTimeout(() => {
+                showSuccessMessage.value = false;
+            }, 2000)
         })
         .catch(error => {
+            openModal.value = false;
             errorAlert.value = true;
             errorMessage.value = error.message;
+            setTimeout(() => {
+                errorAlert.value = false;
+            }, 5000)
         });
 };
 
@@ -68,6 +127,7 @@ const allCategories: any = ref([]);
 axios.get(`${url}/document-category`)
     .then((response: any) => {
         allCategories.value = response.data;
+        console.error(allCategories.value);
     })
     .catch((error: string) => {
         console.error(error);
