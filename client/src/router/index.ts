@@ -128,6 +128,11 @@ const routes: Array<RouteRecordRaw> = [
         component: AddDocument
       },
       {
+        path: 'edit-document/:id',
+        name: 'EditDocument',
+        component: AddDocument
+      },
+      {
         path: 'view-documents',
         name: 'ViewDocuments',
         component: ViewDocuments
