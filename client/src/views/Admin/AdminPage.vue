@@ -66,7 +66,7 @@
       <ul class="space-y-2">
         <router-link to="/admin/dashboard" custom v-slot="{ navigate }" exact-active-class="active-nav">
           <li @click="navigate">
-            <a
+            <a :class="{'active-nav': isRouteActive('/admin/dashboard')}"
               class="flex cursor-pointer items-center p-2 hover:text-button-bg-hover text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
               <svg aria-hidden="true"
                 class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -100,7 +100,7 @@
           <ul id="dropdown-pages" class=" py-2 space-y-2">
             <router-link to="/admin/new-post" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <button
+                <button :class="{'active-nav': isRouteActive('/admin/new-post')}"
                   class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                   New Post
                 </button>
@@ -108,7 +108,7 @@
             </router-link>
             <router-link to="/admin/view-posts" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <button
+                <button :class="{'active-nav': isRouteActive('/admin/view-posts')}"
                   class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">View
                   Posts</button>
               </li>
@@ -136,7 +136,7 @@
           <ul id="dropdown-example2" class=" py-2 space-y-2">
             <router-link to="/admin/add-document" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <button
+                <button :class="{'active-nav': isRouteActive('/admin/add-document')}"
                   class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add
                   Document</button>
               </li>
@@ -144,7 +144,7 @@
 
             <router-link to="/admin/document-categories" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <button
+                <button :class="{'active-nav': isRouteActive('/admin/document-categories')}"
                   class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Document
                   Categories</button>
               </li>
@@ -152,12 +152,11 @@
 
             <router-link to="/admin/view-documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <button
+                <button :class="{'active-nav': isRouteActive('/admin/view-documents')}"
                   class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">View
                   Documents</button>
               </li>
             </router-link>
-
           </ul>
         </li>
         <li>
@@ -180,14 +179,14 @@
           <ul id="dropdown-example3" class=" py-2 space-y-2">
             <router-link to="/admin/add-slider" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <button
+                <button :class="{'active-nav': isRouteActive('/admin/add-slider')}"
                   class="flex items-center w-full hover:text-button-bg-hover p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add
                   Slider</button>
               </li>
             </router-link>
             <router-link to="/admin/view-sliders" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <button
+                <button :class="{'active-nav': isRouteActive('/admin/view-sliders')}"
                   class="flex items-center w-full p-2 hover:text-button-bg-hover text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">View
                   Slider</button>
               </li>
@@ -218,10 +217,15 @@ const logout = () => {
   store.dispatch("logout");
   router.push("/login");
 };
+
+const isRouteActive = (routePath: string) => {
+  return router.currentRoute.value.path === routePath;
+};
 </script>
 <style scoped>/* .navbar-component {
   display: none;
 } */
 .active-nav {
-  background-color: green;
+  background-color: #6CC551;
+  color: white;
 }</style>
