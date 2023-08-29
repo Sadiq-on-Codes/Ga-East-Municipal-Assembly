@@ -40,7 +40,7 @@ const routes: Array<RouteRecordRaw> = [
     component: About
   },
   {
-    path: '/departments',
+    path: '/departments/:id',
     name: 'Departments',
     component: Departments
   },
