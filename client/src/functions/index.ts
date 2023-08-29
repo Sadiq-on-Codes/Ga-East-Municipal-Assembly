@@ -19,8 +19,8 @@ export const scrollToTop = () => {
   }
 
   export const appendBaseURL = (imageURL: string): string => {
-    if (!imageURL?.startsWith('https://gema.gov.gh/images/')) {
-      return `https://gema-gh-6b3bf99ee2e9.herokuapp.com/uploads/${imageURL}`;
-    } 
+    // if (!imageURL?.startsWith('https://gema.gov.gh/images/')) {
+    //   return `https://gema-gh-6b3bf99ee2e9.herokuapp.com/uploads/${imageURL}`;
+    // } 
     return  `https://gema.gov.gh/images/${imageURL}`;
   };
