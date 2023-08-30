@@ -30,7 +30,7 @@ export class DepartmentController {
   @Post('create/department')
   async createPost(
     @Body() departmentDto: CreateDepartmentDto,
-  ): Promise<Department> {
+  ): Promise<[{ message: string }, Department]> {
     return await this.departmentService.createDepartment(departmentDto);
   }
   @Get(':id')
@@ -43,7 +43,7 @@ export class DepartmentController {
   async updatePost(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateDepartmentDto: UpdateDepartmentDto,
-  ) {
+  ): Promise<[{ message: string }, Department]> {
     try {
       const updatedDeparment = await this.departmentService.updateDepartment(
         id,
@@ -63,7 +63,7 @@ export class DepartmentController {
   }
 
   @Delete('delete/:id')
-  async deleteDepartmentById(@Param('id') postId: number): Promise<void> {
-    await this.departmentService.deleteDepartmentById(postId);
+  async deleteDepartmentById(@Param('id') postId: number): Promise<string> {
+    return await this.departmentService.deleteDepartmentById(postId);
   }
 }

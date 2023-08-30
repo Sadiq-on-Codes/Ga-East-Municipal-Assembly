@@ -1,4 +1,5 @@
 import { DepartmentPdf } from 'src/department-document/DepartmentPdf .entity';
+import { Unit } from 'src/unit/unit.entity';
 import {
   Entity,
   Column,
@@ -17,8 +18,11 @@ export class Department {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   image: string;
+
+  @OneToMany(() => Unit, (unit) => unit.department)
+  unit: Unit[];
 
   @Column()
   about: string;
@@ -27,8 +31,4 @@ export class Department {
 
   @UpdateDateColumn()
   updatedAt: Date;
-
-  // @OneToMany(() => DepartmentPdf, (pdf) => pdf.department, { cascade: true })
-  // @JoinColumn()
-  // pdfs: DepartmentPdf[];
 }
