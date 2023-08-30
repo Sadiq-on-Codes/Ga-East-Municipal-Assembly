@@ -42,7 +42,7 @@ export class DepartmentService {
 
   async createDepartment(
     departmentDto: CreateDepartmentDto,
-  ): Promise<Department> {
+  ): Promise<[{ message: string }, Department]> {
     try {
       const { name, about, image } = departmentDto;
       const capitalizedDepartmentName = name
@@ -73,7 +73,10 @@ export class DepartmentService {
         `New department with id ${createdDepartment.id} has been created.`,
       );
 
-      return createdDepartment;
+      return [
+        { message: 'New Department added successfully' },
+        createdDepartment,
+      ];
     } catch (error) {
       this.logger.error(
         `Error occurred while creating a new department. Error: ${error}`,
@@ -87,7 +90,7 @@ export class DepartmentService {
       where: {
         id: departmentId,
       },
-      relations: ['pdfs'],
+      relations: ['unit'],
     });
 
     if (!department) {
@@ -99,7 +102,7 @@ export class DepartmentService {
   async updateDepartment(
     departmentId: number,
     updateDepartmentDto: UpdateDepartmentDto,
-  ): Promise<Department> {
+  ): Promise<[{ message: string }, Department]> {
     const department = await this.departmentRepository.findOne({
       where: {
         id: departmentId,
@@ -116,10 +119,13 @@ export class DepartmentService {
     department.about = updateDepartmentDto.about || department.about;
     department.updatedAt = new Date();
 
-    return await this.departmentRepository.save(department);
+    return [
+      { message: 'Department updated successfully' },
+      await this.departmentRepository.save(department),
+    ];
   }
 
-  async deleteDepartmentById(departmentId: number): Promise<void> {
+  async deleteDepartmentById(departmentId: number): Promise<string> {
     try {
       const result = await this.departmentRepository.delete(departmentId);
 
@@ -128,6 +134,7 @@ export class DepartmentService {
           `Department with ID ${departmentId} not found`,
         );
       }
+      return 'Department deleted successfully';
     } catch (error) {
       throw new InternalServerErrorException(error.message);
     }
