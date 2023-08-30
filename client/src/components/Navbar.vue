@@ -12,7 +12,7 @@
       </a>
 
       <div class="flex md:order-2">
-        <a href="https://gema.gov.gh:2083/" target="_blank"><button type="button"
+        <a href="http://outlook.office365.com/" target="_blank"><button type="button"
             class="button text-white uppercase font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-green-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover hover:bg-button-bg-hover">
             Staff Mail
           </button></a>
@@ -34,7 +34,7 @@
           class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
 
           <router-link to="/" exact-active-class="active-nav" custom v-slot="{ navigate }">
-            <li class="nav">
+            <li class="nav" :class="{'active-nav': isRouteActive('/')}">
               <button @click="navigate" type="button"
                 class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">
@@ -43,7 +43,7 @@
             </li>
           </router-link>
 
-          <li class="nav text-left">
+          <li class="nav text-left" :class="{'active-nav': isRouteActive('/finished-projects')}">
             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
               class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Projects
               <span class="hover:fill-white"><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor"
@@ -90,7 +90,7 @@
             </div>
           </li>
 
-          <li class="nav text-left">
+          <li class="nav text-left" :class="{'active-nav': isRouteActive('/general-documents')}">
             <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2"
               class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Documents
               <span class="hover:fill-white"><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor"
@@ -117,8 +117,7 @@
             </div>
           </li>
 
-
-          <li class="nav text-left">
+          <li class="nav text-left" :class="{'active-nav': isRouteActive('/departments') }">
             <button id="dropdownNavbarLink3" data-dropdown-toggle="dropdownNavbar3"
               class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Departments
               <span class="hover:fill-white"><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor"
@@ -131,20 +130,19 @@
 
             <div id="dropdownNavbar3"
               class="z-10 shadow-xl hidden text-left font-normal bg-white divide-y divide-gray-100 w-fit dark:bg-gray-700 dark:divide-gray-600">
-              <ul  class=" shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton3">
-                  <li class="" v-for="department in allDepartments" :key="department.id">
-                    <button @click="viewDepartment(department.id)" type="button"
-                      class="block uppercase text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
-                      aria-current="page">
-                      {{ department.name }}
-                    </button>
-                  </li>
+              <ul class=" shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton3">
+                <li class="" v-for="department in allDepartments" :key="department.id">
+                  <button @click="viewDepartment(department.id)" type="button"
+                    class="block uppercase text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                    aria-current="page">
+                    {{ department.name }}
+                  </button>
+                </li>
               </ul>
             </div>
           </li>
 
-
-          <li class="nav text-left">
+          <li class="nav text-left" :class="{'active-nav': isRouteActive('/gallery')}">
             <button id="dropdownNavbarLink4" data-dropdown-toggle="dropdownNavbar4"
               class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Media
               <span class="hover:fill-white"><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor"
@@ -182,7 +180,7 @@
           </li>
 
           <router-link to="/about" custom v-slot="{ navigate }" exact-active-class="active-nav">
-            <li class="nav">
+            <li class="nav" :class="{'active-nav': isRouteActive('/about')}">
               <button @click="navigate" type="button"
                 class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">
@@ -192,7 +190,7 @@
           </router-link>
 
           <router-link to="/contact" custom v-slot="{ navigate }" exact-active-class="active-nav">
-            <li class="nav">
+            <li class="nav" :class="{'active-nav': isRouteActive('/contact')}">
               <button @click="navigate" type="button"
                 class="block uppercase nav-item py-2 pl-3 pr-4 text-nav-text-color bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">
@@ -211,6 +209,7 @@ import { useRouter } from "vue-router";
 import { onMounted, ref } from "vue";
 import { initDropdowns, initCollapses, initDrawers } from 'flowbite';
 import { url } from "@/functions/endpoint";
+import { isRouteActive } from "@/functions/index";
 import axios from "axios";
 
 onMounted(() => {
@@ -233,6 +232,8 @@ axios.get(`${url}/departments`)
   .catch((error: string) => {
     console.error(error);
   });
+
+
 </script>
 <style scoped>
 .nav button {
@@ -244,13 +245,14 @@ axios.get(`${url}/departments`)
 }
 
 .active-nav {
-  background-color: green;
+  border-bottom: 2px solid #6CC551;
 }
 
 
 #dropdownNavbar,
 #dropdownNavbar2,
-#dropdownNavbar3 {
+#dropdownNavbar3,
+#dropdownNavbar4 {
   z-index: 100;
 }
 
