@@ -131,7 +131,7 @@ const handleImageChange = async (event: any) => {
 
   if (file) {
     const formData = new FormData();
-    formData.append('image', file);
+    formData.append('file', file);
 
     try {
       uploading.value = true;
