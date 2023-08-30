@@ -21,6 +21,7 @@ import AddSlider from '@/views/Admin/Slider/AddSlider.vue'
 import ViewSliders from '@/views/Admin/Slider/ViewSliders.vue'
 import AddDocument from '@/views/Admin/Documents/AddDocument.vue'
 import ViewDocuments from '@/views/Admin/Documents/ViewDocuments.vue'
+import DocumentCategories from '@/views/Admin/Documents/DocumentCategories.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -39,7 +40,7 @@ const routes: Array<RouteRecordRaw> = [
     component: About
   },
   {
-    path: '/departments',
+    path: '/departments/:id',
     name: 'Departments',
     component: Departments
   },
@@ -107,6 +108,11 @@ const routes: Array<RouteRecordRaw> = [
         component: NewPost
       },
       {
+        path: 'edit-post/:id',
+        name: 'EditPost',
+        component: NewPost
+      },
+      {
         path: 'add-slider',
         name: 'AddSlider',
         component: AddSlider
@@ -122,9 +128,19 @@ const routes: Array<RouteRecordRaw> = [
         component: AddDocument
       },
       {
+        path: 'edit-document/:id',
+        name: 'EditDocument',
+        component: AddDocument
+      },
+      {
         path: 'view-documents',
         name: 'ViewDocuments',
         component: ViewDocuments
+      },
+      {
+        path: 'document-categories',
+        name: 'DocumentCategories',
+        component: DocumentCategories
       },
     ]
   },
