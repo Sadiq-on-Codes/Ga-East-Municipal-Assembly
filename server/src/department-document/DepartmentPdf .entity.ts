@@ -22,7 +22,7 @@ export class DepartmentPdf {
 
   @ManyToOne((type) => DocumentCategory, (category) => category.category)
   @JoinColumn({ name: 'categoryId' })
-  category: DocumentCategory[];
+  category: DocumentCategory;
 
   @CreateDateColumn()
   createdAt: Date;

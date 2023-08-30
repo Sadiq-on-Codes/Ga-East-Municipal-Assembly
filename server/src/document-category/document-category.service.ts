@@ -29,7 +29,9 @@ export class DocumentCategoryService {
 
     const finalQuery = apiFeatures.sort().getQuery();
 
-    finalQuery.leftJoinAndSelect('category.documents', 'document');
+    finalQuery
+      .leftJoinAndSelect('category.documents', 'document')
+      .getManyAndCount();
 
     // Execute query
     const categories = await finalQuery.getMany();
@@ -54,7 +56,9 @@ export class DocumentCategoryService {
     return category;
   }
 
-  async createCategory(categoryDto: CategorytDto): Promise<DocumentCategory> {
+  async createCategory(
+    categoryDto: CategorytDto,
+  ): Promise<[{ message: string }, DocumentCategory]> {
     try {
       const { category } = categoryDto;
 
@@ -67,7 +71,10 @@ export class DocumentCategoryService {
         `New category with id ${createdCategory.id} has been created.`,
       );
 
-      return createdCategory;
+      return [
+        { message: `New category with name ${createdCategory.category} added` },
+        createdCategory,
+      ];
     } catch (error) {
       this.logger.error(
         `Error occurred while creating a new category. Error: ${error}`,
@@ -78,7 +85,7 @@ export class DocumentCategoryService {
   async updateCategory(
     categoryId: number,
     updateCategoryDto: UpdateCategorytDto,
-  ): Promise<DocumentCategory | string> {
+  ): Promise<[{ message: string }, DocumentCategory]> {
     const category = await this.documentRepository.findOne({
       where: {
         id: categoryId,
@@ -94,15 +101,19 @@ export class DocumentCategoryService {
 
     category.updatedAt = new Date();
 
-    return await this.documentRepository.save(category);
+    return [
+      { message: `Category with name ${category.category} updated` },
+      await this.documentRepository.save(category),
+    ];
   }
-  async deleteCategoryById(categoryId: number): Promise<void> {
+  async deleteCategoryById(categoryId: number): Promise<string> {
     try {
       const result = await this.documentRepository.delete(categoryId);
 
       if (result.affected === 0) {
         throw new NotFoundException(`Category with ID ${categoryId} not found`);
       }
+      return 'Category deleted';
     } catch (error) {
       throw new InternalServerErrorException(error.message);
     }

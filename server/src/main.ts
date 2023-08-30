@@ -12,6 +12,7 @@ async function bootstrap() {
       'http://localhost:3000',
       'http://localhost:8080',
       'http://localhost:4200',
+      'https://gema.gov.gh',
     ],
     credentials: true,
   });

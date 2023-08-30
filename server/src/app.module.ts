@@ -17,6 +17,7 @@ import { MulterModule } from '@nestjs/platform-express';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { DocumentCategoryModule } from './document-category/document-category.module';
+import { UnitModule } from './unit/unit.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { DocumentCategoryModule } from './document-category/document-category.mo
     DepartmentModule,
     UploadImageModule,
     DocumentCategoryModule,
+    UnitModule,
   ],
   providers: [AppService],
   controllers: [],
