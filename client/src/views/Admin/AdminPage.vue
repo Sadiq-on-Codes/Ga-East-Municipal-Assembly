@@ -202,7 +202,7 @@
 import { onMounted, computed } from "vue";
 import { initDrawers, initDropdowns, initCollapses } from "flowbite";
 import { useStore } from "vuex";
-import router from "@/router";
+import { isRouteActive } from "@/functions/index";
 
 onMounted(() => {
   initDrawers();
@@ -216,10 +216,6 @@ const email = computed(() => store.getters.email);
 const logout = () => {
   store.dispatch("logout");
   router.push("/login");
-};
-
-const isRouteActive = (routePath: string) => {
-  return router.currentRoute.value.path === routePath;
 };
 </script>
 <style scoped>/* .navbar-component {

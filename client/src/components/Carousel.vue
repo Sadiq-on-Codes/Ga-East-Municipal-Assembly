@@ -1,12 +1,12 @@
 <template>
-  <div id="default-carousel" class="relative mb-34" data-carousel="static">
+  <div id="animation-carousel" class="relative mb-34" data-carousel-interval="15000" data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="relative overflow-hidden md:h-screen h-56">
       <!-- Item 1 -->
       <div
         v-for="(item, i) in carouselItem"
         :key="i"
-        class="hidden duration-200 ease-linear"
+        class="hidden duration-700 ease-in-out"
         data-carousel-item="active"
       >
         <div>
@@ -122,7 +122,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { initCarousels, initTooltips, initPopovers } from "flowbite";
-// import { sendEmail } from "@/functions";
 
 onMounted(() => {
   initCarousels();

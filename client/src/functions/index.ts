@@ -1,5 +1,7 @@
 //Send Email function
 
+import router from "@/router";
+
 // export const sendEmail = () => {
 //       window.location.href = `mailto:${email.value}?subject=${subject.value}&body=${body.value}`;
 //     };
@@ -23,4 +25,8 @@ export const scrollToTop = () => {
       return `https://gema-gh-6b3bf99ee2e9.herokuapp.com/uploads/${imageURL}`;
     } 
     return imageURL;
+  };
+
+  export const isRouteActive = (routePath: string) => {
+    return router.currentRoute.value.path === routePath;
   };

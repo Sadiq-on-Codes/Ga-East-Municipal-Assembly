@@ -3,7 +3,7 @@
     <article>
       <div class="staff-section-heading flex justify-between items-center mb-20">
         <h2 class="text-left uppercase text-3xl font-bold dark:text-white">
-          Muncipal Chief <br />
+          Municipal Chief <br />
           Executive
         </h2>
         <router-link to="/about" custom v-slot="{ navigate }"><button @click="navigate" type="button"

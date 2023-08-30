@@ -72,7 +72,7 @@ import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import { computed, onMounted, reactive, ref } from "vue";
 import axios from 'axios';
 import { decodeEntities } from "@/functions";
-import { url } from "@/functions/endpoint";
+import { url, imagesUrl } from "@/functions/endpoint";
 import { useRoute, useRouter } from "vue-router";
 import Loader from "@/components/Loader.vue";
 import SuccessMessage from "@/components/SuccessMessage.vue";
@@ -135,13 +135,19 @@ const handleImageChange = async (event: any) => {
 
     try {
       uploading.value = true;
-      const response = await axios.post(`${url}/upload`, formData);
+      const response = await axios.post(`${url}/uploads`, formData);
       createPostData.image = response.data;
       uploading.value = false;
-    } catch (error) {
-      console.error(error);
+      setTimeout(() => {
+        showSuccessMessage.value = true;
+      }, 1000)
+    successMessage.value = isEditing.value ? 'New image uploaded successfully!' : 'Image uploaded successfully!';
+    } catch (error: any) {
       uploading.value = false;
-      throw error;
+      setTimeout(() => {
+        errorAlert.value = true;
+      }, 1500)
+      errorMessage.value = error?.message;
     }
   }
 };
