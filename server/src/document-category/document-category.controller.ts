@@ -39,7 +39,7 @@ export class DocumentCategoryController {
   @Post('create/category')
   async createPost(
     @Body() categoryDto: CategorytDto,
-  ): Promise<DocumentCategory> {
+  ): Promise<[{ message: string }, DocumentCategory]> {
     return await this.documentCategoryService.createCategory(categoryDto);
   }
 
@@ -47,7 +47,7 @@ export class DocumentCategoryController {
   async updatePost(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateCreateDto: UpdateCategorytDto,
-  ) {
+  ): Promise<[{ message: string }, DocumentCategory]> {
     try {
       const updatedCategory = await this.documentCategoryService.updateCategory(
         id,
@@ -57,7 +57,7 @@ export class DocumentCategoryController {
         throw new NotFoundException(`Category with id ${id} not found`);
       }
       this.logger.log(`Category with id ${id} updated successfully`);
-      return updateCreateDto;
+      return updatedCategory;
     } catch (error) {
       this.logger.error(
         `Error updating category with id ${id}: ${error.message}`,
@@ -67,7 +67,7 @@ export class DocumentCategoryController {
   }
 
   @Delete('delete/:id')
-  async deleteCategoryById(@Param('id') categoryId: number): Promise<void> {
-    await this.documentCategoryService.deleteCategoryById(categoryId);
+  async deleteCategoryById(@Param('id') categoryId: number): Promise<string> {
+    return await this.documentCategoryService.deleteCategoryById(categoryId);
   }
 }

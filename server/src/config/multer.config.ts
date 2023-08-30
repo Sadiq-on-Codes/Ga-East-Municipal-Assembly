@@ -1,9 +1,9 @@
 import { diskStorage } from 'multer';
-import { extname } from 'path';
+import { dirname, extname, join } from 'path';
 
 // Define the storage configuration
 const storage = diskStorage({
-  destination: './uploads', // Specify the destination folder for uploaded images
+  destination: join(dirname(__dirname), 'uploads'), // Specify the destination folder for uploaded images
   filename: (req, file, callback) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
     const extension = extname(file.originalname);
@@ -11,15 +11,21 @@ const storage = diskStorage({
   },
 });
 
-// Define the file filter to only accept image files
 const fileFilter = (req, file, callback) => {
-  if (file.mimetype.startsWith('image/')) {
+  const allowedMimeTypes = [
+    'image/jpeg',
+    'image/png',
+    'application/pdf',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', // .xlsx
+  ];
+
+  if (allowedMimeTypes.includes(file.mimetype)) {
     callback(null, true);
   } else {
-    callback(new Error('Only image files are allowed.'), false);
+    callback(new Error('Only image and document files are allowed.'), false);
   }
 };
-
 // Export the Multer configuration
 export const multerConfig = {
   storage: storage,
