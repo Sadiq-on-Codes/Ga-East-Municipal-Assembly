@@ -60,13 +60,13 @@
   </nav>
 
   <aside id="logo-sidebar"
-    class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+    class="fixed top-0 left-0 z-40 w-72 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
     aria-label="Sidebar">
     <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
       <ul class="space-y-2">
         <router-link to="/admin/dashboard" custom v-slot="{ navigate }" exact-active-class="active-nav">
           <li @click="navigate">
-            <a
+            <a :class="{'active-nav': isRouteActive('/admin/dashboard')}"
               class="flex cursor-pointer items-center p-2 hover:text-button-bg-hover text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
               <svg aria-hidden="true"
                 class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -80,26 +80,27 @@
 
         <li>
           <button type="button"
-            class="flex items-center w-full hover:text-button-bg-hover p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-            aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-            <svg
-              class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-              <path
-                d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+            class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+            aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
+            <svg aria-hidden="true"
+              class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+              fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+                clip-rule="evenodd"></path>
             </svg>
-            <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Posts</span>
-            <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+            <span class="flex-1 ml-3 text-left whitespace-nowrap">Posts</span>
+            <!-- <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd"
                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                 clip-rule="evenodd"></path>
-            </svg>
+            </svg> -->
           </button>
-          <ul id="dropdown-example" class="hidden py-2 space-y-2">
+          <ul id="dropdown-pages" class=" py-2 space-y-2">
             <router-link to="/admin/new-post" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <button
+                <button :class="{'active-nav': isRouteActive('/admin/new-post')}"
                   class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                   New Post
                 </button>
@@ -107,9 +108,9 @@
             </router-link>
             <router-link to="/admin/view-posts" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <a
+                <button :class="{'active-nav': isRouteActive('/admin/view-posts')}"
                   class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">View
-                  Posts</a>
+                  Posts</button>
               </li>
             </router-link>
           </ul>
@@ -125,30 +126,37 @@
                 d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
             </svg>
             <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Documents</span>
-            <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+            <!-- <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd"
                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                 clip-rule="evenodd"></path>
-            </svg>
+            </svg> -->
           </button>
-          <ul id="dropdown-example2" class="hidden py-2 space-y-2">
+          <ul id="dropdown-example2" class=" py-2 space-y-2">
             <router-link to="/admin/add-document" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <a
+                <button :class="{'active-nav': isRouteActive('/admin/add-document')}"
                   class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add
-                  Document</a>
+                  Document</button>
+              </li>
+            </router-link>
+
+            <router-link to="/admin/document-categories" custom v-slot="{ navigate }" exact-active-class="active-nav">
+              <li @click="navigate">
+                <button :class="{'active-nav': isRouteActive('/admin/document-categories')}"
+                  class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Document
+                  Categories</button>
               </li>
             </router-link>
 
             <router-link to="/admin/view-documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <a
+                <button :class="{'active-nav': isRouteActive('/admin/view-documents')}"
                   class="flex items-center hover:text-button-bg-hover w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">View
-                  Documents</a>
+                  Documents</button>
               </li>
             </router-link>
-
           </ul>
         </li>
         <li>
@@ -161,26 +169,26 @@
                 d="M1 1h14M1 6h14M1 11h7" />
             </svg>
             <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Slider</span>
-            <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+            <!-- <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd"
                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                 clip-rule="evenodd"></path>
-            </svg>
+            </svg> -->
           </button>
-          <ul id="dropdown-example3" class="hidden py-2 space-y-2">
+          <ul id="dropdown-example3" class=" py-2 space-y-2">
             <router-link to="/admin/add-slider" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <a
+                <button :class="{'active-nav': isRouteActive('/admin/add-slider')}"
                   class="flex items-center w-full hover:text-button-bg-hover p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add
-                  Slider</a>
+                  Slider</button>
               </li>
             </router-link>
             <router-link to="/admin/view-sliders" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
-                <a
+                <button :class="{'active-nav': isRouteActive('/admin/view-sliders')}"
                   class="flex items-center w-full p-2 hover:text-button-bg-hover text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">View
-                  Slider</a>
+                  Slider</button>
               </li>
             </router-link>
           </ul>
@@ -194,7 +202,7 @@
 import { onMounted, computed } from "vue";
 import { initDrawers, initDropdowns, initCollapses } from "flowbite";
 import { useStore } from "vuex";
-import router from "@/router";
+import { isRouteActive } from "@/functions/index";
 
 onMounted(() => {
   initDrawers();
@@ -210,10 +218,10 @@ const logout = () => {
   router.push("/login");
 };
 </script>
-<style scoped>
-/* .navbar-component {
+<style scoped>/* .navbar-component {
   display: none;
 } */
 .active-nav {
-  background-color: green;
+  background-color: #6CC551;
+  color: white;
 }</style>
