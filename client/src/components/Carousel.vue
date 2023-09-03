@@ -139,50 +139,50 @@ const sendEmail = () => {
 
 const carouselItem = ref([
   {
-    image: require("../assets/header-1.jpg"),
-    title: "Idris Alba to build a studio and shoot a movie in Ghana",
+    image: require("../assets/slider-5.jpeg"),
+    title: "PRESIDENT NANA AKUFO-ADDO CUTS SOD FOR CONSTRUCTION OF DOME-KITASE ROAD",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporevoluptatibus quia, sequi praesentium suscipit asperiores maxime?",
+      "TOUTS MASSIVE PROGRESS OF 'YEAR OF ROADS' AGENDA",
     slideNo: "Slide 1",
     count: 0,
   },
   {
-    image: require("../assets/header-2.jpg"),
-    title: "Idris Abla sits with the president at the Flag Staff house",
+    image: require("../assets/slider-6.jpeg"),
+    title: "GA EAST MCE APPEALS TO RESIDENTS TO SUPPORT THE REGIONAL MINISTER TO “MAKE ACCRA WORK AGAIN”",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporevoluptatibus quia, sequi praesentium suscipit asperiores maxime?",
+      "",
     slideNo: "Slide 2",
     count: 1,
   },
   {
-    image: require("../assets/header-3.jpg"),
-    title: "Planting for food and jobs",
+    image: require("../assets/slider-4.jpeg"),
+    title: "GA EAST MCE CALLS FOR UNITY FOR SPEEDY DEVELOPMENT AS SHE JOINS MUSLIMS IN THE MUNICIPALITY TO CELEBRATE EID UL-FITR",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporevoluptatibus quia, sequi praesentium suscipit asperiores maxime?",
+      "",
     slideNo: "Slide 3",
     count: 2,
   },
   {
-    image: require("../assets/header-4.jpg"),
-    title: "President Nana Akufo Addo Speaks to the Nation",
+    image: require("../assets/slider-7.jpeg"),
+    title: "DREDGING OF FLOOD-PRONE AREAS BEGINS",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporevoluptatibus quia, sequi praesentium suscipit asperiores maxime?",
+      "GA EAST MCE, HON. KAAKIE MANN, ASSURES OF PREPAREDNESS TO AVERT FLOODING IN THE MUNICIPALITY",
     slideNo: "Slide 4",
     count: 3,
   },
   {
-    image: require("../assets/header-5.jpg"),
-    title: "Construction of Suame Interchange and Complementary Roads Project",
+    image: require("../assets/slider-1.jpeg"),
+    title: "GEMA DONATES GHC35K TO SUPPORT CONSTRUCTION OF EAST KWABENYA POLICE POST",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporevoluptatibus quia, sequi praesentium suscipit asperiores maxime?",
+      "MCE PRESENTS CHEQUE, CUTS SOD FOR PROJECT",
     slideNo: "Slide 5",
     count: 4,
   },
   {
-    image: require("../assets/header-6.jpg"),
-    title: "GA EAST SUPPORTS HOMOWO CELEBRATION AS MCE PRESENTS ITEMS TO TRADITIONAL AUTHORITIES",
+    image: require("../assets/slider-2.jpeg"),
+    title: "GREATER ACCRA REGIONAL MINISTER'S VISIT TO GA EAST MUNICIPALITY",
     description:
-      "The Ga East Municipal Assembly (GEMA), have donated various food items and cash to support this year's celebration of Homowo.",
+      "",
     slideNo: "Slide 6",
     count: 5,
   },
