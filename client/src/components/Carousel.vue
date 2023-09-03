@@ -186,6 +186,30 @@ const carouselItem = ref([
     slideNo: "Slide 6",
     count: 5,
   },
+  {
+    image: require("../assets/slider-9.jpg"),
+    title: "GA EAST STAFF UNDERGO TWO-DAYS REFRESHER TRAINING ON REPORT WRITING AND OTHERS",
+    description:
+      "",
+    slideNo: "Slide 7",
+    count: 6,
+  },
+  {
+    image: require("../assets/slider-10.jpeg"),
+    title: "GEMANEWS - MCE BREAKS GROUND FOR ABOKOBI ROADS",
+    description:
+      "",
+    slideNo: "Slide 7",
+    count: 6,
+  },
+  {
+    image: require("../assets/slider-11.jpeg"),
+    title: "HON. KAAKIE INSPIRES BECE CANDIDATES TO PASS AND ENJOY 'FREE SHS' AS SHE TOURS CENTRES IN THE MUNICIPALITY ON FIRST DAY OF EXAMS",
+    description:
+      "",
+    slideNo: "Slide 7",
+    count: 6,
+  },
 ]);
 </script>
 <style>

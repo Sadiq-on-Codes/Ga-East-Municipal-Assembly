@@ -2,7 +2,7 @@
   <nav class="navbar-component bg-white w-full h-auto border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
       <a href="#" class="flex items-center">
-        <img src="../assets/logo-transparent.png" class="h-auto w-14 mr-3" alt="Ga East Logo" />
+        <img src="../assets/ga-east-logo.jpg" class="h-auto w-14 mr-3" alt="Ga East Logo" />
         <span
           class="lg-logo self-center text-2xl tracking-wide font-bold whitespace-nowrap dark:text-white text-logo-color uppercase text-left">Ga
           East <br />
@@ -12,10 +12,7 @@
       </a>
 
       <div class="flex md:order-2">
-        <a href="http://outlook.office365.com/" target="_blank"><button type="button"
-            class="button text-white uppercase font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-green-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover hover:bg-button-bg-hover">
-            Staff Mail
-          </button></a>
+         <img src="../assets/coat_of_arms.png" class="h-auto w-14 mx-3" alt="Ga East Logo" />
         <button data-collapse-toggle="navbar-cta" type="button"
           class="inline-flex items-center z-20 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-cta" aria-expanded="false">
@@ -31,7 +28,7 @@
 
       <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
         <ul
-          class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          class="flex flex-col p-4 mt-4 border text-white border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-button-bg dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
 
           <router-link to="/" exact-active-class="active-nav" custom v-slot="{ navigate }">
             <li class="nav" :class="{'active-nav': isRouteActive('/')}">
@@ -105,7 +102,7 @@
               class="z-10 shadow-xl hidden text-left font-normal bg-white divide-y divide-gray-100 w-44 dark:bg-gray-700 dark:divide-gray-600">
               <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton2">
                 <router-link to="/general-documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
-                  <li>
+                  <li data-dropdown-collapse="dropdownNavbar2">
                     <button @click="navigate" type="button"
                       class="block uppercase text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
                       aria-current="page">
@@ -128,7 +125,7 @@
                 </svg></span>
             </button>
 
-            <div id="dropdownNavbar3"
+            <div id="dropdownNavbar3" 
               class="z-10 shadow-xl hidden text-left font-normal bg-white divide-y divide-gray-100 w-fit dark:bg-gray-700 dark:divide-gray-600">
               <ul class=" shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton3">
                 <li class="" v-for="department in allDepartments" :key="department.id">
@@ -157,7 +154,7 @@
               class=" z-10 hidden text-left font-normal bg-white divide-y divide-gray-100  w-44 dark:bg-gray-700 dark:divide-gray-600">
               <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton4">
                 <router-link to="/all-news" custom v-slot="{ navigate }" exact-active-class="active-nav">
-                  <li>
+                  <li data-dropdown-collapse="dropdownNavbar4">
                     <button @click="navigate" type="button"
                       class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
                       aria-current="page">
@@ -192,13 +189,17 @@
           <router-link to="/contact" custom v-slot="{ navigate }" exact-active-class="active-nav">
             <li class="nav" :class="{'active-nav': isRouteActive('/contact')}">
               <button @click="navigate" type="button"
-                class="block uppercase nav-item py-2 pl-3 pr-4 text-nav-text-color bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">
                 Contact
               </button>
             </li>
           </router-link>
         </ul>
+        <a href="http://outlook.office365.com/" target="_blank"><button type="button"
+            class="button uppercase font-semibold focus:ring-4 focus:outline-none text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover">
+            Staff Mail
+          </button></a>
       </div>
     </div>
   </nav>
