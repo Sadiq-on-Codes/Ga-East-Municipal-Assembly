@@ -197,7 +197,7 @@
           </router-link>
         </ul>
         <a href="http://outlook.office365.com/" target="_blank"><button type="button"
-            class="button uppercase font-semibold focus:ring-4 focus:outline-none text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover">
+            class="button uppercase font-semibold focus:outline-none text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover">
             Staff Mail
           </button></a>
       </div>
