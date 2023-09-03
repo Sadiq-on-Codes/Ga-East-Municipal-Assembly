@@ -5,8 +5,8 @@
         <span class="text-4xl font-bold text-left">We value your feedback,<br> Get in touch!</span>
       </div>
 
-      <div class="px-4 grid contact">
-        <div class="">
+      <div class="px-4 flex contact">
+        <div class="w-1/2">
           <div class="flex justify-between">
             <div class="flex justify-start text-left flex-col gap-4">
               <span class="text-left text-lg font-medium text-gray-900 dark:text-gray-300">Public Relations</span>
@@ -21,8 +21,8 @@
             </div>
           </div>
         </div>
-        <div class="w-full flex gap-4 flex-col">
-          <div>
+        <div class="inputs flex w-1/2 gap-4 flex-col">
+          <div class="w-full"> 
             <label for="email" class="block mb-2 text-left text-lg font-medium text-gray-900 dark:text-gray-300">Your
               email</label>
             <input type="email" id="email"
@@ -40,7 +40,7 @@
       </div>
 
       <div class="sm:col-span-2 px-4 my-8">
-        <label for="message" class="block mb-2 text-lg text-left font-medium text-gray-900 dark:text-gray-400 mb-4">Message</label>
+        <label for="message" class="block mb-2 text-lg text-left font-medium text-gray-900 dark:text-gray-400">Message</label>
         <textarea id="message" rows="6"
           class="block p-2.5 w-full text-sm bg-[#E8E9EB] rounded-lg text-gray-900 shadow-sm border border-gray-300 focus:ring-button-bg focus:border-button-bg dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
           placeholder="Leave a comment..."></textarea>
@@ -67,7 +67,17 @@ import Footer from "@/components/Footer.vue";
   outline: 1px solid;
 } */
 
-.contact {
+/* .contact {
   grid-template-columns: 50% 50%;
+} */
+
+@media (max-width: 600px) {
+  .contact {
+    flex-direction: column;
+  }
+
+  .inputs {
+    width: 100%;
+  }
 }
 </style>
