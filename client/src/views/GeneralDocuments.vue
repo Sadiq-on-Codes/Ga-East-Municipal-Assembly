@@ -32,7 +32,7 @@
                       <div class="flex gap-4 items-center">
                         <img src="../assets/document.svg" alt="document logo" class="w-6 h-6">
                         <div class="flex items-start justify-center flex-col">
-                          <p class="cursor-pointer text-gray-500 dark:text-gray-400 capitalize">{{ document.title }}</p>
+                          <p class="cursor-pointer text-gray-500 self-start dark:text-gray-400 capitalize">{{ document.title }}</p>
                           <!-- <p class="text-[#7A7878] text-md dark:text-gray-400">uploaded {{
                         moment(document.createdAt).format('LL') }}</p> -->
                         </div>
