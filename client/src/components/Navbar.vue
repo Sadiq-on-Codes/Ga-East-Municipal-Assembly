@@ -43,7 +43,7 @@
             </li>
           </router-link>
 
-          <li class="nav text-left" :class="{'active-nav': isRouteActive('/finished-projects')}">
+          <!-- <li class="nav text-left" :class="{'active-nav': isRouteActive('/finished-projects')}">
             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
               class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Projects
               <span class="hover:fill-white"><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor"
@@ -88,7 +88,7 @@
                 </router-link>
               </ul>
             </div>
-          </li>
+          </li> -->
 
           <li class="nav text-left" :class="{'active-nav': isRouteActive('/general-documents')}">
             <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2"
