@@ -3,13 +3,13 @@
         <div class="max-w-screen-2xl px-4 py-16 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8">
             <div class="grid grid-cols-1 gap-10 lg:grid-cols-3 justify-between">
                 <div>
-                    <div class="text-teal-300 dark:text-teal-300 flex items-center justify-start">
+                    <div class="details text-teal-300 dark:text-teal-300 flex items-center justify-start">
                         <img src="../assets/logo-transparent.png" class="h-auto w-14 mr-3 self-start" alt="Ga East Logo" />
                         <div class="flex flex-col justify-start text-left">
                             <span class="text-2xl text-white dark:text-gray-400">
                                 Ga East Municipal Assembly
                             </span>
-                            <span class="text-white">Ga East Municipal Assembly <br> Head of Client Service Unit & Public
+                            <span class="text-white">Ga East Municipal Assembly <br> Head of Client Service Unit or Public
                                 Relations Officer<br> P. O. Box AQ5 Abokobi </span>
                             <ul class="flex justify-start gap-6 mt-4">
                                 <li>
@@ -31,10 +31,10 @@
 
                 <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3">
                     <div>
-                        <p class="font-base text-left text-button-bg dark:text-white">Navigate</p>
+                        <p class="font-base text-center text-button-bg dark:text-white">Navigate</p>
 
                         <nav aria-label="Footer Navigation - Company" class="mt-6">
-                            <ul class="space-y-4 text-sm text-left">
+                            <ul class="space-y-4 text-sm text-center">
                                 <router-link to="/about" custom v-slot="{ navigate }">
                                     <button @click="navigate"
                                         class="text-white transition hover:opacity-75 dark:text-gray-200">
@@ -83,10 +83,10 @@
                         </nav>
                     </div>
                     <div>
-                        <p class="text-left font-base text-button-bg dark:text-white">Useful Links</p>
+                        <p class="text-center font-base text-button-bg dark:text-white">Useful Links</p>
 
                         <nav aria-label="Footer Navigation - Services" class="mt-6">
-                            <ul class="space-y-4 text-sm text-left">
+                            <ul class="space-y-4 text-sm text-center">
                                 <li>
                                     <a href="http://lgs.gov.gh/" target="_blank"
                                         class="text-white transition hover:opacity-75 dark:text-gray-200">
@@ -132,10 +132,10 @@
                     </div>
 
                     <div>
-                        <p class="font-base text-left text-button-bg dark:text-white">How to reach us </p>
+                        <p class="font-base text-center text-button-bg dark:text-white">How to reach us </p>
 
                         <nav aria-label="Footer Navigation - Legal" class="mt-6">
-                            <ul class="space-y-4 text-sm text-left">
+                            <ul class="space-y-4 text-sm text-center">
                                 <li>
                                     <a class="text-white transition hover:opacity-75 dark:text-gray-200">
                                         Tel: <a href="tel:0302-962718" class="text-footer-text">0302-962718/</a><a
@@ -208,4 +208,10 @@ const sendEmailGaEast = () => {
 /* * {
     outline: 1px solid black;
 } */
+
+@media (max-width: 600px) {
+    .details {
+        display: none;
+    }
+}
 </style>
