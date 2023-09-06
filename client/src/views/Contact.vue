@@ -10,7 +10,7 @@
           <div class="flex justify-between">
             <div class="flex justify-start text-left flex-col gap-4">
               <span class="text-left text-lg font-medium text-gray-900 dark:text-gray-300">Public Relations</span>
-              <p class="text-md">Ga East Municipal Assembly <br> Head of Client Service Unit & Public
+              <p class="text-md">Ga East Municipal Assembly <br> Head of Client Service Unit or Public
                 Relations Officer<br> P. O. Box AQ5 Abokobi </p>
               <p class="text-md">Tel: 0302-2962718/0559920954(Whatsapp)</p>
 

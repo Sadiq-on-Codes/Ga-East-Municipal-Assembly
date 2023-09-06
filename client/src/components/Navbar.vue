@@ -12,7 +12,7 @@
       </a>
 
       <div class="flex md:order-2">
-         <img src="../assets/coat_of_arms.png" class="h-auto w-14 mx-3" alt="Ga East Logo" />
+        <img src="../assets/coat_of_arms.png" class="h-auto w-14 mx-3" alt="Ga East Logo" />
         <button data-collapse-toggle="navbar-cta" type="button"
           class="inline-flex items-center z-20 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-cta" aria-expanded="false">
@@ -28,17 +28,20 @@
 
       <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
         <ul
-          class="flex flex-col p-4 mt-4 border text-white border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-button-bg dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          class="flex flex-col p-2 mt-4 border text-white border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-button-bg dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
 
-          <router-link to="/" exact-active-class="active-nav" custom v-slot="{ navigate }">
-            <li class="nav" :class="{'active-nav': isRouteActive('/')}">
-              <button @click="navigate" type="button"
+          <a href="/">
+            <!-- <router-link to="/" exact-active-class="active-nav" custom v-slot="{ navigate }"> -->
+            <li class="nav" :class="{ 'active-nav': isRouteActive('/') }">
+              <button type="button"
                 class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">
                 Home
               </button>
             </li>
-          </router-link>
+          <!-- </router-link> -->
+          </a>
+          
 
           <!-- <li class="nav text-left" :class="{'active-nav': isRouteActive('/finished-projects')}">
             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
@@ -87,7 +90,7 @@
             </div>
           </li> -->
 
-          <li class="nav text-left" :class="{'active-nav': isRouteActive('/general-documents')}">
+          <li class="nav text-left" :class="{ 'active-nav': isRouteActive('/general-documents') }">
             <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2"
               class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Documents
               <span class="hover:fill-white"><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor"
@@ -101,20 +104,23 @@
             <div id="dropdownNavbar2"
               class="z-10 shadow-xl hidden text-left font-normal bg-white divide-y divide-gray-100 w-44 dark:bg-gray-700 dark:divide-gray-600">
               <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton2">
-                <router-link to="/general-documents" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                <a href="/general-documents">
+                  <!-- <router-link to="/general-documents" custom v-slot="{ navigate }" exact-active-class="active-nav"> -->
                   <li data-dropdown-collapse="dropdownNavbar2">
-                    <button @click="navigate" type="button"
+                    <button type="button"
                       class="block uppercase text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
                       aria-current="page">
                       General Documents
                     </button>
                   </li>
-                </router-link>
+                <!-- </router-link> -->
+                </a>
+                
               </ul>
             </div>
           </li>
 
-          <li class="nav text-left" :class="{'active-nav': isRouteActive('/departments') }">
+          <li class="nav text-left" :class="{ 'active-nav': isRouteActive('/departments') }">
             <button id="dropdownNavbarLink3" data-dropdown-toggle="dropdownNavbar3"
               class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Departments
               <span class="hover:fill-white"><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor"
@@ -125,7 +131,7 @@
                 </svg></span>
             </button>
 
-            <div id="dropdownNavbar3" 
+            <div id="dropdownNavbar3"
               class="z-10 shadow-xl hidden text-left font-normal bg-white divide-y divide-gray-100 w-fit dark:bg-gray-700 dark:divide-gray-600">
               <ul class=" shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton3">
                 <li class="" v-for="department in allDepartments" :key="department.id">
@@ -139,7 +145,7 @@
             </div>
           </li>
 
-          <li class="nav text-left" :class="{'active-nav': isRouteActive('/gallery')}">
+          <li class="nav text-left" :class="{ 'active-nav': isRouteActive('/gallery') }">
             <button id="dropdownNavbarLink4" data-dropdown-toggle="dropdownNavbar4"
               class="inline-flex items-center z-auto uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white">Media
               <span class="hover:fill-white"><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor"
@@ -153,48 +159,60 @@
             <div id="dropdownNavbar4"
               class=" z-10 hidden text-left font-normal bg-white divide-y divide-gray-100  w-44 dark:bg-gray-700 dark:divide-gray-600">
               <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton4">
-                <router-link to="/all-news" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                <a href="/all-news">
                   <li data-dropdown-collapse="dropdownNavbar4">
-                    <button @click="navigate" type="button"
+                    <button type="button"
                       class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
                       aria-current="page">
                       News
                     </button>
                   </li>
-                </router-link>
+                </a>
+                <!-- <router-link to="/all-news" custom v-slot="{ navigate }" exact-active-class="active-nav"> -->
 
-                <router-link to="/gallery" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                <!-- </router-link> -->
+
+                <a href="/gallery">
+                  <!-- <router-link to="/gallery" custom v-slot="{ navigate }" exact-active-class="active-nav"> -->
                   <li>
-                    <button @click="navigate" type="button"
+                    <button type="button"
                       class="uppercase block text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
                       aria-current="page">
                       Gallery
                     </button>
                   </li>
-                </router-link>
+                  <!-- </router-link> -->
+                </a>
+
               </ul>
             </div>
           </li>
 
-          <router-link to="/about" custom v-slot="{ navigate }" exact-active-class="active-nav">
-            <li class="nav" :class="{'active-nav': isRouteActive('/about')}">
-              <button @click="navigate" type="button"
+          <a href="/about">
+            <!-- <router-link to="/about" custom v-slot="{ navigate }" exact-active-class="active-nav"> -->
+            <li class="nav" :class="{ 'active-nav': isRouteActive('/about') }">
+              <button type="button"
                 class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">
                 About
               </button>
             </li>
-          </router-link>
+          <!-- </router-link> -->
+          </a>
+          
 
-          <router-link to="/contact" custom v-slot="{ navigate }" exact-active-class="active-nav">
-            <li class="nav" :class="{'active-nav': isRouteActive('/contact')}">
-              <button @click="navigate" type="button"
+          <!-- <router-link to="/contact" custom v-slot="{ navigate }" exact-active-class="active-nav"> -->
+          <a href="/contact">
+            <li class="nav" :class="{ 'active-nav': isRouteActive('/contact') }">
+              <button type="button"
                 class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
                 aria-current="page">
                 Contact
               </button>
             </li>
-          </router-link>
+          </a>
+
+          <!-- </router-link> -->
         </ul>
         <a href="http://outlook.office365.com/" target="_blank"><button type="button"
             class="button uppercase font-semibold focus:outline-none text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover">
@@ -221,7 +239,8 @@ onMounted(() => {
 
 const router = useRouter()
 const viewDepartment = (departmentId: number) => {
-  router.push({ name: 'Departments', params: { id: departmentId } });
+  // router.push({ name: 'Departments', params: { id: departmentId } });
+  window.location.href = `/departments/${departmentId}`
 }
 
 const allDepartments: any = ref([]);
@@ -249,7 +268,6 @@ axios.get(`${url}/departments`)
   border-bottom: 2px solid #6CC551;
 }
 
-
 #dropdownNavbar,
 #dropdownNavbar2,
 #dropdownNavbar3,
@@ -273,6 +291,10 @@ axios.get(`${url}/departments`)
     display: none;
     justify-content: flex-end;
   } */
+
+  ul {
+    color: #001630;
+  }
 
   .lg-logo {
     display: none;
