@@ -98,8 +98,8 @@ axios.get(`${url}/events/upevents`, {
   });
 
 // Define refs for the event data and active tab
-const dataMain = ref(PAST_EVENTS.value[0]);
-const data = ref(PAST_EVENTS.value);
+const dataMain = ref();
+const data = ref();
 const activeTab = ref("past"); // default to "past" tab
 const notices = ref([]);
 
