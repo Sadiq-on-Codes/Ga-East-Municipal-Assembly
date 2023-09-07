@@ -56,7 +56,6 @@ import Footer from '@/components/Footer.vue';
 import Loader from "@/components/Loader.vue";
 import { url } from "@/functions/endpoint";
 import { onMounted, ref } from 'vue';
-import moment from "moment"
 import axios from 'axios';
 
 onMounted(() => {
