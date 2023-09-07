@@ -4,14 +4,14 @@
       class="text-sm font-medium text-center text-gray-500 border-b border-gray-300 dark:text-gray-400 dark:border-gray-700">
       <ul class="flex text-center text-lg p-3 flex-wrap justify-between">
         <li class="mr-2">
-          <button @click="switchTab('past')" :class="{ 'text-button-bg-hover': activeTab === 'past' }">
-            Past Events
-          </button>
-        </li>
-        <li class="mr-2">
           <button @click="switchTab('upcoming')" :class="{ 'text-button-bg-hover': activeTab === 'upcoming' }"
             aria-current="page">
             Upcoming Events
+          </button>
+        </li>
+        <li class="mr-2">
+          <button @click="switchTab('past')" :class="{ 'text-button-bg-hover': activeTab === 'past' }">
+            Past Events
           </button>
         </li>
         <li class="mr-2">
@@ -100,7 +100,7 @@ axios.get(`${url}/events/upevents`, {
 // Define refs for the event data and active tab
 const dataMain = ref();
 const data = ref();
-const activeTab = ref("past"); // default to "past" tab
+const activeTab = ref("upcoming"); // default to "past" tab
 const notices = ref([]);
 
 // Define a function to switch between tabs
