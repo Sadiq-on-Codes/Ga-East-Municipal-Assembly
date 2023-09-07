@@ -19,6 +19,8 @@ import Dashboard from '@/views/Admin/Dashboard.vue'
 import NewPost from '@/views/Admin/Posts/NewPost.vue'
 import AddSlider from '@/views/Admin/Slider/AddSlider.vue'
 import ViewSliders from '@/views/Admin/Slider/ViewSliders.vue'
+import AddDepartments from '@/views/Admin/Departments/AddDepartments.vue'
+import ViewDepartments from '@/views/Admin/Departments/ViewDepartments.vue'
 import AddDocument from '@/views/Admin/Documents/AddDocument.vue'
 import ViewDocuments from '@/views/Admin/Documents/ViewDocuments.vue'
 import DocumentCategories from '@/views/Admin/Documents/DocumentCategories.vue'
@@ -141,6 +143,16 @@ const routes: Array<RouteRecordRaw> = [
         path: 'document-categories',
         name: 'DocumentCategories',
         component: DocumentCategories
+      },
+      {
+        path: 'add-department',
+        name: 'AddDepartment',
+        component: AddDepartments
+      },
+      {
+        path: 'view-departments',
+        name: 'ViewDepartments',
+        component: ViewDepartments
       },
     ]
   },

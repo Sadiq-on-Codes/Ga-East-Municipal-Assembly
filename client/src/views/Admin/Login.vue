@@ -65,7 +65,7 @@
             </div>
             <button
               type="submit"
-              @click.prevent="login"
+              @click="login"
               class="w-full text-white bg-button-bg hover:bg-button-bg-hover focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
             >
               Sign in
@@ -93,6 +93,8 @@ const login = async () => {
       email: email.value,
       password: password.value,
     });
+    console.log(email, 'email');
+        console.log(password, 'pass');
     console.log(store)
   } catch (err: any) {
     error.value = err.message;

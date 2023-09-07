@@ -1,16 +1,21 @@
 import router from '@/router';
 import { createStore } from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
+import { email, password } from '../functions/endpoint'
 
 interface RootState {
   isLoggedIn: boolean;
   email: string | null;
+  loginEmail: string;
+  loginPassword: string;
 }
 
 const store = createStore<RootState>({
   state: {
     isLoggedIn: false,
     email: null,
+    loginEmail: email,
+    loginPassword: password
   },
   mutations: {
     login(state, email) {
@@ -22,9 +27,8 @@ const store = createStore<RootState>({
     },
   },
   actions: {
-    login({ commit }, { email, password }) {
-      // Call your login API and check the credentials
-      if (email === 'test@example.com' && password === 'password') {
+    login({ commit }, { email, password }: { email: string, password: string }) {
+      if (email == this.state.loginEmail && password == this.state.loginPassword) {
         commit('login', email);
         router.push('/admin/dashboard');
       } else {
