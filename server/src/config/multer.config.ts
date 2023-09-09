@@ -15,6 +15,7 @@ const fileFilter = (req, file, callback) => {
   const allowedMimeTypes = [
     'image/jpeg',
     'image/png',
+    'image/jpg',
     'application/pdf',
     'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', // .xlsx
