@@ -24,7 +24,7 @@ export class Department {
   @OneToMany(() => Unit, (unit) => unit.department)
   unit: Unit[];
 
-  @Column()
+  @Column({ type: 'text' })
   about: string;
   @CreateDateColumn()
   createdAt: Date;
