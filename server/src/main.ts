@@ -13,6 +13,8 @@ async function bootstrap() {
       'http://localhost:8080',
       'http://localhost:4200',
       'https://gema.gov.gh',
+      'https://gema.gov.gh:2083',
+      'https://gema-gov-gh.netlify.app',
     ],
     credentials: true,
   });
