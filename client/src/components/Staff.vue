@@ -13,20 +13,19 @@
       </div>
 
       <section class="staff-section mt-6 flex justify-between gap-5">
-        <div class="w-[70%] section-1">
+        <div class="w-[65%] section-1">
           <h3 class="text-left text-xl font-bold mb-5">Hon. Elizabeth Kaakie Mann's First 100 Days in Office</h3>
           <div class="text-justify" v-for="paragraph  in paragraphs">
             <p class=" mb-5">{{ paragraph }}</p>
           </div>
 
         </div>
-        <div class="bg-[#e9e9e9] w-[25%]">
-          <div class="w-full px-6 pt-6 h-full my-auto mx-auto section-2">
-          <img class="w-full h-full mx-auto" src="../assets/mce.png" alt="" />
-          <p class="font-bold dark:text-white mt-2 uppercase">HON. ELIZABETH KAAKIE MANN</p>
+        <div class="w-[35%] section-2">
+          <div class="bg-[#e9e9e9] w-4/5 px-6 pt-6 my-auto mx-auto">
+            <img class="w-full  mx-auto" src="../assets/mce.jpg" alt="" />
+            <p class="font-bold dark:text-white mt-2 uppercase">HON. ELIZABETH KAAKIE MANN</p>
+          </div>
         </div>
-        </div>
-        
       </section>
     </article>
   </section>
@@ -41,16 +40,23 @@ const paragraphs = [
 ];
 </script>
 <style scoped>
-
+/* * {
+  outline: 1px solid;
+} */
 
 @media (max-width: 600px) {
-  .staff-section {
 
+  .staff-section {
     flex-direction: column;
+
   }
 
   .section-1,
   .section-2 {
+    width: 100%;
+  }
+
+  .section-2 img {
     width: 100%;
   }
 }
