@@ -65,11 +65,11 @@ import Loader from "@/components/Loader.vue";
 
 onMounted(() => {
   initTooltips();
-  getPostDetails()
+  getDocumentDetails()
 });
 
 const documentInfo = ref([]);
-const getPostDetails = async () => {
+const getDocumentDetails = async () => {
   if (postId.value !== undefined) {
     isEditing.value = true;
     if (isEditing.value) {
@@ -81,8 +81,9 @@ const getPostDetails = async () => {
         createDocumentData.image = documentData.image;
         createDocumentData.category = documentData.category;
         console.log(documentData, 'data');
-      } catch (error) {
-        console.error(error);
+      } catch (error: any) {
+        errorAlert.value = true;
+        errorMessage.value = error.message
       }
     } else {
       console.log('creating');
@@ -112,7 +113,7 @@ const handleImageChange = async (event: any) => {
 
   if (file) {
     const formData = new FormData();
-    formData.append('image', file);
+    formData.append('file', file);
 
     try {
       uploading.value = true;

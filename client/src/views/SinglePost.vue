@@ -1,7 +1,8 @@
 <template>
   <div class="dark:bg-gray-800 mt-20">
-    <section class="single max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
-      <div v-if="postData" class="single-post flex mb-20 w-full gap-10 justify-around">
+    <Loader class="my-52" v-if="!postData" />
+    <section v-else class="single max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+      <div class="single-post flex mb-20 w-full gap-10 justify-around">
         <div class="title flex mt-20 text-left w-1/2 flex-col gap-16 items-left">
           <span class="bg-transparent h-6 text-lg font-medium inline-flex items-center py-0.5 dark:text-green-400">
             <span class="text-button-bg-hover text-lg mr-1.5">Posted on </span>
@@ -97,6 +98,7 @@ import { url } from "@/functions/endpoint";
 import moment from "moment";
 import axios from 'axios';
 import { useRoute } from "vue-router";
+import Loader from "@/components/Loader.vue";
 
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' });

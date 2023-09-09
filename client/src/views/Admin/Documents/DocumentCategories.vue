@@ -43,7 +43,7 @@
             </table>
         </div>
     </div>
-    <DeleteModal @deletePost="deleteDocument" @closeDeleteModal='closeDeleteModal' v-if="deleteModal" />
+    <DeleteModal @deletePost="deleteDocument" @closeDeleteModal='closeDeleteModal' :item="'document category'" v-if="deleteModal" />
     <SuccessMessage :showSuccessMessage="showSuccessMessage" :successMessage="successMessage" />
     <ErrorMessage :errorAlert="errorAlert" :errorMessage="errorMessage" />
 </template>
