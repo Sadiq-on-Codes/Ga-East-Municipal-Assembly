@@ -131,11 +131,11 @@ const handleImageChange = async (event: any) => {
 
   if (file) {
     const formData = new FormData();
-    formData.append('image', file);
+    formData.append('file', file);
 
     try {
       uploading.value = true;
-      const response = await axios.post(`${url}/uploads`, formData);
+      const response = await axios.post(`${url}/upload`, formData);
       createPostData.image = response.data;
       uploading.value = false;
       setTimeout(() => {

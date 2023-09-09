@@ -24,7 +24,7 @@ export const scrollToTop = () => {
     // if (!imageURL?.startsWith('https://gema.gov.gh/images/')) {
     //   return `https://gema-gh-6b3bf99ee2e9.herokuapp.com/uploads/${imageURL}`;
     // } 
-    return  `https://gema.gov.gh/images/${imageURL}`;
+    return  `http://gema.gov.gh/images/${imageURL}`;
   };
 
   export const isRouteActive = (routePath: string) => {
