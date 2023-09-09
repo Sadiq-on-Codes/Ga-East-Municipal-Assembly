@@ -18,6 +18,7 @@ export class Unit {
   title: string;
 
   @Column({ nullable: true })
+  @Column({ type: 'text' })
   about: string;
 
   @ManyToOne((type) => Department, (department) => department.unit)
