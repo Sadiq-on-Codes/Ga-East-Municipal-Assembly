@@ -55,6 +55,7 @@
 </template>
 <script setup lang="ts">
 import { url } from "@/functions/endpoint";
+import { decryptString } from '@/functions/encryption';
 import axios from "axios";
 import { initTooltips } from "flowbite";
 import { computed, onMounted, reactive, ref } from "vue";
@@ -70,11 +71,11 @@ onMounted(() => {
 
 const documentInfo = ref([]);
 const getDocumentDetails = async () => {
-  if (postId.value !== undefined) {
+  if (documentId.value !== undefined) {
     isEditing.value = true;
     if (isEditing.value) {
       try {
-        const response = await axios.get(`${url}/department-document/${postId.value}`);
+        const response = await axios.get(`${url}/department-document/${parseInt(documentId.value)}`);
         const documentData = response.data;
         documentInfo.value = documentData
         createDocumentData.title = documentData.title;
@@ -93,7 +94,7 @@ const getDocumentDetails = async () => {
 
 const isEditing = ref(false);
 const route = useRoute();
-const postId = computed(() => route.params.id);
+const documentId = computed(() => decryptString(route.params.id.toString()) );
 const router = useRouter();
 
 const uploading = ref(false);
@@ -147,7 +148,7 @@ const saveDocument = async () => {
     if (!isEditing.value) {
       await axios.post(`${url}/department-document`, documentData);
     } else {
-      await axios.patch(`${url}/department-document/update/${postId.value}`, documentData);
+      await axios.patch(`${url}/department-document/update/${parseInt(documentId.value)}`, documentData);
     }
 
     createDocumentData.title = '';

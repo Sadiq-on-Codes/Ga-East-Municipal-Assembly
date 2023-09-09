@@ -37,6 +37,14 @@ let successMessage = ref('');
 let showSuccessMessage = ref(false);
 let errorAlert = ref(false);
 let errorMessage = ref('');
+const isEditing = ref(false);
+const route = useRoute();
+const postId = computed(() => route.params.id);
+const router = useRouter();
+const data = reactive({
+  title: '',
+  description: ''
+})
 
 onMounted(() => {
   initTooltips();
@@ -63,15 +71,6 @@ const getDepartmentDetails = async () => {
     }
   }
 }
-
-const isEditing = ref(false);
-const route = useRoute();
-const postId = computed(() => route.params.id);
-const router = useRouter();
-const data = reactive({
-  title: '',
-  description: ''
-})
 
 const handleAddDepartment = async () => {
   try {
