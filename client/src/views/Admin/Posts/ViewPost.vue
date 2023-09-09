@@ -36,7 +36,7 @@
         </tbody>
       </table>
       <Loader class="my-52" v-else />
-      <Pagination v-if="allNews.length > 12" v-model="currentPage" :per-page="perPage" :total-items="count" :layout="'table'"></Pagination>
+      <Pagination  v-model="currentPage" :per-page="perPage" :total-items="count" :layout="'table'"></Pagination>
     </div>
   </div>
   <DeleteModal @deletePost="deletePost" @closeDeleteModal='closeDeleteModal' v-if="deleteModal" />

@@ -39,7 +39,7 @@
       <Pagination v-if="allDocuments.length > 12" v-model="currentPage" :per-page="perPage" :total-items="count" :layout="'table'"></Pagination>
     </div>
   </div>
-  <DeleteModal @deletePost="deleteDocument" @closeDeleteModal='closeDeleteModal' v-if="deleteModal" />
+  <DeleteModal @deletePost="deleteDocument" @closeDeleteModal='closeDeleteModal' :item="'document'" v-if="deleteModal" />
   <SuccessMessage :showSuccessMessage="showSuccessMessage" :successMessage="successMessage" />
   <ErrorMessage :errorAlert="errorAlert" :errorMessage="errorMessage" />
 </template>
@@ -71,7 +71,7 @@ const calculatePostNumber = (index: number) => {
 
 const editDocument = (postId: number) => {
   router.push({ name: 'EditDocument', params: { id: postId } });
-}
+};
 
 const deleteModal = ref(false);
 const openDeleteModal = (id: number) => {

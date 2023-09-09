@@ -72,7 +72,7 @@ import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import { computed, onMounted, reactive, ref } from "vue";
 import axios from 'axios';
 import { decodeEntities } from "@/functions";
-import { url, imagesUrl } from "@/functions/endpoint";
+import { url } from "@/functions/endpoint";
 import { useRoute, useRouter } from "vue-router";
 import Loader from "@/components/Loader.vue";
 import SuccessMessage from "@/components/SuccessMessage.vue";

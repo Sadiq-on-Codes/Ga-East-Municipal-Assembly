@@ -211,14 +211,14 @@
             </svg>
           </button>
           <ul v-if="openAccordion === 'departments'" id="dropdown-example3" class=" py-2 space-y-2">
-            <router-link to="/admin/add-slider" custom v-slot="{ navigate }" exact-active-class="active-nav">
+            <router-link to="/admin/add-department" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
                 <button :class="{ 'active-nav': isRouteActive('/admin/add-department') }"
                   class="flex items-center w-full hover:text-button-bg-hover p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add
-                  Departments</button>
+                  Department</button>
               </li>
             </router-link>
-            <router-link to="/admin/view-sliders" custom v-slot="{ navigate }" exact-active-class="active-nav">
+            <router-link to="/admin/view-departments" custom v-slot="{ navigate }" exact-active-class="active-nav">
               <li @click="navigate">
                 <button :class="{ 'active-nav': isRouteActive('/admin/view-departments') }"
                   class="flex items-center w-full p-2 hover:text-button-bg-hover text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">View
