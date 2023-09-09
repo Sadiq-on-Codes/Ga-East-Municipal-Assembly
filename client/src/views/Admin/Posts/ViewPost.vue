@@ -48,6 +48,7 @@ import DeleteModal from "@/components/DeleteModal.vue";
 import { Pagination } from 'flowbite-vue';
 import Loader from "@/components/Loader.vue";
 import { url } from "@/functions/endpoint";
+import { encryptString } from '@/functions/encryption';
 import axios from "axios";
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
@@ -71,8 +72,8 @@ const calculatePostNumber = (index: number) => {
   return (currentPage.value - 1) * perPage.value + index + 1;
 };
 
-const editPost = (postId: number) => {
-  router.push({ name: 'EditPost', params: { id: postId } });
+const editPost = (postId: string) => {
+  router.push({ name: 'EditPost', params: { id: encryptString(postId.toString()) } });
 }
 
 const deleteModal = ref(false);

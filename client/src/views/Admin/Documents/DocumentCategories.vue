@@ -31,7 +31,7 @@
                         <td class="px-6 py-4">{{ category.category }}</td>
                         <td class="px-6 py-4">{{ category?.documents?.length }}</td>
                         <td class="px-6 py-4">
-                            <button @click="editDocument(category.id)"
+                            <button @click="editDocument(category)"
                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
                         </td>
                         <td class="px-6 py-4">
@@ -98,8 +98,8 @@ const deleteDocument = () => {
         });
 };
 
-const editDocument = (postId: number) => {
-    //
+const editDocument = (category: any) => {
+    openModal.value = true;
 }
 
 const handleAddCategory = (enteredCategory: string) => {
