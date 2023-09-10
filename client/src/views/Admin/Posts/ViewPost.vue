@@ -136,6 +136,7 @@ const deletePost = () => {
 const allNews: any = ref([]);
 const fetchNewsItems = () => {
   loading.value = true;
+  emptyState.value = false;
   let apiEndpoint = '';
 
   switch (category.value) {
@@ -179,8 +180,7 @@ const fetchNewsItems = () => {
       }
 
 
-      if (allNews.value.length === 0) {
-        loading.value = false;
+      if (!allNews.value) {
         emptyState.value = true;
       }
     })

@@ -19,7 +19,7 @@
             </span>
             <div class="description font-light text-gray-500 dark:text-gray-400" v-html="decodeEntities(newsItem.article.slice(0, 200))"></div>
             <div class="title flex justify-start">
-              <router-link :to="'/single-post/' + newsItem.id" custom v-slot="{ navigate }"><button @click="navigate"
+              <router-link :to="'/single-post/' + encryptString(newsItem.id.toString())" custom v-slot="{ navigate }"><button @click="navigate"
                   type="button"
                   class="button text-news-section-text uppercase font-semibold bg-transparent border border-news-section-text dark:border-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-transparent dark:hover:text-button-bg-hover dark:focus:bg-button-bg-hover">
                   Read More
@@ -39,6 +39,7 @@
 </template>
 <script setup lang="ts">
 import { decodeEntities, appendBaseURL } from "@/functions";
+import { encryptString } from '@/functions/encryption';
 import { url } from "@/functions/endpoint";
 import axios from "axios";
 import moment from "moment"
