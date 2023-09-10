@@ -3,8 +3,6 @@ import { key } from "@/functions/endpoint";
 
 export function encryptString(text: string): string {
     const encrypted = CryptoJS.AES.encrypt(text, key);
-    console.log(encrypted);
-    
     return encrypted.toString();
   }
   
