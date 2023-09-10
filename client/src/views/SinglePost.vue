@@ -62,7 +62,7 @@
         <article class="">
           <section class="dark:text-white grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
             <div class="cursor-pointer mb-20" v-for="newsItem in allNews" :key="newsItem.id">
-              <a :href="'/single-post/' + newsItem?.id">
+              <a :href="'/single-post/' + encryptString(newsItem?.id.toString())">
                 <article
                   class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
                   :style="{ backgroundImage: `url(${appendBaseURL(newsItem.image)})` }">
@@ -94,6 +94,7 @@
 import { computed, onMounted, ref } from "vue";
 import Footer from "@/components/Footer.vue";
 import { decodeEntities, appendBaseURL } from "@/functions";
+import { decryptString, encryptString } from '@/functions/encryption';
 import { url } from "@/functions/endpoint";
 import moment from "moment";
 import axios from 'axios';
@@ -105,10 +106,10 @@ onMounted(() => {
 });
 
 const route = useRoute();
-const postId = computed(() => route.params.id);
+const postId = computed(() => decryptString(route.params.id.toString()));
 
 const postData: any = ref([]);
-axios.get(`${url}/posts/${postId.value}`)
+axios.get(`${url}/posts/${parseInt(postId.value)}`)
   .then(response => {
     postData.value = response.data;
     console.log(postData.value, 'data');
