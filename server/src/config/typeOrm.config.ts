@@ -3,6 +3,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export default registerAs('typeOrm.config', (): TypeOrmModuleOptions => {
   if (process.env.NODE_ENV === 'production') {
+      console.log(process.env.DB_PASSWORD_PROD);
     return {
       type: 'mysql',
       host: process.env.DB_HOST_PROD,
