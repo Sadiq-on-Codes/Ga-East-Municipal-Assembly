@@ -1,7 +1,8 @@
 <template>
   <div class="dark:bg-gray-800 mt-20">
-    <section class="single max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
-      <div v-if="postData" class="single-post flex mb-20 w-full gap-10 justify-around">
+    <Loader class="my-52" v-if="!postData" />
+    <section v-else class="single max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+      <div class="single-post flex mb-20 w-full gap-10 justify-around">
         <div class="title flex mt-20 text-left w-1/2 flex-col gap-16 items-left">
           <span class="bg-transparent h-6 text-lg font-medium inline-flex items-center py-0.5 dark:text-green-400">
             <span class="text-button-bg-hover text-lg mr-1.5">Posted on </span>
@@ -61,7 +62,7 @@
         <article class="">
           <section class="dark:text-white grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
             <div class="cursor-pointer mb-20" v-for="newsItem in allNews" :key="newsItem.id">
-              <a :href="'/single-post/' + newsItem?.id">
+              <a :href="'/single-post/' + encryptString(newsItem?.id.toString())">
                 <article
                   class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
                   :style="{ backgroundImage: `url(${appendBaseURL(newsItem.image)})` }">
@@ -93,20 +94,22 @@
 import { computed, onMounted, ref } from "vue";
 import Footer from "@/components/Footer.vue";
 import { decodeEntities, appendBaseURL } from "@/functions";
+import { decryptString, encryptString } from '@/functions/encryption';
 import { url } from "@/functions/endpoint";
 import moment from "moment";
 import axios from 'axios';
 import { useRoute } from "vue-router";
+import Loader from "@/components/Loader.vue";
 
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 const route = useRoute();
-const postId = computed(() => route.params.id);
+const postId = computed(() => decryptString(route.params.id.toString()));
 
 const postData: any = ref([]);
-axios.get(`${url}/posts/${postId.value}`)
+axios.get(`${url}/posts/${parseInt(postId.value)}`)
   .then(response => {
     postData.value = response.data;
     console.log(postData.value, 'data');
