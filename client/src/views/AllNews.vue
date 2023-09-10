@@ -1,8 +1,8 @@
 <template>
   <div class="dark:bg-gray-800">
-    <FilterAndSearch />
+    <!-- <FilterAndSearch /> -->
     <!-- component -->
-    <section class="max-w-7xl mx-auto px-4 sm:px- mb-20 lg:px-4">
+    <section class="max-w-7xl mx-auto px-4 sm:px- my-20 lg:px-4">
       <article class="">
         <section v-if="!loading" class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
           <div class="cursor-pointer" v-for="newsItem in allNews" :key="newsItem.id">
