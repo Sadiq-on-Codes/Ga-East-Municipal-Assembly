@@ -150,6 +150,11 @@ const routes: Array<RouteRecordRaw> = [
         component: AddDepartments
       },
       {
+        path: 'edit-department/:id',
+        name: 'EditDepartment',
+        component: AddDepartments
+      },
+      {
         path: 'view-departments',
         name: 'ViewDepartments',
         component: ViewDepartments
