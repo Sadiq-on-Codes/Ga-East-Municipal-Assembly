@@ -1,9 +1,9 @@
 import { diskStorage } from 'multer';
-import { dirname, extname, join } from 'path';
+import { extname, join } from 'path';
 
 // Define the storage configuration
 const storage = diskStorage({
-  destination: join(dirname(__dirname), 'uploads'), // Specify the destination folder for uploaded images
+  destination: join('./uploads'), // Specify the destination folder for uploaded images
   filename: (req, file, callback) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
     const extension = extname(file.originalname);
