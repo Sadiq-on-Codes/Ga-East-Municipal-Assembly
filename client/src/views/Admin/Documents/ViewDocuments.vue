@@ -17,18 +17,18 @@
         </thead>
         <tbody v-for="(item, index) in allDocuments" :key="item.id">
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <td class="px-6 w-1/6 py-4">{{ calculatePostNumber(index) }}</td>
-            <td scope="row" class="px-6 w-3/6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <td class="px-6 py-4">{{ calculatePostNumber(index) }}</td>
+            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
               {{ item?.title?.slice(0, 80) }}
             </td>
-            <td class="px-6 w-1/6 py-4">
+            <td class="px-6 py-4">
               <a target="_blank" :href="item.filename">Download</a>
             </td>
-            <td class="px-6 w-1/6 py-4">
+            <td class="px-6 py-4">
               <button @click="editDocument(item.id)"
                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
             </td>
-            <td class="px-6 w-1/6 py-4">
+            <td class="px-6 py-4">
               <button @click="openDeleteModal(item.id)"
                 class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
             </td>
@@ -39,12 +39,13 @@
       <Pagination v-if="allDocuments.length > 12" v-model="currentPage" :per-page="perPage" :total-items="count" :layout="'table'"></Pagination>
     </div>
   </div>
-  <DeleteModal @deletePost="deleteDocument" @closeDeleteModal='closeDeleteModal' v-if="deleteModal" />
+  <DeleteModal @deletePost="deleteDocument" @closeDeleteModal='closeDeleteModal' :item="'document'" v-if="deleteModal" />
   <SuccessMessage :showSuccessMessage="showSuccessMessage" :successMessage="successMessage" />
   <ErrorMessage :errorAlert="errorAlert" :errorMessage="errorMessage" />
 </template>
 <script setup lang="ts">
 import { url } from '@/functions/endpoint';
+import { encryptString } from '@/functions/encryption';
 import axios from 'axios';
 import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
@@ -55,7 +56,7 @@ import { Pagination } from 'flowbite-vue';
 import { Posts } from "@/types/index";
 
 let count = ref(0);
-const postId = ref();
+const documentId = ref();
 const router = useRouter()
 let successMessage = ref('');
 let showSuccessMessage = ref(false);
@@ -69,13 +70,13 @@ const calculatePostNumber = (index: number) => {
   return (currentPage.value - 1) * perPage.value + index + 1;
 };
 
-const editDocument = (postId: number) => {
-  router.push({ name: 'EditDocument', params: { id: postId } });
-}
+const editDocument = (documentId: number) => {
+  router.push({ name: 'EditDocument', params: { id: encryptString(documentId.toString()) } });
+};
 
 const deleteModal = ref(false);
 const openDeleteModal = (id: number) => {
-  postId.value = id;
+  documentId.value = id;
   deleteModal.value = true;
 };
 
@@ -84,12 +85,12 @@ const closeDeleteModal = () => {
 };
 
 const deleteDocument = () => {
-  axios.delete(`${url}/department-document/delete/${postId.value}`)
+  axios.delete(`${url}/department-document/delete/${documentId.value}`)
     .then((response) => {
       deleteModal.value = false;
       successMessage = response.data
       showSuccessMessage.value = true;
-      const deletedIndex = allDocuments.value.findIndex((item: Posts) => item.id === postId.value);
+      const deletedIndex = allDocuments.value.findIndex((item: Posts) => item.id === parseInt(documentId.value));
       if (deletedIndex !== -1) {
         allDocuments.value.splice(deletedIndex, 1);
       }
