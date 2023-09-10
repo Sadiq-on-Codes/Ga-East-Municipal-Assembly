@@ -6,7 +6,7 @@
       <article class="">
         <section v-if="!loading" class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
           <div class="cursor-pointer" v-for="newsItem in allNews" :key="newsItem.id">
-            <router-link :to="`/single-post/${encryptString(newsItem.id.toString())}`" custom v-slot="{ navigate }">
+            <router-link :to="'/single-post/' + encryptString(newsItem.id.toString())" custom v-slot="{ navigate }">
               <article @click="navigate"
                 class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
                 :style="{ backgroundImage: `url(${appendBaseURL(newsItem.image)})` }">
