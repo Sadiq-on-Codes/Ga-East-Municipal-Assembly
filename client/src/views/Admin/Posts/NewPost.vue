@@ -28,7 +28,8 @@
           <option disabled>Select Category</option>
           <option>NEWS</option>
           <option>GALLERY</option>
-          <option>EVENTS</option>
+          <option>UPCOMING EVENT</option>
+          <option>PAST EVENT</option>
         </select>
       </div>
 
