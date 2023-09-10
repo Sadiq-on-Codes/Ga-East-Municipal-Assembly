@@ -13,7 +13,14 @@ export const scrollToTop = () => {
   }
 
   export const appendBaseURL = (imageURL: string): string => {
+<<<<<<< HEAD
     return  `https://gema-app.onrender.com/uploads/${imageURL}`;
+=======
+    // if (!imageURL?.startsWith('https://gema.gov.gh/images/')) {
+    //   return `https://gema-gh-6b3bf99ee2e9.herokuapp.com/uploads/${imageURL}`;
+    // } 
+    return  `https://gema.gov.gh/images/${imageURL}`;
+>>>>>>> e1134158e52fbe86769e9c19fbaf40cf6f90fb35
   };
 
   export const isRouteActive = (routePath: string) => {

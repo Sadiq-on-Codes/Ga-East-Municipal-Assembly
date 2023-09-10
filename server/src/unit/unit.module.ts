@@ -6,7 +6,8 @@ import { Unit } from './unit.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Unit])],
-  providers: [UnitService],
   controllers: [UnitController],
+  providers: [UnitService],
+  exports: [TypeOrmModule.forFeature([Unit])],
 })
 export class UnitModule {}
