@@ -28,7 +28,8 @@
           <option disabled>Select Category</option>
           <option>NEWS</option>
           <option>GALLERY</option>
-          <option>EVENTS</option>
+          <option>UPCOMING EVENT</option>
+          <option>PAST EVENT</option>
         </select>
       </div>
 
@@ -72,7 +73,8 @@ import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import { computed, onMounted, reactive, ref } from "vue";
 import axios from 'axios';
 import { decodeEntities } from "@/functions";
-import { url, imagesUrl } from "@/functions/endpoint";
+import { decryptString } from '@/functions/encryption';
+import { url } from "@/functions/endpoint";
 import { useRoute, useRouter } from "vue-router";
 import Loader from "@/components/Loader.vue";
 import SuccessMessage from "@/components/SuccessMessage.vue";
@@ -91,7 +93,7 @@ const getPostDetails = async () => {
     isEditing.value = true;
     if (isEditing.value) {
       try {
-        const response = await axios.get(`${url}/posts/${postId.value}`);
+        const response = await axios.get(`${url}/posts/${parseInt(postId.value)}`);
         const postData = response.data;
         postInfo.value = postData
         createPostData.title = postData.title;
@@ -110,7 +112,7 @@ const getPostDetails = async () => {
 
 const isEditing = ref(false)
 const route = useRoute();
-const postId = computed(() => route.params.id);
+const postId = computed(() => decryptString(route.params.id.toString()));
 const router = useRouter();
 
 const uploading = ref(false);
@@ -172,7 +174,7 @@ const savePost = async () => {
     if (!isEditing.value) {
       await axios.post(`${url}/posts/create/post`, postData);
     } else {
-      await axios.patch(`${url}/posts/update/${postId.value}`, postData);
+      await axios.patch(`${url}/posts/update/${parseInt(postId.value)}`, postData);
     }
 
     createPostData.title = '';

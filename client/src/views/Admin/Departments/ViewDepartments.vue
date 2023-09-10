@@ -1,97 +1,136 @@
 <template>
-    <div class="flex gap-10 flex-col max-w-7xl mx-auto justify-center mt-28 ml-[22.5%]">
-      <h1
-        class="text-xl uppercase font-semibold text-[#322121] dark:text-white"
-      >
-        View Departments
-      </h1>
-  
-      <div class="relative h-full w-full sm:rounded-lg">
-        <table class="w-full border dark:border-gray-600 text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead
-            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
-          >
-            <tr>
-              <th scope="col" class="px-6 py-3">No</th>
-              <th scope="col" class="px-6 py-3">Title</th>
-              <th scope="col" class="px-6 py-3">Description</th>
-              <th scope="col" class="px-6 py-3">View</th>
-              <th scope="col" class="px-6 py-3">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-           
-          </tbody>
-        </table>
-        <!-- <nav
-          class="flex items-center h-20 justify-between mx-5 pt-4"
-          aria-label="Table navigation"
-        >
-          <span class="text-sm font-normal text-gray-500 dark:text-gray-400"
-            >Showing
-            <span class="font-semibold text-gray-900 dark:text-white">1-10</span>
-            of
-            <span class="font-semibold text-gray-900 dark:text-white"
-              >1000</span
-            ></span
-          >
-          <ul class="inline-flex -space-x-px">
-            <li>
-              <a
-                href="#"
-                class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >Previous</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >1</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >2</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                aria-current="page"
-                class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-                >3</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >4</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >5</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >Next</a
-              >
-            </li>
-          </ul>
-        </nav> -->
-      </div>
+  <div class="flex gap-10 flex-col max-w-7xl mx-auto justify-center mt-28 ml-[22.5%]">
+    <h1 class="text-xl uppercase font-semibold text-[#322121] dark:text-white">
+      View Departments
+    </h1>
+
+    <div class="relative h-full w-full sm:rounded-lg">
+      <table class="w-full border dark:border-gray-600 text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-6 py-3">No</th>
+            <th scope="col" class="px-6 py-3">Title</th>
+            <th scope="col" class="px-6 py-3">Description</th>
+            <th scope="col" class="px-6 py-3">View</th>
+            <th scope="col" class="px-6 py-3">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in allDepartments" :key="item.id">
+            <td class="px-6 py-4">{{ calculatePostNumber(index) }}</td>
+            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              {{ item?.name?.slice(0, 80) }}
+            </td>
+            <td scope="row" v-html="decodeEntities(item?.about?.slice(0, 80))" class="px-6 w-3/6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            </td>
+            <td class="px-6 py-4">
+              <button @click="editDepartment(item.id)"
+                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
+            </td>
+            <td class="px-6 py-4">
+              <button @click="openDeleteModal(item.id)"
+                class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </template>
-  <script setup lang="ts">
-  </script>
-  <style></style>
+  </div>
+  <DeleteModal @deletePost="deleteDocument" @closeDeleteModal='closeDeleteModal' :item="'department'" v-if="deleteModal" />
+  <SuccessMessage :showSuccessMessage="showSuccessMessage" :successMessage="successMessage" />
+  <ErrorMessage :errorAlert="errorAlert" :errorMessage="errorMessage" />
+  
+</template>
+<script setup lang="ts">
+import { ref, watch } from 'vue';
+import { Pagination } from 'flowbite-vue';
+import { useRouter } from 'vue-router';
+import axios from 'axios';
+import { url } from '@/functions/endpoint';
+import { decodeEntities } from "@/functions";
+import DeleteModal from "@/components/DeleteModal.vue";
+import SuccessMessage from "@/components/SuccessMessage.vue";
+import ErrorMessage from "@/components/ErrorMessage.vue";
+
+let count = ref(0);
+const postId = ref();
+const router = useRouter()
+let successMessage = ref('');
+let showSuccessMessage = ref(false);
+const loading = ref(false);
+let errorAlert = ref(false);
+let errorMessage = ref('');
+const perPage = ref(12);
+const currentPage = ref(1);
+
+const calculatePostNumber = (index: number) => {
+  return (currentPage.value - 1) * perPage.value + index + 1;
+};
+
+const editDepartment = (departmentId: number) => {
+  router.push({ name: 'EditDepartment', params: { id: departmentId } });
+};
+
+const deleteModal = ref(false);
+const openDeleteModal = (id: number) => {
+  postId.value = id;
+  deleteModal.value = true;
+};
+
+
+const closeDeleteModal = () => {
+  deleteModal.value = false;
+};
+
+const deleteDocument = () => {
+  axios.delete(`${url}/departments/delete/${postId.value}`)
+    .then((response) => {
+      deleteModal.value = false;
+      successMessage = response.data
+      showSuccessMessage.value = true;
+      const deletedIndex = allDepartments.value.findIndex((item: Posts) => item.id === postId.value);
+      if (deletedIndex !== -1) {
+        allDepartments.value.splice(deletedIndex, 1);
+      }
+      setTimeout(() => {
+        showSuccessMessage.value = false;
+      }, 2000)
+    })
+    .catch((error) => {
+      deleteModal.value = false;
+      errorAlert.value = true;
+      setTimeout(() => {
+        errorAlert.value = false;
+      }, 2500)
+      errorMessage.value = error.message
+    });
+};
+
+const allDepartments: any = ref([]);
+const fetchNewsItems = () => {
+  loading.value = true;
+
+  axios
+    .get(`${url}/departments`, {
+      params: {
+        page: currentPage.value,
+        limit: perPage.value
+      }
+    })
+    .then((response: any) => {
+      allDepartments.value = response.data;
+      // count.value = response.data[0].totalLength;
+    })
+    .catch((error: string) => {
+      console.error(error);
+    })
+    .finally(() => {
+      loading.value = false;
+    });
+};
+
+watch(currentPage, fetchNewsItems);
+fetchNewsItems();
+</script>
+<style></style>
   
