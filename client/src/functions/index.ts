@@ -1,12 +1,4 @@
-//Send Email function
-
 import router from "@/router";
-
-// export const sendEmail = () => {
-//       window.location.href = `mailto:${email.value}?subject=${subject.value}&body=${body.value}`;
-//     };
-
-//Back to top Function
 export const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -21,7 +13,7 @@ export const scrollToTop = () => {
   }
 
   export const appendBaseURL = (imageURL: string): string => {
-    return  `http://gema.gov.gh/images/${imageURL}`;
+    return  `https://gema-app.onrender.com/uploads/${imageURL}`;
   };
 
   export const isRouteActive = (routePath: string) => {
