@@ -21,18 +21,20 @@ function fetchAuthToken(username: string, password: string) {
 }
 
 interface RootState {
-  isLoggedIn: boolean;
+  isLoggedIn: boolean | null;
   token: string | null;
   username: string | null;
   successMessage: string;
+  errorMessage: string;
 }
 
 const store = createStore<RootState>({
   state: {
-    isLoggedIn: false,
+    isLoggedIn: null,
     token: null,
     username: null,
     successMessage: "",
+    errorMessage: "",
   },
   mutations: {
     login(state, { token, username }) {
@@ -52,12 +54,16 @@ const store = createStore<RootState>({
           const { token }: any = tokenData;
           commit('login', { token, username });
           this.state.successMessage = "Login Successful"
+          this.state.isLoggedIn = true;
           setTimeout(() => {
             router.push('/admin/dashboard');
           }, 2000)
         })
         .catch((error) => {
-          throw new Error('Invalid credentials');
+          this.state.isLoggedIn = false;
+          this.state.errorMessage = error.message
+          console.log(this.state.errorMessage, 'error');
+          
         });
     },
     logout({ commit }) {
@@ -68,6 +74,8 @@ const store = createStore<RootState>({
   getters: {
     isLoggedIn: (state) => state.isLoggedIn,
     email: (state) => state.username,
+    success: (state) => state.successMessage,
+    error: (state) => state.errorMessage,
   },
   plugins: [
     createPersistedState({
