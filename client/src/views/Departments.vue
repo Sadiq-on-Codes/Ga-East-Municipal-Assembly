@@ -31,15 +31,16 @@ import { useRoute } from "vue-router";
 import Footer from '@/components/Footer.vue';
 import Loader from "@/components/Loader.vue";
 import { decodeEntities } from "@/functions";
+import { decryptString } from '@/functions/encryption';
 import { computed, ref, watch } from "vue";
 
 const route = useRoute();
-const documentId = computed(() => route.params.id);
+const documentId = computed(() => decryptString(route.params.id.toString()));
 
 const departments: any = ref([]);
 const fetchData = async () => {
     try {
-        const response = await axios.get(`${url}/departments/${documentId.value}`);
+        const response = await axios.get(`${url}/departments/${parseInt(documentId.value)}`);
         departments.value = response.data;
     } catch (error) {
         console.error(error);

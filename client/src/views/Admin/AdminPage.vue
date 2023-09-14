@@ -37,11 +37,11 @@
               class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
               id="dropdown-user">
               <ul class="py-1 text-left" role="none">
-                <router-link to="/admin/dashboard" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                <router-link to="/admin/add-user" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li @click="navigate">
-                    <a href="#"
+                    <a
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem">Dashboard</a>
+                      role="menuitem">Add User</a>
                   </li>
                 </router-link>
                 <li>
@@ -202,7 +202,7 @@
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M1 1h14M1 6h14M1 11h7" />
             </svg>
-            <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Departments</span>
+            <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Departments & Units</span>
             <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd"
@@ -215,7 +215,7 @@
               <li @click="navigate">
                 <button :class="{ 'active-nav': isRouteActive('/admin/add-department') }"
                   class="flex items-center w-full hover:text-button-bg-hover p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add
-                  Department</button>
+                  Department or Unit</button>
               </li>
             </router-link>
             <router-link to="/admin/view-departments" custom v-slot="{ navigate }" exact-active-class="active-nav">
