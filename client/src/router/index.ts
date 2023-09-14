@@ -16,6 +16,7 @@ const ViewPost = () => import('../views/Admin/Posts/ViewPost.vue')
 const Login = () => import('../views/Admin/Login.vue')
 import store from '../store/index'
 import Dashboard from '@/views/Admin/Dashboard.vue'
+import AddUser from '@/views/Admin/AddUser.vue'
 import NewPost from '@/views/Admin/Posts/NewPost.vue'
 import AddSlider from '@/views/Admin/Slider/AddSlider.vue'
 import ViewSliders from '@/views/Admin/Slider/ViewSliders.vue'
@@ -98,6 +99,11 @@ const routes: Array<RouteRecordRaw> = [
         path: 'dashboard',
         name: 'Dashboard',
         component: Dashboard
+      },
+      {
+        path: 'add-user',
+        name: 'AddUser',
+        component: AddUser
       },
       {
         path: 'view-posts',

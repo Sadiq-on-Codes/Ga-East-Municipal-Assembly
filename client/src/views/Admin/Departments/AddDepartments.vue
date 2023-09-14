@@ -58,12 +58,12 @@ import SuccessMessage from "@/components/SuccessMessage.vue";
 import ErrorMessage from "@/components/ErrorMessage.vue";
 import { url } from '@/functions/endpoint';
 
-let successMessage = ref('');
-let showSuccessMessage = ref(false);
-let errorAlert = ref(false);
-let errorMessage = ref('');
-let isUnit = ref(false)
-const isEditing = ref(false);
+let successMessage = ref<string>('');
+let showSuccessMessage = ref<boolean>(false);
+let errorAlert = ref<boolean>(false);
+let errorMessage = ref<string>('');
+let isUnit = ref<boolean>(false)
+const isEditing = ref<boolean>(false);
 const route = useRoute();
 const postId = computed(() => route.params.id);
 const router = useRouter();
@@ -106,12 +106,12 @@ const getDepartmentDetails = async () => {
 const handleAddUnit = async () => {
   try {
     if (!isEditing.value) {
-      await axios.post(`${url}/unit`, { name: data.title, about: data.description, departmentId: data.department })
+      await axios.post(`${url}/unit`, { title: data.title, about: data.description, departmentId: data.department })
     } else {
-      await axios.patch(`${url}/unit/update/${postId.value}`, { name: data.title, about: data.description, departmentId: data.department })
+      await axios.patch(`${url}/unit/update/${postId.value}`, { title: data.title, about: data.description, departmentId: data.department })
     }
     showSuccessMessage.value = true
-    successMessage = response.data.message;
+    successMessage.value = response.data.message;
     setTimeout(() => {
       showSuccessMessage.value = false;
 
@@ -139,7 +139,7 @@ const handleAddDepartment = async () => {
       await axios.patch(`${url}/departments/update/${postId.value}`, { name: data.title, about: data.description, })
     }
     showSuccessMessage.value = true
-    successMessage = response.data.message;
+    successMessage.value = response.data.message;
     setTimeout(() => {
       showSuccessMessage.value = false;
 

@@ -37,11 +37,11 @@
               class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
               id="dropdown-user">
               <ul class="py-1 text-left" role="none">
-                <router-link to="/admin/dashboard" custom v-slot="{ navigate }" exact-active-class="active-nav">
+                <router-link to="/admin/add-user" custom v-slot="{ navigate }" exact-active-class="active-nav">
                   <li @click="navigate">
-                    <a href="#"
+                    <a
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem">Dashboard</a>
+                      role="menuitem">Add User</a>
                   </li>
                 </router-link>
                 <li>

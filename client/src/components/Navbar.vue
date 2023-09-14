@@ -229,6 +229,7 @@ import { onMounted, ref } from "vue";
 import { initDropdowns, initCollapses, initDrawers } from 'flowbite';
 import { url } from "@/functions/endpoint";
 import { isRouteActive } from "@/functions/index";
+import { encryptString } from '@/functions/encryption';
 import axios from "axios";
 
 onMounted(() => {
@@ -240,7 +241,7 @@ onMounted(() => {
 const router = useRouter()
 const viewDepartment = (departmentId: number) => {
   // router.push({ name: 'Departments', params: { id: departmentId } });
-  window.location.href = `/departments/${departmentId}`
+  window.location.href = `/departments/${encryptString(departmentId.toString())}`
 }
 
 const allDepartments: any = ref([]);
