@@ -36,7 +36,7 @@
                 name="email"
                 id="email"
                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Enter email"
+                placeholder="Enter username"
                 required=""
               />
             </div>
@@ -70,8 +70,8 @@
             >
               Sign in
             </button>
-              <p v-if="success" class="text-button-bg">{{ success }}</p>
-              <p v-if="error" class="text-red-600">{{ error }}</p>
+              <p v-if="isLoggedIn" class="text-button-bg">{{ success }}</p>
+              <p v-else class="text-red-600">{{ error }}</p>
           </form>
         </div>
       </div>
@@ -79,7 +79,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, computed } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
@@ -87,7 +87,8 @@ const store = useStore();
 const username = ref("");
 const password = ref("");
 const error = ref("");
-const success = ref(""); 
+const success = ref("");
+const isLoggedIn = computed(() => store.state.isLoggedIn);
 
 const login = async () => {
   try {
@@ -95,14 +96,10 @@ const login = async () => {
       username: username.value,
       password: password.value,
     });
-    success.value = "Login successful!";
+    success.value = computed(() => store.getters.successMessage);
   } catch (err: any) {
-    error.value = err.message;
+    error.value = computed(() => store.getters.errorMessage);
   }
 };
-
-watch(() => store.state.error, (newError) => {
-  error.value = newError;
-});
 </script>
 <style scoped></style>
