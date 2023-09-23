@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Unit } from './unit.entity';
 import { UnitDto } from './input/unit.dto';
 import { UpdateUnitDto } from './input/Updateunit.dto';
+import APIFeatures from 'src/apiFeatures/apiFeatures';
 
 @Injectable()
 export class UnitService {
@@ -12,6 +13,25 @@ export class UnitService {
     @InjectRepository(Unit)
     private unitRepository: Repository<Unit>,
   ) {}
+
+  async getAllUnits(queryParams): Promise<Unit[] | any> {
+    const queryBuilder = this.unitRepository.createQueryBuilder();
+
+    const apiFeatures = new APIFeatures(queryBuilder, queryParams)
+
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+
+    // Execute query
+    const [units, totalLength] = await apiFeatures.getQuery().getManyAndCount();
+
+    if (!units) {
+      throw new NotFoundException(`No post to show`);
+    }
+    return [{ totalLength }, units];
+  }
 
   async getUnitById(id: number): Promise<Unit> {
     const unit = await this.unitRepository.findOne({
