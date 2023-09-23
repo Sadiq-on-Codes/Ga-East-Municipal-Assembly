@@ -151,23 +151,23 @@
                                 </li>
 
                                 <li>
-                                    <a class="text-white cursor-default transition hover:opacity-75 dark:text-gray-200">
+                                    <a class="text-white cursor-pointer transition hover:opacity-75 dark:text-gray-200">
                                         Working Hours: <span class="text-footer-text">9am-5pm</span>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a class="text-white cursor-default transition hover:opacity-75 dark:text-gray-200">
+                                    <a class="text-white cursor-pointer transition hover:opacity-75 dark:text-gray-200">
                                         Digital Address: <span class="text-footer-text">GE-011-2678</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="text-white cursor-default transition hover:opacity-75 dark:text-gray-200">
+                                    <a class="text-white cursor-pointer transition hover:opacity-75 dark:text-gray-200">
                                         Region: <span class="text-footer-text">Greater Accra</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="text-white cursor-default transition hover:opacity-75 dark:text-gray-200">
+                                    <a class="text-white cursor-pointer transition hover:opacity-75 dark:text-gray-200">
                                         Post code: <span class="text-footer-text">255</span>
                                     </a>
                                 </li>
