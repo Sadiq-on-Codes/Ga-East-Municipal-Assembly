@@ -1,12 +1,19 @@
-import { Controller, Get, Logger, Query } from '@nestjs/common';
+import { Body, Controller, Get, Logger, Post, Query } from '@nestjs/common';
 import { EventsService } from './events.service';
 import { Event } from './events.entity';
+import { EventDto } from './input/createEventDto';
 
 @Controller('events')
 export class EventsController {
   private readonly logger = new Logger(EventsController.name);
   constructor(private readonly eventService: EventsService) {}
 
+  @Post('create/event')
+  async createEvent(
+    @Body() eventDto: EventDto,
+  ): Promise<[{ message: string }, Event]> {
+    return await this.eventService.createEvent(eventDto);
+  }
   @Get()
   async getAll(@Query() query: any): Promise<Event[]> {
     this.logger.debug(`Fetching all events`);

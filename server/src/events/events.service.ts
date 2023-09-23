@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Event } from './events.entity';
 import { Repository } from 'typeorm';
 import APIFeatures from 'src/apiFeatures/apiFeatures';
+import { EventDto } from './input/createEventDto';
 
 @Injectable()
 export class EventsService {
@@ -10,11 +11,11 @@ export class EventsService {
 
   constructor(
     @InjectRepository(Event)
-    private eventService: Repository<Event>,
+    private eventRepository: Repository<Event>,
   ) {}
 
   async getAllEvents(queryParams): Promise<Event[]> {
-    const queryBuilder = this.eventService.createQueryBuilder();
+    const queryBuilder = this.eventRepository.createQueryBuilder();
 
     // Apply filters
     const apiFeatures = new APIFeatures(queryBuilder, queryParams)
@@ -32,11 +33,33 @@ export class EventsService {
     }
     return events;
   }
+  async createEvent(eventDto: EventDto): Promise<[{ message: string }, Event]> {
+    try {
+      const { title, article, image, eventDate } = eventDto;
+
+      const event = new Event();
+      event.title = title;
+      event.article = article;
+      event.image = image || null;
+      event.eventDate = new Date(eventDate);
+      event.createdAt = new Date();
+      const createdEvent = await this.eventRepository.save(event);
+
+      this.logger.log(`New event with id ${createdEvent.id} has been created.`);
+
+      return [{ message: 'new event created' }, createdEvent];
+    } catch (error) {
+      this.logger.error(
+        `Error occurred while creating a new event. Error: ${error}`,
+      );
+      throw error;
+    }
+  }
 
   async getUpcomingEvents(): Promise<Event[]> {
     const currentDate = new Date();
 
-    const upcomingEvents = await this.eventService
+    const upcomingEvents = await this.eventRepository
       .createQueryBuilder('event')
       .where('event.eventDate >= :currentDate', { currentDate })
       .getMany();
@@ -52,7 +75,7 @@ export class EventsService {
   async getPastEvents(): Promise<Event[]> {
     const currentDate = new Date();
 
-    const pastEvents = await this.eventService
+    const pastEvents = await this.eventRepository
       .createQueryBuilder('event')
       .where('event.eventDate < :currentDate', { currentDate })
       .getMany();
