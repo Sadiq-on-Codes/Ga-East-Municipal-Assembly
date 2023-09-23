@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Query, Logger } from '@nestjs/common';
 import { UnitDto } from './input/unit.dto';
 import { Unit } from './unit.entity';
 import { UnitService } from './unit.service';
@@ -16,6 +16,13 @@ import { UpdateUnitDto } from './input/Updateunit.dto';
 @Controller('unit')
 export class UnitController {
   constructor(private unitService: UnitService) {}
+
+  @Get()
+  async getAll(@Query() query: any): Promise<Unit[]> {
+    // Use the apiFeatures class to filter, sort, and limit the results
+    return this.unitService.getAllUnits(query);
+  }
+
   @Get(':id')
   async getDepartmentPdfById(@Param('id') id: number): Promise<Unit> {
     const unit = await this.unitService.getUnitById(id);
