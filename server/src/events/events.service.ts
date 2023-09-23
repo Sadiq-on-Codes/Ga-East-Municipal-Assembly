@@ -4,6 +4,7 @@ import { Event } from './events.entity';
 import { Repository } from 'typeorm';
 import APIFeatures from 'src/apiFeatures/apiFeatures';
 import { EventDto } from './input/createEventDto';
+import { UpdateEventDto } from './input/updateEventDto';
 
 @Injectable()
 export class EventsService {
@@ -87,5 +88,30 @@ export class EventsService {
 
     this.logger.log(`Found ${pastEvents.length} past events`);
     return pastEvents;
+  }
+
+  async updateEvent(
+    id: number,
+    updateEventDto: UpdateEventDto,
+  ): Promise<[{ message: string }, Event]> {
+    const event = await this.eventRepository.findOne({
+      where: {
+        id,
+      },
+    });
+
+    if (!event) {
+      throw new NotFoundException('event not found');
+    }
+
+    // Update the event fields based on the data in updateDepartmentDto
+    event.title = updateEventDto.title || event.title;
+    event.eventDate = updateEventDto.eventDate || event.eventDate;
+    event.updatedAt = new Date();
+
+    return [
+      { message: 'event updated successfully' },
+      await this.eventRepository.save(event),
+    ];
   }
 }
