@@ -18,6 +18,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { DocumentCategoryModule } from './document-category/document-category.module';
 import { UnitModule } from './unit/unit.module';
+import { SliderModule } from './slider/slider.module';
 
 @Module({
   imports: [
@@ -45,6 +46,7 @@ import { UnitModule } from './unit/unit.module';
     UploadImageModule,
     DocumentCategoryModule,
     UnitModule,
+    SliderModule,
   ],
   providers: [AppService],
   controllers: [],

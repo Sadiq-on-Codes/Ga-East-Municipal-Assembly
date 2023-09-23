@@ -1,7 +1,17 @@
-import { Body, Controller, Get, Logger, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Logger,
+  Param,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { EventsService } from './events.service';
 import { Event } from './events.entity';
 import { EventDto } from './input/createEventDto';
+import { UpdateEventDto } from './input/updateEventDto';
 
 @Controller('events')
 export class EventsController {
@@ -31,5 +41,12 @@ export class EventsController {
   async getAllPastEvents(): Promise<Event[]> {
     this.logger.debug(`Fetching all past events`);
     return this.eventService.getPastEvents();
+  }
+  @Patch('update/:id')
+  async updateEvent(
+    @Param('id') id: number,
+    @Body() updateEventDto: UpdateEventDto,
+  ): Promise<[{ message: string }, Event]> {
+    return this.eventService.updateEvent(id, updateEventDto);
   }
 }
