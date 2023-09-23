@@ -6,13 +6,13 @@
       <article class="">
         <section v-if="!loading" class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-20">
           <div class="cursor-pointer" v-for="newsItem in allNews" :key="newsItem.id">
-            <router-link :to="'/single-post/' + encryptString(newsItem.id.toString())" custom v-slot="{ navigate }">
-              <article @click="navigate"
+            <a :href="'/single-post/' + encryptString(newsItem.id.toString())" custom >
+              <article
                 class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
                 :style="{ backgroundImage: `url(${appendBaseURL(newsItem.image)})` }">
                 <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
               </article>
-              <div @click="navigate" class="mt-3 text-left">
+              <div class="mt-3 text-left">
                 <span class="hover:underline text-news-section-text dark:text-white text-lg">{{
                   decodeEntities(newsItem.title?.slice(0, 50)) + "..." }}</span>
                 <div v-html="decodeEntities(newsItem.article?.slice(0, 100))"
@@ -24,7 +24,7 @@
                   <span class="text-base ml-1.5">{{ formattedCreatedAt(newsItem?.createdAt) }}</span>
                 </span>
               </div>
-            </router-link>
+            </a>
           </div>
         </section>
         <Loader class="my-52" v-if="allNews.length < 1" />
@@ -44,7 +44,7 @@
 </template>
 <script setup lang="ts">
 import { onMounted, ref, watch } from "vue";
-import FilterAndSearch from "@/components/FilterAndSearch.vue";
+// import FilterAndSearch from "@/components/FilterAndSearch.vue";
 import { Pagination } from 'flowbite-vue'
 import Footer from "@/components/Footer.vue";
 import Loader from "@/components/Loader.vue";
@@ -71,7 +71,7 @@ const formattedCreatedAt = (createdAt: string): any => {
 console.log(url);
 const allNews: any = ref([]);
 const fetchNewsItems = () => {
-  loading.value = true; // Set loading to true before making the API request
+  loading.value = true;
 
   axios
     .get(`${url}/posts`, {

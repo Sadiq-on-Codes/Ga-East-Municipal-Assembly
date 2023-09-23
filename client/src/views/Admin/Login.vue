@@ -88,7 +88,6 @@ const username = ref("");
 const password = ref("");
 const error = ref("");
 const success = ref("");
-const isLoggedIn = computed(() => store.state.isLoggedIn);
 
 const login = async () => {
   try {
@@ -96,9 +95,9 @@ const login = async () => {
       username: username.value,
       password: password.value,
     });
-    success.value = computed(() => store.getters.successMessage);
+    success.value = store.getters.successMessage;
   } catch (err: any) {
-    error.value = computed(() => store.getters.errorMessage);
+    error.value = store.getters.errorMessage;
   }
 };
 </script>
