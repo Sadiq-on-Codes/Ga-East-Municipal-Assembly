@@ -50,37 +50,34 @@
 import { url } from "@/functions/endpoint";
 import axios from "axios";
 import { onMounted, ref } from "vue";
-import moment from "moment"
+import moment from "moment";
 import { appendBaseURL } from "@/functions";
 
-onMounted(() => {
-  switchTab("Upcoming");
-})
-
 const UPCOMING_EVENTS: any = ref([]);
-axios.get(`${url}/events/upevents`, {})
-  .then((response: any) => {
-    UPCOMING_EVENTS.value = response.data;
-  })
-  .catch((error: string) => {
-    console.error(error);
-  });
-
-
 const PAST_EVENTS: any = ref([]);
-axios.get(`${url}/events/pastevents`, {})
-  .then((response: any) => {
-    PAST_EVENTS.value = response.data;
-  })
-  .catch((error: string) => {
-    console.error(error);
-  });
-
-
 const dataMain: any = ref([]);
 const data: any = ref([]);
 const activeTab = ref("Upcoming");
 const notices = ref([]);
+
+const fetchData = async () => {
+  try {
+    const upcomingResponse = await axios.get(`${url}/events/upevents`, {});
+    UPCOMING_EVENTS.value = upcomingResponse.data;
+
+    const pastResponse = await axios.get(`${url}/events/pastevents`, {});
+    PAST_EVENTS.value = pastResponse.data;
+
+    // Call switchTab with the initial active tab ("Upcoming") to load its data
+    switchTab("Upcoming");
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+onMounted(() => {
+  fetchData();
+});
 
 const switchTab = (tab: string) => {
   activeTab.value = tab;
@@ -94,8 +91,9 @@ const switchTab = (tab: string) => {
     data.value = notices.value;
   }
 };
-
 </script>
+
+
 
 <style>
 .up-events:not(:first-child) {
