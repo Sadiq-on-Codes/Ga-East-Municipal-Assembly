@@ -37,7 +37,7 @@
               {{ item.title?.slice(0, 80) }}
             </td>
             <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-              {{ item?.category }}
+              {{ category === 'UPCOMING EVENTS' ? 'UPCOMING EVENTS' : category === 'PAST EVENTS' ? 'PAST EVENTS' : item?.category }}
             </td>
             <td class="px-6 py-4">
               <a target="_blank" :href="`http://localhost:8080/single-post/${item.id}`">Live View</a>
@@ -110,28 +110,34 @@ const closeDeleteModal = () => {
 };
 
 const deletePost = () => {
-  axios.delete(`${url}/posts/delete/${postId.value}`)
+  const categoryEndpoint = category.value === 'NEWS' || category.value === 'GALLERY' ? 'posts' : 'events';
+  const apiUrl = `${url}/${categoryEndpoint}/delete/${postId.value}`;
+
+  axios.delete(apiUrl)
     .then((response) => {
       deleteModal.value = false;
-      successMessage = response.data
+      successMessage = response.data;
       showSuccessMessage.value = true;
+
       const deletedIndex = allNews.value.findIndex((item: Posts) => item.id === postId.value);
       if (deletedIndex !== -1) {
         allNews.value.splice(deletedIndex, 1);
       }
+
       setTimeout(() => {
         showSuccessMessage.value = false;
-      }, 2000)
+      }, 2000);
     })
     .catch((error) => {
       deleteModal.value = false;
       errorAlert.value = true;
       setTimeout(() => {
         errorAlert.value = false;
-      }, 2500)
-      errorMessage.value = error.message
+      }, 2500);
+      errorMessage.value = error.message;
     });
 };
+
 
 const allNews: any = ref([]);
 const fetchNewsItems = () => {

@@ -27,7 +27,7 @@
                   class="p-5 border border-r-2 border-l-2 border-b-2 border-gray-200 rounded-b-xl dark:border-gray-700 dark:bg-gray-900">
                   <h3 class="text-left mb-4">{{ category.documents.length === 0 ? "No Attachments" : "Download Attachments"}}</h3>
                   <div v-for="document in category.documents" class="flex flex-col gap-2">
-                    <a :href="`https://gema-gh-6b3bf99ee2e9.herokuapp.com/uploads/${document.filename}`" target="_blank"
+                    <a :href="`${imagesUrl}/${document.filename}`" target="_blank"
                       class="text-button-bg mt-2 dark:text-blue-500 hover:underline">
                       <div class="flex gap-4 items-center">
                         <img src="../assets/document.svg" alt="document logo" class="w-6 h-6">
@@ -54,7 +54,7 @@
 import { initDropdowns, initCollapses, initAccordions } from 'flowbite'
 import Footer from '@/components/Footer.vue';
 import Loader from "@/components/Loader.vue";
-import { url } from "@/functions/endpoint";
+import { url, imagesUrl } from "@/functions/endpoint";
 import { onMounted, ref } from 'vue';
 import axios from 'axios';
 

@@ -222,7 +222,7 @@
               <li @click="navigate">
                 <button :class="{ 'active-nav': isRouteActive('/admin/view-departments') }"
                   class="flex items-center w-full p-2 hover:text-button-bg-hover text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">View
-                  Departments</button>
+                  Departments & Units</button>
               </li>
             </router-link>
           </ul>
