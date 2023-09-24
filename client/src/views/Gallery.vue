@@ -9,7 +9,7 @@
       gridColumnEnd: `span ${pin.width}`
     }">
       <div class="pin-overlay">
-        <img :src="appendBaseURL(pin.image)" class="pin-image rounded-lg" />
+        <img :src="`${imagesUrl}/uploads/${pin?.image}`" class="pin-image rounded-lg" />
         <div class="pin-overlay-content">
           <h3>{{ pin.title }}</h3>
           <p>{{ pin.description }}</p>
@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import axios from "axios";
 import { ref, onMounted } from "vue";
-import { url } from "@/functions/endpoint";
+import { url, imagesUrl } from "@/functions/endpoint";
 import Footer from "@/components/Footer.vue";
 import Loader from "@/components/Loader.vue";
 import { appendBaseURL } from "@/functions";

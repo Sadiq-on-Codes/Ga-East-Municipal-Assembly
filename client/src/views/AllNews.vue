@@ -9,7 +9,7 @@
             <a :href="'/single-post/' + encryptString(newsItem.id.toString())" custom >
               <article
                 class="relative w-full h-64 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
-                :style="{ backgroundImage: `url(${appendBaseURL(newsItem.image)})` }">
+                :style="{ backgroundImage: `url(${imagesUrl}/uploads/${newsItem?.image})` }">
                 <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
               </article>
               <div class="mt-3 text-left">
@@ -48,9 +48,9 @@ import { onMounted, ref, watch } from "vue";
 import { Pagination } from 'flowbite-vue'
 import Footer from "@/components/Footer.vue";
 import Loader from "@/components/Loader.vue";
-import { decodeEntities, appendBaseURL } from "@/functions";
+import { decodeEntities } from "@/functions";
 import { encryptString } from '@/functions/encryption';
-import { url } from "@/functions/endpoint";
+import { url, imagesUrl } from "@/functions/endpoint";
 
 const loading = ref(false);
 const perPage = ref(12)
