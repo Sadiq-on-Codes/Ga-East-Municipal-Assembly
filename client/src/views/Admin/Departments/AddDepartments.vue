@@ -5,20 +5,11 @@
     <h1 v-else class="text-xl uppercase font-semibold text-[#322121] dark:text-white">{{ isEditing ? "Edit Department" :
       "Add Department" }}</h1>
 
-    <div class="text-left mt-4">
-      <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Is this a unit?</label>
-      <input type="checkbox" id="title" @checked="handleChecked" v-model="isUnit"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-fit p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="Enter post title" required />
-    </div>
+    <InputField :className="'w-fit'" label="Is this a unit?" id="title" type="checkbox" placeholder="Unit" :isRequired="false"
+    v-model="isUnit" @checked="handleChecked" />
 
-
-    <div class="text-left">
-      <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-      <input type="text" id="title"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        :placeholder="isUnit ? 'Enter unit title' : 'Enter department title'" required v-model="data.title" />
-    </div>
+    <InputField label="Title" id="title" type="text" :placeholder="isUnit ? 'Enter unit title' : 'Enter department title'" :isRequired="true"
+        v-model="data.title" />
 
     <div class="text-left h-96 dark:text-white">
       <label class="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-white"
@@ -26,26 +17,17 @@
       <QuillEditor contentType="html" theme="snow" v-model:content="data.description" />
     </div>
 
-    <div v-if="isUnit" class="text-left mt-20 dark:text-white">
-      <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
-        category</label>
-      <select placeholder="Select category" id="countries" v-model="data.department"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        <option disabled>Select Category</option>
-        <option :value="department.id" v-for="department in allDepartments" :key="department.id">{{ department.name }}
-        </option>
+    <SelectField v-if="isUnit" :className="'mt-20'" label="Select department" id="departments" placeholder="Select department"
+    v-model="data.department" :options="allDepartments" :param="'name'" />
 
-      </select>
-    </div>
+    <Button v-if="isUnit" :buttonText="isEditing ? 'Update Unit' : 'Add Unit'"
+      :isDisabled="data.title === '' || data.description === '' || !data.department || uploading" :uploading="uploading"
+      :handleClick="handleAddUnit" />
 
-    <button v-if="isUnit" type="button" @click="handleAddUnit"
-      class="mt-20 self-center w-fit mb-20 button text-white font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-green-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover hover:bg-button-bg-hover">
-      {{ isEditing ? "Update Unit" : "Add Unit" }}
-    </button>
-    <button v-else type="button" @click="handleAddDepartment"
-      class="mt-20 self-center w-fit mb-20 button text-white font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-green-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover hover:bg-button-bg-hover">
-      {{ isEditing ? "Update Department" : "Add Department" }}
-    </button>
+    <Button :className="'mt-20'" v-else :buttonText="isEditing ? 'Update Department' : 'Add Department'"
+      :isDisabled="data.title === '' || data.description === '' || !data.department || uploading" :uploading="uploading"
+      :handleClick="handleAddDepartment" />
+
   </div>
   <SuccessMessage :showSuccessMessage="showSuccessMessage" :successMessage="successMessage" />
   <ErrorMessage :errorAlert="errorAlert" :errorMessage="errorMessage" />
@@ -59,8 +41,12 @@ import axios from 'axios';
 import { useRoute, useRouter } from "vue-router";
 import SuccessMessage from "@/components/SuccessMessage.vue";
 import ErrorMessage from "@/components/ErrorMessage.vue";
+import Button from "@/components/Inputs/Button.vue";
+import InputField from "@/components/Inputs/InputField.vue";
+import SelectField from "@/components/Inputs/SelectField.vue";
 import { url } from '@/functions/endpoint';
 
+const uploading = ref(false);
 let successMessage = ref<string>('');
 let showSuccessMessage = ref<boolean>(false);
 let errorAlert = ref<boolean>(false);
@@ -186,9 +172,3 @@ axios.get(`${url}/departments`)
   });
 
 </script>
-<style>
-/* * {
-    outline: 1px solid;
-  } */
-</style>
-  
