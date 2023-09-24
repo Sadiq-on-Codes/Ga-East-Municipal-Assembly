@@ -5,11 +5,11 @@
     <h1 v-else class="text-xl uppercase font-semibold text-[#322121] dark:text-white">{{ isEditing ? "Edit Department" :
       "Add Department" }}</h1>
 
-    <InputField :className="'w-fit'" label="Is this a unit?" id="title" type="checkbox" placeholder="Unit" :isRequired="false"
-    v-model="isUnit" @checked="handleChecked" />
+    <InputField :className="'w-fit'" label="Is this a unit?" id="isUnitCheckbox" :value="isUnit" type="checkbox"
+      placeholder="Unit" :isRequired="false" @input="isUnit = $event.target.checked" />
 
-    <InputField label="Title" id="title" type="text" :placeholder="isUnit ? 'Enter unit title' : 'Enter department title'" :isRequired="true"
-        v-model="data.title" />
+    <InputField label="Title" id="title" type="text" :placeholder="isUnit ? 'Enter unit title' : 'Enter department title'"
+      :isRequired="true" v-model="data.title" />
 
     <div class="text-left h-96 dark:text-white">
       <label class="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-white"
@@ -17,8 +17,8 @@
       <QuillEditor contentType="html" theme="snow" v-model:content="data.description" />
     </div>
 
-    <SelectField v-if="isUnit" :className="'mt-20'" label="Select department" id="departments" placeholder="Select department"
-    v-model="data.department" :options="allDepartments" :param="'name'" />
+    <SelectField v-if="isUnit" :className="'mt-20'" label="Select department" id="departments"
+      placeholder="Select department" v-model="data.department" :options="allDepartments" :param="'name'" />
 
     <Button v-if="isUnit" :buttonText="isEditing ? 'Update Unit' : 'Add Unit'"
       :isDisabled="data.title === '' || data.description === '' || !data.department || uploading" :uploading="uploading"

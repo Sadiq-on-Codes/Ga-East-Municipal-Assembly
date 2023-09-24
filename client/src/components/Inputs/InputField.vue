@@ -9,6 +9,7 @@
         :required="isRequired"
         :value="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
+        @checked="$emit('update:modelValue', $event.target.value)"
       />
     </div>
   </template>
