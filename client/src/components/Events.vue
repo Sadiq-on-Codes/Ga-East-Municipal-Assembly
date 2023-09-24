@@ -35,7 +35,7 @@
             <span class="event-title uppercase text-lg font-light text-left text-gray-900 dark:text-white">
               {{ event?.title }}
             </span>
-            <span class="text-gray-400">{{ moment(event?.createdAt).format('LL') }}</span>
+            <span class="text-gray-400">{{ moment(event?.eventDate).format('LL') }}</span>
           </div>
           <div>
             <img class="event-image-small h-auto" :src="appendBaseURL(event?.image)" alt="" />

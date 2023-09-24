@@ -1,7 +1,6 @@
 <template>
   <div class="max-w-5xl mx-auto justify-center mt-28 ml-[30%]">
     <h1 class="mb-10 text-xl uppercase font-semibold text-[#322121] dark:text-white">{{ isEditing ? "Edit Post" : "New Post" }}</h1>
-
     <div v-if="isEditing && postInfo.length === 0">
       <Loader class="my-52" />
     </div>
@@ -28,9 +27,15 @@
           <option disabled>Select Category</option>
           <option>NEWS</option>
           <option>GALLERY</option>
-          <option>UPCOMING EVENT</option>
-          <option>PAST EVENT</option>
+          <option>EVENTS</option>
         </select>
+      </div>
+
+      <div class="text-left" v-if="createPostData.category === 'EVENTS'">
+        <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Event date</label>
+        <input type="date" id="title"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Enter post title" required v-model="createPostData.eventDate" />
       </div>
 
       <div class="mx-auto w-full">
@@ -125,7 +130,8 @@ const createPostData = reactive({
   title: "",
   article: "",
   image: null,
-  category: ""
+  category: "NEWS",
+  eventDate: ""
 });
 
 const handleImageChange = async (event: any) => {
@@ -143,7 +149,7 @@ const handleImageChange = async (event: any) => {
       setTimeout(() => {
         showSuccessMessage.value = true;
       }, 1000)
-    successMessage.value = isEditing.value ? 'New image uploaded successfully!' : 'Image uploaded successfully!';
+      successMessage.value = isEditing.value ? 'New image uploaded successfully!' : 'Image uploaded successfully!';
     } catch (error: any) {
       uploading.value = false;
       setTimeout(() => {
@@ -166,16 +172,31 @@ const savePost = async () => {
       image: createPostData.image
     };
 
+    const eventPostData = {
+      title: createPostData.title,
+      article: createPostData.article,
+      image: createPostData.image,
+      eventDate: createPostData.eventDate
+    };
+
     if (createPostData.image && typeof createPostData.image !== 'string') {
       const response = await axios.post(`${url}/upload`, { image: createPostData.image });
       postData.image = response.data;
     }
 
-    if (!isEditing.value) {
-      await axios.post(`${url}/posts/create/post`, postData);
-    } else {
-      await axios.patch(`${url}/posts/update/${parseInt(postId.value)}`, postData);
-    }
+    const methodName = isEditing.value ? "patch" : "post";
+
+    const endpoint = isEditing.value
+      ? createPostData.category === "EVENTS"
+        ? `${url}/events/update/eventt`
+        : `${url}/posts/update/${parseInt(postId.value)}`
+      : createPostData.category === "EVENTS"
+        ? `${url}/events/create/event`
+        : `${url}/posts/create/post`;
+
+    await axios[methodName](endpoint, createPostData.category === "EVENTS" ? eventPostData : postData);
+
+
 
     createPostData.title = '';
     createPostData.article = '';
@@ -183,8 +204,8 @@ const savePost = async () => {
     createPostData.category = '';
     uploading.value = false;
     setTimeout(() => {
-        showSuccessMessage.value = true;
-      }, 1000)
+      showSuccessMessage.value = true;
+    }, 1000)
     successMessage.value = isEditing.value ? 'Post updated successfully!' : 'Post created successfully!';
 
     setTimeout(() => {
@@ -200,8 +221,8 @@ const savePost = async () => {
   } catch (error: any) {
     uploading.value = false;
     setTimeout(() => {
-        errorAlert.value = true;
-      }, 1500)
+      errorAlert.value = true;
+    }, 1500)
     errorMessage.value = error.message;
   }
 };
@@ -221,4 +242,5 @@ const savePost = async () => {
   top: 50%;
   left: calc(50% - 0.5rem);
   transform: translate(-50%, -50%);
-}</style>
+}
+</style>
