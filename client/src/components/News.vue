@@ -8,7 +8,7 @@
         <div v-for="newsItem in allNews" :key="newsItem.id" class="news w-full flex items-center justify-between">
           <article
             class="news-image relative bg-cover bg-center group overflow-hidden hover:scale-105 transition duration-300 ease-in-out"
-            :style="{ backgroundImage: `url(${appendBaseURL(newsItem.image)})` }"></article>
+            :style="{ backgroundImage: `url(${imagesUrl}/uploads/${newsItem?.image})` }"></article>
           <div class="news-description lg:w-2/5 md:w-2/5 w-2/5 flex flex-col gap-4 text-left">
             <h2 class="text-2xl font-bold text-left dark:text-white">
               {{ decodeEntities(newsItem.title) }}
@@ -38,9 +38,9 @@
   </section>
 </template>
 <script setup lang="ts">
-import { decodeEntities, appendBaseURL } from "@/functions";
+import { decodeEntities } from "@/functions";
 import { encryptString } from '@/functions/encryption';
-import { url } from "@/functions/endpoint";
+import { url, imagesUrl } from "@/functions/endpoint";
 import axios from "axios";
 import moment from "moment"
 import { ref } from "vue";
