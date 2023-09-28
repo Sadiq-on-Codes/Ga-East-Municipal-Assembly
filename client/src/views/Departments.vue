@@ -38,6 +38,20 @@ const route = useRoute();
 const documentId = computed(() => decryptString(route.params.id.toString()));
 
 const departments: any = ref([]);
+const sessionKey = 'departmentsData';
+
+const updateSessionStorage = () => {
+  window.sessionStorage.setItem(sessionKey, JSON.stringify(departments.value));
+};
+
+const loadDataFromSessionStorage = () => {
+  const storedData = window.sessionStorage.getItem(sessionKey);
+  if (storedData) {
+    departments.value = JSON.parse(storedData);
+  }
+};
+
+loadDataFromSessionStorage(); 
 const fetchData = async () => {
     try {
         const response = await axios.get(`${url}/departments/${parseInt(documentId.value)}`);
