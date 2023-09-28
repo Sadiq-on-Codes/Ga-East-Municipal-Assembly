@@ -100,7 +100,7 @@ const handleImageChange = async (event: any) => {
       setTimeout(() => {
         showSuccessMessage.value = false;
       }, 1000)
-      successMessage.value = isEditing.value ? 'New image uploaded successfully!' : 'Image uploaded successfully!';
+      successMessage.value = isEditing.value ? 'New document uploaded successfully!' : 'Document uploaded successfully!';
     } catch (error: any) {
       uploading.value = false;
       errorAlert.value = true;

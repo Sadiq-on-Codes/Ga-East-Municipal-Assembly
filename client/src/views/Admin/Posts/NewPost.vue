@@ -58,7 +58,6 @@ import SuccessMessage from "@/components/SuccessMessage.vue";
 import ErrorMessage from "@/components/ErrorMessage.vue";
 import Button from "@/components/Inputs/Button.vue"
 import InputField from "@/components/Inputs/InputField.vue";
-import SelectField from "@/components/Inputs/SelectField.vue";
 
 onMounted(() => {
   initTooltips();

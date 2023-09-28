@@ -41,6 +41,18 @@
             </li>
           <!-- </router-link> -->
           </a>
+
+          <a href="/about">
+            <!-- <router-link to="/about" custom v-slot="{ navigate }" exact-active-class="active-nav"> -->
+            <li class="nav" :class="{ 'active-nav': isRouteActive('/about') }">
+              <button type="button"
+                class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
+                aria-current="page">
+                About
+              </button>
+            </li>
+          <!-- </router-link> -->
+          </a>
           
 
           <!-- <li class="nav text-left" :class="{'active-nav': isRouteActive('/finished-projects')}">
@@ -187,18 +199,6 @@
               </ul>
             </div>
           </li>
-
-          <a href="/about">
-            <!-- <router-link to="/about" custom v-slot="{ navigate }" exact-active-class="active-nav"> -->
-            <li class="nav" :class="{ 'active-nav': isRouteActive('/about') }">
-              <button type="button"
-                class="block uppercase nav-item py-2 pl-3 pr-4 bg-transparent md:bg-transparent md:px-3 md:py-1 dark:text-white"
-                aria-current="page">
-                About
-              </button>
-            </li>
-          <!-- </router-link> -->
-          </a>
           
 
           <!-- <router-link to="/contact" custom v-slot="{ navigate }" exact-active-class="active-nav"> -->
