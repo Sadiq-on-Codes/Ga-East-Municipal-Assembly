@@ -69,7 +69,7 @@ const getDocumentDetails = async () => {
 
 const isEditing = ref(false);
 const route = useRoute();
-const documentId = computed(() => decryptString(route.params.id.toString()));
+const documentId = computed(() => decryptString(route?.params?.id?.toString()));
 const router = useRouter();
 
 const uploading = ref(false);

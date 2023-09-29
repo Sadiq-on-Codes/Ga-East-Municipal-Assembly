@@ -25,7 +25,7 @@
       :handleClick="handleAddUnit" />
 
     <Button :className="'mt-20'" v-else :buttonText="isEditing ? 'Update Department' : 'Add Department'"
-      :isDisabled="data.title === '' || data.description === '' || !data.department || uploading" :uploading="uploading"
+      :isDisabled="data.title === '' || data.description === '' || uploading" :uploading="uploading"
       :handleClick="handleAddDepartment" />
 
   </div>
