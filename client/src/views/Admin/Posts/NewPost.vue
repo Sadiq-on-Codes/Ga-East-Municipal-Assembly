@@ -79,7 +79,6 @@ const getPostDetails = async () => {
         createPostData.article = decodeEntities(postData.article);
         createPostData.image = postData.image;
         createPostData.category = postData.category.toUpperCase();
-        console.log(postData, 'data');
       } catch (error) {
         console.error(error);
       }
@@ -171,8 +170,6 @@ const savePost = async () => {
         : `${url}/posts/create/post`;
 
     await axios[methodName](endpoint, createPostData.category === "EVENTS" ? eventPostData : postData);
-
-
 
     createPostData.title = '';
     createPostData.article = '';
