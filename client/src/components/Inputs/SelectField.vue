@@ -6,7 +6,7 @@
         :class="[defaultSelectClasses, customSelectClasses]"
         :placeholder="placeholder"
         :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)"
+        @input="$emit('update:modelValue', $event?.target?.value)"
       >
         <option disabled>{{ placeholder }}</option>
         <option :value="option.id" v-for="option in options">{{ option[param] }}</option>
@@ -25,7 +25,8 @@
     modelValue,
     selectClasses: customSelectClasses, // Custom select classes prop
     options,
-    optionValue = 'id',
+    param,
+    className
   } = defineProps<{
     label: string;
     id: string;
@@ -34,7 +35,7 @@
     param: string;
     selectClasses?: string; // Custom select classes prop
     options: Array<{ id: any; text: string }>;
-    optionValue?: string;
+    className: string;
   }>(); 
   
   // Default select classes
