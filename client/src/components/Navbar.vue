@@ -1,10 +1,10 @@
 <template>
   <nav class="navbar-component bg-white w-full h-auto border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
-      <a href="#" class="flex items-center">
+      <a href="/" class="flex items-center">
         <img src="../assets/ga-east-logo.jpg" class="h-auto w-14 mr-3" alt="Ga East Logo" />
         <span
-          class="lg-logo self-center text-2xl tracking-wide font-bold whitespace-nowrap dark:text-white text-logo-color uppercase text-left">Ga
+          class="lg-logo self-center text-md tracking-wide font-bold whitespace-nowrap dark:text-white text-logo-color uppercase text-left">Ga
           East <br />
           Municipal Assembly</span>
         <span
@@ -12,7 +12,6 @@
       </a>
 
       <div class="flex md:order-2">
-        <img src="../assets/coat_of_arms.png" class="h-auto w-14 mx-3" alt="Ga East Logo" />
         <button data-collapse-toggle="navbar-cta" type="button"
           class="inline-flex items-center z-20 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-cta" aria-expanded="false">
@@ -39,7 +38,7 @@
                 Home
               </button>
             </li>
-          <!-- </router-link> -->
+            <!-- </router-link> -->
           </a>
 
           <a href="/about">
@@ -51,9 +50,9 @@
                 About
               </button>
             </li>
-          <!-- </router-link> -->
+            <!-- </router-link> -->
           </a>
-          
+
 
           <!-- <li class="nav text-left" :class="{'active-nav': isRouteActive('/finished-projects')}">
             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
@@ -125,9 +124,9 @@
                       General Documents
                     </button>
                   </li>
-                <!-- </router-link> -->
+                  <!-- </router-link> -->
                 </a>
-                
+
               </ul>
             </div>
           </li>
@@ -199,7 +198,7 @@
               </ul>
             </div>
           </li>
-          
+
 
           <!-- <router-link to="/contact" custom v-slot="{ navigate }" exact-active-class="active-nav"> -->
           <a href="/contact">
@@ -211,14 +210,18 @@
               </button>
             </li>
           </a>
-
-          <!-- </router-link> -->
         </ul>
-        <a href="http://outlook.office365.com/" target="_blank"><button type="button"
-            class="button uppercase font-semibold focus:outline-none text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover">
-            Staff Mail
-          </button></a>
+        <div class="ml-10 flex w-fit h-fit">
+          <a href="http://outlook.office365.com/" target="_blank"><button type="button"
+              class="button uppercase font-semibold focus:outline-none text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover">
+              Staff Mail
+            </button></a>
+          <img src="../assets/coat_of_arms.png" class="h-auto w-14 mx-3" alt="Ga East Logo" />
+        </div>
+
       </div>
+
+
     </div>
   </nav>
   <router-view></router-view>

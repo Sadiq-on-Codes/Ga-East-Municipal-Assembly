@@ -1,6 +1,6 @@
 <template>
   <div class="flex gap-10 flex-col max-w-5xl mx-auto justify-center mt-28 ml-[30%]">
-    <h1 class="text-xl uppercase font-semibold text-[#322121] dark:text-white">Add Document</h1>
+    <h1 class="text-xl uppercase font-semibold text-[#322121] dark:text-white">{{ isEditing ? "Update Document" : "Add Document" }}</h1>
 
     <div v-if="isEditing && documentInfo.length === 0">
       <Loader class="my-52" />
@@ -41,8 +41,9 @@ import SelectField from "@/components/Inputs/SelectField.vue";
 
 onMounted(() => {
   initTooltips();
-  getDocumentDetails()
+  getDocumentDetails();
 });
+
 
 const documentInfo = ref([]);
 const getDocumentDetails = async () => {
@@ -52,14 +53,13 @@ const getDocumentDetails = async () => {
       try {
         const response = await axios.get(`${url}/department-document/${parseInt(documentId.value)}`);
         const documentData = response.data;
-        documentInfo.value = documentData
+        documentInfo.value = documentData;
         createDocumentData.title = documentData.title;
         createDocumentData.image = documentData.image;
         createDocumentData.category = documentData.category;
-        console.log(documentData, 'data');
       } catch (error: any) {
         errorAlert.value = true;
-        errorMessage.value = error.message
+        errorMessage.value = error.message;
       }
     } else {
       console.log('creating');
@@ -67,9 +67,9 @@ const getDocumentDetails = async () => {
   }
 }
 
-const isEditing = ref(false);
+let isEditing = ref(false);
 const route = useRoute();
-const documentId = computed(() => decryptString(route?.params?.id?.toString()));
+const documentId = computed(() => decryptString(route.params.id.toString()));
 const router = useRouter();
 
 const uploading = ref(false);
@@ -147,7 +147,7 @@ const saveDocument = async () => {
       if (isEditing.value) {
         router.push('/admin/view-documents');
       } else {
-        // window.location.href = "add-document"
+        window.location.href = "add-document";
       }
     }, 2000);
 
