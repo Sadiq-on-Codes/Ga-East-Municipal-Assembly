@@ -69,6 +69,8 @@ import { decodeEntities } from "@/functions";
 import DeleteModal from "@/components/DeleteModal.vue";
 import SuccessMessage from "@/components/SuccessMessage.vue";
 import ErrorMessage from "@/components/ErrorMessage.vue";
+import Loader from "@/components/Loader.vue";
+import EmptyState from "@/components/EmptyState.vue";
 import { Posts } from '@/types';
 
 let count = ref(0);
