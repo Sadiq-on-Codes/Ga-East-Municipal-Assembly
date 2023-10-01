@@ -15,13 +15,13 @@
       </select>
     </div>
 
-    <div class="relative h-full w-full sm:rounded-lg">
-      <table class="w-full border dark:border-gray-600 text-sm text-left text-gray-500 dark:text-gray-400">
+    <div class="relative h-full w-full sm:rounded-lg mb-20">
+      <table v-if="!loading" class="mb-10 w-full border dark:border-gray-600 text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="px-6 py-3">No</th>
             <th scope="col" class="px-6 py-3">Title</th>
-            <th scope="col" class="px-6 py-3">Description</th>
+            <!-- <th scope="col" class="px-6 py-3">Description</th> -->
             <th v-if="category === 'UNITS'" scope="col" class="px-6 py-3">Department</th>
             <th scope="col" class="px-6 py-3">View</th>
             <th scope="col" class="px-6 py-3">Delete</th>
@@ -33,8 +33,8 @@
             <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
               {{ category === "DEPARTMENTS" ? item?.name?.slice(0, 80) : item?.title?.slice(0, 80) }}
             </td>
-            <td scope="row" v-html="decodeEntities(item?.about?.slice(0, 80))" class="px-6 w-3/6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            </td>
+            <!-- <td scope="row" v-html="decodeEntities(item?.about?.slice(0, 80))" class="px-6 w-3/6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            </td> -->
             <td v-if="category === 'UNITS'" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
               {{ item?.departmentId }}
             </td>
@@ -49,6 +49,9 @@
           </tr>
         </tbody>
       </table>
+      <Loader class="my-52" v-else />
+      <EmptyState :showEmptyState="emptyState" />
+      <Pagination  v-model="currentPage" :per-page="perPage" :total-items="count" :layout="'table'"></Pagination>
     </div>
   </div>
   <DeleteModal @deletePost="deleteDocument" @closeDeleteModal='closeDeleteModal' :item="'department'" v-if="deleteModal" />
@@ -76,6 +79,7 @@ let showSuccessMessage = ref(false);
 const loading = ref(false);
 let errorAlert = ref(false);
 let errorMessage = ref('');
+let emptyState = ref(false);
 const perPage = ref(12);
 const currentPage = ref(1);
 const category = ref<string>("DEPARTMENTS")
@@ -133,6 +137,7 @@ const deleteDocument = async () => {
 const allDepartments: any = ref([]);
 const fetchNewsItems = () => {
   loading.value = true;
+  emptyState.value = false;
   category.value === 'DEPARTMENTS' ? 
   axios
     .get(`${url}/departments`, {
@@ -143,6 +148,7 @@ const fetchNewsItems = () => {
     })
     .then((response: any) => {
       allDepartments.value = response.data;
+      count.value = response.data?.length;
     })
     .catch((error: string) => {
       console.error(error);
@@ -158,7 +164,7 @@ const fetchNewsItems = () => {
     })
     .then((response: any) => {
       allDepartments.value = response.data[1];
-      // count.value = response.data[0].totalLength;
+      count.value = response.data[0].totalLength;
     })
     .catch((error: string) => {
       console.error(error);

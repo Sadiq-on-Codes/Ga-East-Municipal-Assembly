@@ -177,7 +177,7 @@
                 </div>
             </div>
             <p class="text-base text-white dark:text-gray-400">
-                &copy; 2022. Ga East Municipal Assembly. All rights reserved. <span
+               Ga East Municipal Assembly. All rights reserved. <span
                     class="text-button-bg font-bold cursor-pointer" @click="sendEmail()">Developed by
                     <span>VeriPas</span></span>
             </p>
