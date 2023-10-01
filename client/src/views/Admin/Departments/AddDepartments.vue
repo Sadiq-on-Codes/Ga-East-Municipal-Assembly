@@ -5,7 +5,7 @@
     <h1 v-else class="text-xl uppercase font-semibold text-[#322121] dark:text-white">{{ isEditing ? "Edit Department" :
       "Add Department" }}</h1>
 
-    <InputField :className="'w-fit'" label="Is this a unit? NB: Check this to create a unit, uncheck it to create a department" id="isUnitCheckbox" :value="isUnit" type="checkbox"
+    <InputField v-if="!isEditing" :className="'w-fit'" label="Is this a unit? NB: Check this to create a unit, uncheck it to create a department" id="isUnitCheckbox" :value="isUnit" type="checkbox"
       placeholder="Unit" :isRequired="false" @input="isUnit = $event.target.checked" />
 
     <InputField label="Title" id="title" type="text" :placeholder="isUnit ? 'Enter unit title' : 'Enter department title'"
