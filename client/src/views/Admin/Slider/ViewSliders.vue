@@ -5,7 +5,7 @@
     </h1>
 
     <div class="relative h-full w-full sm:rounded-lg">
-      <table class="w-full border dark:border-gray-600 text-sm text-left text-gray-500 dark:text-gray-400">
+      <table v-if="!loading" class="w-full border dark:border-gray-600 text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="px-6 py-3">No</th>
@@ -35,6 +35,9 @@
           </tr>
         </tbody>
       </table>
+      <Loader class="my-52" v-else />
+      <EmptyState :showEmptyState="emptyState" />
+      <!-- <Pagination  v-model="currentPage" :per-page="perPage" :total-items="count" :layout="'table'"></Pagination> -->
     </div>
   </div>
   <DeleteModal @deletePost="deleteSlider" @closeDeleteModal='closeDeleteModal' :item="'slider'" v-if="deleteModal" />
@@ -50,6 +53,9 @@ import { useRouter } from 'vue-router';
 import DeleteModal from "@/components/DeleteModal.vue";
 import SuccessMessage from "@/components/SuccessMessage.vue";
 import ErrorMessage from "@/components/ErrorMessage.vue";
+import Loader from "@/components/Loader.vue";
+import EmptyState from "@/components/EmptyState.vue";
+import { Pagination } from 'flowbite-vue';
 
 const sliderId = ref();
 const router = useRouter()
@@ -60,6 +66,7 @@ let errorAlert = ref(false);
 let errorMessage = ref('');
 const perPage = ref(12);
 const currentPage = ref(1);
+let emptyState = ref(false);
 
 const calculatePostNumber = (index: number) => {
   return (currentPage.value - 1) * perPage.value + index + 1;
