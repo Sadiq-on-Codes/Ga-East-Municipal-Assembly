@@ -22,7 +22,7 @@
         </div>
         <div class="flex items-center">
           <div class="flex gap-3 items-center ml-3">
-            <p class="text-sm text-gray-900 dark:text-white" role="none">{{ email }}
+            <p class="text-sm text-gray-900 dark:text-white" role="none">{{ username }}
             </p>
             <div>
 
@@ -255,7 +255,11 @@ const toggleAccordion = (text: string) => {
 };
 
 const store = useStore();
-const email = computed(() => store.getters.email);
+const storeUsername = computed(() => store.getters.username);
+
+sessionStorage.setItem('username', storeUsername.value);
+
+const username = sessionStorage.getItem('username');
 
 const logout = () => {
   store.dispatch("logout");

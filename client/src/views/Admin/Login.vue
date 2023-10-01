@@ -64,14 +64,14 @@
               >
             </div>
             <button
-              type="submit"
-              @click="login"
-              class="w-full text-white bg-button-bg hover:bg-button-bg-hover focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-            >
-              Sign in
-            </button>
-              <p v-if="isLoggedIn" class="text-button-bg">{{ success }}</p>
-              <p v-else class="text-red-600">{{ error }}</p>
+      type="submit"
+      @click="login"
+      class="w-full text-white bg-button-bg hover:bg-button-bg-hover focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+    >
+      Sign in
+    </button>
+    <p v-if="success" class="text-green-600">{{ success }}</p>
+    <p v-if="error" class="text-red-600">{{ error }}</p>
           </form>
         </div>
       </div>
@@ -95,9 +95,19 @@ const login = async () => {
       username: username.value,
       password: password.value,
     });
-    success.value = store.getters.successMessage;
+    success.value = "Login successful";
+    error.value = ""; // Clear any previous error messages
+    // Automatically clear the success message after 3 seconds (adjust the delay as needed)
+    setTimeout(() => {
+      success.value = "";
+    }, 3000);
   } catch (err: any) {
-    error.value = store.getters.errorMessage;
+    error.value = err.message;
+    success.value = ""; // Clear any previous success messages
+    // Automatically clear the error message after 3 seconds (adjust the delay as needed)
+    setTimeout(() => {
+      error.value = "";
+    }, 3000);
   }
 };
 </script>
