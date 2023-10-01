@@ -36,6 +36,7 @@
         </tbody>
       </table>
       <Loader class="my-52" v-else />
+      <EmptyState :showEmptyState="emptyState" />
       <Pagination v-if="allDocuments.length > 12" v-model="currentPage" :per-page="perPage" :total-items="count" :layout="'table'"></Pagination>
     </div>
   </div>
@@ -54,6 +55,8 @@ import ErrorMessage from "@/components/ErrorMessage.vue";
 import DeleteModal from "@/components/DeleteModal.vue";
 import { Pagination } from 'flowbite-vue';
 import { Posts } from "@/types/index";
+import Loader from "@/components/Loader.vue";
+import EmptyState from "@/components/EmptyState.vue";
 
 let count = ref(0);
 const documentId = ref();
@@ -63,6 +66,7 @@ let showSuccessMessage = ref(false);
 const loading = ref(false);
 let errorAlert = ref(false);
 let errorMessage = ref('');
+let emptyState = ref(false);
 const perPage = ref(12);
 const currentPage = ref(1);
 
@@ -111,7 +115,7 @@ const deleteDocument = () => {
 const allDocuments: any = ref([]);
 const fetchNewsItems = () => {
   loading.value = true;
-
+  emptyState.value = false;
   axios
     .get(`${url}/department-document`, {
       params: {

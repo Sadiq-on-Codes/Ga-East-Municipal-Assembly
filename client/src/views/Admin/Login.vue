@@ -64,14 +64,14 @@
               >
             </div>
             <button
-              type="submit"
-              @click="login"
-              class="w-full text-white bg-button-bg hover:bg-button-bg-hover focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-            >
-              Sign in
-            </button>
-              <p v-if="isLoggedIn" class="text-button-bg">{{ success }}</p>
-              <p v-else class="text-red-600">{{ error }}</p>
+      type="submit"
+      @click="login"
+      class="w-full text-white bg-button-bg hover:bg-button-bg-hover focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+    >
+      Sign in
+    </button>
+    <p v-if="successMessage" class="text-green-600">{{ successMessage }}</p>
+    <p v-if="errorMessage" class="text-red-600">{{ errorMessage }}</p>
           </form>
         </div>
       </div>
@@ -79,26 +79,31 @@
   </section>
 </template>
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import { useStore } from "vuex";
-
-const store = useStore();
+import { ref } from "vue";
+import { authService } from "@/services/auth"; // Import your authentication service
+import router from "@/router";
+import store from "@/store";
 
 const username = ref("");
 const password = ref("");
-const error = ref("");
-const success = ref("");
+const errorMessage = ref("");
+const successMessage = ref("");
 
 const login = async () => {
   try {
-    await store.dispatch("login", {
-      username: username.value,
-      password: password.value,
-    });
-    success.value = store.getters.successMessage;
-  } catch (err: any) {
-    error.value = store.getters.errorMessage;
+    const token = await authService.login(username.value, password.value);
+    if (token) {
+      // Store the token in the Vuex store
+      store.commit("login", { token, username: username.value });
+      // Redirect to the dashboard
+      router.push('/admin/dashboard');
+    } else {
+      errorMessage.value = "Login failed. Please check your credentials.";
+    }
+  } catch (err) {
+    errorMessage.value = "Login failed. Please check your credentials.";
   }
 };
 </script>
+
 <style scoped></style>

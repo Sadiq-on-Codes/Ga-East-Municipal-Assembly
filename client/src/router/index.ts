@@ -25,6 +25,7 @@ import ViewDepartments from '@/views/Admin/Departments/ViewDepartments.vue'
 import AddDocument from '@/views/Admin/Documents/AddDocument.vue'
 import ViewDocuments from '@/views/Admin/Documents/ViewDocuments.vue'
 import DocumentCategories from '@/views/Admin/Documents/DocumentCategories.vue'
+import { authService } from '@/services/auth'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -195,7 +196,15 @@ router.beforeEach((to, from, next) => {
 
   if (requiresAuth && !isAuthenticated) {
     next('/login');
-    resetTimeout();
+  } else if (requiresAuth && isAuthenticated) {
+    const token = authService.getToken();
+    if (!token) {
+      store.dispatch('logout');
+      next('/login');
+    } else {
+      next();
+      resetTimeout()
+    }
   } else {
     next();
   }

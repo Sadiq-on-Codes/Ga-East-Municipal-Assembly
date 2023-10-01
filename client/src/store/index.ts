@@ -23,7 +23,9 @@ function fetchAuthToken(username: string, password: string) {
 interface RootState {
   isLoggedIn: boolean | null;
   token: string | null;
-  username: string | null;
+  user: {
+    username: string | null;
+  }
   successMessage: string;
   errorMessage: string;
 }
@@ -32,7 +34,9 @@ const store = createStore<RootState>({
   state: {
     isLoggedIn: null,
     token: null,
-    username: null,
+    user: {
+      username: null,
+    },
     successMessage: "",
     errorMessage: "",
   },
@@ -40,11 +44,14 @@ const store = createStore<RootState>({
     login(state, { token, username }) {
       state.isLoggedIn = true;
       state.token = token;
-      state.username = username;
+      state.user.username = username;
     },
     logout(state) {
       state.isLoggedIn = false;
       state.token = null;
+    },
+    setUser(state, username) {
+      state.user.username = username;
     },
   },
   actions: {
@@ -53,17 +60,18 @@ const store = createStore<RootState>({
         .then((tokenData) => {
           const { token }: any = tokenData;
           commit('login', { token, username });
-          this.state.successMessage = "Login Successful"
+          commit('setUser', username); // Store username in the store
+          localStorage.setItem('username', username); // Store username in local storage
+          this.state.successMessage = "Login Successful";
           this.state.isLoggedIn = true;
           setTimeout(() => {
             router.push('/admin/dashboard');
-          }, 2000)
+          }, 2000);
         })
         .catch((error) => {
           this.state.isLoggedIn = false;
-          this.state.errorMessage = error.message
+          this.state.errorMessage = error.message;
           console.log(this.state.errorMessage, 'error');
-          
         });
     },
     logout({ commit }) {
@@ -73,7 +81,7 @@ const store = createStore<RootState>({
   },
   getters: {
     isLoggedIn: (state) => state.isLoggedIn,
-    email: (state) => state.username,
+    username: (state) => state.user.username,
     success: (state) => state.successMessage,
     error: (state) => state.errorMessage,
   },
