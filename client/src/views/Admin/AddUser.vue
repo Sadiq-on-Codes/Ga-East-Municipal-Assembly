@@ -1,40 +1,25 @@
 <template>
     <div class="flex gap-10 flex-col max-w-5xl mx-auto justify-center mt-28 ml-[30%]">
         <h1 class="text-xl uppercase font-semibold text-[#322121] dark:text-white">Add User</h1>
-        <div class="text-left">
-            <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
-            <input type="text" id="title"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Enter username" required v-model="createUser.username" />
-        </div>
+        
+        <InputField label="Username" id="title" type="text" placeholder="Enter username" :isRequired="true"
+        v-model="createUser.username" />
 
-        <div class="text-left">
-            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-            <input type="text" id="description"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Enter email" required v-model="createUser.email" />
-        </div>
+        <InputField label="Email" id="title" type="email" placeholder="Enter email" :isRequired="true"
+        v-model="createUser.email" />
 
-        <div class="text-left">
-            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-            <input type="password" id="description"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Enter password" required v-model="createUser.password" />
-        </div>
+        <InputField label="Password" id="title" type="password" placeholder="Enter password" :isRequired="true"
+        v-model="createUser.password" />
 
-        <div class="text-left">
-            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Re-enter
-                Password</label>
-            <input type="password" id="description"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Re-enter Password" required v-model="createUser.retypePassword" />
-        </div>
+        <InputField label="Re-enter Password" id="title" type="password" placeholder="Re-enter Password" :isRequired="true"
+        v-model="createUser.retypePassword" />
 
-        <button type="button" @click="handleAddDepartment"
-            class="mt-10 self-center w-40 mb-20 button text-white font-semibold bg-button-bg focus:ring-4 focus:outline-none focus:ring-green-300 text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-button-bg dark:hover:bg-button-bg-hover dark:focus:bg-button-bg-hover hover:bg-button-bg-hover">
-            Add User
-        </button>
+        <Button :buttonText="'Add User'"
+        :isDisabled="createUser.username === '' || !createUser.email || createUser.password === '' || createUser.retypePassword === '' || uploading"
+        :uploading="uploading" :handleClick="handleAddUser" />
     </div>
+    <SuccessMessage :showSuccessMessage="showSuccessMessage" :successMessage="successMessage" />
+  <ErrorMessage :errorAlert="errorAlert" :errorMessage="errorMessage" />
 </template>
 <script setup lang="ts">
 import { url } from "@/functions/endpoint";
@@ -42,11 +27,16 @@ import router from "@/router";
 import axios from "axios";
 import { initTooltips } from "flowbite";
 import { onMounted, reactive, ref } from "vue";
+import InputField from "@/components/Inputs/InputField.vue";
+import Button from "@/components/Inputs/Button.vue"
+import SuccessMessage from "@/components/SuccessMessage.vue";
+import ErrorMessage from "@/components/ErrorMessage.vue";
 
 onMounted(() => {
     initTooltips();
 });
 
+const uploading = ref(false);
 let successMessage = ref<string>('');
 let showSuccessMessage = ref<boolean>(false);
 let errorAlert = ref<boolean>(false);
@@ -60,7 +50,7 @@ const createUser = reactive({
     retypePassword: ""
 })
 
-const handleAddDepartment = async () => {
+const handleAddUser = async () => {
     const userData = {
         username: createUser.username,
         email: createUser.email,
@@ -79,15 +69,15 @@ const handleAddDepartment = async () => {
             //   await axios.patch(`${url}/departments/update/${postId.value}`, { name: data.title, about: data.description, })
         }
 
-        // setTimeout(() => {
-        //     showSuccessMessage.value = false;
+        setTimeout(() => {
+            showSuccessMessage.value = false;
 
-        //     if (isEditing.value) {
-        //         router.push('/admin/view-departments');
-        //     } else {
-        //         window.location.href = "/add-department"
-        //     }
-        // }, 1000);
+            if (isEditing.value) {
+                // router.push('/admin/view-departments');
+            } else {
+                window.location.href = "/admin/add-user"
+            }
+        }, 1000);
     }
     catch (error: any) {
         errorAlert.value = true;

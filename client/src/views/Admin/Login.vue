@@ -70,8 +70,8 @@
     >
       Sign in
     </button>
-    <p v-if="success" class="text-green-600">{{ success }}</p>
-    <p v-if="error" class="text-red-600">{{ error }}</p>
+    <p v-if="successMessage" class="text-green-600">{{ successMessage }}</p>
+    <p v-if="errorMessage" class="text-red-600">{{ errorMessage }}</p>
           </form>
         </div>
       </div>
@@ -79,36 +79,31 @@
   </section>
 </template>
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import { useStore } from "vuex";
-
-const store = useStore();
+import { ref } from "vue";
+import { authService } from "@/services/auth"; // Import your authentication service
+import router from "@/router";
+import store from "@/store";
 
 const username = ref("");
 const password = ref("");
-const error = ref("");
-const success = ref("");
+const errorMessage = ref("");
+const successMessage = ref("");
 
 const login = async () => {
   try {
-    await store.dispatch("login", {
-      username: username.value,
-      password: password.value,
-    });
-    success.value = "Login successful";
-    error.value = ""; // Clear any previous error messages
-    // Automatically clear the success message after 3 seconds (adjust the delay as needed)
-    setTimeout(() => {
-      success.value = "";
-    }, 3000);
-  } catch (err: any) {
-    error.value = err.message;
-    success.value = ""; // Clear any previous success messages
-    // Automatically clear the error message after 3 seconds (adjust the delay as needed)
-    setTimeout(() => {
-      error.value = "";
-    }, 3000);
+    const token = await authService.login(username.value, password.value);
+    if (token) {
+      // Store the token in the Vuex store
+      store.commit("login", { token, username: username.value });
+      // Redirect to the dashboard
+      router.push('/admin/dashboard');
+    } else {
+      errorMessage.value = "Login failed. Please check your credentials.";
+    }
+  } catch (err) {
+    errorMessage.value = "Login failed. Please check your credentials.";
   }
 };
 </script>
+
 <style scoped></style>
