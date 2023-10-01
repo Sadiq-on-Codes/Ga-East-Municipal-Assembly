@@ -198,8 +198,6 @@ const fetchNewsItems = () => {
     });
 };
 
-
-
 watch(currentPage, fetchNewsItems);
 fetchNewsItems();
 </script>
