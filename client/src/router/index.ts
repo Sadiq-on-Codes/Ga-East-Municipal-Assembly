@@ -54,7 +54,7 @@ const routes: Array<RouteRecordRaw> = [
     component: Contact
   },
   {
-    path: '/general-documents',
+    path: '/general-documents/:id',
     name: 'GeneralDocuments',
     component: GeneralDocuments
   },

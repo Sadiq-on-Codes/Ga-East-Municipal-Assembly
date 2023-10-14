@@ -35,7 +35,7 @@ import { decryptString } from '@/functions/encryption';
 import { computed, ref, watch } from "vue";
 
 const route = useRoute();
-const documentId = computed(() => decryptString(route.params.id.toString()));
+const departmentId = computed(() => decryptString(route.params.id.toString()));
 
 const departments: any = ref([]);
 const sessionKey = 'departmentsData';
@@ -54,7 +54,7 @@ const loadDataFromSessionStorage = () => {
 loadDataFromSessionStorage(); 
 const fetchData = async () => {
     try {
-        const response = await axios.get(`${url}/departments/${parseInt(documentId.value)}`);
+        const response = await axios.get(`${url}/departments/${parseInt(departmentId.value)}`);
         departments.value = response.data;
     } catch (error) {
         console.error(error);
@@ -67,7 +67,7 @@ const setUnit = (unit: {title: string, about: string}) => {
 }
 
 fetchData();
-watch(documentId, () => {
+watch(departmentId, () => {
     fetchData();
 });
 </script>
