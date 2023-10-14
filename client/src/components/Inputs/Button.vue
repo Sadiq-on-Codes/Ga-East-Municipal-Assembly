@@ -15,7 +15,7 @@ const { buttonText, isDisabled, uploading, handleClick } = defineProps<{
     buttonText: string;
     isDisabled: boolean;
     uploading: boolean;
-    className: string;
+    className?: string;
     handleClick: () => void;
 }>();
 </script>

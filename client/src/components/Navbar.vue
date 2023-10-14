@@ -114,9 +114,9 @@
 
             <div id="dropdownNavbar2"
               class="z-10 shadow-xl hidden text-left font-normal bg-white divide-y divide-gray-100 w-44 dark:bg-gray-700 dark:divide-gray-600">
-              <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton2">
+              <!-- <ul class="shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton2">
                 <a href="/general-documents">
-                  <!-- <router-link to="/general-documents" custom v-slot="{ navigate }" exact-active-class="active-nav"> -->
+                  
                   <li data-dropdown-collapse="dropdownNavbar2">
                     <button type="button"
                       class="block uppercase text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
@@ -124,9 +124,18 @@
                       General Documents
                     </button>
                   </li>
-                  <!-- </router-link> -->
+                  
                 </a>
 
+              </ul> -->
+              <ul class=" shadow-lg text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton2">
+                <li class="" v-for="category in allCategories" :key="category.id">
+                  <button @click="viewDocument(category.id)" type="button"
+                    class="block uppercase text-left px-4 py-2 w-full hover:bg-button-bg hover:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                    aria-current="page">
+                    {{ category.category }}
+                  </button>
+                </li>
               </ul>
             </div>
           </li>
@@ -247,11 +256,26 @@ const viewDepartment = (departmentId: number) => {
   window.location.href = `/departments/${encryptString(departmentId.toString())}`
 }
 
+const viewDocument = (documentId: number) => {
+  // router.push({ name: 'Departments', params: { id: departmentId } });
+  window.location.href = `/general-documents/${encryptString(documentId.toString())}`
+}
+
 const allDepartments: any = ref([]);
 axios.get(`${url}/departments`)
   .then((response: any) => {
     allDepartments.value = response.data;
     console.error(allDepartments.value);
+  })
+  .catch((error: string) => {
+    console.error(error);
+  });
+
+const allCategories: any = ref([]);
+axios.get(`${url}/document-category`)
+  .then((response: any) => {
+    allCategories.value = response.data;
+    console.error(allCategories.value);
   })
   .catch((error: string) => {
     console.error(error);

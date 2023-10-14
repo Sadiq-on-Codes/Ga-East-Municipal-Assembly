@@ -91,7 +91,7 @@ const calculatePostNumber = (index: number) => {
 };
 
 const editDepartment = (departmentId: number) => {
-  router.push({ name: 'EditDepartment', params: { id: departmentId } });
+  category.value === 'DEPARTMENTS' ? router.push({ name: 'EditDepartment', params: { id: departmentId } }) : router.push({ name: 'EditUnit', params: { id: departmentId } });
 };
 
 const deleteModal = ref(false);

@@ -33,6 +33,6 @@ const {
   placeholder?: string;
   isRequired?: boolean;
   modelValue?: any;
-  className: string;
+  className?: string;
 }>(); 
 </script>

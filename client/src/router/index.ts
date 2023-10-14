@@ -54,7 +54,7 @@ const routes: Array<RouteRecordRaw> = [
     component: Contact
   },
   {
-    path: '/general-documents',
+    path: '/general-documents/:id',
     name: 'GeneralDocuments',
     component: GeneralDocuments
   },
@@ -162,6 +162,11 @@ const routes: Array<RouteRecordRaw> = [
         component: AddDepartments
       },
       {
+        path: 'edit-unit/:id',
+        name: 'EditUnit',
+        component: AddDepartments
+      },
+      {
         path: 'view-departments',
         name: 'ViewDepartments',
         component: ViewDepartments
@@ -187,7 +192,7 @@ function resetTimeout(): void {
   timeoutId = setTimeout(() => {
     store.dispatch('logout');
     router.push('/login');
-  }, 60000); // 1 minute
+  }, 100000);
 }
 
 router.beforeEach((to, from, next) => {
@@ -203,7 +208,7 @@ router.beforeEach((to, from, next) => {
       next('/login');
     } else {
       next();
-      resetTimeout()
+      // resetTimeout()
     }
   } else {
     next();

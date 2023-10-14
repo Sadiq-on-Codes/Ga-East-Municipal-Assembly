@@ -1,6 +1,6 @@
 <template>
   <div class="flex gap-10 flex-col max-w-5xl mx-auto justify-center mt-28 ml-[30%]">
-    <h1 v-if="isUnit" class="text-xl uppercase font-semibold text-[#322121] dark:text-white">{{ isEditing ? "Edit Unit" :
+    <h1 v-if="isUnit || editType === 'EditUnit'" class="text-xl uppercase font-semibold text-[#322121] dark:text-white">{{ isEditing ? "Edit Unit" :
       "Add Unit" }}</h1>
     <h1 v-else class="text-xl uppercase font-semibold text-[#322121] dark:text-white">{{ isEditing ? "Edit Department" :
       "Add Department" }}</h1>
@@ -17,14 +17,14 @@
       <QuillEditor contentType="html" theme="snow" v-model:content="data.description" />
     </div>
 
-    <SelectField v-if="isUnit" :className="'mt-20'" label="Select department" id="departments"
+    <SelectField v-if="isUnit || editType === 'EditUnit'" :className="'mt-20'" label="Select department" id="departments"
       placeholder="Select department" v-model="data.department" :options="allDepartments" :param="'name'" />
 
-    <Button v-if="isUnit" :buttonText="isEditing ? 'Update Unit' : 'Add Unit'"
+    <Button v-if="isUnit || editType === 'EditUnit'" :className="'mt-20'" :buttonText="isEditing ? 'Update Unit' : 'Add Unit'"
       :isDisabled="data.title === '' || data.description === '' || !data.department || uploading" :uploading="uploading"
       :handleClick="handleAddUnit" />
 
-    <Button :className="'mt-20'" v-else :buttonText="isEditing ? 'Update Department' : 'Add Department'"
+    <Button v-else :className="'mt-20'"  :buttonText="isEditing ? 'Update Department' : 'Add Department'"
       :isDisabled="data.title === '' || data.description === '' || uploading" :uploading="uploading"
       :handleClick="handleAddDepartment" />
 
@@ -55,6 +55,9 @@ let isUnit = ref<boolean>(false)
 const isEditing = ref<boolean>(false);
 const route = useRoute();
 const postId = computed(() => route.params.id);
+const editType = computed(() => route.name);
+console.log(editType, 'edit');
+
 const router = useRouter();
 const data = reactive({
   title: '',
@@ -77,11 +80,12 @@ const getDepartmentDetails = async () => {
     isEditing.value = true;
     if (isEditing.value) {
       try {
-        const response = await axios.get(`${url}/departments/${postId.value}`);
+        const response = await axios.get( editType.value === "EditDepartment" ? `${url}/departments/${postId.value}` : `${url}/unit/${postId.value}`);
         const documentData = response.data;
         departmentInfo.value = documentData
-        data.title = documentData.name;
+        data.title = editType.value === "EditDepartment" ? documentData.name : documentData.title;
         data.description = documentData.about;
+        data.department = documentData?.department?.id;
       } catch (error: any) {
         errorAlert.value = true;
         errorMessage.value = error.message
@@ -95,13 +99,13 @@ const getDepartmentDetails = async () => {
 const handleAddUnit = async () => {
   try {
     if (!isEditing.value) {
-      await axios.post(`${url}/unit`, { title: data.title, about: data.description, departmentId: data.department })
+      await axios.post(`${url}/unit`, { title: data.title, about: data.description, departmentId: parseInt(data.department) })
         .then((response) => {
           showSuccessMessage.value = true
           successMessage.value = response.data.message;
         })
     } else {
-      await axios.patch(`${url}/unit/update/${postId.value}`, { title: data.title, about: data.description, departmentId: data.department })
+      await axios.patch(`${url}/unit/update/${postId.value}`, { title: data.title, about: data.description, departmentId: parseInt(data.department) })
         .then((response) => {
           showSuccessMessage.value = true
           successMessage.value = response.data.message;
