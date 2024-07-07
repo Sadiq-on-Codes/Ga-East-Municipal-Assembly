@@ -13,7 +13,7 @@
 
       <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
         <ul
-          class="flex flex-col p-2 mt-4 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-button-bg dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          class="nav-menu flex flex-col p-2 mt-4 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-button-bg dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
           <li v-for="link in links" :key="link.href" class="nav relative"
             :class="{ 'active-nav': isRouteActive(link.href) }">
             <a :href="link.href" v-if="!link.children">
@@ -155,7 +155,7 @@ if (storedDepartments) {
   const departments = JSON.parse(storedDepartments);
   const departmentsLink = links.find(link => link.text === 'Departments');
   if (departmentsLink) {
-    departmentsLink.children = departments.map(dept => ({
+    departmentsLink.children = departments.map((dept: any) => ({
       text: dept.name,
       href: `/departments/${encryptString(dept.id.toString())}`
     }));
@@ -173,11 +173,7 @@ if (storedCategories) {
   }
 }
 </script>
-<style>
-* {
-  outline: 1px solid;
-}
-
+<style scoped>
 .nav button {
   border-bottom: 2px solid transparent;
 }
@@ -201,14 +197,15 @@ if (storedCategories) {
   display: none;
 }
 
-ul {
+.nav-menu {
   color: #fff;
 }
 
 @media (max-width: 600px) {
 
-  ul {
+  .nav-menu {
     color: #001630;
+    align-items: flex-start;
   }
 
   .lg-logo, .breadcrumb {

@@ -13,12 +13,12 @@
             {{ decodeEntities(postData?.title) }}
           </h1>
         </div>
-        <div class="w-1/2">
-          <article>
-            <img class="relative single-post-image w-full h-40 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out" :src="appendBaseURL(postData.image)" alt="">
-            <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
-          </article>
-        </div>
+        <article class="w-1/2">
+          <img
+            class="relative single-post-image w-full h-40 bg-cover bg-center group overflow-hidden transition duration-300 ease-in-out"
+            :src="appendBaseURL(postData.image)" alt="">
+          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center"></div>
+        </article>
       </div>
       <div class="mb-20 text-left">
         <div class="text-justify font-base text-black dark:text-white" v-html="decodeEntities(postData?.article)"></div>
@@ -74,7 +74,7 @@
                     <span class="text-[#25C200] text-base mr-1.5">Posted on
                     </span>
                     <span class="py-1 px-1.5 rounded-md bg-[#EBEEF2] text-base ml-1.5">{{
-                      moment(newsItem?.createdAt).format('LL') }}</span>
+      moment(newsItem?.createdAt).format('LL') }}</span>
                   </span>
                   <div class="hover:underline text-news-section-text dark:text-white text-lg"
                     v-html="decodeEntities(newsItem?.title?.slice(0, 80))"></div>
@@ -166,6 +166,14 @@ axios.get(`${url}/posts`, {
     margin-top: 0;
     margin-bottom: 0;
   }
+
+  .single-post article, .title {
+    width: 100%;
+  }
+
+  .single-post-img {
+    width: 100%;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -186,6 +194,10 @@ axios.get(`${url}/posts`, {
   .single-post {
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  .single-post article {
+    width: 100%;
   }
 }
 </style>

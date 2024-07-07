@@ -12,18 +12,11 @@
           </button></router-link>
       </div>
 
-      <section class="staff-section mt-6 flex justify-between gap-5">
-        <div class="w-[65%] section-1">
-          <h3 class="text-left text-xl font-bold mb-5">Hon. Elizabeth Kaakie Mann's First 100 Days in Office</h3>
-          <div class="text-justify" v-for="paragraph  in paragraphs">
-            <p class=" mb-5">{{ paragraph }}</p>
-          </div>
-
-        </div>
+      <section class="staff-section mt-6 flex justify-center gap-5">
         <div class="w-[35%] section-2">
           <div class="bg-[#e9e9e9] w-4/5 px-6 pt-6 my-auto mx-auto">
             <img class="w-full  mx-auto" src="../assets/mce.jpg" alt="" />
-            <p class="font-bold dark:text-white mt-2 uppercase">HON. ELIZABETH KAAKIE MANN</p>
+            <p class="font-bold dark:text-white mt-2 uppercase">HON. DEBORAH AMPOFO</p>
           </div>
         </div>
       </section>
@@ -31,19 +24,8 @@
   </section>
 </template>
 <script setup lang="ts">
-const paragraphs = [
-  "Hon. Elizabeth Kaakie Mann, the Municipal Chief Executive (MCE) for the Ga East Municipal Assembly (GEMA), has made remarkable strides in her first 100 days in office. Her commitment to punctuality, inclusive leadership, and dedication to progress has garnered admiration from colleagues and staff.",
-  "Hon. Kaakie Mann has prioritized stakeholder engagements, actively seeking input from traditional leaders, residents' associations, and market traders. Through collaboration and valuable insights, she is addressing the municipality's developmental needs and fostering a sense of community.",
-  "Enhancing security and easing traffic congestion have been key areas of focus for Hon. Kaakie Mann. She has distributed streetlights to improve visibility, reducing crime rates in the municipality. Additionally, she is collaborating with relevant agencies to install traffic lights strategically, improving traffic flow and ensuring smoother transportation.",
-  "Hon. Kaakie Mann's commitment to development extends to sanitation and job creation. She has organized clean-up exercises, creating awareness about the 'Operation Clean Your Frontage' initiative while generating direct employment opportunities. Furthermore, she has facilitated important projects, such as the construction of a modern courts complex and the commissioning of an office for the National Health Insurance Scheme.",
-  "Hon. Elizabeth Kaakie Mann's first 100 days in office reflect her visionary leadership and determination to drive progress in the Ga East Municipal Assembly. Through inclusive engagement, security enhancements, and initiatives for sanitation and job creation, she is setting a strong foundation for the municipality's future growth and development."
-];
 </script>
 <style scoped>
-/* * {
-  outline: 1px solid;
-} */
-
 @media (max-width: 600px) {
 
   .staff-section {

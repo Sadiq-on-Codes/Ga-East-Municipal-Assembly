@@ -57,6 +57,7 @@ import { Pagination } from 'flowbite-vue';
 import { Posts } from "@/types/index";
 import Loader from "@/components/Loader.vue";
 import EmptyState from "@/components/EmptyState.vue";
+import store from '@/store';
 
 let count = ref(0);
 const documentId = ref();

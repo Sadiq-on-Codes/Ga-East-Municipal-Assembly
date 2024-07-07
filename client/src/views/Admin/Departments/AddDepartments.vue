@@ -118,7 +118,7 @@ const handleAddUnit = async () => {
       if (isEditing.value) {
         router.push('/admin/view-departments');
       } else {
-        window.location.href = "/add-department"
+        window.location.href = "/admin/add-department"
       }
     }, 1000);
   }

@@ -28,6 +28,8 @@ interface RootState {
   }
   successMessage: string;
   errorMessage: string;
+  numberOfPosts: number;
+  numberOfDocuments: number;
 }
 
 const store = createStore<RootState>({
@@ -39,6 +41,8 @@ const store = createStore<RootState>({
     },
     successMessage: "",
     errorMessage: "",
+    numberOfPosts: 0,
+    numberOfDocuments: 0
   },
   mutations: {
     login(state, { token, username }) {

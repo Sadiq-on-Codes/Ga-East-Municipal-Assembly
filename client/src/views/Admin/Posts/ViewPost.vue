@@ -75,6 +75,7 @@ import SuccessMessage from "@/components/SuccessMessage.vue";
 import ErrorMessage from "@/components/ErrorMessage.vue";
 import EmptyState from "@/components/EmptyState.vue";
 import { Posts } from "@/types/index";
+import store from "@/store";
 
 
 let count = ref(0);
@@ -180,12 +181,11 @@ const fetchNewsItems = () => {
       if (category.value === 'NEWS' || category.value === 'GALLERY') {
         allNews.value = response.data[1];
         count.value = response.data[0].totalLength;
+        store.state.numberOfPosts = count.value;
       } else {
         allNews.value = response.data;
         count.value = response.data.totalLength;
       }
-
-
       if (!allNews.value) {
         emptyState.value = true;
       }
