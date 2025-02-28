@@ -6,11 +6,11 @@ export default registerAs('typeOrm.config', (): TypeOrmModuleOptions => {
     console.log(process.env.DB_PASSWORD_PROD);
     return {
       type: 'mysql',
-      host: process.env.DB_HOST,
-      port: Number(process.env.DB_PORT),
-      username: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
+      host: process.env.DB_HOST_PROD,
+      port: Number(process.env.DB_PORT_PROD),
+      username: process.env.DB_USER_PROD,
+      password: process.env.DB_PASSWORD_PROD,
+      database: process.env.DB_NAME_PROD,
       autoLoadEntities: true,
       synchronize: false, // Disable automatic database synchronization in production
     };
